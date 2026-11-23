@@ -53,6 +53,7 @@ Ids are not secret and can go in chat. Keys are secret and only ever go into Git
 - [ ] **Add the three repo variables.** In GitHub, Settings, Secrets and variables, Actions, Variables: ROBLOX_UNIVERSE_ID, ROBLOX_PLACE_ID and ROBLOX_GROUP_ID. These tell the publish workflow which game and who owns uploads.
 - [ ] **Optional: a second key for uploads.** ROBLOX_GROUP_KEY, created under the group with only asset read, asset write and asset permissions write. It keeps the publish key from uploading and the upload key from publishing.
 - [ ] **Check auto-merge and the two required checks.** In GitHub: Allow auto-merge is ticked and the ruleset for main requires both checks. Without required checks a pull request would merge before its tests ran. [Setup guide, step 9](https://github.com/derekburnz/Clean-a-Cat/blob/main/docs/setup-guide.md#9-required-check-and-auto-merge)
+- [ ] **Set the server size to match the street.** In the experience settings set the maximum players per server to the number of spas per street (our pick is 6, see the question near the end). Each player needs their own plot. [Issue 88](https://github.com/derekburnz/Clean-a-Cat/issues/88)
 - [ ] **Play the scrub prototype on your phone.** Two minutes when it is ready. Say keep or rethink. Nothing past the brush and photo step is built until you say keep. [Issue 29](https://github.com/derekburnz/Clean-a-Cat/issues/29)
 
 **Before the first public test: Roblox Kids and Select**
@@ -79,7 +80,7 @@ The first option is the recommendation.
 | 3 | Longest build is 24 hours and the first 8 hour build starts in the first session | Tools are instant. Then 10 seconds, 1 minute, 10 minutes and 1 hour for stations. The VIP Room takes 8 hours and is offered at about minute 6. Later rooms take 12 to 24 hours and never longer. A finished build waits for the player and nothing is lost by coming back late. | Yes, go with it / Shorter, 12 hours at most / Longer builds are fine / Something else |
 | 4 | No paid skips for build timers at launch | We sell a Second Builder pass instead. Paid skips on timers read as pressure for a young audience and reviewers of spa games complain about them most. | Yes, no paid skips / Sell skips at launch / Something else |
 | 5 | Starting prices and pay | A common cat pays 10 coins plus a tip of 2. Bubble Soap 30, Brush Table 40, dryer 75, VIP Room 100. A window cat tips 1 coin every 10 seconds and the away jar holds 1 hour of tips. This gives a purchase at about minute 2, 3 and 5 and the long build near minute 8. Paper numbers until the scrub is timed on a phone. | Yes, go with it / Something else |
-| 6 | A shared street with one spa each | Spas sit side by side so players see each other's windows and reveals. Friends can help in your spa. Not in the game: stealing, trading, fighting and typed text. Cat names come from a list. | Yes, go with it / Something else |
+| 6 | A shared street with one spa each | Spas sit side by side so players see each other's windows and reveals. Not in the game: stealing, trading, fighting and typed text. Cat names come from a list. How many spas and whether players can walk in are the last two questions. | Yes, go with it / Something else |
 | 7 | Three game passes at launch and coins cannot be bought | 2x Coins, Second Builder and Golden Sponge (a wider scrub with gold bubbles). No buyable coins, so the random customer never counts as a paid random item. Nothing sold changes the chances. | Yes, go with it / Something else |
 | 8 | Put the words cat spa in the description and on the icon | Your cat spa ad did well. The title stays Clean a Cat. | Yes, go with it / Title only, no cat spa wording / Something else |
 | 9 | A Cat Show weekend as your first event | Day 7 is yours. A themed show with voting is the natural first event. It is out of scope for the first build. | Yes, plan it for later / I have a different event in mind / Something else |
@@ -110,6 +111,13 @@ The first option is the recommendation.
 | 19 | The feel of the cleaning | Soft and cosy means pastel bubbles, gentle sounds and small sparkles. Splashy and cartoony means big suds and bouncy pops. | Soft and cosy / Splashy and cartoony / Something else |
 | 20 | Reuse the purr and meow sound code and make two new music tracks | The purr and meow code comes from your asset library. The music is new, from the same generator, so Clean a Cat has its own. | Yes, go with it / All new sounds / Something else |
 | 21 | Upload about 15 short sounds and 2 music tracks under the group | As one batch, after you have listened. It uses some of the monthly audio upload quota. | Yes, as one batch after I listen / Not yet / Something else |
+
+**The street** (from Gameplay-Engineer)
+
+| # | Question | What it means | Options, recommended first |
+|---|---|---|---|
+| 22 | Spas per street, which is also the server size | Each server is one street and every player gets their own spa plot on it. Six keeps the street lively, keeps every window close enough to see and stays light on cheap phones. You set the same number as the server size in the experience settings. | 6 spas per street / 4 spas / 8 spas / Something else |
+| 23 | Can players walk into a neighbour's spa? | Our pick: players see each other's windows and reveals from the street but cannot walk in. Walking in is built behind a switch that stays off, so friends helping in your spa can be turned on later without a rebuild. It keeps the first build simple and stops a crowd standing on someone's tub. | Look through the window only / Walk in from the start / Something else |
 
 ## Already decided
 - **Name:** Clean a Cat, locked November 23. Slug clean-a-cat.
