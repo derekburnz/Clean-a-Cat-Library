@@ -6,7 +6,7 @@ Planning is under way and the idea is chosen, so steps 1 to 3 below are done. **
 - Game: **Clean a Cat**, slug `clean-a-cat`, game repo `derekburnz/Clean-a-Cat`. The name is locked.
 - Step 4 is in progress: `gdd-draft.md` is written and stays a draft until Derek's playtest notes on animal spa games are in. Update that file, do not start a new one.
 - Step 5 (`milestone-1.md`) is not started. Step 6 follows it.
-- Until the folder is copied into the library repo (`derekburnz/roblox-game`), the shared folder `Planning-Agent/` is the source of truth. Where this file says `library/Planning-Agent/`, use the shared folder and keep the library copy in step when the repo can be reached.
+- Until the folder is copied into the library repo (`derekburnz/Clean-a-Cat-Library`), the shared folder `Planning-Agent/` is the source of truth. Where this file says `library/Planning-Agent/`, use the shared folder and keep the library copy in step when the repo can be reached.
 - When the design is agreed it moves to `docs/design/clean-a-cat/gdd.md` in the game repo.
 
 ## 1. Role and lane

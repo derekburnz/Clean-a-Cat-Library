@@ -40,7 +40,7 @@ Do not wait in silence for these. The project rule is to go with the recommendat
 ## Checks done and checks still owed
 - **Name check, done November 23.** Roblox's own search showed no game named Clean a Cat. A web search found no game or app with the name. The nearest trademark records are CLEAN CAT for cleaning cloths (registered), kitty litter boxes (dead) and a degreaser (dead), none for games. This was a web search of public listings, not a search of the trademark office's database and not legal advice. A tiny Roblox game called Wash a Cat exists (1 player on November 23). Clean the Cat was never searched.
 - **Still owed: the maturity label.** The design keeps the spa an open shop floor where only cats are bathed, with no private rooms for avatars. Check it against Roblox's maturity questionnaire before launch (the `roblox-policy-compliance` skill).
-- **Still owed: copying this folder into the library repo** (`library/Planning-Agent/` in `derekburnz/roblox-game`). The outgoing thread could not reach that repo. The shared folder is the source of truth until that is done.
+- **Still owed: copying this folder into the library repo** (`library/Planning-Agent/` in `derekburnz/Clean-a-Cat-Library`). The outgoing thread could not reach that repo. The shared folder is the source of truth until that is done.
 
 ## Files in this folder
 | File | What it holds | State |
