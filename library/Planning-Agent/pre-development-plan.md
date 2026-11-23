@@ -56,6 +56,10 @@ Ids are not secret and can go in chat. Keys are secret and only ever go into Git
 - [ ] **Set the server size to match the street.** In the experience settings set the maximum players per server to the number of spas per street (our pick is 6, see the question near the end). Each player needs their own plot. [Issue 88](https://github.com/derekburnz/Clean-a-Cat/issues/88)
 - [ ] **Play the scrub prototype on your phone.** Two minutes when it is ready. Say keep or rethink. Nothing past the brush and photo step is built until you say keep. [Issue 29](https://github.com/derekburnz/Clean-a-Cat/issues/29)
 
+**Before build notifications go on**
+- [ ] **Create the build finished message and send its id.** Once the experience exists: Creator Dashboard, Engagement, Notifications. Create a message with a {buildName} parameter, for example: Your {buildName} is finished and the cats are waiting. Send us the message id. It is not secret and goes in the NotifyMessageId setting. [Pull request 90](https://github.com/derekburnz/Clean-a-Cat/pull/90)
+- [ ] **Create a key for sending notifications and save it as an experience secret.** An Open Cloud API key with user notification write access only. Save it yourself in the experience's secrets under the name CleanACat_NotifyKey, where only the game's server can read it. Never share the key, in chat or anywhere else. [Pull request 90](https://github.com/derekburnz/Clean-a-Cat/pull/90)
+
 **Before the first public test: Roblox Kids and Select**
 - [ ] **Creator account age-checked and verified, with 2-step verification.** Roblox shows a new game only to age-checked players of 16 and over until it passes the Kids and Select evaluation. Kids is ages 5 to 8 and Select is ages 9 to 15, which is our audience.
 - [ ] **An active Plus or Premium subscription, or the one-time fee.** The page asks for a subscription that is at least 2 months old, or a refundable fee per game.
