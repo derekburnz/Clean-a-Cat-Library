@@ -46,6 +46,7 @@ Do not wait in silence for these. The project rule is to go with the recommendat
 | File | What it holds | State |
 |---|---|---|
 | `gdd-draft.md` | The one-page design: hook, loop, how cats arrive, cleaning steps, first session by the second, build time table, economy, notifications, monetization, prototype scope with owners, risks | Draft. Update this file, do not start a new one |
+| `pre-development-plan.md` | Everything Derek has to do, play and answer before building: playtest games, his to-do list and 21 questions with recommended answers. Also published as a page (link at the top of the file) that saves his answers in its database, collection `answers` | Sent to Derek November 23 |
 | `playtest-list.md` | Games for Derek to play, with links, and the nine things to note per game | Sent to Derek |
 | `cat-spa-concepts.md` | Why the name was chosen, the six options for how players get cats, what the research means, the first 5 minutes table, day 2 hooks | Current |
 | `idea-shortlist.md` | The earlier three idea pitch | Superseded by the cat spa direction. Kept for the record |

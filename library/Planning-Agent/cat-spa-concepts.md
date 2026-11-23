@@ -64,9 +64,9 @@ Derek's loop: get a dirty cat, clean it in different ways, then return it to its
 | 0:40 | Photo moment | A before and after card and 10 coins. The stray hops into the display window and is yours | The moment of joy. A cat of your own inside the first minute |
 | 1:00 | The first customer walks in with a dirty cat. The chance board lights up | A goal: Cat Index 1 of 10 | A clear next goal before the 60 second mark |
 | 2:00 | Buys Bubble Soap (30 coins, instant) | A wider, faster scrub | A cheap first upgrade, as in the hits |
-| 3:00 | Starts the first build, the Brush Table upgrade (10 seconds) | The builder kitten hammers and a countdown shows | Teaches builds with almost no wait, before the 180 second mark |
-| 4:00 | A customer's cat needs a blow dry, which is still locked | A reason to build the dryer (150 coins, 1 minute) | The next goal comes from a customer, not a menu |
-| 5:00 | The dryer is done and cats pay more | The builder shows the next build at 10 minutes and, later in the session, the first 8 hour build | Sets up the reason to return |
+| 3:00 | Starts the first build, the Brush Table upgrade (40 coins, 10 seconds) | The builder kitten hammers and a countdown shows | Teaches builds with almost no wait, before the 180 second mark |
+| 4:00 | A customer's cat needs a blow dry, which is still locked | A reason to build the dryer (75 coins, 1 minute) | The next goal comes from a customer, not a menu |
+| 5:00 to 8:00 | Buys the dryer, which is done at about 6:00, and cats pay more | The builder shows the first 8 hour build, the VIP Room (100 coins), on its own slot. Started at about 8:00 | Sets up the reason to return while short builds carry on |
 
 Rules for these 5 minutes: no forced tutorial, no pop-ups, no shop prompt, no like request and no text walls. Arrows and one goal at a time. The spa room loads first so the wait is short. The spa never closes during a build.
 
