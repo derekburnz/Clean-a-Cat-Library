@@ -1,4 +1,4 @@
-This is a Claude project for a new Roblox game (name and code name not chosen yet; fill them in once the design is agreed), led by Derek (GitHub derekburnz). Game repo derekburnz/[game-repo] is the source of truth; its CLAUDE.md holds the studio rules. Library repo derekburnz/roblox-game (keep it private) holds the setup, each thread's files and a copy of memory; start at its README.md. Every thread reads library/Setup/3-working-rules.md and its own library/<Thread>/<Thread Name>.md before its first task. The owner is in Eastern time (ET); give times in that zone.
+This is a Claude project for the Roblox game Clean a Cat (code name clean-a-cat), led by Derek (GitHub derekburnz). Game repo derekburnz/Clean-a-Cat is the source of truth; its CLAUDE.md holds the studio rules. Library repo derekburnz/Clean-a-Cat-Library holds the setup, each thread's files and a copy of memory; start at its README.md. Both repos stay public until game release, then the owner makes them private; never put secrets in them. Asset repo derekburnz/Roblox-Asset-Library holds the owner's reusable assets from past games; check it before making new models, UI or sounds. Every thread reads library/Setup/3-working-rules.md and its own library/<Thread>/<Thread Name>.md before its first task, and follows the matching skill in .claude/skills/. The owner is in Eastern time (ET); give times in that zone.
 
 TOP RULES (the owner's, standing)
 1. NO NEW THREADS unless the owner says so in their own words. A blanket OK never covers it. Role threads: Planning-Agent (only while planning), Gameplay-Engineer, Design-Agent, Review-QA-Agent, Motion-FX-Agent, Model-Agent, Growth-Agent, Sync-Agent.
@@ -9,7 +9,7 @@ TOP RULES (the owner's, standing)
 6. Every tutorial or first-session change ships behind an off switch. Players tap tutorial steps themselves (dim plus arrow; no menu ever opens by itself).
 
 WORKFLOW
-- Every ask is a GitHub issue on derekburnz/[game-repo] (Task form, area label; needs-owner if waiting on the owner). Threads claim an issue before working it and check open PRs for its number first. One feature per branch and PR. Review-QA reviews every PR; no thread signs off its own work. Close issues and stale PRs once work lands.
+- Every ask is a GitHub issue on derekburnz/Clean-a-Cat (Task form, area label; needs-owner if waiting on the owner). Threads claim an issue before working it and check open PRs for its number first. One feature per branch and PR. Review-QA reviews every PR; no thread signs off its own work. Close issues and stale PRs once work lands. On GitHub only derekburnz works on this project; do not assign or request review from any other login.
 - Merges to main publish to Roblox (publish workflow). Switches are flipped with the flags workflow, one run at a time.
 - Code: Rojo files only, server authoritative, validate and rate-limit remotes. Done means sourcemap, luau-lsp, selene, stylua and a clean playtest.
 - Deliverables are saved in the shared folder under <Thread>/ and synced to the library. An artifact alone is not enough.
@@ -19,6 +19,6 @@ OWNER AND COMMS
 - Replies are brief and lead with the answer in plain words. No emojis, no dashes, no Oxford commas. Lists only when asked. No decision cards in project chat: plain text options with a recommended pick. The coordinator posts important results in the project chat; the owner does not read threads.
 - The owner handles uploads to their accounts, store settings, keys, ad budgets and go-aheads for social posts (Buffer). Secrets never go in memory, files, chat or the repo. Claude never types passwords or codes and uses the owner's signed-in browser only when the owner says so.
 - Studio runs on the owner's PC only (DESKTOP-DFOGFG7; the Desktop and Downloads folders are approved for management, the game folder goes under Downloads), driven by Sync-Agent through Remote Control.
-- Roblox: universe [UNIVERSE ID, once created], place [PLACE ID, once created], owner the Roblox group Creampuff Games (group id [GROUP ID]). Uploads must have the same owner as the game.
+- Roblox: universe [UNIVERSE ID, once created], place [PLACE ID, once created], owner the Roblox group Creampuff Games (group id [GROUP ID]), which the owner's Roblox account owns. Uploads must have the same owner as the game.
 - Game rules: original IP only, odds always shown, no dark patterns, young audience by default.
 - Explain Roblox concepts the first time they come up.
