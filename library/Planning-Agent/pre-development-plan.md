@@ -69,7 +69,7 @@ Ids are not secret and can go in chat. Keys are secret and only ever go into Git
 Read on Roblox's Kids and Select page on November 23, 2026. Roblox changes these rules, so check the page again before acting.
 
 **At release**
-- [ ] **OK the icon and thumbnail sheet.** Model-Agent sends a draft sheet for your pick. Nothing is uploaded without your OK. [Issue 24](https://github.com/derekburnz/Clean-a-Cat/issues/24)
+- [ ] **OK the final icon and thumbnails before upload.** Pick from the drafts in the Store art questions at the end of this page. Model-Agent then makes the finals and nothing is uploaded without your OK. [Issue 24](https://github.com/derekburnz/Clean-a-Cat/issues/24)
 - [ ] **Make both repos private.** Your call from November 23: public for now, private at release.
 
 ## 3. Questions, each with our recommended answer
@@ -122,6 +122,13 @@ The first option is the recommendation.
 |---|---|---|---|
 | 22 | Spas per street, which is also the server size | Each server is one street and every player gets their own spa plot on it. Six keeps the street lively, keeps every window close enough to see and stays light on cheap phones. You set the same number as the server size in the experience settings. | 6 spas per street / 4 spas / 8 spas / Something else |
 | 23 | Can players walk into a neighbour's spa? | Our pick: players see each other's windows and reveals from the street but cannot walk in. Walking in is built behind a switch that stays off, so friends helping in your spa can be turned on later without a rebuild. It keeps the first build simple and stops a crowd standing on someone's tub. | Look through the window only / Walk in from the start / Something else |
+
+**Store art** (from Model-Agent)
+
+| # | Question | What it means | Options, recommended first |
+|---|---|---|---|
+| 24 | Pick the icon | The icon is the small square players see on Home and in search, often at only 48 pixels. Icon B shows the whole muddy cat with the sponge and keeps the name readable when small. Rendered from the real models. Nothing is uploaded until you say so. Pictures: `Model-Agent/store-art/store-art-draft-2026-11-23.png` in the shared folder. | Icon B / Icon A / Icon C / Something else |
+| 25 | Pick the thumbnails | Thumbnails are the wide pictures on the game's page and on Home. Roblox can rotate a set and show which one wins the most taps, so more than one is useful. Thumbnail 1 shows the scrub and thumbnail 2 shows muddy to fluffy, which are both things a new player does in the first minute. Pictures: `Model-Agent/store-art/store-art-draft-2026-11-23.png` in the shared folder. | Thumbnails 1 and 2 / All three / A different set / Something else |
 
 ## Already decided
 - **Name:** Clean a Cat, locked November 23. Slug clean-a-cat.
