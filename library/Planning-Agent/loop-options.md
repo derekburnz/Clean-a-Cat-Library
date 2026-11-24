@@ -1,10 +1,10 @@
-# Clean a Cat: loop options (November 23, 2026 ET, Planning-Agent, status: proposal for Derek, nothing locked)
+# Clean a Cat: loop options (updated November 24, 2026 ET after Derek's first two playtests and a second research round, Planning-Agent, status: proposal for Derek, nothing locked)
 
 The full write-up Derek reads is the doc "Clean a Cat: loop options": https://claude.ai/artifact/8NLjC3vdU8tZ34AbGvfjit
-This file is the short copy for the other threads. The research notes are in Idea-Research/hooks-and-loops-notes/.
+This file is the short copy for the other threads. The research notes are in Idea-Research/hooks-and-loops-notes/ and Idea-Research/more-games-notes/. Derek's playtest notes are in playtest-notes.md.
 
 ## The recommendation
-Loop B, the cat collector, with the spa from today's draft as the home and a friend bonus. The cat is the prize and the hand wash is how the player wins it. Nothing is decided until Derek has played the spa games and read the doc.
+Loops B and D together. Loop B is the cat collector: the cat is the prize and the hand wash is how the player wins it. Loop D is the busy spa Derek described after playing My Pet Salon: several customers wait, the player picks who is next, hired helpers wash common cats slowly and rare visitors bring rare cats. The queue is what the player does each minute and the collection is why they keep going. Nothing is decided until Derek has played the rest of the games and read the doc.
 
 ## What the research found (read November 24, 2026 UTC, tracker numbers)
 - Cleaning games peak 17 to 42 days after launch and then empty out. Five of six from June and July 2026 are at 3% of peak or less with 86 to 95% liked. Dig & Clean fell from 270,000 to 235 in about 100 days.
@@ -25,8 +25,20 @@ Loop B, the cat collector, with the spa from today's draft as the home and a fri
 
 New target: a first session of 20 minutes or more, which needs about 12 cats, 3 kinds of dirt and 4 tools on day one.
 
+## What the second round added (read November 24, 2026 UTC)
+- Picking who is next is the core of shop games outside Roblox and only works when customers differ (in Sally's Spa the best tippers are the least patient). No Roblox game found has a visible queue with a pick.
+- Customers who leave with a penalty are what parents and reviewers complain about. Proposed: soft impatience. A waiting cat's mood drops and only the bonus tip shrinks. A cat that waits too long goes home and comes back later. Nothing is lost.
+- Helpers: bought with coins, wash common cats slowly, earn fewer stars. Strays and rare cats wait for the player. Never sold for Robux.
+- Rare visitors: unlocked by spa stars, odds on the board, never sold. Pickier or in chapters, not 16 steps in a row.
+- The wash: four kinds of step at the start (scrub, rinse, pick out burrs, towel dry), 4 to 6 steps of 8 to 15 seconds per cat, never the same step twice in a row, a step counter, the game turns the cat between steps.
+- After each cat: a recap card with stars, coins and tips. Three stars is normal, a hidden fourth for a perfect wash. Praise names the action. A combo pauses on a slip and does not reset.
+- Tool upgrades change the feel as well as the speed (wider sponge, fan spray, a comb that shows hidden burrs).
+- Shop games last longer than Clean games but still fall: Restaurant Tycoon 3 is at 8% of peak after 22 months with 26 minute sessions and an update every week or two. Faded salon and pet shop games had 2 to 11 minute sessions.
+- My Pet Salon is small: peak 452, about 220 now, 86.6% liked, sessions near 19 minutes.
+- Games that lasted for years never run out and pair a place you own with a collection. No trading: it is the one feature with a clear record of harm to young players.
+
 ## What the playtests must settle
-Seconds to a pet in hand and the length of one wash. The minute it first felt finished. Whether the pet you got was ever a surprise. What would bring you back tomorrow. Whether other players mattered. Clean Everything is worth adding to the list.
+Seconds to a pet in hand and the length of one wash. The minute it first felt finished. Whether the pet you got was ever a surprise. What would bring you back tomorrow. Whether other players mattered. In shop games also: what happens when a customer waits too long and what the helpers take over. Worth adding to the list: Clean Everything, Restaurant Tycoon 3 and Barber Simulator.
 
 ## What nobody can tell us
-No published number for any hook, no retention numbers for grooming or cleaning games and no known point where a wait pushes players away. We find out by running two versions behind live switches and reading Roblox's analytics.
+No published number for any hook, no retention numbers for grooming or cleaning games, no known point where a wait pushes players away, no study of patience meters for ages 6 to 12 and no job length in seconds for any shop game. We find out by running two versions behind live switches and reading Roblox's analytics.

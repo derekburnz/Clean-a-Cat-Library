@@ -36,7 +36,7 @@ Ten minutes each, as a brand new player, on a phone if possible, with a timer ru
 - [Clean an Animal!](https://www.roblox.com/games/75217712603520): Why 17% disliked it: bugs, waits or pay walls.
 - [Wash a Cat](https://www.roblox.com/games/87832865714820): Two minutes is enough. What it is and whether it is any good.
 - [Throw Food For Animals](https://www.roblox.com/games/120219252362013): The first minute we want to match: how fast the first animal is yours, the first three prices and how it points to the next goal.
-- Wash the Car (how washing is done by hand), Clean The Ballpit! (why picking up feels good) and Steal An Egg (the arrows and the menu that shows what grows while you are away). Added after the second research round: Clean Everything, the only cleaning game we found that kept its players.
+- Wash the Car (how washing is done by hand), Clean The Ballpit! (why picking up feels good) and Steal An Egg (the arrows and the menu that shows what grows while you are away). Added after the second research round: Clean Everything, the only cleaning game we found that kept its players. Also Restaurant Tycoon 3 and Barber Simulator.
 
 ## 2. Derek's to-do list
 Ids are not secret and can go in chat. Keys are secret and only ever go into GitHub.
