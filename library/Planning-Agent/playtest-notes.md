@@ -34,6 +34,29 @@ Planning-Agent's reading:
 - Useful: a short tutorial with a free first buy, a friend bonus shown as a percent on the screen from the start, and a plain screen layout on a tablet.
 - It asks for a favourite at about minute 4. Our draft has no like or favourite request in the first 5 minutes.
 
+## Save a Horse: Wash & Collect (Derek calls it Steal a Horse), played 2026-11-24 ET
+Pictures: Coordinator/references/steal-a-horse-2026-11-24/ (5, shared files only, one shows another player's name).
+
+Derek's notes:
+- "its just another steal an egg copy and nothing really to do with cleaning its just a replacement of the waiting for clean is the same as "wait for egg to hatch" from steal an egg."
+
+Planning-Agent's reading (from his words and the pictures, not his words):
+- The wash is a machine with a timer, so the cleaning is a wait and not play. In ours the wash is always done by hand and a timer never stands in for it. Waits belong to builds and upgrades only.
+- Works well: one bold step line at the top with one short line under it ("Rescue a horse! Follow the arrows, aim at a dirty horse, then shoot your lasso."), red arrows on the floor and a banner on return that says what you made while away.
+- Avoid: the tutorial opens a shop where Robux prices sit beside the coin prices in the first minutes, with a hand pointing at Buy. A badge note covers the top right corner during a tutorial step.
+
+## Clean Everything, played 2026-11-24 ET
+Pictures: Coordinator/references/clean-everything-2026-11-24/ (8, shared files only).
+
+Derek's notes:
+- "for the clean everything game its one of those where you choose a map and load into it with 1-4 players and have to pickup scattered items and place them where they belong until place is clean ."
+
+Planning-Agent's reading (from his words and the pictures, not his words):
+- A sorting game with friends, not a wash game. It is the one cleaning game from this summer that kept its players, and the pictures show why: a lot to chase besides the tidying. Nine maps with three more shown as question marks, normal, hard and sandbox modes, a rebirth, quests, two bars that count every object and shelf (0 of 1,040 and 0 of 67 in the bakery) and a party of up to four.
+- Works well: a glowing target that shows where the thing in your hand goes, a short list of what you hold, a one line story before the job ("A hungry thief tried to eat our store").
+- Avoid: two loading screens before play, a Robux offer on the screen from the first second (+1 Max Holding), a reward for a like and a group join, helpers rented by the minute for Robux (2 minutes to forever), a watch an ad button and only the host's game saving. 1,040 objects is a long job for one sitting.
+- For our plan: the lesson matches loop question one. Cleaning alone fades, so the spa needs things to count and unlock in view: the index, stations, spa stars and rooms.
+
 ## For other threads
 - Store art (Model-Agent and Growth-Agent, later): Derek liked a half dirty and half clean picture split by a thin line.
 - Screens (Design-Agent, when unpaused): he liked clean pop-ups, a step counter such as "step 1 of 3", flowing arrows on the ground with a bobbing arrow at the goal, and a recap card with stars, coins and experience.

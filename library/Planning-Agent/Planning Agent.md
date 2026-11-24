@@ -5,7 +5,7 @@ The idea is chosen and the name is locked, so steps 1 to 3 below are done. **Rea
 
 - Game: **Clean a Cat**, slug `clean-a-cat`, game repo `derekburnz/Clean-a-Cat`.
 - Step 4 is in progress. `gdd-draft.md` is the working draft the other threads build from. It stays unchanged until Derek answers. The proposed direction (loops B and D together: his busy spa plus a cat collection) is written up in the doc "Clean a Cat: loop options" and `loop-options.md`.
-- What waits on Derek is all on his plan page, round two: four more playtests, six short jobs and 46 questions with our pick first. Link and database ids are in memory `planning-status`. File copy: `pre-development-plan.md`. Rebuild it with `plan-page-source/build_plan2.py`.
+- What waits on Derek is all on his plan page, round two: two more playtests (Restaurant Tycoon 3, then Barber Simulator), two small jobs and 46 questions with our pick first (state of 2026-11-24, afternoon). Link and database ids are in memory `planning-status`. File copy: `pre-development-plan.md`. Rebuild it with `plan-page-source/build_plan2.py`.
 - Step 5: `milestone-1.md` exists as a draft for the old design. Redo it once the design is agreed.
 - The shared folder `Planning-Agent/` is the source of truth and is copied to `library/Planning-Agent/` in `derekburnz/Clean-a-Cat-Library` after each change.
 - When the design is agreed it moves to `docs/design/clean-a-cat/gdd.md` in the game repo.

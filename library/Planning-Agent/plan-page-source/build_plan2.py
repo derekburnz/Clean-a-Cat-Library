@@ -42,44 +42,37 @@ SHOP_FIELDS = [F_FUN, F_JOB, ("sel", "pickq", "Can you pick who is next?", PICK_
                ("sel", "staff", "Helpers or staff", STAFF_OPTS), F_BACK]
 
 GAMES = [
-    dict(id="horse", name="Save a Horse: Wash & Collect", url="https://www.roblox.com/games/119493855221779",
-         stats="36 playing, 90% liked of about 1.4K votes (November 23)", mins="10 minutes",
-         why="Left over from the first list. It is the only game we found that joins washing to collecting, which is the mix we recommend below.",
-         look="How you get a horse, whether washed horses are kept and earn, how the collection is shown and whether the horse you got was ever a surprise.",
-         fields=[("sel", "pet", "How do you get a pet?", PET_OPTS), F_FUN, ("sel", "wash", "The washing is", WASH_OPTS),
-                 ("sel", "wait", "Timers and waits", WAIT_OPTS), F_JOB, F_BACK]),
-    dict(id="cleaneverything", name="Clean Everything", url="https://www.roblox.com/games/140576663170542",
-         stats="about 6,500 playing, 95% liked of about 74K votes", mins="15 minutes",
-         why="The only cleaning game we found that kept its players. It holds about 60% of its peak. Five of the six others from this summer are at 3% or less.",
-         look="What there is to do after the first room is clean, the start again step (rebirth), what friends add and the minute it first felt finished.",
-         fields=[F_FUN, F_JOB, F_DULL, ("sel", "friends", "Did other players matter?", MATTER_OPTS), F_BACK]),
     dict(id="rt3", name="Restaurant Tycoon 3", url="https://www.roblox.com/games/119048529960596",
          stats="about 5,100 playing, 95% liked of about 429K votes", mins="15 minutes",
-         why="The shop game that lasted longest. It still has players after 22 months, with sessions near 26 minutes. It is the closest thing on Roblox to your busy spa idea.",
-         look="The queue, what happens when a customer waits, what the staff take over, how rare customers differ, what the game gives you to do at minute 10 and whether customers are made from your friends and how that feels.",
+         why="Play this one first. It is the shop game that lasted longest: it still has players after 22 months, with sessions near 26 minutes. It is the closest thing on Roblox to your busy spa idea, and you said you would look here before deciding on friends as customers.",
+         look="Whether customers are made from your friends and how that feels. Then the queue, what happens when a customer waits, what the staff take over, how rare customers differ and what the game gives you to do at minute 10.",
          fields=SHOP_FIELDS),
     dict(id="barber", name="Barber Simulator", url="https://www.roblox.com/games/134026357772960",
          stats="about 5,200 playing, 89% liked of about 25K votes", mins="10 minutes",
-         why="A hands-on job game like ours, six weeks old. Its rare customers are pickier, not longer, which is what we suggest in place of 16 step jobs.",
+         why="A hands-on job game like ours, six weeks old. Its rare customers are pickier, not longer, which is what we suggest in place of 16 step jobs. After the horse game, this is the test of whether work done by hand stays fun.",
          look="How each step is done by hand, how long one customer takes, how the rare customers differ and when it starts to feel the same.",
          fields=SHOP_FIELDS),
 ]
 OPTIONAL_GAMES = [
     dict(id="petsalon2", name="My Pet Salon!, ten more minutes", url="https://www.roblox.com/games/134135989047078",
-         look="Three numbers we still miss: seconds for one normal job, how many jobs before you wanted to stop and how much slower the hired helper is than you."),
-    dict(id="ballpit", name="Clean The Ballpit!", url="https://www.roblox.com/games/126221718321318",
-         look="The biggest cleaning game right now (about 22,000 playing). Why picking up feels good and what it gives you to do after the first clean."),
-    dict(id="washpets", name="Wash the Pets", url="https://www.roblox.com/games/106050444354181",
-         look="The feel of the washing and how fast it gets dull."),
-    dict(id="cleananimal", name="Clean an Animal!", url="https://www.roblox.com/games/75217712603520",
-         look="Why 17% disliked it: bugs, waits or pay walls."),
-    dict(id="washacat", name="Wash a Cat", url="https://www.roblox.com/games/87832865714820",
-         look="Two minutes is enough. What it is and whether it is any good."),
+         look="The most useful extra, because of your pets idea. How you get a pet there, what it costs, whether the chances are shown, what a pet boosts and how a worker gets one. Plus three numbers we still miss: seconds for one normal job, how many jobs before you wanted to stop and how much slower the hired helper is than you."),
     dict(id="throwfood", name="Throw Food For Animals", url="https://www.roblox.com/games/120219252362013",
          look="The first minute we want to match: how fast the first animal is yours, the first three prices and how it points to the next goal."),
+    dict(id="ballpit", name="Clean The Ballpit!", url="https://www.roblox.com/games/126221718321318",
+         look="The biggest cleaning game right now (about 22,000 playing). It is a pick up game like Clean Everything, so play it only to see what it does better: why picking up feels good and what it gives you to do after the first clean."),
+    dict(id="washpets", name="Wash the Pets", url="https://www.roblox.com/games/106050444354181",
+         look="Fine to skip. Two minutes tells you whether the washing is done by hand or is only a timer like the horse game."),
+    dict(id="cleananimal", name="Clean an Animal!", url="https://www.roblox.com/games/75217712603520",
+         look="Fine to skip. Only to see why 17% disliked it: bugs, waits or pay walls."),
+    dict(id="washacat", name="Wash a Cat", url="https://www.roblox.com/games/87832865714820",
+         look="Fine to skip. Two minutes is enough to see what it is."),
 ]
-# played in round one; shown as saved, no controls
+# played and saved; shown with what we took, no controls
 DONE_GAMES = [
+    dict(id="horse", name="Save a Horse: Wash & Collect, the horse game", tag=" (played November 24)",
+         took="Played November 24. Your verdict: another Steal an Egg copy with nothing really to do with cleaning, where waiting for the horse to be clean is the same as waiting for an egg to hatch. What we take from it: in ours the wash is always done by hand and a timer never stands in for it. Waits belong to builds and upgrades only. From your five pictures: one clear step line at the top with a short line under it and arrows on the floor work well. Its tutorial opens a shop with Robux prices beside the coin prices, which ours never does in the first session."),
+    dict(id="cleaneverything", name="Clean Everything", tag=" (played November 24)",
+         took="Played November 24. Your summary: you choose a map, load into it with 1 to 4 players and pick up scattered items and place them where they belong until the place is clean. So it is a sorting game with friends, not a wash game. What we take, from your eight pictures: it gives players a lot to chase besides the cleaning, with nine maps and three more shown as question marks, two bars that count every object and shelf, and a glowing target that shows where the thing in your hand goes. That fits why it kept its players. What we avoid: two loading screens before you play, a Robux offer on the screen from the first second, a reward for a like and a group join, helpers rented by the minute for Robux and a watch an ad button. One bakery holds 1,040 objects, which is a long job for one sitting."),
     dict(id="petsalon", name="My Pet Salon!",
          took="You liked the different kinds of step, the praise words with a growing number, the star card with coins and experience after each pet, tool upgrades, the index, rare customers with a lasting reward and hired helpers. You disliked the cutscene with no skip, the same swipe three times, 16 steps in one job, the pet turning by itself and only one customer at a time. First fun thing at about 75 seconds."),
     dict(id="capybara", name="Capybara Onsen",
@@ -88,25 +81,13 @@ DONE_GAMES = [
 
 # ---------------------------------------------------------------- to-dos
 TODOS = [
-    ("Now, about 15 minutes in all", [
-        dict(id="automerge", t="Add the rule that makes pull requests wait for their tests",
-             d="We checked on November 24 and main has no rule yet. Pull requests have waited for their tests only because each thread waits by hand, so nothing stops a merge with a failed test. To add it: in the Clean-a-Cat repo open Settings, Rules, Rulesets, New ruleset, New branch ruleset. Name it main, set Enforcement status to Active, under Target branches choose Include default branch, tick Require a pull request before merging, tick Require status checks to pass and add these two checks by name: Rojo sourcemap, luau-lsp, Selene, StyLua and Unit tests, strict types, UI gate. Then press Create. About 2 minutes, or say the word and we do it through your Chrome.",
-             link=(REPO + "/blob/main/docs/setup-guide.md#9-required-check-and-auto-merge", "Setup guide, step 9")),
-        dict(id="apiaccess", t="Turn on saves for Studio in the dev copy",
-             d="Open Clean-a-Cat-Dev in Studio, then Game Settings, Security, switch on Enable Studio Access to API Services and save. Without it, saved data and the live switches do not work when we test in Studio."),
-        dict(id="loopdoc", t="Read the loop options write-up",
-             d="Five minutes. It is the research behind the first eleven questions below: why cleaning games fade, what the games that last share and how your busy spa idea fits.",
-             link=(LOOPDOC, "Clean a Cat: loop options")),
-        dict(id="screens", t="Flip through the 14 draft screens",
-             d="Phone and desktop pictures of every screen the game will likely need. The questions below show eight of them. Say in chat if any screen looks wrong.",
-             link=(REPO + "/tree/main/docs/concepts/clean-a-cat/ui-2026-11-24", "Screen pictures")),
-        dict(id="devices", t="Tell us which phone and tablet you test on",
-             d="One line in the project chat, for example the model of your phone and that you have an iPad. We match our test sizes to them."),
+    ("Any time", [
+        dict(id="holdpose", t="Send an example of how the kitten should be held",
+             d="You told us the hold in the carry looks wrong and that you would send an example. A screenshot or a short clip from any game is enough, dropped in the project chat. The carry is not polished until it arrives."),
     ]),
-    ("After today's playtests", [
-        dict(id="scrub2", t="Play our scrub on your phone for two minutes",
-             d="You said no prototypes until the playtests and the research were done. The research is done, so this is next once your games are played. Two fixes land first: scrubbing over the move stick also walked the player and one drag cleared too much mud. We set the session up for you. Three answers are all we need: did scrubbing feel good, was the reveal a nice surprise and would you wash a second cat.",
-             link=(REPO + "/issues/29", "Issue 29")),
+    ("When we tell you it is up", [
+        dict(id="devtest", t="Play the draft in the dev place",
+             d="Your rule from November 24: everything goes to the dev place first and nothing reaches the live game until you say it is good. The draft has the screens and the opening: the truck, the box, the carry and the wash. We say in chat when it is ready, so there is nothing to do before that. Three answers help the most: did scrubbing feel good, was the clean kitten a nice moment and would you wash a second cat."),
     ]),
 ]
 PARKED = [
@@ -124,9 +105,9 @@ PARKED = [
 YES = "Yes, go with it"
 ELSE = "Something else"
 QUESTIONS = [
-    ("The game", "Planning-Agent", "These eleven decide what we build. Your playtests today test them.", [
+    ("The game", "Planning-Agent", "These eleven decide what we build. They wait for the rest of your playtests, as you said.", [
         dict(id="loop", t="Your busy spa and a cat collection, together",
-             d="Your idea after My Pet Salon becomes the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, and each new one fills a slot in your Cat Index. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
+             d="Two games you played on November 24 point the same way. The horse game swapped the wash for a timer and felt like an egg game to you. Clean Everything, the cleaning game that kept its players, has maps, counters and friends to chase on top of the tidying. Your idea after My Pet Salon becomes the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, and each new one fills a slot in your Cat Index. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
              opts=["Yes, both together", "Busy spa only", "Collection only, one cat at a time", ELSE],
              note="You said on November 24 that you will decide this after the rest of the playtests, when there is more to go on. Reading the write-up picks nothing, so this stays open until you choose."),
         dict(id="queue", t="Cats wait on a bench and you pick who is next",
@@ -160,7 +141,7 @@ QUESTIONS = [
              d="Open. Your idea: you assign one pet to yourself and one to each worker, the worker's slot is an upgrade that is unlocked or paid for, the worker's pet boosts either speed or money and the other one is an upgrade bought with coins. Our pick on the details: your own slot is open from the start, a worker's slot unlocks with coins, the pet boosts the money that worker makes and coins buy the worker's speed. A steady speed upgrade keeps the spa's pace easy to tune, and a rare pet then feels valuable without making workers faster than you. Workers with their pets still earn less than your own washing.",
              opts=["Yes: slot for coins, pet boosts money, coins buy speed", "Pet boosts speed, coins buy money", "Sell the worker slot as a game pass", ELSE]),
         dict(id="firstminute", t="You rescue a muddy kitten from a box, and he becomes Suds",
-             d="Your idea from November 24: a truck drives past, a plain brown box falls off the back and lands in front of you, you open it and find a messy, muddy kitten, and the tutorial is cleaning him up for a score. Once he is clean he becomes Suds. The box is settled: a random brown box, so his name comes from the wash. How the scene plays is settled too: you said A for sure, the quick intro you watch, the truck going by and the box falling in front of you, and then you get your camera back and play. We keep it to about 4 seconds, because you disliked the cutscene with no skip in My Pet Salon. You tap the box at about second 4 and scrub at about second 12, which is about 9 seconds later than spawning at the tub. It is built behind a switch, so the first test can still compare it with the tub start if you want that. His wash always ends on three stars, so nobody fails the opening.",
+             d="Your idea from November 24: a truck drives past, a plain brown box falls off the back and lands in front of you, you open it and find a messy, muddy kitten, and the tutorial is cleaning him up for a score. Once he is clean he becomes Suds. The box is settled: a random brown box, so his name comes from the wash. How the scene plays is settled too: you said A for sure, the quick intro you watch, the truck going by and the box falling in front of you, and then you get your camera back and play. We keep it to about 4 seconds, because you disliked the cutscene with no skip in My Pet Salon, and it starts the moment your character loads, with no loading screen. Also settled on November 24: you lift the kitten out of the box and carry him to the tub, and placing him in the tub switches to the close up wash view where the steps are taught. You tap the box at about second 4 and scrub at about second 12, which is about 9 seconds later than spawning at the tub. It is built behind a switch, so the first test can still compare it with the tub start if you want that. His wash always ends on three stars, so nobody fails the opening.",
              imgs=[("art2/tutorial-trail.jpg", "Draft screen: green arrows on the ground lead to the spa door, a yellow arrow bobs over the goal and the top line reads Step 1 of 3: Follow the arrows.", "Draft: the trail that leads from the box to the tub")],
              solo=True,
              opts=["A quick intro you watch, about 4 seconds, then play", "A scene you play, the camera is always yours", "No scene, spawn at the tub and scrub", ELSE]),
@@ -234,7 +215,7 @@ QUESTIONS = [
              d="You sent My Pet Salon's help bubbles as an idea: a guide at the left, a bold line, a short sentence and one big button that does the step. Our pick is the same idea in our own look. Suds's face is at the left, the bubble holds one short title and one sentence that says why, and one button does the step, so you still do every tap. It shows one at a time for tutorial steps and new unlocks, and goes away after the tap. Theirs runs under the jump button, so ours stops short of the stick and the jump button on every phone. A Tips switch in Settings turns the bubbles off once the tutorial is done.",
              opts=["Yes, a bottom bubble with one button", "Only a small bubble over Suds in the spa", ELSE]),
         dict(id="camera", t="A close camera at the tub with the move stick hidden",
-             d="While you wash, the camera moves in on the cat and the move stick hides, so the whole screen is for scrubbing. Our own test found that scrubbing over the stick also walked the player away, and this fixes it.",
+             d="Settled by you on November 24: placing the kitten in the tub switches to a close up wash view, where the steps are taught. We saved that as our pick here. While you wash, the camera moves in on the cat and the move stick hides, so the whole screen is for scrubbing. Our own test found that scrubbing over the stick also walked the player away, and this fixes it. Change the pick if you want the stick to stay.",
              opts=[YES, "Keep the normal camera", ELSE]),
         dict(id="landscape", t="Lock phones to landscape",
              d="One layout to get right, with more room for the tub and the tools.",
@@ -312,6 +293,15 @@ SAVED = [
     ("Store art", "A chunky title on teal bubbles, no mud and the bath from your Cat Cafe ad blown up. You liked a half dirty, half clean picture."),
     ("Setup you finished", "Group id, experience ids, the dev copy, both keys, the PC, the sound listen and the age check. The first publish ran on November 23 at 10:14 PM ET."),
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
+]
+TODAY = [
+    ("The opening", "A quick intro you watch, about 4 seconds: a truck goes by and a plain brown box falls in front of you. It starts the moment your character loads, with no loading screen and no standing still. Then the camera is yours."),
+    ("The carry and the wash view", "You lift the muddy kitten out of the box and carry him to the tub. Placing him in the tub switches to a close up wash view, where the steps are taught. The hold pose waits for your example."),
+    ("Suds", "The kitten becomes Suds once he is clean. He is the mascot, walks on four paws, never washes and is not in the index. Human staff do the washing."),
+    ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
+    ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
+    ("Open on purpose", "The playstyle, which you decide after the rest of the playtests. Pets from crates and a pet slot for you and each worker, your idea to play with after more games. Friends as customers, after Restaurant Tycoon 3."),
+    ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020) and two minutes of our scrub."),
 ]
 DECIDED = [
     ("Name", "Clean a Cat, locked November 23."),
@@ -411,6 +401,7 @@ NQ = n
 NT = sum(len(i) for _, i in TODOS)
 NG = len(GAMES)
 saved_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in SAVED + DECIDED)
+today_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in TODAY)
 
 OLD_FIELDS = [("sel", "pet", "pet", PET_OPTS), ("txt", "fun", "first fun at (s)", ""), ("sel", "wash", "washing", WASH_OPTS), ("sel", "wait", "waits", WAIT_OPTS)]
 def jf(fields):
@@ -418,7 +409,7 @@ def jf(fields):
 DATA = dict(
     main=[dict(id="p-" + g["id"], name=g["name"], fields=jf(g["fields"])) for g in GAMES],
     other=[dict(id="p-" + g["id"], name=g["name"], fields=[]) for g in OPTIONAL_GAMES]
-          + [dict(id="p-" + g["id"], name=g["name"] + " (round one)", fields=jf(OLD_FIELDS)) for g in DONE_GAMES],
+          + [dict(id="p-" + g["id"], name=g["name"] + g.get("tag", " (round one)"), fields=jf(OLD_FIELDS)) for g in DONE_GAMES],
     todos=[dict(id="c-" + t["id"], t=t["t"]) for _, items in TODOS for t in items],
     qs=[dict(id="q2-" + q["id"], t=q["t"], opts=q["opts"]) for _, _, _, items in QUESTIONS for q in items],
 )
@@ -448,11 +439,11 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <div class="intro">
     <p class="eyebrow">Clean a Cat, round two, November 24</p>
     <h1>What is left before we build</h1>
-    <p class="lede">Round one is saved: your two playtests, your notes on the mud, the baths and the store art and every setup job you finished. This page holds only what is still open. The questions are new, rewritten from what you told us, so nothing from the parked first set carries over.</p>
+    <p class="lede">Updated November 24 in the afternoon. The horse game and Clean Everything are saved, so two games are left, listed with the most useful first. Every job on the old to-do list is done. What you decided today is <a href="#today">near the bottom</a>. This page holds only what is still open.</p>
     <ol class="steps">
-      <li><a href="#playtests">Play __NG__ more games</a> that test your busy spa idea.</li>
-      <li><a href="#todo">Do __NT__ short jobs</a>. Most take a minute or two.</li>
-      <li><a href="#questions">Tap through __NQ__ picks</a>. The first eleven decide the game.</li>
+      <li><a href="#playtests">Play __NG__ more games</a>, starting with Restaurant Tycoon 3.</li>
+      <li><a href="#todo">__NT__ small jobs</a>, and only one of them can be done now.</li>
+      <li><a href="#questions">Tap through __NQ__ picks</a> once the games are played. The first eleven decide the game.</li>
     </ol>
   </div>
 
@@ -466,7 +457,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <section id="playtests">
     <header>
       <h2>Play these __NG__ next</h2>
-      <p>As a brand new player, on a phone if you can, with a timer running. The first list asked how games hand you a pet. This one asks what keeps players past the first ten minutes and how a busy shop feels, because that is what your idea and the research now turn on. Player counts are from the morning of November 24, 2026 and move all day.</p>
+      <p>Most useful first. As a brand new player, on a phone if you can, with a timer running. These two ask how a busy shop feels and whether work done by hand stays fun past the first ten minutes, because that is what your idea and the research now turn on. Player counts are from the morning of November 24, 2026 and move all day.</p>
     </header>
     <div class="notes">
       <h3>What to write down for each game</h3>
@@ -477,7 +468,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     __GAMES__
     <h3 class="group">If there is time</h3>
     <ul class="optlist">__OPT__</ul>
-    <p class="fine">Also worth five minutes each: Wash the Car (washing by hand) and Steal An Egg (the arrows and the menu that shows what grows while you are away).</p>
+    <p class="fine">The first three extras are worth the time and the last three are fine to skip. Also worth five minutes: Wash the Car, for washing by hand. Steal An Egg is off the list because you know it already.</p>
     <h3 class="group">Played and saved</h3>
     <ul class="saved">__DONE__</ul>
   </section>
@@ -485,7 +476,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <section id="todo">
     <header>
       <h2>Your to-do list</h2>
-      <p>Only open jobs are listed. Everything you finished in round one is off the list and saved.</p>
+      <p>Only open jobs are listed. You finished all six jobs from the last list, and they are saved under Decided on November 24.</p>
     </header>
     __TODOS__
     <details class="more">
@@ -502,6 +493,11 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     <div class="row"><button type="button" class="ghost" id="acceptall">Take our pick for everything I have not answered</button></div>
     __QUESTIONS__
     <p class="gapnote"><strong>What nobody can tell us.</strong> No source gives a proven number for any hook, for how long a wait can be or for the right job length. We find out after launch by running two versions behind switches and reading Roblox's own numbers.</p>
+  </section>
+
+  <section id="today">
+    <header><h2>Decided on November 24</h2><p>What you settled today and what you left open on purpose. Nothing to do here.</p></header>
+    <dl class="decided">__TODAY__</dl>
   </section>
 
   <section id="decided">
@@ -681,7 +677,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 '''
 page = (PAGE.replace("__CSS__", CSS + EXTRA_CSS).replace("__PROMPTS__", prompts_html).replace("__EXTRA__", extra_html)
         .replace("__GAMES__", games_html).replace("__OPT__", opt_html).replace("__DONE__", done_html)
-        .replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
+        .replace("__TODAY__", today_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
         .replace("__SAVED__", saved_html).replace("__NQ__", str(NQ)).replace("__NT__", str(NT)).replace("__NG__", str(NG))
         .replace("__DATA__", json.dumps(DATA)))
 open(OUT_HTML, "w", encoding="utf-8").write(page)
@@ -713,9 +709,9 @@ M.append("")
 M.append("**If there is time**")
 for g in OPTIONAL_GAMES:
     M.append(f"- [{g['name']}]({g['url']}) (`{g['id']}`): {g['look']}")
-M.append("- Wash the Car (washing by hand) and Steal An Egg (the arrows and the menu that shows what grows while you are away).")
+M.append("- The first three extras are worth the time and the last three are fine to skip. Also Wash the Car, for washing by hand. Steal An Egg is off the list because Derek knows it.")
 M.append("")
-M.append("**Played and saved in round one**")
+M.append("**Played and saved**")
 for g in DONE_GAMES:
     M.append(f"- {g['name']}: {g['took']}")
 M.append("")
@@ -743,6 +739,10 @@ for title, who, lead, items in QUESTIONS:
         n += 1
         d = q["d"] + (" " + q["note"] if q.get("note") else "")
         M.append(f"| {n} | {q['t']} (`{q['id']}`) | {d} | {' / '.join(q['opts'])} |")
+M.append("")
+M.append("## Decided on November 24")
+for a, b in TODAY:
+    M.append(f"- **{a}:** {b}")
 M.append("")
 M.append("## Saved from round one")
 for a, b in SAVED + DECIDED:

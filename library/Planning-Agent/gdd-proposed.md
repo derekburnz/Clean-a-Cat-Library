@@ -60,6 +60,7 @@ What it would change in this page if he keeps it:
 - 0:00 Loaded on the pavement in front of the spa, facing the street. The camera shows the truck and the box for about 4 seconds and then goes back to the player (decided).
 - 0:01 to 0:04 A truck passes and a plain brown box tumbles off the back and lands a few steps away. It wiggles and an arrow says Open.
 - 0:04 The player taps the box. A muddy kitten with no name yet pops out, shakes and hops into the player's arms.
+- Decided by Derek 2026-11-24: the player lifts the kitten out of the box and carries him to the tub (the carry from Catch a Cat Cafe; the hold pose waits for Derek's example). Placing him in the tub switches to a close up wash view, and the steps are taught there. The scene starts the moment the character loads, with no loading screen and no standing still.
 - 0:07 A trail leads through the open front to the tub. The player taps the wash button, which does not say Suds yet.
 - 0:12 Scrub, then rinse and towel dry: three short steps.
 - 0:30 to 0:45 The clean coat is revealed, the kitten is named Suds and he gets his score, always three stars. He hops onto his cushion on the front desk and is the player's from then on.
@@ -125,6 +126,10 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 - Policy: the hidden coat is random. Mitigation: it is free, the chances are shown and coins cannot be bought. The spa keeps an open front and only cats are bathed.
 
 **Lessons from Derek's My Pet Salon screenshots** (2026-11-24): what we take and what we do not is in `my-pet-salon-screens-2026-11-24.md`. In short: the bottom help bubble, the side recap card, the tick list of steps, the dirty story line, an index with shapes, counts per rarity and the next bonus, settings with a tips switch and a smoother on phones switch and about 24 coats on day one if Model-Agent confirms the cost [session]. Not taken: offers on screen in the first session, stock counters, coins for Robux, paid skips and rewards for likes or favourites.
+
+**Rules Derek set on 2026-11-24:** dev first. Everything is uploaded to the dev place and nothing goes to the live game until he confirms it is good. Feature switches stay off on live until he decides the game.
+
+**From his playtests of 2026-11-24** (Planning-Agent/playtest-notes.md): the horse game put a timer where the wash should be and felt like an egg game to him, so in ours the wash is always done by hand and waits belong to builds and upgrades only. Clean Everything keeps its players with maps, counters and friends on top of the tidying, so the spa keeps things to count and unlock in view. Neither game changes the open loop choice, which waits for Restaurant Tycoon 3 and Barber Simulator.
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
