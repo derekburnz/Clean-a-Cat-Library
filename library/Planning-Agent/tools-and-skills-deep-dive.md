@@ -212,7 +212,7 @@ Four things that look tempting and that I would hold. The first two are the big 
 | 2 | roblox-dev-skill 2.23.0 | Yes, add it | | Task [#179](https://github.com/derekburnz/Clean-a-Cat/issues/179) |
 | 3 | Five UI and input guides | Yes, add it | | Task [#180](https://github.com/derekburnz/Clean-a-Cat/issues/180) |
 | 4 | Roblox's comfort and device settings | Yes, add it | | Task [#181](https://github.com/derekburnz/Clean-a-Cat/issues/181) |
-| 5 | One low end test phone and a speed budget | Yes, add it | | Task [#182](https://github.com/derekburnz/Clean-a-Cat/issues/182), waits on Derek to name the phone |
+| 5 | One low end test phone and a speed budget | Yes, add it | | Task [#182](https://github.com/derekburnz/Clean-a-Cat/issues/182). Derek's weakest phone is an iPhone 12, so it is the real test phone and the cheap Android gap is covered as the issue says |
 | 6 | spr springs | Yes, try it | show me example to see if we keep | Task [#183](https://github.com/derekburnz/Clean-a-Cat/issues/183), ends with a side by side clip |
 | 7 | Trove | Yes, try it | add it if it adds no harm and doesn't hurt token usage | Task [#184](https://github.com/derekburnz/Clean-a-Cat/issues/184), kept only if three conditions hold |
 | 8 | Flipbook | Not now | I will leave it up to you | Our call: not installed for now |
@@ -228,3 +228,5 @@ Four things that look tempting and that I would hold. The first two are the big 
 - Tests inside real Roblox from GitHub: wait. Each run adds minutes to CI and the key may need one more permission from Derek. We set them up only if the style sheet trial (#186) is kept or a bug slips past the stand-in, and then on merges to main only so that pull requests stay fast.
 
 The decisions are recorded in `docs/decisions.md` of the game repo (pull request linked in the thread).
+
+**Update, 2026-11-24 10:19 AM ET:** Design-Agent reports that Derek dropped the style sheet trial (#186) after seeing it ("drop them we dont need it"). Screens stay in plain code and pull request 218 removes the trial. Tests inside real Roblox from GitHub were tied to keeping it, so they stay parked unless a bug slips past the stand-in.
