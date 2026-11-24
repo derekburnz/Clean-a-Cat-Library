@@ -95,7 +95,7 @@ TODOS = [
         dict(id="apiaccess", t="Turn on saves for Studio in the dev copy",
              d="Open Clean-a-Cat-Dev in Studio, then Game Settings, Security, switch on Enable Studio Access to API Services and save. Without it, saved data and the live switches do not work when we test in Studio."),
         dict(id="loopdoc", t="Read the loop options write-up",
-             d="Five minutes. It is the research behind the first nine questions below: why cleaning games fade, what the games that last share and how your busy spa idea fits.",
+             d="Five minutes. It is the research behind the first eleven questions below: why cleaning games fade, what the games that last share and how your busy spa idea fits.",
              link=(LOOPDOC, "Clean a Cat: loop options")),
         dict(id="screens", t="Flip through the 14 draft screens",
              d="Phone and desktop pictures of every screen the game will likely need. The questions below show eight of them. Say in chat if any screen looks wrong.",
@@ -124,7 +124,7 @@ PARKED = [
 YES = "Yes, go with it"
 ELSE = "Something else"
 QUESTIONS = [
-    ("The game", "Planning-Agent", "These nine decide what we build. Your playtests today test them.", [
+    ("The game", "Planning-Agent", "These eleven decide what we build. Your playtests today test them.", [
         dict(id="loop", t="Your busy spa and a cat collection, together",
              d="Your idea after My Pet Salon becomes the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, and each new one fills a slot in your Cat Index. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
              opts=["Yes, both together", "Busy spa only", "Collection only, one cat at a time", ELSE],
@@ -148,11 +148,17 @@ QUESTIONS = [
         dict(id="rare", t="Rare visitors who are pickier, not longer",
              d="You liked the influencer customers and their lasting reward, but 16 steps felt long. Ours bring a rare cat and want a near perfect wash, with the same short job as any cat. A finished visit gives a lasting reward, for example a small permanent tip bonus and a framed photo for your wall. Visitors unlock as your spa earns stars. The chance of each is on a board and none can be bought.",
              opts=["Yes, pickier and not longer", "Longer jobs for rare visitors", "No rare visitors at launch", ELSE]),
-        dict(id="keep", t="How cats become yours",
-             d="Customers take their cats home, and every coat you reveal fills a slot in your Cat Index. Now and then a stray turns up at the back door. A washed stray stays in your display window and earns tips. The very first cat is Suds, the kitten you rescue in the opening, so every player has a cat of their own inside the first minute. Suds is the same for everyone and is not in the index, as you said on November 24. He has his own card outside the count. He is the mascot, so he does not sit in the window or earn tips. The first customer after him is an easy common cat, which gives the first index stamp, and the first window stray turns up at about minute 4. No catching and no buying cats.",
+        dict(id="keep", t="Washing earns the money, and the pets you own come from crates",
+             d="Open until you have played more games. Your thought on November 24: cleaning cats is how you make money, and it has nothing to do with the pets your shop owns. Those come from crates that are hard to earn or are bought with coins, like the My Pets window you sent. This replaces our first idea, strays you wash and keep in the window. What it leaves open is the Cat Index. Our pick keeps it: every customer cat's coat is still hidden under the mud, and each new coat you wash fills a slot and counts toward a bonus. That way the wash keeps its surprise and the crates are a second thing to chase, not the only one. Suds stays outside both.",
              imgs=[("art2/reveal-rare.jpg", "Draft screen: a New cat card for a white cat called Marble, marked Rare, 11% of customers, added to your Index.", "Draft: a new coat is revealed")],
              solo=True,
-             opts=["Yes, index for all and strays stay", "Index only, no cats live in the spa", ELSE]),
+             opts=["Pets from crates, washed cats still fill the index", "Pets from crates, no index of washed cats", "Strays you wash and keep, as first drafted", ELSE]),
+        dict(id="crates", t="Crates follow four rules",
+             d="Open, and only matters if pets come from crates. A crate is a random reward, so Roblox's rules and our own rules for young players apply. Our pick: one, crates are earned by playing or bought with coins and never with Robux. Two, the chance of every pet is shown on the crate before you open it. Three, after a set number of crates the next one is sure to hold a pet you do not have, so nobody has a long unlucky run. Four, no timers, no stock counters and no near miss tricks on the opening. A rare visitor's reward could be a crate, which gives the hard to earn kind. One thing to know: with a 2x Coins pass, Robux speeds up coins, so showing the chances every time is what keeps us inside Roblox's rule.",
+             opts=["Yes, these four rules", "Also sell crates for Robux", ELSE]),
+        dict(id="petslots", t="One pet for you and one for each worker",
+             d="Open. Your idea: you assign one pet to yourself and one to each worker, the worker's slot is an upgrade that is unlocked or paid for, the worker's pet boosts either speed or money and the other one is an upgrade bought with coins. Our pick on the details: your own slot is open from the start, a worker's slot unlocks with coins, the pet boosts the money that worker makes and coins buy the worker's speed. A steady speed upgrade keeps the spa's pace easy to tune, and a rare pet then feels valuable without making workers faster than you. Workers with their pets still earn less than your own washing.",
+             opts=["Yes: slot for coins, pet boosts money, coins buy speed", "Pet boosts speed, coins buy money", "Sell the worker slot as a game pass", ELSE]),
         dict(id="firstminute", t="You rescue a muddy kitten from a box, and he becomes Suds",
              d="Your idea from November 24: a truck drives past, a plain brown box falls off the back and lands in front of you, you open it and find a messy, muddy kitten, and the tutorial is cleaning him up for a score. Once he is clean he becomes Suds. The box is settled: a random brown box, so his name comes from the wash. How the scene plays is settled too: you said A for sure, the quick intro you watch, the truck going by and the box falling in front of you, and then you get your camera back and play. We keep it to about 4 seconds, because you disliked the cutscene with no skip in My Pet Salon. You tap the box at about second 4 and scrub at about second 12, which is about 9 seconds later than spawning at the tub. It is built behind a switch, so the first test can still compare it with the tub start if you want that. His wash always ends on three stars, so nobody fails the opening.",
              imgs=[("art2/tutorial-trail.jpg", "Draft screen: green arrows on the ground lead to the spa door, a yellow arrow bobs over the goal and the top line reads Step 1 of 3: Follow the arrows.", "Draft: the trail that leads from the box to the tub")],
@@ -206,7 +212,7 @@ QUESTIONS = [
              d="Players see each other's windows and reveals from the street. Walking in is built behind a switch that stays off, so friends helping in your spa can be turned on later without a rebuild. It stops a crowd standing on someone's tub.",
              opts=["Yes, window only for now", "Walk in from the start", ELSE]),
         dict(id="trading", t="No trading of cats",
-             d="Trading is the one feature with a clear record of harm to young players, mostly scams. Cats are earned by washing only.",
+             d="Trading is the one feature with a clear record of harm to young players, mostly scams. This holds for crate pets too, if you go that way.",
              opts=["Yes, no trading", "Plan trading for later", ELSE]),
         dict(id="favourite", t="No like or favourite ask in the first session",
              d="Capybara Onsen asked you for a favourite at about minute 4. Roblox judges a game on its first minutes, and an ask there is one more thing between a new player and the fun. Our pick: nothing in the first session, then one small ask after a great wash on a later visit. It never comes with a reward, because Roblox does not allow rewards for likes or favourites. Your screenshot shows My Pet Salon paying cash for both in its Rewards window. By our reading of the rules that is their risk and we do not copy it.",
@@ -446,7 +452,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     <ol class="steps">
       <li><a href="#playtests">Play __NG__ more games</a> that test your busy spa idea.</li>
       <li><a href="#todo">Do __NT__ short jobs</a>. Most take a minute or two.</li>
-      <li><a href="#questions">Tap through __NQ__ picks</a>. The first nine decide the game.</li>
+      <li><a href="#questions">Tap through __NQ__ picks</a>. The first eleven decide the game.</li>
     </ol>
   </div>
 

@@ -17,6 +17,17 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 - The coat is hidden under the mud until the wash is done. (new) The chance of each coat is on a board, cats are free and nothing sold changes the chances.
 - No catching, no buying cats and no trading [trading].
 
+**Owned pets: Derek's lean of 2026-11-24, OPEN, nothing is built from it** [keep, crates, petslots]
+His words: "the cleaning cats should be how to make money and unrelated to cats/pets your shop owns those should come from crates that are hard to earn or purchased with coins or maybe will think of a different system but human workers and pets like the game attached" (the My Pets window of My Pet Salon). "Maybe you assign one pet per either yourself and one per worker (maybe make it an upgrade slot for the worker they can unlock or you pay to unlock) and the pets for workers can boost how fast they are or money the workers make and make the other an upgrade for coins". He will play with these ideas after more playtests.
+What it would change in this page if he keeps it:
+- Out: strays that are washed and kept, the display window that earns tips and the first stray at about minute 4. The lines above in "How players get cats" then shrink to: customers bring cats and take them home.
+- Stays, by our pick: the hidden coat and the Cat Index for washed cats. Without it the wash loses its surprise and crates become the only thing to chase. Derek has not said whether the index stays.
+- In: pets from crates. Our pick for the rules: crates are earned by play or bought with coins and never with Robux, the chance of every pet is on the crate before it is opened, a sure new pet after a set number of crates and no timers, stock counters or near miss tricks. A rare visitor's reward can be a crate. PolicyService is still read per player. The 2x Coins pass means Robux speeds up coins, so the chances are shown on every crate to stay inside Roblox's paid random items rule (monetization-policy, section 2).
+- In: pet slots. One for the player, open from the start, and one per worker, unlocked with coins. Our pick: the worker's pet boosts the money that worker makes and coins buy the worker's speed. The guard rail stays: workers with pets earn less than the player's own washing.
+- Moves: the tip jar that fills while away has to come from workers and their pets, not from window cats. "No buying cats" becomes "pets are bought with coins through crates, never with Robux". No trading still holds.
+- Not settled: whether pets are cats, where they are seen in the spa and whether Suds takes the player's own slot as a free starter.
+- Likeness: with human staff, pets that boost, an album and a box opening, the frame is now close to My Pet Salon. What is ours: the bench where the cats differ, the hidden coat, Suds and the rules above. Worth keeping those strong.
+
 **The bench: who is next** (new) [queue, impatience]
 - Three or four cats wait, each with a card: name, how dirty, what kind of dirt and what it pays. (new 2026-11-24) Each card has one line of our own on how the cat got so dirty, which hints at the kind of dirt.
 - A Next cat button takes the first cat in line for players who do not want to choose. (new 2026-11-24) My Pet Salon has both a next pet button and a manual pick (Derek checked 2026-11-24), so the pick itself is not new on Roblox. What ours adds is cats that differ, shown on the card.
@@ -117,6 +128,6 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 44 on the plan page. The first nine decide the game.
+**Open questions for the owner:** the 46 on the plan page. The first eleven decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`
