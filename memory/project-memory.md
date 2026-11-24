@@ -23,3 +23,4 @@ Standing rules live in the project instructions. This file holds only current fa
 - [roblox-research-howto](roblox-research-howto.md): how to read Roblox game stats from a cloud thread.
 - [roblox-age-rules](roblox-age-rules.md): maturity reading for the spa and the Kids and Select gate for reaching young players.
 - [growth-voices-and-videos](growth-voices-and-videos.md): use the voice studio repo, not ElevenLabs; where the 2026-11-24 video notes are.
+- [art-and-models](art-and-models.md): art style and model decisions.
