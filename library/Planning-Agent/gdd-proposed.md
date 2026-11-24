@@ -25,7 +25,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 **Helpers** (new) [helpers, helperlook]
 - Bought with coins and never with Robux. A helper takes a common cat from the bench, washes it slowly and earns fewer stars than the player would.
 - Rare cats and strays always wait for the player.
-- Helpers are human staff in spa aprons, not cats. (changed 2026-11-24: Derek's lean, "helpers are likely going to be staff like humans unless u have other ideas". Not yet a decision; plan page question `helperlook`.) They reuse the customer figures the game already builds. One other idea on the page: Suds the kitten stays as the spa's mascot who points and cheers but never washes. Whether the builder kitten for stations becomes a person too is open.
+- Helpers are human staff in spa aprons, not cats. They reuse the customer figures the game already builds. Suds the kitten stays as the spa's mascot, who points things out in the first minutes and cheers but never washes. (changed 2026-11-24: Derek's lean, "helpers are likely going to be staff like humans", then his "ok" in the project chat to staff plus Suds as mascot. Plan page question `helperlook`, saved as option 1.) Whether the builder kitten for stations becomes a person too is still open.
 
 **The wash** (changed) [steps, joblength, turn, praise, tools]
 - Four kinds of step at launch: scrub the mud, rinse with the shower, pick burrs out of the fur and towel dry. Later tools add nail trim, comb, shampoo and the dryer.
