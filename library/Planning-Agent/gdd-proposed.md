@@ -26,7 +26,7 @@ What it would change in this page if he keeps it:
 - In: pet slots. One for the player, open from the start, and one per worker, unlocked with coins. Our pick: the worker's pet boosts the money that worker makes and coins buy the worker's speed. The guard rail stays: workers with pets earn less than the player's own washing.
 - Moves: the tip jar that fills while away has to come from workers and their pets, not from window cats. "No buying cats" becomes "pets are bought with coins through crates, never with Robux". No trading still holds.
 - Not settled: whether pets are cats, where they are seen in the spa and whether Suds takes the player's own slot as a free starter.
-- Likeness: with human staff, pets that boost, an album and a box opening, the frame is now close to My Pet Salon. What is ours: the bench where the cats differ, the hidden coat, Suds and the rules above. Worth keeping those strong.
+- Likeness to My Pet Salon is not a concern for Derek (2026-11-24: "even if the game is similar to my pet salon I am confident we can do it better"). So the aim is to do each part better, starting with what he disliked there: the cutscene with no skip, the same swipe three times, 16 step jobs, the pet turning by itself, one customer at a time and the hard selling. Names, characters, art, sounds and wording stay ours.
 
 **The bench: who is next** (new) [queue, impatience]
 - Three or four cats wait, each with a card: name, how dirty, what kind of dirt and what it pays. (new 2026-11-24) Each card has one line of our own on how the cat got so dirty, which hints at the kind of dirt.
