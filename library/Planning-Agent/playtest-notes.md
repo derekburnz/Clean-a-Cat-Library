@@ -68,6 +68,17 @@ Planning-Agent's reading (from his words and the pictures, not his words):
 - Worth taking: a goal bar at the top with a count, a Show Me button when a rare customer comes in, an upgrades window that shows locked upgrades and what each requires, upgrades that add new things to do, workers with a hire price and a level price.
 - Not taken: three setup screens before the first customer, a typed name, a starter pack with a countdown in the first minute and a premium worker in the hire list.
 
+## Barber Simulator, played 2026-11-24 ET
+Pictures: Coordinator/references/barber-simulator-2026-11-24/ (13, shared files only). What we take and leave: barber-simulator-screens-2026-11-24.md.
+
+Derek's notes:
+- "here is the barber game couldnt figure out if there is any other way to get cats then paying other then a pop up that said come back tmmr for a pet egg when I walked out of shop."
+- "They used a hold on area to cut and use right thumb on right side of screen to turn camera around the head mechanic that was smooth and felt good."
+
+Planning-Agent's reading: the hold and turn control is an idea for our wash view (plan page `turn`, not decided). Pets only for Robux is what he ran into, so ours can all be earned. The free pet egg tomorrow is a day 2 hook worth taking if pets come from crates.
+
+Everything from all six games is sorted by theme in playtest-summary-2026-11-24.md.
+
 ## Across the games (Derek, 2026-11-24 ET)
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
 - Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).

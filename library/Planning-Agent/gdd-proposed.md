@@ -133,8 +133,10 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Ideas from Restaurant Tycoon 3** (Derek's playtest of 2026-11-24, detail in restaurant-tycoon-3-screens-2026-11-24.md): one goal bar at the top with a count, a Show Me button when a rare visitor comes in, an upgrades window that shows locked upgrades and what each requires, upgrades that add new things to do (a new service, a new kind of customer, more room, a sign that brings cats more often) and workers hired and levelled with coins. A choice of spa front comes after the first wash, never before it.
 
+**Ideas from Barber Simulator** (Derek's playtest of 2026-11-24, detail in barber-simulator-screens-2026-11-24.md): the cat holds still and a drag on the right side of the screen turns the view while the other finger scrubs (an idea to test on a phone, not decided) [turn]; a free crate promised for tomorrow near the end of the first session if pets come from crates [return]; later tools handed out on level up. All six playtests are sorted in playtest-summary-2026-11-24.md.
+
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 47 on the plan page. The first eleven decide the game.
+**Open questions for the owner:** the 48 on the plan page. The first eleven decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`
