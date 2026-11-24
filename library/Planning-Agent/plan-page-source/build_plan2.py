@@ -95,7 +95,7 @@ TODOS = [
         dict(id="apiaccess", t="Turn on saves for Studio in the dev copy",
              d="Open Clean-a-Cat-Dev in Studio, then Game Settings, Security, switch on Enable Studio Access to API Services and save. Without it, saved data and the live switches do not work when we test in Studio."),
         dict(id="loopdoc", t="Read the loop options write-up",
-             d="Five minutes. It is the research behind the first eight questions below: why cleaning games fade, what the games that last share and how your busy spa idea fits.",
+             d="Five minutes. It is the research behind the first nine questions below: why cleaning games fade, what the games that last share and how your busy spa idea fits.",
              link=(LOOPDOC, "Clean a Cat: loop options")),
         dict(id="screens", t="Flip through the 14 draft screens",
              d="Phone and desktop pictures of every screen the game will likely need. The questions below show eight of them. Say in chat if any screen looks wrong.",
@@ -124,7 +124,7 @@ PARKED = [
 YES = "Yes, go with it"
 ELSE = "Something else"
 QUESTIONS = [
-    ("The game", "Planning-Agent", "These eight decide what we build. Your playtests today test them.", [
+    ("The game", "Planning-Agent", "These nine decide what we build. Your playtests today test them.", [
         dict(id="loop", t="Your busy spa and a cat collection, together",
              d="Your idea after My Pet Salon becomes the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, and each new one fills a slot in your Cat Index. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
              opts=["Yes, both together", "Busy spa only", "Collection only, one cat at a time", ELSE],
@@ -138,10 +138,13 @@ QUESTIONS = [
              d="You floated customers who get impatient and leave. Lost customers are what parents and reviewers complain about most in shop games. Our pick: a waiting cat's mood drops and only its bonus tip shrinks. A cat that waits far too long goes home and comes back later.",
              opts=["Yes, grumpy and a smaller tip", "They leave and the job is lost", "No waiting pressure at all", ELSE]),
         dict(id="helpers", t="Hired helpers wash common cats, slower than you",
-             d="Your idea. Helpers are bought with coins and never with Robux. A helper takes a common cat from the bench, washes it slowly and earns fewer stars. Rare cats and strays always wait for you. The first helper is a kitten called Suds.",
+             d="Your idea. Helpers are bought with coins and never with Robux. A helper takes a common cat from the bench, washes it slowly and earns fewer stars. Rare cats and strays always wait for you. The picture still shows kitten helpers. Who the helpers are is the next question.",
              imgs=[("art2/helpers.jpg", "Draft screen: a Helpers window with two helper kittens, their speed bars, what each is washing and a Hire button on an empty spot.", "Draft: helpers")],
              solo=True,
              opts=["Yes, slow helpers for common cats", "Helpers can wash any cat", "No helpers at launch", ELSE]),
+        dict(id="helperlook", t="Helpers are human staff, not cats",
+             d="You said on November 24 that helpers are likely staff like humans. Our pick agrees. A person in a spa apron reads as staff at a glance, has hands for the sponge and the towel and can reuse the customer figures we already build, so it costs less than a kitten that has to hold tools. One other idea: staff do the washing and Suds the kitten stays as the spa's mascot, who points things out in the first minutes and cheers but never washes. The builder kitten for stations is a separate call. Say in the note if the builder should be a person too.",
+             opts=["Human staff, no helper cats", "Human staff, and Suds stays as the mascot", "Kitten helpers as drawn", ELSE]),
         dict(id="rare", t="Rare visitors who are pickier, not longer",
              d="You liked the influencer customers and their lasting reward, but 16 steps felt long. Ours bring a rare cat and want a near perfect wash, with the same short job as any cat. A finished visit gives a lasting reward, for example a small permanent tip bonus and a framed photo for your wall. Visitors unlock as your spa earns stars. The chance of each is on a board and none can be bought.",
              opts=["Yes, pickier and not longer", "Longer jobs for rare visitors", "No rare visitors at launch", ELSE]),
@@ -249,7 +252,7 @@ QUESTIONS = [
              d="Same body shape, new coats and names, plus spa extras such as mud, fluff and bows. No Cat Cafe character is reused.",
              opts=[YES, "Make the cats look clearly different from Cat Cafe", ELSE]),
         dict(id="names", t="Working cat names",
-             d="Muffin, Smudge (the first stray), Inky, Cotton, Tux, Patches, Toffee, Marble, Lilac Cloud and Starcoat. The helper kitten is Suds. None is used in Cat Cafe.",
+             d="Muffin, Smudge (the first stray), Inky, Cotton, Tux, Patches, Toffee, Marble, Lilac Cloud and Starcoat. Suds was the name for a helper kitten and is on hold until the helper pick above. None is used in Cat Cafe.",
              opts=["Yes, use these", "I want to name them", ELSE]),
     ]),
     ("Sound and feel", "Motion-FX-Agent", "", [
@@ -434,7 +437,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     <ol class="steps">
       <li><a href="#playtests">Play __NG__ more games</a> that test your busy spa idea.</li>
       <li><a href="#todo">Do __NT__ short jobs</a>. Most take a minute or two.</li>
-      <li><a href="#questions">Tap through __NQ__ picks</a>. The first eight decide the game.</li>
+      <li><a href="#questions">Tap through __NQ__ picks</a>. The first nine decide the game.</li>
     </ol>
   </div>
 

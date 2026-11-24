@@ -22,9 +22,10 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 - Cats differ so the pick matters: a muddier cat pays more and a fussy cat tips more but waits less.
 - A waiting cat gets grumpy and only its bonus tip shrinks. A cat that waits far too long goes home and comes back later. Nothing is ever lost.
 
-**Helpers** (new) [helpers]
+**Helpers** (new) [helpers, helperlook]
 - Bought with coins and never with Robux. A helper takes a common cat from the bench, washes it slowly and earns fewer stars than the player would.
-- Rare cats and strays always wait for the player. The first helper is a kitten called Suds.
+- Rare cats and strays always wait for the player.
+- Helpers are human staff in spa aprons, not cats. (changed 2026-11-24: Derek's lean, "helpers are likely going to be staff like humans unless u have other ideas". Not yet a decision; plan page question `helperlook`.) They reuse the customer figures the game already builds. One other idea on the page: Suds the kitten stays as the spa's mascot who points and cheers but never washes. Whether the builder kitten for stations becomes a person too is open.
 
 **The wash** (changed) [steps, joblength, turn, praise, tools]
 - Four kinds of step at launch: scrub the mud, rinse with the shower, pick burrs out of the fur and towel dry. Later tools add nail trim, comb, shampoo and the dryer.
@@ -70,7 +71,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 | Bench and pick | Three waiting cats with cards, mood that only lowers the tip, go home and return | M | Gameplay-Engineer |
 | Hidden coat and index | The coat is rolled by the server when the cat arrives and shown at the end of the wash | S | Gameplay-Engineer |
 | Recap | Stars, coins and tip, full card and slim strip | S | Design-Agent then Gameplay-Engineer |
-| One helper | Suds washes one common cat at a time at a fixed slow speed | M | Gameplay-Engineer |
+| One helper | One staff member washes one common cat at a time at a fixed slow speed | M | Gameplay-Engineer |
 | Rare visitors | One visitor behind a star goal, after the first test | M, smaller version: none in the slice | Gameplay-Engineer |
 | Day one content | About 12 coats, 3 kinds of dirt and 4 tools | M | Model-Agent |
 | Analytics | Add: first pick from the bench, first helper hired, cats washed per session, session length | S | Growth-Agent |
@@ -87,6 +88,6 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 40 on the plan page. The first eight decide the game.
+**Open questions for the owner:** the 41 on the plan page. The first nine decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`
