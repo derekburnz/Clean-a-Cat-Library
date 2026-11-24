@@ -203,3 +203,28 @@ Four things that look tempting and that I would hold. The first two are the big 
 - This thread cannot open GitHub's commit pages for other people's repos. Last change dates come from research helpers and a few come from mirror sites. Treat them as close, not exact.
 - Nobody has published phone speed numbers for any UI library. Any claim that one is fast on a weak phone is untested.
 - Helpers read skill files as summaries. Anything we copy gets a full read first.
+
+## Derek's picks (2026-11-24, 9:29 AM ET) and what happened next
+
+| # | Find | Derek's pick | His note | What we did |
+|---|---|---|---|---|
+| 1 | Roblox's Studio skills | Yes, add it | | Task [#178](https://github.com/derekburnz/Clean-a-Cat/issues/178) |
+| 2 | roblox-dev-skill 2.23.0 | Yes, add it | | Task [#179](https://github.com/derekburnz/Clean-a-Cat/issues/179) |
+| 3 | Five UI and input guides | Yes, add it | | Task [#180](https://github.com/derekburnz/Clean-a-Cat/issues/180) |
+| 4 | Roblox's comfort and device settings | Yes, add it | | Task [#181](https://github.com/derekburnz/Clean-a-Cat/issues/181) |
+| 5 | One low end test phone and a speed budget | Yes, add it | | Task [#182](https://github.com/derekburnz/Clean-a-Cat/issues/182), waits on Derek to name the phone |
+| 6 | spr springs | Yes, try it | show me example to see if we keep | Task [#183](https://github.com/derekburnz/Clean-a-Cat/issues/183), ends with a side by side clip |
+| 7 | Trove | Yes, try it | add it if it adds no harm and doesn't hurt token usage | Task [#184](https://github.com/derekburnz/Clean-a-Cat/issues/184), kept only if three conditions hold |
+| 8 | Flipbook | Not now | I will leave it up to you | Our call: not installed for now |
+| 9 | Asphalt | No | no need since ai does it | Dropped |
+| 10 | Icon sources | Yes, try it | show me example to see if we keep | Task [#185](https://github.com/derekburnz/Clean-a-Cat/issues/185), ends with a sample sheet |
+| 11 | No UI framework | Agree, no framework now | | Decision recorded |
+| 12 | Roblox style sheets | Try it on one screen now | show me example to see if we keep | Task [#186](https://github.com/derekburnz/Clean-a-Cat/issues/186), ends with pictures and a clip |
+| 13 | Tests inside real Roblox from GitHub | Something else | use it if you think it would help without slowing updates too much or increasing token usage | Our call: wait |
+| 14 | More skills | Something else | not sure | Parked until that work starts |
+
+**The two calls Derek left to us**
+- Flipbook: not installed for now. It needs a plugin on Derek's PC and a story file for every screen, which is more work per screen. The HTML mockups, the UI gate and Roblox's device check (#178) already show each screen. We look again if screens start to slip past those three.
+- Tests inside real Roblox from GitHub: wait. Each run adds minutes to CI and the key may need one more permission from Derek. We set them up only if the style sheet trial (#186) is kept or a bug slips past the stand-in, and then on merges to main only so that pull requests stay fast.
+
+The decisions are recorded in `docs/decisions.md` of the game repo (pull request linked in the thread).
