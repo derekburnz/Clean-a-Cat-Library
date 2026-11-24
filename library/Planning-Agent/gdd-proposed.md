@@ -18,7 +18,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 - No catching, no buying cats and no trading [trading].
 
 **The bench: who is next** (new) [queue, impatience]
-- Three or four cats wait, each with a card: name, how dirty, what kind of dirt and what it pays.
+- Three or four cats wait, each with a card: name, how dirty, what kind of dirt and what it pays. (new 2026-11-24) Each card has one line of our own on how the cat got so dirty, which hints at the kind of dirt.
 - Cats differ so the pick matters: a muddier cat pays more and a fussy cat tips more but waits less.
 - A waiting cat gets grumpy and only its bonus tip shrinks. A cat that waits far too long goes home and comes back later. Nothing is ever lost.
 
@@ -29,18 +29,18 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **Suds, the mascot** (new 2026-11-24, Derek's words: "shouldn't stand", "stays with you as your spa mascot through the game that explains stuff/is used for when you unlock new things") [helperlook, hud, return]
 - Suds walks on four paws like every other cat, so he never holds a tool and never washes. He lives on a cushion on the front desk.
-- He explains by going there: he trots to a new thing, sits by it and shows a speech bubble of a few words. He takes the place of the floating gold arrow for things in the world. The player does every tap.
+- He explains by going there: he trots to a new thing and sits by it. His words show in a help bubble along the bottom of the screen: his face, one short title, one sentence that says why and one button that does the step [sudsbubble]. One bubble at a time, clear of the stick and the jump button, gone after the tap. A Tips switch in Settings turns the bubbles off after the tutorial. He takes the place of the floating gold arrow for things in the world. The player does every tap.
 - Rules that keep him inside the tutorial rules and the young audience rules: he shows each thing once and stops when the player has done it, he never opens a window, he never points at anything that costs Robux and he is never sad or cross, also not when the player comes back after days away.
 - On day 2 he meets the player at the door and points at the full tip jar and at today's visitor cat.
 
 **The wash** (changed) [steps, joblength, turn, praise, tools]
 - Four kinds of step at launch: scrub the mud, rinse with the shower, pick burrs out of the fur and towel dry. Later tools add nail trim, comb, shampoo and the dryer.
-- Each cat takes 4 to 6 steps of 8 to 15 seconds and never the same step twice in a row. A Step 2 of 4 line shows progress.
+- Each cat takes 4 to 6 steps of 8 to 15 seconds and never the same step twice in a row. A Step 2 of 4 line shows progress and a small tick list shows this cat's steps. (new 2026-11-24)
 - The cat holds still during a step. The game turns it between steps and two buttons let the player turn it.
 - Praise words name what the player did. A combo count pauses on a slip and does not reset.
 - Tool upgrades change shape and feel as well as speed: a wider sponge, a fan spray, a comb that shows hidden burrs.
 
-**After each cat** (new) [recap]: a recap with stars, coins and the tip. Three stars is normal and a hidden fourth marks a perfect wash. The full card shows for the first cats and for any new or rare cat, a slim strip for the rest.
+**After each cat** (new) [recap]: a recap with stars, coins and the tip. Three stars is normal and a hidden fourth marks a perfect wash. The full card shows for the first cats and for any new or rare cat, a slim strip for the rest. (new 2026-11-24) The full card sits at the side so the clean cat stays in view, lists one line per reason and keeps its button out of the bottom right corner, where Roblox's badge note appears.
 
 **Rare visitors** (new) [rare]: unlocked as the spa earns stars. A rare visitor brings a rare cat and wants a near perfect wash, with the same short job as any cat. A finished visit gives a lasting reward, for example a small permanent tip bonus and a framed photo for the wall. Chances are on the board and no visitor can be bought.
 
@@ -112,8 +112,10 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 - No proof: no source gives a tested number for any hook, wait or job length. Mitigation: ship choices behind switches, run two versions and read Roblox's own numbers.
 - Policy: the hidden coat is random. Mitigation: it is free, the chances are shown and coins cannot be bought. The spa keeps an open front and only cats are bathed.
 
+**Lessons from Derek's My Pet Salon screenshots** (2026-11-24): what we take and what we do not is in `my-pet-salon-screens-2026-11-24.md`. In short: the bottom help bubble, the side recap card, the tick list of steps, the dirty story line, an index with shapes, counts per rarity and the next bonus, settings with a tips switch and a smoother on phones switch and about 24 coats on day one if Model-Agent confirms the cost [session]. Not taken: offers on screen in the first session, stock counters, coins for Robux, paid skips and rewards for likes or favourites.
+
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 41 on the plan page. The first nine decide the game.
+**Open questions for the owner:** the 42 on the plan page. The first nine decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`
