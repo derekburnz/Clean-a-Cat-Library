@@ -83,6 +83,8 @@ Everything from all six games is sorted by theme in playtest-summary-2026-11-24.
 Derek's notes:
 - "here is more pics from the animal salon game, I noticed the big black buttons on mobile take up a lot of the screen and block view sometimes (also happens for us in the picking up cat out of box)."
 
+- "the per rotates round and round you cant turn it yourself in the salon one" (his answer to whether the pet can be turned by the player).
+
 Planning-Agent's reading: the default black prompt is out for every prompt in our game. The washing pictures are sorted in my-pet-salon-screens-2026-11-24.md, second batch.
 
 ## Across the games (Derek, 2026-11-24 ET)

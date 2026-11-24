@@ -53,4 +53,6 @@ Derek's words: "I noticed the big black buttons on mobile take up a lot of the s
 | An X at the top right leaves the wash. | 19 to 26 | Ours needs a way out of a wash too. | Design-Agent |
 | Outside: four menu buttons in a block at the left, a quests bar and a one time starter pack worded as the cash you are short. | 27 | Not taken: an offer worded around what the player lacks is pressure. The quests bar matches the goal bar idea from Restaurant Tycoon 3. | none |
 
-Still missing from the replay list: a screen recording of one whole wash, whether the player can turn the pet, a result card without full stars, the pet egg screen and the three numbers (seconds per wash, washes before wanting to stop, how much slower the helper is).
+Answered by Derek 2026-11-24: "the per rotates round and round you cant turn it yourself in the salon one". So their pet turns by itself the whole time and the player cannot turn it, which is what he disliked. Ours: the cat never turns by itself during a step and the player turns the view.
+
+Still missing from the replay list: a screen recording of one whole wash, a result card without full stars, the pet egg screen and the three numbers (seconds per wash, washes before wanting to stop, how much slower the helper is).

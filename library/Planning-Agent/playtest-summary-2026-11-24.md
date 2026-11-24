@@ -52,7 +52,7 @@ The six games: My Pet Salon (the closest to ours), Capybara Onsen (a pad and mer
 - Starter packs with countdowns in the first minute (Restaurant Tycoon 3, Barber Simulator, My Pet Salon), Robux offers on the screen from second one (Clean Everything, horse game), watch an ad buttons (Clean Everything, Barber Simulator), a stock counter (My Pet Salon), helpers rented by the minute (Clean Everything). Ours: no offer in the first session, no countdowns, nothing sold that skips the game.
 
 ## More playtests
-- My Pet Salon replay: ten pictures of the washing are in. Still missing: a screen recording of one wash, whether the player can turn the pet, a result card without full stars, the pet egg screen and three numbers.
+- My Pet Salon replay: ten pictures of the washing are in. Derek confirmed the pet there rotates by itself and cannot be turned by the player. Still missing: a screen recording of one wash, a result card without full stars, the pet egg screen and three numbers.
 - Added at Derek's request: Puppy Spa (listed as [NEW] Puppy Spa, 11 playing and 52% liked on the evening of 2026-11-24).
 - Our one suggestion: Pet Store Tycoon (about 3,400 playing, 96% liked), for how pets are earned and where workers fit.
 - Only if curious: Clean the Animal Daycare, Throw Food For Animals.

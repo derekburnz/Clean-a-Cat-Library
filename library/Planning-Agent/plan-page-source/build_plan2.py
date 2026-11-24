@@ -47,7 +47,6 @@ GAMES = [
          why="Your ten replay pictures are in and sorted: the step list card, the hand hint, the praise words, the perfect streak, a rare cat with six steps and the tap targets on the paws. A few things from the list are still missing, so this card stays open for your next go.",
          look="What is still missing, most useful first. Send it in chat as before.",
          shots=["One screen recording of a whole wash from start to result card, 30 to 60 seconds. A clip shows the feel better than stills.",
-                "Whether you can turn the pet yourself, or whether only the game moves the view.",
                 "A result card where you did not get full stars, so we see what loses a star and what breaks the perfect streak.",
                 "How you get a pet: the egg or crate screen with its prices, and whether the chances are shown.",
                 "The notification ask, if it pops up, and about how many seconds in."],
@@ -103,7 +102,7 @@ THEMES = [
 TODOS = [
     ("Now", [
         dict(id="mpsreplay", t="My Pet Salon replay: the few things still missing",
-             d="Your ten pictures covered most of the list. What is left is on the game's card above: a screen recording of one whole wash, whether you can turn the pet yourself, a result card without full stars, the pet egg screen and three numbers."),
+             d="Your ten pictures covered most of the list. What is left is on the game's card above: a screen recording of one whole wash, a result card without full stars, the pet egg screen and three numbers. You answered the turning question on November 24: the pet goes round and round by itself and you cannot turn it."),
     ]),
     ("Quick answers, one line in chat each", [
         dict(id="rtskip", t="Does the skip button on Restaurant Tycoon's goal bar cost Robux?",
@@ -215,7 +214,7 @@ QUESTIONS = [
              d="You found the same swipe three times boring and 16 steps too long. Each step lasts 8 to 15 seconds, so a cat takes about a minute. A Step 2 of 4 line shows how far along you are. In your replay a common pet had three or four steps and a rare cat had six, so their rare jobs are about twice as long. Ours stay the same length and ask for more care.",
              opts=["Yes, 4 to 6 short steps", "Shorter, 3 steps", "Longer jobs are fine", ELSE]),
         dict(id="turn", t="The cat holds still and you turn the view with your right thumb",
-             d="You said the pet turning the whole time made you miss spots. Ours stays put during a step and the game turns it between steps. The draft screen has two round arrow buttons for turning it yourself. New on November 24: in Barber Simulator you hold on an area to cut while your right thumb, on the right side of the screen, turns the camera around the head, and you said that was smooth and felt good. Our pick now uses it: the cat holds still, your scrubbing hand works anywhere on the cat and a drag on the right side of the screen turns the view. It fits the close wash view with the move stick hidden. It is an idea until you pick it, and the builders test it on a phone first. My Pet Salon moves the camera to the part you work on, such as down to the paws for the trim. Ours does that between steps.",
+             d="You said the pet turning the whole time made you miss spots. Ours stays put during a step and the game turns it between steps. The draft screen has two round arrow buttons for turning it yourself. New on November 24: in Barber Simulator you hold on an area to cut while your right thumb, on the right side of the screen, turns the camera around the head, and you said that was smooth and felt good. Our pick now uses it: the cat holds still, your scrubbing hand works anywhere on the cat and a drag on the right side of the screen turns the view. It fits the close wash view with the move stick hidden. It is an idea until you pick it, and the builders test it on a phone first. My Pet Salon moves the camera to the part you work on, such as down to the paws for the trim. Ours does that between steps. You confirmed on November 24 that in My Pet Salon the pet rotates round and round and you cannot turn it yourself, which is the thing you disliked. So ours is the opposite on purpose: the cat never turns by itself during a step and the turning is yours.",
              opts=["Still cat, right thumb turns the view", "Still cat, two arrow buttons to turn", "Slow turning all the time", ELSE]),
         dict(id="praise", t="Praise words and a combo that pauses on a slip",
              d="You noticed Awesome and Excellent with a growing number. Ours: short words that name what you did, one at a time and never under your finger, beside a combo count. A slip pauses the combo and does not reset it to zero, which feels unfair to young players. Your replay pictures of My Pet Salon show two more things we take in our own words: a word when a step is done, and a streak for perfect washes in a row that adds a little to each tip, 10% for one and 20% for two there. A slip ends the streak and costs nothing else.",
