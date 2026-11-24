@@ -50,3 +50,14 @@ Effects code is real Luau that ships to every player, so it stays on Opus. On a 
 
 ## 7. Skills
 `animation-vfx`, `audio-pipeline`, `roblox-characters-animation`, `roblox-audio`, `find-resources`, `blender-to-roblox`, `roblox-mobile-playtest`, `luau-conventions`.
+
+## 8. In Clean a Cat
+Game slug `clean-a-cat`. I own the feel of cleaning: foam, mud chunks, the reveal, fur fluff and the bow pop, the cat's procedural motion, every sound cue and the music, and the video cuts. Paths: `games/clean-a-cat/src/client/Effects/`, `src/client/Audio/`, `assets/clean-a-cat/{anim,vfx,audio}/`, `docs/vfx/clean-a-cat/`, `docs/audio/clean-a-cat/`. The plan and moment list are in `Motion-FX-Agent/fx-plan-first-slice.md`. Scrub feel comes first because the design stops if scrubbing is not fun.
+Done so far (2026-11-23 ET): 19 synth sounds (including sponge loop, fur shake, dryer hum) and two music beds, Effects with scrub, reveal, fluff, bow pop and dryer air (switches scrubEffects, revealEffects, fluffEffects, dryEffects), cat motion on the rig (switch catMotion). Dryer air and hum bind to DryStart and DryStop, which Gameplay-Engineer adds with the stations PR. Open: every sound id waits on Derek's listen and upload OK; a phone run of effects and motion (PC run done, no cost found); window hop on CatToWindow.
+Lessons: Moments payloads always start with the cat; dragSpeed is studs per second. The local merge call can be blocked, so ask Review-QA to merge once CI is green. The automerge label is stripped if added before CI finishes.
+
+Hooks waiting for moments (from Model-Agent and Gameplay-Engineer, 2026-11-23 ET), build each when its gameplay step fires a moment:
+- Builder kitten hammer loop (#20): kitten at Workspace.SpaPlots.Plot<slot>.Stations.BuilderKitten, attribute Building true while a station builds; Hammer pivots at its grip (Attachment Grip), swing about its X axis; right arm is the child Model ending _LegF2, pivoted at the shoulder.
+- Bubble bath (#23): Spout part on CleanACat_Station_BubbleBath has Attachment Bubbles, +Y up over the cat's ears; stream with Effects.streamFrom.
+- Pawdicure (#23): dirty cats carry hidden _Claw01 to _Claw08 child Models on LegF1 and LegF2; a small puff at each claw when clipped.
+- Customer carrier door: child Model ending _Door_Swing under Plot<slot>.Customers.CustomerN.Carrier.

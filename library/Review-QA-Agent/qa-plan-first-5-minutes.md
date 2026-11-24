@@ -27,7 +27,7 @@ Review-QA-Agent, 2026-11-23 ET. Built from Planning-Agent/gdd-draft.md (draft, n
 | Customers and strays | Server picks the cat from the chance table; stars change odds only as the board says; first cat is always the stray | Request a customer while one is queued; pick a rarity from the client: ignored |
 | Needs and stations | A locked station cannot be used; each need cleared once | Use the dryer before it is built; clear the same need twice |
 | Display window | Tips while away are capped; window holds four cats | Set the clock back, rejoin fast many times: no extra tips past the cap |
-| Builds | Server stores the end time as server time; one build at a time; finished build waits; nothing lost by coming back late | Start two builds; start with too few coins; finish early from the client; rejoin mid build |
+| Builds | Server stores the end time as server time; two slots (kitten: one station at a time; building site: one room at a time; Second Builder pass adds a second kitten); finished build waits; nothing lost by coming back late | Start two stations without the pass; start with too few coins; finish early from the client; rejoin mid build |
 | Index | Washed and Resident stamps once each; set bonus paid once | Re-wash to farm the set bonus |
 | Saving | Every field has a default and a clamp; session lock; old save loads on new code | Leave during a build and during a purchase; two servers at once |
 | Notification | Opt-in only, offered once after the first long build starts; one message per day max; no pressure wording | Start and cancel builds to spam messages |
@@ -49,7 +49,7 @@ Run on a fresh account with no owner perks, phone size first. Each line has a ta
 | 8 | 3:00 | First build | Brush Table upgrade: builder kitten hammers, countdown shows 10 s, spa stays usable during the build. |
 | 9 | 4:00 | Locked need | A customer needs a blow dry; icon shows locked; dryer shows 150 coins and 1 minute, grey until affordable. |
 | 10 | 5:00 | Dryer done | Dryer works and pays more per cat. Builder shows Bubble Bath at 10 minutes next. |
-| 11 | later | Long build | Builder offers the VIP Room (8 hours) with "Start it before you go". Opt-in prompt offered once, only after it starts, and can be dismissed. |
+| 11 | later | Long build | Builder offers the VIP Room (8 hours) with "Start it before you go". The VIP Room builds on its own slot, so the kitten stays free. The bell shows on builds over 1 hour, and only a tap on it opens the opt-in prompt. |
 | 12 | rejoin | Return | Rejoin: coins, cats, window, index and the build end time are all kept; window tips capped; finished build celebrates. Needs a published test server, not a local Studio place. |
 
 Also on every run of this checklist:

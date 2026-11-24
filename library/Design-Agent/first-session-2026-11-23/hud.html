@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clean a Cat HUD mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Clean a Cat HUD mockup. Layout plan: GitHub issue #9. First session plan: issue #5.
+   Draft palette (style not picked yet): spa pastels with warm wood. */
+:root {
+  --wall: #fbe9e3; --floor: #e7c9a5; --wood: #b98457; --tile: #cfe8ec;
+  --mint: #8fd6c3; --pink: #f6a9c0; --lilac: #b9a6e8; --gold: #ffd257;
+  --ink: #3a2c3f; --white: #ffffff; --lock: #a9a2ad;
+  --outline: 0 0 2px #3a2c3f, 0 0 2px #3a2c3f, 0 0 3px #3a2c3f, 0 2px 0 #3a2c3f;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px 16px 48px; background: #2b2430; color: #f4eef6;
+  font-family: "Fredoka", system-ui, sans-serif; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+p.lead { margin: 0 0 24px; color: #cfc4d6; max-width: 760px; line-height: 1.4; }
+.frame-wrap { margin-bottom: 36px; }
+.frame-wrap h2 { font-size: 16px; margin: 0 0 8px; color: #e6dcea; font-weight: 600; }
+.cap { color: #bfb3c6; font-size: 13px; margin: 8px 0 0; max-width: 760px; line-height: 1.4; }
+
+/* Device frames at real CSS pixel sizes of a small phone (iPhone SE class) */
+.phone { position: relative; overflow: hidden; border-radius: 22px;
+  border: 8px solid #111; background: var(--wall); }
+.land { width: 667px; height: 375px; }
+.port { width: 375px; height: 667px; }
+
+/* World (stand-in drawing for the 3D spa) */
+.world { position: absolute; inset: 0;
+  background: linear-gradient(var(--wall) 0 55%, var(--floor) 55% 100%); }
+.tiles { position: absolute; left: 0; right: 0; top: 0; height: 55%;
+  background-image: linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px),
+  linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size: 28px 28px; opacity: .6; }
+.tub { position: absolute; width: 230px; height: 96px; left: 50%; bottom: 60px; transform: translateX(-50%);
+  background: var(--white); border-radius: 18px 18px 60px 60px; border: 4px solid #d9eef1; }
+.foam { position: absolute; top: -18px; left: 10px; right: 10px; height: 34px;
+  background: radial-gradient(circle at 15% 60%, #fff 14px, transparent 15px),
+  radial-gradient(circle at 40% 40%, #fff 18px, transparent 19px),
+  radial-gradient(circle at 70% 55%, #fff 15px, transparent 16px),
+  radial-gradient(circle at 90% 50%, #fff 11px, transparent 12px); }
+.cat { position: absolute; left: 50%; bottom: 120px; transform: translateX(-50%); width: 120px; height: 100px; }
+.cat .body { position: absolute; bottom: 0; left: 10px; width: 100px; height: 66px; background: #9a7b62; border-radius: 50px 50px 30px 30px; }
+.cat .head { position: absolute; bottom: 44px; left: 30px; width: 62px; height: 54px; background: #9a7b62; border-radius: 50%; }
+.cat .ear { position: absolute; bottom: 86px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 18px solid #9a7b62; }
+.cat .ear.l { left: 34px; } .cat .ear.r { left: 68px; }
+.cat .eye { position: absolute; bottom: 70px; width: 8px; height: 10px; background: var(--ink); border-radius: 50%; }
+.cat .eye.l { left: 48px; } .cat .eye.r { left: 68px; }
+.mud { position: absolute; background: #6b4a2f; border-radius: 50%; opacity: .9; }
+.window-box { position: absolute; right: 26px; top: 70px; width: 130px; height: 90px; background: #e9f6fb;
+  border: 6px solid var(--wood); border-radius: 10px; }
+.window-box::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18px; background: var(--pink); border-radius: 0 0 4px 4px; }
+.board { position: absolute; left: 92px; top: 66px; width: 96px; height: 110px; background: var(--wood); border-radius: 8px; padding: 6px; }
+.board div { font-size: 11px; color: #fff; line-height: 1.45; text-shadow: 0 1px 0 #6b4a2f; }
+.board b { font-weight: 700; }
+
+/* Billboard: need icons above the cat */
+.needs { position: absolute; left: 50%; bottom: 232px; transform: translateX(-50%); display: flex; gap: 6px; }
+.need { width: 34px; height: 34px; border-radius: 50%; background: var(--white); border: 3px solid var(--ink);
+  display: grid; place-items: center; font-size: 18px; }
+.need.done { background: var(--mint); }
+.need.locked { background: #eee; filter: grayscale(1); opacity: .8; }
+
+/* HUD: outlined numbers, no boxes */
+.safe-top { position: absolute; left: 0; top: 0; width: 120px; height: 44px; border: 1px dashed rgba(58,44,63,.35);
+  border-radius: 0 0 10px 0; color: rgba(58,44,63,.55); font-size: 10px; padding: 4px 6px; }
+.goal { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: #fff; font-weight: 700;
+  font-size: 18px; text-shadow: var(--outline); white-space: nowrap; }
+.goal small { font-size: 14px; margin-left: 6px; color: var(--gold); }
+.money { position: absolute; top: 8px; right: 14px; text-align: right; color: #fff; font-weight: 700; text-shadow: var(--outline); }
+.money .row { display: flex; align-items: center; justify-content: flex-end; gap: 6px; font-size: 22px; line-height: 1.15; }
+.money .row.s { font-size: 17px; }
+.ic { width: 22px; height: 22px; border-radius: 50%; display: inline-block; border: 2px solid var(--ink); }
+.ic.coin { background: var(--gold); }
+.ic.star { background: var(--lilac); border-radius: 4px; transform: rotate(45deg) scale(.8); }
+
+/* Side buttons: the only things that look like buttons */
+.side { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 24px; }
+.btn { width: 56px; height: 56px; border-radius: 50%; background: var(--white); border: 3px solid var(--ink);
+  box-shadow: 0 4px 0 var(--ink); display: grid; place-items: center; font-size: 24px; position: relative; }
+.btn .lbl { position: absolute; bottom: -15px; font-size: 11px; font-weight: 700; color: #fff; text-shadow: var(--outline); }
+.btn .ring { position: absolute; inset: -6px; border-radius: 50%;
+  background: conic-gradient(var(--mint) 0 65%, transparent 65% 100%);
+  -webkit-mask: radial-gradient(circle, transparent 31px, #000 32px); mask: radial-gradient(circle, transparent 31px, #000 32px); }
+.badge { position: absolute; top: -8px; right: -14px; background: var(--pink); color: #fff; font-size: 11px; font-weight: 700;
+  padding: 2px 6px; border-radius: 10px; border: 2px solid var(--ink); }
+
+/* Hotbar */
+.hotbar { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+.slot { width: 52px; height: 52px; border-radius: 14px; background: rgba(255,255,255,.92); border: 3px solid var(--ink);
+  display: grid; place-items: center; font-size: 24px; position: relative; }
+.slot .k { position: absolute; top: 1px; left: 5px; font-size: 10px; font-weight: 700; color: var(--ink); }
+.slot.sel { background: var(--gold); transform: translateY(-6px); box-shadow: 0 6px 0 var(--ink); }
+.slot.glow { box-shadow: 0 0 0 4px var(--mint); }
+.slot.locked { background: #ddd8df; filter: grayscale(1); }
+.slot.locked::after { content: "🔒"; position: absolute; font-size: 14px; bottom: -2px; right: -2px; filter: none; }
+.leave { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); background: var(--white); border: 3px solid var(--ink);
+  border-radius: 14px; padding: 4px 14px; font-weight: 700; font-size: 14px; box-shadow: 0 3px 0 var(--ink); color: var(--ink); }
+
+/* Tutorial dim and arrow */
+.dim { position: absolute; inset: 0; background: rgba(20,12,24,.55);
+  -webkit-mask: radial-gradient(ellipse 110px 90px at 50% 50%, transparent 98%, #000 100%);
+  mask: radial-gradient(ellipse 110px 90px at 50% 50%, transparent 98%, #000 100%); }
+.arrow { position: absolute; left: 50%; top: 52px; transform: translateX(-50%); text-align: center; color: #fff; }
+.arrow .word { font-size: 26px; font-weight: 700; text-shadow: var(--outline); }
+.arrow .tri { margin: 2px auto 0; width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent;
+  border-top: 26px solid var(--gold); filter: drop-shadow(0 2px 0 var(--ink)); }
+
+/* Windows (opened by the player, only X closes) */
+.backdrop { position: absolute; inset: 0; background: rgba(20,12,24,.45); }
+.win { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #fffaf4; color: var(--ink);
+  border: 4px solid var(--ink); border-radius: 20px; box-shadow: 0 6px 0 var(--ink); padding: 12px 14px 14px; }
+.win h3 { margin: 0 0 8px; font-size: 20px; }
+.x { position: absolute; top: -14px; right: -14px; width: 44px; height: 44px; border-radius: 50%; background: var(--pink);
+  border: 3px solid var(--ink); box-shadow: 0 3px 0 var(--ink); display: grid; place-items: center; font-weight: 700; font-size: 20px; color: #fff; }
+.build-now { background: #e8f7f2; border: 2px solid var(--mint); border-radius: 12px; padding: 8px 10px; display: flex; align-items: center; gap: 10px; }
+.bar { flex: 1; height: 12px; border-radius: 6px; background: #d6ece5; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 65%; background: var(--mint); }
+.bell { width: 44px; height: 44px; border-radius: 12px; border: 3px solid var(--ink); background: var(--gold); display: grid; place-items: center; font-size: 18px; box-shadow: 0 3px 0 var(--ink); }
+.list { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+.item { display: grid; grid-template-columns: 34px 1fr auto auto; gap: 10px; align-items: center; padding: 6px 8px; border-radius: 12px; background: #fff; border: 2px solid #eadfe6; }
+.item .t { font-weight: 600; font-size: 15px; } .item .d { font-size: 12px; color: #7d6d82; }
+.item .time { font-size: 13px; color: #7d6d82; }
+.buy { background: var(--mint); border: 3px solid var(--ink); border-radius: 12px; padding: 6px 10px; font-weight: 700; box-shadow: 0 3px 0 var(--ink); min-width: 72px; text-align: center; min-height: 44px; display: grid; place-items: center; }
+.sec { font-size: 12px; font-weight: 700; color: #7d6d82; text-transform: uppercase; letter-spacing: .04em; margin: 8px 0 4px; }
+.item.lockd { opacity: .55; } .item.lockd .buy { background: #ddd; }
+
+.legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 20px; max-width: 900px; font-size: 13px; color: #d9cfdd; }
+.legend b { color: #fff; }
+@media (max-width: 700px) { .phone { transform-origin: top left; } }
+</style>
+</head>
+<body>
+<h1>Clean a Cat: HUD mockup (draft)</h1>
+<p class="lead">Rough layout only, drawn at a small phone's real size (667 x 375). The cat, tub and room stand in for the 3D world. Colors are a draft until a style is picked. Plan: GitHub issues #9 (UI layout) and #5 (first session).</p>
+
+<div class="frame-wrap">
+  <h2>1. Phone landscape, washing a customer's cat (normal play)</h2>
+  <div class="phone land">
+    <div class="world"><div class="tiles"></div>
+      <div class="board"><div><b>Who comes in</b></div><div>Common 60%</div><div>Uncommon 25%</div><div>Rare 11%</div><div>Epic 3.5%</div><div>Legendary 0.5%</div></div>
+      <div class="window-box"></div>
+      <div class="cat"><div class="ear l"></div><div class="ear r"></div><div class="body"></div><div class="head"></div><div class="eye l"></div><div class="eye r"></div>
+        <div class="mud" style="left:20px;bottom:10px;width:30px;height:18px"></div><div class="mud" style="left:70px;bottom:20px;width:24px;height:16px"></div></div>
+      <div class="tub"><div class="foam"></div></div>
+      <div class="needs"><div class="need">🧽</div><div class="need done">✓</div><div class="need locked">💨</div></div>
+    </div>
+    <div class="safe-top">Roblox menu</div>
+    <div class="goal">Next: build the Dryer <small>(75 coins)</small></div>
+    <div class="leave">Stop washing</div>
+    <div class="money"><div class="row">48 <span class="ic coin"></span></div><div class="row s">3 <span class="ic star"></span></div></div>
+    <div class="side">
+      <div class="btn">🔨<div class="ring"></div><div class="lbl">Build</div></div>
+      <div class="btn">📖<div class="lbl">Index</div></div>
+    </div>
+    <div class="hotbar">
+      <div class="slot sel glow"><span class="k">1</span>🧽</div>
+      <div class="slot"><span class="k">2</span>🪮</div>
+      <div class="slot locked"><span class="k">3</span>💨</div>
+      <div class="slot locked"><span class="k">4</span>🛁</div>
+      <div class="slot locked"><span class="k">5</span>💅</div>
+    </div>
+  </div>
+  <p class="cap">Coins and stars are outlined numbers with no box. Only the two side buttons, the hotbar and Leave look pressable. The chance board and need icons live in the world. Shop is hidden until the first build is done. Thumbstick and jump are hidden while washing.</p>
+</div>
+
+<div class="frame-wrap">
+  <h2>2. Phone landscape, tutorial step 1 (second 0)</h2>
+  <div class="phone land">
+    <div class="world"><div class="tiles"></div>
+      <div class="cat" style="bottom:120px"><div class="ear l"></div><div class="ear r"></div><div class="body" style="background:#6b4a2f"></div><div class="head" style="background:#6b4a2f"></div><div class="eye l"></div><div class="eye r"></div></div>
+      <div class="tub"><div class="foam"></div></div>
+    </div>
+    <div class="dim"></div>
+    <div class="arrow"><div class="word">Scrub!</div><div class="tri"></div></div>
+    <div class="money"><div class="row">0 <span class="ic coin"></span></div></div>
+    <div class="hotbar"><div class="slot sel"><span class="k">1</span>🧽</div></div>
+  </div>
+  <p class="cap">Dim plus one arrow and one word. Nothing else on screen but the coin counter and the sponge already in hand. The player drags over the mud; nothing is done for them. Behind the TutorialFirstSession switch.</p>
+</div>
+
+<div class="frame-wrap">
+  <h2>3. Phone landscape, Builder window (opened by the player)</h2>
+  <div class="phone land">
+    <div class="world"><div class="tiles"></div><div class="tub"><div class="foam"></div></div></div>
+    <div class="backdrop"></div>
+    <div class="win" style="width:470px;padding:10px 12px 12px">
+      <div class="x">✕</div>
+      <h3 style="margin-bottom:4px">Builder</h3>
+      <div class="sec">Stations · builder kitten</div>
+      <div class="build-now"><span style="font-size:20px">🛁</span><div style="flex:1"><div style="font-weight:600">Bubble Bath</div><div class="bar"><i></i></div></div><div style="font-weight:700">3:24</div></div>
+      <div class="item lockd" style="margin-top:4px"><span style="font-size:20px">💅</span><div><div class="t">Pawdicure</div><div class="d">Trim long claws</div></div><span class="time">1 h</span><div class="buy">400 🪙 · kitten busy</div></div>
+      <div class="sec">Rooms · building site</div>
+      <div class="build-now"><span style="font-size:20px">👑</span><div style="flex:1"><div style="font-weight:600">VIP Room</div><div class="bar"><i style="width:8%"></i></div></div><div style="font-weight:700">7:42:10</div><div class="bell" title="Tell me when it's done">🔔</div></div>
+    </div>
+  </div>
+  <p class="cap">Two build slots (gdd-draft): the builder kitten builds one station at a time and the building site builds one room at a time, so the 8 hour room never blocks short station builds. A second station waits greyed with "kitten busy". The bell sits only on builds over 1 hour. The bell asks for a notification only when tapped, so no prompt opens by itself; it shows only to players who can get personal notifications. No timers to buy, no discount tags. Prices beyond the dryer are placeholders.</p>
+</div>
+
+<div class="frame-wrap">
+  <h2>4. Phone portrait, washing</h2>
+  <div class="phone port">
+    <div class="world" style="background:linear-gradient(var(--wall) 0 50%, var(--floor) 50% 100%)"><div class="tiles" style="height:50%"></div>
+      <div class="window-box" style="top:130px;right:20px;width:100px;height:70px"></div>
+      <div class="cat" style="bottom:200px"><div class="ear l"></div><div class="ear r"></div><div class="body"></div><div class="head"></div><div class="eye l"></div><div class="eye r"></div>
+        <div class="mud" style="left:24px;bottom:12px;width:28px;height:18px"></div></div>
+      <div class="tub" style="bottom:140px;width:220px"><div class="foam"></div></div>
+      <div class="needs" style="bottom:312px"><div class="need">🧽</div><div class="need">🪮</div></div>
+    </div>
+    <div class="safe-top">Roblox menu</div>
+    <div class="goal" style="top:52px;font-size:17px">Clean a customer's cat</div>
+    <div class="leave" style="top:82px">Stop washing</div>
+    <div class="money"><div class="row">12 <span class="ic coin"></span></div><div class="row s">1 <span class="ic star"></span></div></div>
+    <div class="side" style="top:auto;bottom:100px;transform:none"><div class="btn">🔨<div class="lbl">Build</div></div><div class="btn">📖<div class="lbl">Index</div></div></div>
+    <div class="hotbar" style="bottom:22px">
+      <div class="slot sel glow"><span class="k">1</span>🧽</div><div class="slot"><span class="k">2</span>🪮</div><div class="slot locked"><span class="k">3</span>💨</div><div class="slot locked"><span class="k">4</span>🛁</div><div class="slot locked"><span class="k">5</span>💅</div>
+    </div>
+  </div>
+  <p class="cap">If portrait is allowed: the goal line drops below Roblox's top bar, side buttons move down to the thumb zone above the hotbar. Recommended is a landscape lock on phones, so this frame shows the fallback.</p>
+</div>
+
+<div class="legend">
+  <div><b>Outlined text, no box:</b> coins, stars, goal line.</div>
+  <div><b>Looks like a button:</b> side buttons, hotbar, Leave, Buy, X, bell.</div>
+  <div><b>In the world:</b> need icons, chance board, tip jar, builder kitten, camera button.</div>
+  <div><b>Touch targets:</b> 44 px or more; text 14 px or more, 18 px for instructions.</div>
+</div>
+</body>
+</html>

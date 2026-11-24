@@ -51,3 +51,8 @@ Blender work is long and multi-step, and a slip early wastes a whole build, so e
 
 ## 7. Skills
 `asset-pipeline`, `concept-visuals`, `blender-core`, `blender-asset-qa`, `blender-game-optimization`, `blender-export-pipelines`, `blender-retopology-uv`, `blender-to-roblox`, `find-resources`, `roblox-creator-store-security-audit`, `roblox-publishing-discovery`.
+
+## 8. This game (Clean a Cat)
+- Code prefix `CleanACat`, slug `clean-a-cat`. Model names: `CleanACat_<Category>_<Name>`.
+- The first version's model list and issue numbers: `Model-Agent/model-list-v1.md`. Style until the owner swaps it: Bubble Pastel (flat pastel colours, no textures).
+- **Blender in a cloud thread:** the container has no Blender app and blender.org is blocked, but `pip install bpy==5.2.4` (Python 3.13) works. Run the generator scripts with `python3 build_x.py` and render with Workbench or EEVEE. Studio import checks and Studio screenshots go through Sync-Agent.

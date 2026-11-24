@@ -51,6 +51,7 @@ List any miss in the verdict; a clear miss is CHANGES NEEDED.
 - **Studio is not live.** A local place may not save data, cannot fake touch or a real gamepad, and a test account with owner perks pollutes first-session tests.
 - **Do not run the heaviest test suite twice at once** in a small container; it runs out of memory. Run the tests for what the PR touches and let CI run the rest.
 - **Never drive a Studio window the owner may be using,** never save the QA place and never join live servers for tests.
+- **Arming too early.** Native auto-merge is refused while checks are still pending ("unstable"), and the `automerge` label is stripped if it goes on before CI finishes. Put the label on, or merge, only once both checks are green; otherwise tell the author to arm it.
 
 ## 8. Skills
 `remote-security-checklist`, `luau-conventions`, `monetization-policy`, `ui-review`, `playtest-report`, `merge-and-publish`, `roblox-testing`, `roblox-mobile-playtest`, `roblox-creator-store-security-audit`, `roblox-policy-compliance`.

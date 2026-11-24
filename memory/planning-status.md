@@ -15,17 +15,25 @@ Derek's decisions so far (his own words, 2026-11-22 and 11-23 ET):
 Recommended to Derek 2026-11-23, not yet confirmed by him:
 - Cat source recommended: customers bring cats, and strays turn up at the back door and stay on display.
 - Build timers from seconds up to 24 hours, an 8 hour build offered in session one, no paid skips, a Second Builder pass. One opt-in notification a day when the longest build ends (only players 13 and over can get personal notifications).
+- Two build slots (added 2026-11-23): the builder kitten builds one station at a time, a building site builds one room at a time, so the 8 hour VIP Room (100 coins) can start near minute 8 of session one without blocking short builds.
+- Pace numbers agreed with Design-Agent 2026-11-23 on issue 5 of the game repo: common cat 10 coins plus tip 2, Bubble Soap 30, Brush Table 40, dryer 75, window cat tips 1 coin per 10 seconds, away jar 1 hour. Design-Agent owns the numbers from here (docs/design/clean-a-cat/tuning.md). Notification opt-in is a bell button the player taps.
 
-A fresh Planning-Agent starts from Planning-Agent/handoff.md (written 2026-11-23 when the first planning thread was retired). Game repo: derekburnz/Clean-a-Cat. Files in the shared folder under Planning-Agent/: cat-spa-concepts.md (names, cat source options, first 5 minutes, day 2 hooks), gdd-draft.md (draft design, not locked), playtest-list.md (animal spa games with links, Capybara Onsen first), idea-shortlist.md (earlier three idea pitch), Idea-Research/ (two reports, name-check-2026-11-22.md, chart snapshot, raw notes).
+A fresh Planning-Agent starts from Planning-Agent/handoff.md (written 2026-11-23 when the first planning thread was retired). Game repo: derekburnz/Clean-a-Cat. Files in the shared folder under Planning-Agent/: gdd-draft.md (draft design), milestone-1.md (draft plan), playtest-list.md, cat-spa-concepts.md, idea-shortlist.md, Idea-Research/.
 
-Findings that shape the design: slow spa and salon tycoons stay small on Roblox; washing by hand is liked but cleaning games fade in months; the hits put an item in hand at spawn and use things that finish while away; Home counts bounces under 60 seconds and at 61 to 180 seconds and ranks on 28 day retention since 2026-06-15.
+Findings that shaped the design are in Planning-Agent/handoff.md (slow spa tycoons stay small, hand washing is liked but fades, hits put an item in hand at spawn, Home counts bounces under 60 and at 61 to 180 seconds).
 
 Open asks on Derek: playtest notes (first question: how each game hands the player a pet); confirm customers plus strays; paid skips yes or no (recommended no).
 
-Name check done 2026-11-23: web search found no game named Clean a Cat and no game trademark (only CLEAN CAT for cleaning cloths); not a trademark office search. Still owed: a maturity label check for spa rooms (open shop floor, cats only).
+Name check done 2026-11-23: web search found no game named Clean a Cat and no game trademark (only CLEAN CAT for cleaning cloths); not a trademark office search.
 
-Next: after the playtests, lock gdd-draft.md, write Planning-Agent/milestone-1.md, then hand over to the coordinator with name and slug.
+Maturity check and the Kids and Select gate: see [[roblox-age-rules]].
 
-How to research Roblox from a cloud thread: plain curl to Roblox domains is blocked (proxy 403), but the web fetch helper can read Roblox search at https://apis.roblox.com/search-api/omni-search?searchQuery=TERM&sessionId=1&pageType=all (live players, votes, root place ids, 40 results, rate limits after about a dozen calls in a burst). Trackers for stats: rolimons, rowatcher, rotrends, rostats, rblxdb, bloxodes, statroblox.
+Repos stay public until release (Derek, 2026-11-23). The planning folder is copied to library/Planning-Agent/ in derekburnz/Clean-a-Cat-Library (pushed 2026-11-23); never put secrets there.
 
-See [[project-setup]].
+Derek's pre-development plan page (playtest notes, his to-do list, 25 questions with recommended picks): https://claude.ai/artifact/QVD8oT37EZy9vE8mYz9KfG. His answers save in the page's database, collection `answers` (docs p-<game>, c-<todo>, q-<question>; pick is the option index, 0 is the recommendation). Read them with the ArtifactData tool. File copy: Planning-Agent/pre-development-plan.md. Milestone issues 27 and 29 to 40 are open on the game repo.
+
+Next: after the playtests, lock gdd-draft.md, finish Planning-Agent/milestone-1.md (a draft exists since 2026-11-23 with build order, owners and issues to open), then hand over to the coordinator with name and slug.
+
+See [[project-setup]] and [[roblox-research-howto]].
+
+Derek 2026-11-23 11:39 AM ET: Design-Agent pauses all design and UI work until he decides on the gameplay. Plans already filed (issues #5, #9, HUD mockup merged) stay as drafts; nothing new until he says go.

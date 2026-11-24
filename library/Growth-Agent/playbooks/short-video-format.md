@@ -63,3 +63,6 @@ Different rules, because it sits on the store page:
 
 ## How we watched other people's videos
 Some sites block cloud threads. What works: the owner's signed-in browser, with the owner's say, opening the video and sampling frames at a few timestamps to read the hook, the on-screen text, the pacing and the ending. Never log in and never type anything. Third-party tools that promise to do this are read before they are installed, and most need a login cookie that must not be handed over.
+
+## Voices (Derek, 2026-11-24)
+Make voice overs with the voice studio repo, not ElevenLabs. Do not buy or sign up for ElevenLabs. Repo name and path to be confirmed with Derek; until then story-kit's `src/kokoro_voice.py` and `src/revoice.py` stay as they are. Any recording of a real voice needs the speaker's OK, and nothing goes out without Derek's go-ahead.
