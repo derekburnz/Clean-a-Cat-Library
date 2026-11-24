@@ -62,7 +62,7 @@ Player counts are from the morning of November 24, 2026.
 - Plus or Premium: Only if Roblox asks for it when we apply for Kids and Select.
 - Private repos: At release.
 
-## 3. 42 questions, each with our pick first
+## 3. 43 questions, each with our pick first
 
 **The game** (from Planning-Agent) These nine decide what we build. Your playtests today test them.
 
@@ -138,13 +138,14 @@ Player counts are from the morning of November 24, 2026.
 | 38 | The store thumbnail (`thumb`) | The wide picture on the game's page: the chunky title on a teal bubble backdrop beside the claw-foot bath. | Yes, use it for the first test / Change it / Something else |
 | 39 | Add a half dirty, half clean picture (`split`) | You liked My Pet Salon's side by side picture with a thin line down the middle. Roblox can rotate thumbnails and show which one wins the most taps. Our pick: make one as the second thumbnail once the mud look is settled. | Yes, as the second thumbnail / Make it the main one / No / Something else |
 | 40 | Put the words cat spa in the description (`catspa`) | Your cat spa ad did well. The title stays Clean a Cat and the icon stays free of words. | Yes, go with it / No cat spa wording / Something else |
+| 41 | No [NEW] in front of the game name at launch (`newtag`) | You asked us to look into whether putting new in brackets before the name helps. Growth-Agent read six pages on it. Nobody has measured it: we found no test with numbers, only opinions. Roblox has no rule against it, but says titles must describe the game and that tags are not used in its ranking. Search weighs the front of a title most, so a bracket there pushes the real words back, and the tag goes stale within weeks. What makes people tap on Home is mostly the icon and the thumbnails. Our pick: launch as plain Clean a Cat and put the word new in the description's update line and on event cards. If you want to know for sure, the second option tries the tag after launch for one clean week and compares it with the week before. A title cannot be split between players, so that is a before and after read and one weak reason at best. | Plain Clean a Cat, new goes in the description / Try the tag after launch for one week / [NEW] in the name from day one / Something else |
 
 **Money and events** (from Planning-Agent and Growth-Agent)
 
 | # | Question (id) | What it means | Options, our pick first |
 |---|---|---|---|
-| 41 | Three game passes, and coins, helpers and rare cats are never sold (`passes`) | 2x Coins, Second Builder and Golden Sponge, a wider scrub with gold bubbles. Coins cannot be bought, so the random customer never counts as a paid random item. Nothing sold changes the chances, and the chance of every cat is always on a board. Your screenshots show how hard My Pet Salon sells: a starter pack on the main screen from the first minute, a limited pack with an Only 82 left counter, cash for Robux and a paid upgrade that maxes every worker. We stay with no offer on screen in the first session, no stock counters and no coins for Robux. Say in the note if you want a starter pack later. Ours would hold looks and not coins. | Yes, go with it / Something else |
-| 42 | A Cat Show weekend as your first event (`event`) | Day 7 is yours. A themed show with voting is the natural first event. It is not part of the first build. | Yes, plan it for later / I have a different event in mind / Something else |
+| 42 | Three game passes, and coins, helpers and rare cats are never sold (`passes`) | 2x Coins, Second Builder and Golden Sponge, a wider scrub with gold bubbles. Coins cannot be bought, so the random customer never counts as a paid random item. Nothing sold changes the chances, and the chance of every cat is always on a board. Your screenshots show how hard My Pet Salon sells: a starter pack on the main screen from the first minute, a limited pack with an Only 82 left counter, cash for Robux and a paid upgrade that maxes every worker. We stay with no offer on screen in the first session, no stock counters and no coins for Robux. Say in the note if you want a starter pack later. Ours would hold looks and not coins. | Yes, go with it / Something else |
+| 43 | A Cat Show weekend as your first event (`event`) | Day 7 is yours. A themed show with voting is the natural first event. It is not part of the first build. | Yes, plan it for later / I have a different event in mind / Something else |
 
 ## Saved from round one
 - **Your idea after My Pet Salon:** You wash by hand, hired helpers take customers too but much slower, more customers show up so you pick who is next, and maybe customers who wait too long leave. Saved as a direction, not a decision.

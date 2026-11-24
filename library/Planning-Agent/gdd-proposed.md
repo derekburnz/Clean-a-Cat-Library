@@ -116,6 +116,6 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 42 on the plan page. The first nine decide the game.
+**Open questions for the owner:** the 43 on the plan page. The first nine decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`

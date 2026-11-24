@@ -283,6 +283,9 @@ QUESTIONS = [
         dict(id="catspa", t="Put the words cat spa in the description",
              d="Your cat spa ad did well. The title stays Clean a Cat and the icon stays free of words.",
              opts=[YES, "No cat spa wording", ELSE]),
+        dict(id="newtag", t="No [NEW] in front of the game name at launch",
+             d="You asked us to look into whether putting new in brackets before the name helps. Growth-Agent read six pages on it. Nobody has measured it: we found no test with numbers, only opinions. Roblox has no rule against it, but says titles must describe the game and that tags are not used in its ranking. Search weighs the front of a title most, so a bracket there pushes the real words back, and the tag goes stale within weeks. What makes people tap on Home is mostly the icon and the thumbnails. Our pick: launch as plain Clean a Cat and put the word new in the description's update line and on event cards. If you want to know for sure, the second option tries the tag after launch for one clean week and compares it with the week before. A title cannot be split between players, so that is a before and after read and one weak reason at best.",
+             opts=["Plain Clean a Cat, new goes in the description", "Try the tag after launch for one week", "[NEW] in the name from day one", ELSE]),
     ]),
     ("Money and events", "Planning-Agent and Growth-Agent", "", [
         dict(id="passes", t="Three game passes, and coins, helpers and rare cats are never sold",
