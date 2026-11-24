@@ -68,6 +68,10 @@ Planning-Agent's reading (from his words and the pictures, not his words):
 - Worth taking: a goal bar at the top with a count, a Show Me button when a rare customer comes in, an upgrades window that shows locked upgrades and what each requires, upgrades that add new things to do, workers with a hire price and a level price.
 - Not taken: three setup screens before the first customer, a typed name, a starter pack with a countdown in the first minute and a premium worker in the hire list.
 
+## Across the games (Derek, 2026-11-24 ET)
+- "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
+- Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).
+
 ## For other threads
 - Store art (Model-Agent and Growth-Agent, later): Derek liked a half dirty and half clean picture split by a thin line.
 - Screens (Design-Agent, when unpaused): he liked clean pop-ups, a step counter such as "step 1 of 3", flowing arrows on the ground with a bobbing arrow at the goal, and a recap card with stars, coins and experience.

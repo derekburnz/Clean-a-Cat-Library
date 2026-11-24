@@ -94,7 +94,7 @@ What it would change in this page if he keeps it:
 - The one pace number stays cats washed to afford the next purchase. The numbers in `docs/design/clean-a-cat/tuning.md` were set for a single 8 second scrub. With a job of about a minute they all need a new pass by Design-Agent once the job length is timed on a phone.
 - Guard rail: helpers and window cats together earn less than the player's own washing at the same stage, so washing by hand stays the best way to earn.
 
-**Reason to come back tomorrow** (changed) [return]: empty slots in the index, a tip jar that fills while away and stops at a cap and one different visitor cat each day. No streak and nothing lost by missing a day. A bell for finished builds stays as a small extra for players of 13 and over, who are the only ones Roblox lets us notify.
+**Reason to come back tomorrow** (changed) [return]: empty slots in the index, a tip jar that fills while away and stops at a cap and one different visitor cat each day. No streak and nothing lost by missing a day. Notifications reach only players of 13 and over. Derek noted on 2026-11-24 that many popular games ask for them almost at once, so our pick moves the ask up: once, after the first clean cat at about minute 1, in Suds's bubble, behind a switch [notifyask].
 
 **Social** [friends, visit]: spas sit side by side on one street. Players see each other's windows and reveals but do not walk in at launch. Each friend in the server adds 10% to tips, shown on screen from the start. Not in: stealing, trading, fighting and typed text. Friends as customers [friendcust]: our pick is now to leave it out at launch. Derek checked Restaurant Tycoon 3 on 2026-11-24 and it does not use friends as waiters or customers. It waits for his tap or word and is not to be built.
 
@@ -135,6 +135,6 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 46 on the plan page. The first eleven decide the game.
+**Open questions for the owner:** the 47 on the plan page. The first eleven decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`
