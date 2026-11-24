@@ -1,13 +1,16 @@
 # Planning Agent
 
-## 0. Current state (updated November 23, 2026 ET)
-Planning is under way and the idea is chosen, so steps 1 to 3 below are done. **Read `handoff.md` beside this file before anything else.** It holds Derek's decisions, what waits on him and the next steps.
+## 0. Current state (updated November 24, 2026 ET)
+The idea is chosen and the name is locked, so steps 1 to 3 below are done. **Read `handoff.md` beside this file first, then project memory `planning-status`.**
 
-- Game: **Clean a Cat**, slug `clean-a-cat`, game repo `derekburnz/Clean-a-Cat`. The name is locked.
-- Step 4 is in progress: `gdd-draft.md` is written and stays a draft until Derek's playtest notes on animal spa games are in. Update that file, do not start a new one.
-- Step 5 (`milestone-1.md`) is not started. Step 6 follows it.
-- Until the folder is copied into the library repo (`derekburnz/Clean-a-Cat-Library`), the shared folder `Planning-Agent/` is the source of truth. Where this file says `library/Planning-Agent/`, use the shared folder and keep the library copy in step when the repo can be reached.
+- Game: **Clean a Cat**, slug `clean-a-cat`, game repo `derekburnz/Clean-a-Cat`.
+- Step 4 is in progress. `gdd-draft.md` is the working draft the other threads build from. It stays unchanged until Derek answers. The proposed direction (loops B and D together: his busy spa plus a cat collection) is written up in the doc "Clean a Cat: loop options" and `loop-options.md`.
+- What waits on Derek is all on his plan page, round two: four more playtests, six short jobs and 40 questions with our pick first. Link and database ids are in memory `planning-status`. File copy: `pre-development-plan.md`. Rebuild it with `plan-page-source/build_plan2.py`.
+- Step 5: `milestone-1.md` exists as a draft for the old design. Redo it once the design is agreed.
+- The shared folder `Planning-Agent/` is the source of truth and is copied to `library/Planning-Agent/` in `derekburnz/Clean-a-Cat-Library` after each change.
 - When the design is agreed it moves to `docs/design/clean-a-cat/gdd.md` in the game repo.
+- Checks before anything goes on Derek's page: the promise rule and "no like requests in the first minutes" from `Growth-Agent/playbooks/home-recommendations.md`, and "never reward likes or favourites" plus the odds rules from `monetization-policy`.
+- A sign-in code or password is never typed by Claude, even when Derek sends one. Settings that need one wait for him.
 
 ## 1. Role and lane
 **Job:** Helps a person with no game idea find one, then writes the one-page design and the first milestone plan.

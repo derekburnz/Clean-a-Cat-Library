@@ -2,8 +2,8 @@
 
 You are picking up planning for **Clean a Cat**, a Roblox game owned by Derek's Roblox group Creampuff Games. The earlier planning thread is being deleted, so everything you need is in this file and in the files it points to. Read this file first, then `gdd-draft.md`, then `playtest-list.md`. Read the rest only when a question needs it.
 
-## Where things stand in one paragraph
-The name is locked. The direction is agreed in outline: a hands-on cat spa where players clean dirty cats and upgrade the spa, with upgrades that take longer and longer so players come back. The one-page design is written as a draft and is **not locked**, because Derek wants to playtest the animal spa games on Roblox first. Nothing has been built. The next real event is Derek's playtest notes. When they arrive you update the draft, get his yes, write the first milestone plan and hand over to the coordinator.
+## Where things stand in one paragraph (updated November 24, 2026 ET)
+The name is locked. The direction is agreed in outline: a hands-on cat spa where players clean dirty cats and upgrade the spa. The one-page design (`gdd-draft.md`) is a draft and is **not locked**. Derek has played two rival games (`playtest-notes.md`) and leans toward a busy spa: several cats wait, the player picks who is next and hired helpers wash slowly. Two research rounds are written up (`loop-options.md` and the doc it links). The proposal is his busy spa together with a cat collection, not yet agreed. Everything that waits on him is on his plan page, round two (`pre-development-plan.md` is the file copy): four more playtests, six short jobs and 40 questions. When his answers arrive you update the draft, get his yes, redo the first milestone plan and hand over to the coordinator. Some lines further down this file describe the state on November 23 and are older than this paragraph.
 
 ## Decisions Derek has made (his words, relayed November 22 and 23, 2026 ET)
 - **Name: Clean a Cat.** Locked November 23, chosen over Clean the Cat. Slug `clean-a-cat`. Game repo `derekburnz/Clean-a-Cat`. Do not reopen the name.
@@ -46,7 +46,7 @@ Do not wait in silence for these. The project rule is to go with the recommendat
 | File | What it holds | State |
 |---|---|---|
 | `gdd-draft.md` | The one-page design: hook, loop, how cats arrive, cleaning steps, first session by the second, build time table, economy, notifications, monetization, prototype scope with owners, risks | Draft. Update this file, do not start a new one |
-| `pre-development-plan.md` | Everything Derek has to do, play and answer before building: playtest games, his to-do list and 21 questions with recommended answers. Also published as a page (link at the top of the file) that saves his answers in its database, collection `answers` | Sent to Derek November 23 |
+| `pre-development-plan.md` | Everything Derek has to do, play and answer before building: playtest games, his to-do list and 25 questions with recommended answers. Also published as a page (link at the top of the file) that saves his answers in its database, collection `answers` | Sent to Derek November 23 |
 | `playtest-list.md` | Games for Derek to play, with links, and the nine things to note per game | Sent to Derek |
 | `cat-spa-concepts.md` | Why the name was chosen, the six options for how players get cats, what the research means, the first 5 minutes table, day 2 hooks | Current |
 | `idea-shortlist.md` | The earlier three idea pitch | Superseded by the cat spa direction. Kept for the record |

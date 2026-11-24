@@ -89,8 +89,8 @@ DONE_GAMES = [
 # ---------------------------------------------------------------- to-dos
 TODOS = [
     ("Now, about 15 minutes in all", [
-        dict(id="automerge", t="Check the rule that makes pull requests wait for their tests",
-             d="We cannot see repo rules from here, so one look from you settles it. In the Clean-a-Cat repo open Settings, Rules, Rulesets. If an active rule for main lists these two checks, tick this job: Rojo sourcemap, luau-lsp, Selene, StyLua and Unit tests, strict types, UI gate. If the list is empty, make one: New ruleset, New branch ruleset, name it main, set Enforcement status to Active, under Target branches choose Include default branch, tick Require a pull request before merging, tick Require status checks to pass and add the two checks by name, then press Create.",
+        dict(id="automerge", t="Add the rule that makes pull requests wait for their tests",
+             d="We checked on November 24 and main has no rule yet. Pull requests have waited for their tests only because each thread waits by hand, so nothing stops a merge with a failed test. To add it: in the Clean-a-Cat repo open Settings, Rules, Rulesets, New ruleset, New branch ruleset. Name it main, set Enforcement status to Active, under Target branches choose Include default branch, tick Require a pull request before merging, tick Require status checks to pass and add these two checks by name: Rojo sourcemap, luau-lsp, Selene, StyLua and Unit tests, strict types, UI gate. Then press Create. About 2 minutes, or say the word and we do it through your Chrome.",
              link=(REPO + "/blob/main/docs/setup-guide.md#9-required-check-and-auto-merge", "Setup guide, step 9")),
         dict(id="apiaccess", t="Turn on saves for Studio in the dev copy",
              d="Open Clean-a-Cat-Dev in Studio, then Game Settings, Security, switch on Enable Studio Access to API Services and save. Without it, saved data and the live switches do not work when we test in Studio."),
@@ -202,9 +202,9 @@ QUESTIONS = [
         dict(id="trading", t="No trading of cats",
              d="Trading is the one feature with a clear record of harm to young players, mostly scams. Cats are earned by washing only.",
              opts=["Yes, no trading", "Plan trading for later", ELSE]),
-        dict(id="favourite", t="Ask for a favourite once, after about minute 5",
-             d="Capybara Onsen asked you at about minute 4 and our draft never asked. Ours: one small ask after a great wash at about minute 5, never during a job and never twice.",
-             opts=["Yes, one ask after minute 5", "Never ask", ELSE]),
+        dict(id="favourite", t="No like or favourite ask in the first session",
+             d="Capybara Onsen asked you for a favourite at about minute 4. Roblox judges a game on its first minutes, and an ask there is one more thing between a new player and the fun. Our pick: nothing in the first session, then one small ask after a great wash on a later visit. It never comes with a reward, because Roblox does not allow rewards for likes or favourites.",
+             opts=["Yes, one ask on a later visit", "Ask once at about minute 5", "Never ask", ELSE]),
     ]),
     ("Screens", "Design-Agent", "", [
         dict(id="recap", t="After each cat: the full card or a slim strip",
