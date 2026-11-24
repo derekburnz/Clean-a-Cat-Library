@@ -34,3 +34,23 @@ Derek sent 16 phone screenshots of My Pet Salon as reference and ideas. The pict
 - Derek also saw that their customers are made from your friend list, which explains the name tags that look like player names (2, 12, 16). He is not sure it is good and will look at Restaurant Tycoon 3. Open on the plan page as question `friendcust`, not to be built.
 - A reward for joining the group (3). Derek's group already has players. It might suit us, but Roblox's rules have to be checked first. For Growth-Agent, after the game is picked.
 - The rarity of the pet is on the card before the wash (11). Ours hides the coat until the wash is done. That difference is on purpose and is the heart of our collection.
+
+## Second batch: the washing minigames (pictures 19 to 28, replay of 2026-11-24)
+
+Derek's words: "I noticed the big black buttons on mobile take up a lot of the screen and block view sometimes (also happens for us in the picking up cat out of box)."
+
+| What they do | Where | What we do with it | Who |
+|---|---|---|---|
+| Roblox's default prompt, a big black box with a hand, covers the middle of the screen. Derek: it blocks the view. | 28 | Not taken, and ours had the same fault at the box. Every prompt in our game is a small button in our own look. Gameplay-Engineer is already fixing the pick up prompt. | Gameplay-Engineer, Design-Agent |
+| One line at the top says what to do, with Step 1 of 3 under it. A hand with a dashed arrow shows the move and a pill says "Hold down and move over it". | 19, 20 | Our first wash teaches the same way: the line, the hand and one short pill, shown until the first stroke. | Design-Agent |
+| A card at the top left: name, rarity, kind, the owner's line, "3 steps to go" and a list that ticks itself. | 19 to 26 | Our cat card on the wash screen gets the tick list. Ours hides the coat's rarity until the wash is done. | Design-Agent |
+| A word when a step is done ("So foamy!") and praise words with a count while you work ("Keep going!", "Awesome!"). | 21 to 23 | Already our pick in `praise`. We add the word at the end of a step, in our own words. | Design-Agent, Motion-FX-Agent |
+| A perfect streak on the card: x1 +10%, x2 +20%. | 24 to 26 | A streak for perfect washes in a row that adds a little to each tip. A slip ends it and costs nothing else. Plan page `praise`. | Planning-Agent for the numbers, Gameplay-Engineer |
+| Tools lie on a Supplies tray at the right and move to a Used tray at the left when their step is done. | 19 to 25 | A nice touch for later: the used tool leaves the tray, so the tray shows progress. Not for the first build. | Design-Agent, Model-Agent, parked |
+| Kinds of step seen: scrub with a sponge, rinse with a shower head, shave with clippers, hold a vacuum over confetti, a dirty nose, tap or hold targets on each paw and a tap to feed a snack at the end. | 19 to 26 | Our four at launch are scrub, rinse, pick burrs and towel dry. Targets on the paws are a good pattern for nail trim later. The snack is an easy last step nobody can fail, the job our bow does. | Design-Agent, Gameplay-Engineer |
+| The camera moves to the part being worked on, down to the paws for the trim. | 26 | Ours moves between steps. Within a step the player turns the view (plan page `turn`, open). | Gameplay-Engineer |
+| A common pet has three or four steps and a rare cat has six. | 19, 24, 25 | Ours keeps rare jobs the same length and asks for more care. Plan page `joblength` and `rare`. | none |
+| An X at the top right leaves the wash. | 19 to 26 | Ours needs a way out of a wash too. | Design-Agent |
+| Outside: four menu buttons in a block at the left, a quests bar and a one time starter pack worded as the cash you are short. | 27 | Not taken: an offer worded around what the player lacks is pressure. The quests bar matches the goal bar idea from Restaurant Tycoon 3. | none |
+
+Still missing from the replay list: a screen recording of one whole wash, whether the player can turn the pet, a result card without full stars, the pet egg screen and the three numbers (seconds per wash, washes before wanting to stop, how much slower the helper is).

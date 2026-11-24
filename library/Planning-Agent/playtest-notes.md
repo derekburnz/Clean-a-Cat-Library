@@ -79,6 +79,12 @@ Planning-Agent's reading: the hold and turn control is an idea for our wash view
 
 Everything from all six games is sorted by theme in playtest-summary-2026-11-24.md.
 
+## My Pet Salon replay, 2026-11-24 ET (ten more pictures, 19 to 28 in the reference folder)
+Derek's notes:
+- "here is more pics from the animal salon game, I noticed the big black buttons on mobile take up a lot of the screen and block view sometimes (also happens for us in the picking up cat out of box)."
+
+Planning-Agent's reading: the default black prompt is out for every prompt in our game. The washing pictures are sorted in my-pet-salon-screens-2026-11-24.md, second batch.
+
 ## Across the games (Derek, 2026-11-24 ET)
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
 - Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).

@@ -44,14 +44,11 @@ SHOP_FIELDS = [F_FUN, F_JOB, ("sel", "pickq", "Can you pick who is next?", PICK_
 GAMES = [
     dict(id="petsalon2", name="My Pet Salon!, the replay", url="https://www.roblox.com/games/134135989047078",
          stats="about 220 playing, 87% liked of about 1K votes (evening of November 24)", mins="15 minutes",
-         why="You are replaying it for pictures of the washing minigames. It is the closest game to ours, so this is the most useful thing left to capture.",
-         look="The list below, most useful first. Send the pictures in chat as before.",
+         why="Your ten replay pictures are in and sorted: the step list card, the hand hint, the praise words, the perfect streak, a rare cat with six steps and the tap targets on the paws. A few things from the list are still missing, so this card stays open for your next go.",
+         look="What is still missing, most useful first. Send it in chat as before.",
          shots=["One screen recording of a whole wash from start to result card, 30 to 60 seconds. A clip shows the feel better than stills.",
-                "One picture of each kind of step in the middle of doing it, with the instruction line and the tool in view: scrub, aim the water, pull things off, hold to trim nails, tap to knock off and any kind you have not sent yet.",
-                "The hand hint that shows what to do when a step starts.",
-                "The pet turning. Say if you can turn it yourself.",
-                "A result card where you did not get full stars, so we see what loses a star.",
-                "A rare customer's step list.",
+                "Whether you can turn the pet yourself, or whether only the game moves the view.",
+                "A result card where you did not get full stars, so we see what loses a star and what breaks the perfect streak.",
                 "How you get a pet: the egg or crate screen with its prices, and whether the chances are shown.",
                 "The notification ask, if it pops up, and about how many seconds in."],
          fields=[F_JOB, ("txt", "stopjobs", "Washes before you wanted to stop", "for example 6"),
@@ -92,21 +89,21 @@ DONE_GAMES = [
 
 # what the six playtests told us, sorted by theme
 THEMES = [
-    ("The wash is the game", "The horse game put a timer where the wash should be and felt like an egg game to you. In My Pet Salon you liked the different kinds of step and disliked the same swipe three times, 16 steps in one job and the pet turning by itself. In Barber Simulator, holding on an area while your right thumb turns the view felt smooth and good. Restaurant Tycoon keeps its work to one short swipe. Ours: always by hand, four to six short steps that differ, a cat that holds still and a view you turn yourself."),
+    ("The wash is the game", "The horse game put a timer where the wash should be and felt like an egg game to you. In My Pet Salon you liked the different kinds of step and disliked the same swipe three times, 16 steps in one job and the pet turning by itself. Your replay pictures show how it teaches a step: one line at the top, a hand that shows the move, a card that ticks off the steps and a bonus for perfect washes in a row. In Barber Simulator, holding on an area while your right thumb turns the view felt smooth and good. Restaurant Tycoon keeps its work to one short swipe. Ours: always by hand, four to six short steps that differ, a cat that holds still and a view you turn yourself."),
     ("The first minute", "My Pet Salon made you wait through about 10 seconds of loading and a cutscene with no skip. Clean Everything has two loading screens and Restaurant Tycoon has three setup screens before the first customer. Capybara Onsen's short tutorial with a free first buy worked. Ours: the truck and the box start the moment you load and your first tap comes at about second 4."),
     ("Customers and the line", "One customer at a time felt lame in My Pet Salon, though you can choose who is next there. Barber Simulator shows a line of customers waiting outside. Restaurant Tycoon tells you when a VIP walks in, with a Show Me button. Ours: a bench of cats that differ, a Next cat button and rare visitors that are announced."),
     ("Workers", "My Pet Salon and Restaurant Tycoon both have named workers you hire and level up, and Restaurant Tycoon ties some upgrades to a worker's level. Ours: human staff, Jo and Sam, hired and levelled with coins, slower than you."),
     ("Pets", "My Pet Salon has a My Pets window where pets boost cash. In Barber Simulator pets come from spins sold for Robux, and the only free one you found was a pet egg promised for tomorrow. Your idea: washing earns the money and the pets you own come from crates, one for you and one for each worker. Our pick: every pet can be earned, crates are never sold for Robux and the chances are shown."),
     ("Things to chase and reasons to come back", "Clean Everything, the cleaning game that kept its players, has maps, counters and modes on top of the tidying. Restaurant Tycoon shows a long chain of locked upgrades and what each requires. My Pet Salon's album has 59 pets. Barber Simulator gives a pet roll on day 2 and a new tool on level up. The horse game shows what you made while away. Ours: the index of coats, an upgrade road you can see, a free crate tomorrow and a tip jar that fills while you are away."),
-    ("The screen and the guiding", "Help bubbles along the bottom and a result card with stars in My Pet Salon. A goal bar with a count in Restaurant Tycoon. A step line at the top and arrows on the floor in the horse game. A marker over the next thing and a card of what the customer wants in Barber Simulator. A friend bonus percent on screen in Capybara Onsen and Barber Simulator. We take all of these in our own look."),
+    ("The screen and the guiding", "Help bubbles along the bottom and a result card with stars in My Pet Salon. A goal bar with a count in Restaurant Tycoon. A step line at the top and arrows on the floor in the horse game. A marker over the next thing and a card of what the customer wants in Barber Simulator. A friend bonus percent on screen in Capybara Onsen and Barber Simulator. We take all of these in our own look. One thing we do not take: the big black prompt buttons, which you said block the view on a phone."),
     ("Asking and selling", "Many of these games ask for notifications almost at once. Capybara Onsen asked for a favourite at about minute 4. My Pet Salon and Clean Everything reward likes. Starter packs with countdowns sit on the screen in the first minute in Restaurant Tycoon, Barber Simulator and My Pet Salon. Clean Everything and Barber Simulator have watch an ad buttons. My Pet Salon makes customers from your friends and Restaurant Tycoon does not. Ours: one notification ask at about minute 1, no offer in the first session, no countdowns, no rewards for likes and no friends as customers at launch."),
 ]
 
 # ---------------------------------------------------------------- to-dos
 TODOS = [
     ("Now", [
-        dict(id="mpsreplay", t="Capture the washing in My Pet Salon",
-             d="The list of what to capture is on the game's card above, most useful first. A screen recording of one whole wash is the best single thing."),
+        dict(id="mpsreplay", t="My Pet Salon replay: the few things still missing",
+             d="Your ten pictures covered most of the list. What is left is on the game's card above: a screen recording of one whole wash, whether you can turn the pet yourself, a result card without full stars, the pet egg screen and three numbers."),
     ]),
     ("Quick answers, one line in chat each", [
         dict(id="rtskip", t="Does the skip button on Restaurant Tycoon's goal bar cost Robux?",
@@ -215,13 +212,13 @@ QUESTIONS = [
              solo=True,
              opts=["Yes, these four first", "Fewer: scrub, rinse and dry", "All of them from the start", ELSE]),
         dict(id="joblength", t="Four to six short steps per cat, never the same step twice in a row",
-             d="You found the same swipe three times boring and 16 steps too long. Each step lasts 8 to 15 seconds, so a cat takes about a minute. A Step 2 of 4 line shows how far along you are.",
+             d="You found the same swipe three times boring and 16 steps too long. Each step lasts 8 to 15 seconds, so a cat takes about a minute. A Step 2 of 4 line shows how far along you are. In your replay a common pet had three or four steps and a rare cat had six, so their rare jobs are about twice as long. Ours stay the same length and ask for more care.",
              opts=["Yes, 4 to 6 short steps", "Shorter, 3 steps", "Longer jobs are fine", ELSE]),
         dict(id="turn", t="The cat holds still and you turn the view with your right thumb",
-             d="You said the pet turning the whole time made you miss spots. Ours stays put during a step and the game turns it between steps. The draft screen has two round arrow buttons for turning it yourself. New on November 24: in Barber Simulator you hold on an area to cut while your right thumb, on the right side of the screen, turns the camera around the head, and you said that was smooth and felt good. Our pick now uses it: the cat holds still, your scrubbing hand works anywhere on the cat and a drag on the right side of the screen turns the view. It fits the close wash view with the move stick hidden. It is an idea until you pick it, and the builders test it on a phone first.",
+             d="You said the pet turning the whole time made you miss spots. Ours stays put during a step and the game turns it between steps. The draft screen has two round arrow buttons for turning it yourself. New on November 24: in Barber Simulator you hold on an area to cut while your right thumb, on the right side of the screen, turns the camera around the head, and you said that was smooth and felt good. Our pick now uses it: the cat holds still, your scrubbing hand works anywhere on the cat and a drag on the right side of the screen turns the view. It fits the close wash view with the move stick hidden. It is an idea until you pick it, and the builders test it on a phone first. My Pet Salon moves the camera to the part you work on, such as down to the paws for the trim. Ours does that between steps.",
              opts=["Still cat, right thumb turns the view", "Still cat, two arrow buttons to turn", "Slow turning all the time", ELSE]),
         dict(id="praise", t="Praise words and a combo that pauses on a slip",
-             d="You noticed Awesome and Excellent with a growing number. Ours: short words that name what you did, one at a time and never under your finger, beside a combo count. A slip pauses the combo and does not reset it to zero, which feels unfair to young players.",
+             d="You noticed Awesome and Excellent with a growing number. Ours: short words that name what you did, one at a time and never under your finger, beside a combo count. A slip pauses the combo and does not reset it to zero, which feels unfair to young players. Your replay pictures of My Pet Salon show two more things we take in our own words: a word when a step is done, and a streak for perfect washes in a row that adds a little to each tip, 10% for one and 20% for two there. A slip ends the streak and costs nothing else.",
              opts=["Yes, pause on a slip", "Reset the combo on a slip", "No combo", ELSE]),
         dict(id="tools", t="Tool upgrades change how the tool feels",
              d="You liked upgrading tools. Each tier changes the shape and what the tool does as well as the speed: a wider sponge, a shower with a fan spray, a comb that shows hidden burrs. Tier 2 is lilac and tier 3 is gold.",
@@ -274,7 +271,7 @@ QUESTIONS = [
              solo=True,
              opts=["Yes, one at a time", "All four from the start", ELSE]),
         dict(id="sudsbubble", t="Suds explains in a help bubble at the bottom of the screen",
-             d="You sent My Pet Salon's help bubbles as an idea: a guide at the left, a bold line, a short sentence and one big button that does the step. Our pick is the same idea in our own look. Suds's face is at the left, the bubble holds one short title and one sentence that says why, and one button does the step, so you still do every tap. It shows one at a time for tutorial steps and new unlocks, and goes away after the tap. Theirs runs under the jump button, so ours stops short of the stick and the jump button on every phone. A Tips switch in Settings turns the bubbles off once the tutorial is done.",
+             d="You sent My Pet Salon's help bubbles as an idea: a guide at the left, a bold line, a short sentence and one big button that does the step. Our pick is the same idea in our own look. Suds's face is at the left, the bubble holds one short title and one sentence that says why, and one button does the step, so you still do every tap. It shows one at a time for tutorial steps and new unlocks, and goes away after the tap. Theirs runs under the jump button, so ours stops short of the stick and the jump button on every phone. A Tips switch in Settings turns the bubbles off once the tutorial is done. The replay pictures show their bubble during the first wash too, with one line: the top says what to do, copy the hand. Suds says his own version of that once, on the first wash only.",
              opts=["Yes, a bottom bubble with one button", "Only a small bubble over Suds in the spa", ELSE]),
         dict(id="camera", t="A close camera at the tub with the move stick hidden",
              d="Settled by you on November 24: placing the kitten in the tub switches to a close up wash view, where the steps are taught. We saved that as our pick here. While you wash, the camera moves in on the cat and the move stick hides, so the whole screen is for scrubbing. Our own test found that scrubbing over the stick also walked the player away, and this fixes it. Change the pick if you want the stick to stay.",
@@ -283,7 +280,7 @@ QUESTIONS = [
              d="One layout to get right, with more room for the tub and the tools.",
              opts=[YES, "Allow portrait too", ELSE]),
         dict(id="bows", t="A bow as the finishing touch",
-             d="The first plan had you pick a bow on every cat. With a line waiting that is one tap too many. Our pick: bows for cats that stay with you and for rare visitors.",
+             d="The first plan had you pick a bow on every cat. With a line waiting that is one tap too many. Our pick: bows for cats that stay with you and for rare visitors. My Pet Salon ends some washes with a tap to feed the pet a snack, a step nobody can fail. Our bow does the same job: an easy last step that ends the wash on a good note.",
              opts=["Bows for your own cats and rare visitors", "A bow on every cat", "No bows", ELSE]),
     ]),
     ("The look", "Model-Agent", "", [
@@ -363,6 +360,7 @@ TODAY = [
     ("The opening", "A quick intro you watch, about 4 seconds: a truck goes by and a plain brown box falls in front of you. It starts the moment your character loads, with no loading screen and no standing still. Then the camera is yours."),
     ("The carry and the wash view", "You lift the muddy kitten out of the box and carry him to the tub. Placing him in the tub switches to a close up wash view, where the steps are taught. Your example of the hold is in, a clip and six pictures from Catch a Cat Cafe."),
     ("Suds", "The kitten becomes Suds once he is clean. He is the mascot, walks on four paws, never washes and is not in the index. Human staff do the washing."),
+    ("Prompt buttons", "You noticed that the big black buttons block the view on a phone, in My Pet Salon and in ours when you pick the kitten up out of the box. Ours are being replaced with a small button in our own look, starting with the box."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
     ("Open on purpose", "The playstyle, which you said you would decide after the playtests. Pets from crates and a pet slot for you and each worker. Both are on the to-do list under The big one."),

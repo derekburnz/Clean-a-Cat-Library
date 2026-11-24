@@ -135,6 +135,8 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Ideas from Barber Simulator** (Derek's playtest of 2026-11-24, detail in barber-simulator-screens-2026-11-24.md): the cat holds still and a drag on the right side of the screen turns the view while the other finger scrubs (an idea to test on a phone, not decided) [turn]; a free crate promised for tomorrow near the end of the first session if pets come from crates [return]; later tools handed out on level up. All six playtests are sorted in playtest-summary-2026-11-24.md.
 
+**Prompts** (Derek, 2026-11-24): the big black default prompt buttons block the view on a phone, in My Pet Salon and in our own box pick up. Every prompt in the game is a small button in our own look.
+
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
 **Open questions for the owner:** the 48 on the plan page. The first eleven decide the game.
