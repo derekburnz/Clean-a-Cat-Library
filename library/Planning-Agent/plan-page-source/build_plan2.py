@@ -18,7 +18,7 @@ NOTE_PROMPTS = [
     "Whether what you got was ever a surprise.",
     "What would bring you back tomorrow, if anything.",
     "Whether other players mattered.",
-    "In the two shop games: what happens when a customer waits too long and what the staff take over.",
+    "What happens when a customer waits too long and what the staff take over.",
 ]
 EXTRA_PROMPTS = [
     ("Screens", "A screenshot of the phone screen during a job and of the card after a job helps the most."),
@@ -42,15 +42,10 @@ SHOP_FIELDS = [F_FUN, F_JOB, ("sel", "pickq", "Can you pick who is next?", PICK_
                ("sel", "staff", "Helpers or staff", STAFF_OPTS), F_BACK]
 
 GAMES = [
-    dict(id="rt3", name="Restaurant Tycoon 3", url="https://www.roblox.com/games/119048529960596",
-         stats="about 5,100 playing, 95% liked of about 429K votes", mins="15 minutes",
-         why="Play this one first. It is the shop game that lasted longest: it still has players after 22 months, with sessions near 26 minutes. It is the closest thing on Roblox to your busy spa idea, and you said you would look here before deciding on friends as customers.",
-         look="Whether customers are made from your friends and how that feels. Then the queue, what happens when a customer waits, what the staff take over, how rare customers differ and what the game gives you to do at minute 10.",
-         fields=SHOP_FIELDS),
     dict(id="barber", name="Barber Simulator", url="https://www.roblox.com/games/134026357772960",
          stats="about 5,200 playing, 89% liked of about 25K votes", mins="10 minutes",
-         why="A hands-on job game like ours, six weeks old. Its rare customers are pickier, not longer, which is what we suggest in place of 16 step jobs. After the horse game, this is the test of whether work done by hand stays fun.",
-         look="How each step is done by hand, how long one customer takes, how the rare customers differ and when it starts to feel the same.",
+         why="The last game on the list. A hands-on job game like ours, six weeks old. Its rare customers are pickier, not longer, which is what we suggest in place of 16 step jobs. After the horse game's timer and Restaurant Tycoon's one short swipe, this is the test of whether work done by hand stays fun.",
+         look="How each step is done by hand and how it compares with Restaurant Tycoon's swipe, how long one customer takes, how the rare customers differ, what the staff take over and when it starts to feel the same.",
          fields=SHOP_FIELDS),
 ]
 OPTIONAL_GAMES = [
@@ -73,6 +68,8 @@ DONE_GAMES = [
          took="Played November 24. Your verdict: another Steal an Egg copy with nothing really to do with cleaning, where waiting for the horse to be clean is the same as waiting for an egg to hatch. What we take from it: in ours the wash is always done by hand and a timer never stands in for it. Waits belong to builds and upgrades only. From your five pictures: one clear step line at the top with a short line under it and arrows on the floor work well. Its tutorial opens a shop with Robux prices beside the coin prices, which ours never does in the first session."),
     dict(id="cleaneverything", name="Clean Everything", tag=" (played November 24)",
          took="Played November 24. Your summary: you choose a map, load into it with 1 to 4 players and pick up scattered items and place them where they belong until the place is clean. So it is a sorting game with friends, not a wash game. What we take, from your eight pictures: it gives players a lot to chase besides the cleaning, with nine maps and three more shown as question marks, two bars that count every object and shelf, and a glowing target that shows where the thing in your hand goes. That fits why it kept its players. What we avoid: two loading screens before you play, a Robux offer on the screen from the first second, a reward for a like and a group join, helpers rented by the minute for Robux and a watch an ad button. One bakery holds 1,040 objects, which is a long job for one sitting."),
+    dict(id="rt3", name="Restaurant Tycoon 3", tag=" (played November 24)",
+         took="Played November 24. Your finding: they do not use friends as waiters or customers, and we can take some ideas from them. Ideas we take, from your 20 pictures: one goal bar at the top with a count, such as Cook 5 dishes, 0 of 5. Work that is one short swipe with a bar that fills and a Cancel button. A trail from you to the customer with a plain line that says what to do. A line that says a VIP customer just came in, with a Show Me button. An upgrades window with a tab for what you can buy now and a tab for what is locked, where each locked one says what it requires, so the long road is in view. Workers with a name, a job, a hire price and a price to level up. Not taken: three setup screens before the first customer, a starter pack with a countdown on the screen in the first minute and a premium worker in the hire list."),
     dict(id="petsalon", name="My Pet Salon!",
          took="You liked the different kinds of step, the praise words with a growing number, the star card with coins and experience after each pet, tool upgrades, the index, rare customers with a lasting reward and hired helpers. You disliked the cutscene with no skip, the same swipe three times, 16 steps in one job, the pet turning by itself and only one customer at a time. First fun thing at about 75 seconds."),
     dict(id="capybara", name="Capybara Onsen",
@@ -81,10 +78,6 @@ DONE_GAMES = [
 
 # ---------------------------------------------------------------- to-dos
 TODOS = [
-    ("Any time", [
-        dict(id="holdpose", t="Send an example of how the kitten should be held",
-             d="You told us the hold in the carry looks wrong and that you would send an example. A screenshot or a short clip from any game is enough, dropped in the project chat. The carry is not polished until it arrives."),
-    ]),
     ("When we tell you it is up", [
         dict(id="devtest", t="Play the draft in the dev place",
              d="Your rule from November 24: everything goes to the dev place first and nothing reaches the live game until you say it is good. The draft has the screens and the opening: the truck, the box, the carry and the wash. We say in chat when it is ready, so there is nothing to do before that. Three answers help the most: did scrubbing feel good, was the clean kitten a nice moment and would you wash a second cat."),
@@ -126,7 +119,7 @@ QUESTIONS = [
         dict(id="helperlook", t="Helpers are human staff, not cats",
              d="You said on November 24 that helpers are likely staff like humans. Our pick agrees. A person in a spa apron reads as staff at a glance, has hands for the sponge and the towel and can reuse the customer figures we already build, so it costs less than a kitten that has to hold tools. One other idea: staff do the washing and Suds the kitten stays as the spa's mascot, who points things out in the first minutes and cheers but never washes. The builder kitten for stations is a separate call. Say in the note if the builder should be a person too. Update: you said ok to staff with Suds as the mascot, and that Suds should not stand. So he walks on four paws like every other cat, which also means he cannot hold a tool. He explains things by trotting to them and sitting beside them with a speech bubble of a few words, and he shows up again each time something new unlocks.",
              opts=["Human staff, no helper cats", "Human staff, and Suds stays as the mascot", "Kitten helpers as drawn", ELSE]),
-        dict(id="rare", t="Rare visitors who are pickier, not longer",
+        dict(id="rare", t="Rare visitors who are pickier, not longer Restaurant Tycoon 3 tells you when a VIP customer walks in, with a Show Me button that points you to them. Ours does the same for a rare visitor, so nobody misses one.",
              d="You liked the influencer customers and their lasting reward, but 16 steps felt long. Ours bring a rare cat and want a near perfect wash, with the same short job as any cat. A finished visit gives a lasting reward, for example a small permanent tip bonus and a framed photo for your wall. Visitors unlock as your spa earns stars. The chance of each is on a board and none can be bought.",
              opts=["Yes, pickier and not longer", "Longer jobs for rare visitors", "No rare visitors at launch", ELSE]),
         dict(id="keep", t="Washing earns the money, and the pets you own come from crates",
@@ -169,7 +162,7 @@ QUESTIONS = [
              opts=["Yes, each tier feels different", "Speed only, simpler to build", ELSE]),
     ]),
     ("Coming back", "Planning-Agent", "", [
-        dict(id="longbuild", t="The first long build comes after about minute 15, not minute 6",
+        dict(id="longbuild", t="The first long build comes after about minute 15, not minute 6 One idea from Restaurant Tycoon 3 goes with this: its upgrades window has a tab for locked upgrades, and each one says what it requires. Ours shows the same road ahead, so a player always sees the next two or three things to work toward.",
              d="The old plan offered an 8 hour VIP Room at minute 6. In the hit games waits start at seconds and reach hours only once the player cares. The rest stays: the builder kitten builds one station at a time, a building site one room at a time, nothing takes over 24 hours and a finished build waits for you.",
              imgs=[("art2/builder-busy.jpg", "Draft screen: a Builder window with a station building for 4 more minutes and a VIP Room building for 7 more hours with a Notify me bell.", "Draft: the builder")],
              solo=True,
@@ -186,9 +179,9 @@ QUESTIONS = [
         dict(id="friends", t="A small bonus for each friend in your server",
              d="You saw the friend percent on screen in Capybara Onsen. Ours: 10% more tips per friend in the server, shown from the start. Helping inside a friend's spa comes later.",
              opts=["Yes, a friend bonus", "No friend bonus", ELSE]),
-        dict(id="friendcust", t="Friends as customers: open until you have seen Restaurant Tycoon 3",
-             d="You noticed that My Pet Salon makes its customers from your friend list, and said you are not sure it is good and will look at how Restaurant Tycoon 3 does it. So this stays open and nothing is built. What we know so far. For it: a friend's name in the first minute catches the eye and makes a quiet street feel social. Against: a full friend avatar costs memory on phones and does not match our art style, and on a shared street it would show your friends to strangers. Roblox has no rule against it that we could find, but creators reported in September that the friend list came back empty for a few days, so written names must always be the fallback. If you want it, our pick is the light version: a friend's name and face picture on the cat's card, on your own screen only, with our own customer figure in the spa.",
-             opts=["Light version: a friend's name and face on the card", "Friends walk in as full avatars", "No friends as customers", ELSE]),
+        dict(id="friendcust", t="No friends as customers at launch",
+             d="You said you would decide this after seeing Restaurant Tycoon 3. Your finding on November 24: they do not use friends as waiters or customers. So the shop game that has lasted longest does without it, and My Pet Salon is the only one we know that does it. Our pick is now to leave it out at launch. It also saves memory on phones, keeps your friends from being shown to strangers on a shared street and avoids the days when Roblox's friend list comes back empty. Restaurant Tycoon's start window has a Managers row with a plus button, which looks like a way to let a friend help run your place. That fits our plan for friends better: the bonus for a friend in your server now, and friends helping in your spa later behind its switch. Tap our pick or say so in chat and this is settled.",
+             opts=["No friends as customers", "Light version: a friend's name and face on the card", "Friends walk in as full avatars", ELSE]),
         dict(id="visit", t="Neighbours look through the window but do not walk in",
              d="Players see each other's windows and reveals from the street. Walking in is built behind a switch that stays off, so friends helping in your spa can be turned on later without a rebuild. It stops a crowd standing on someone's tub.",
              opts=["Yes, window only for now", "Walk in from the start", ELSE]),
@@ -206,7 +199,7 @@ QUESTIONS = [
                    ("art2/recap-compact.jpg", "Draft screen: a slim strip at the bottom with the cat's face, three stars, the coins earned and a Next cat button, the tub still in view.", "Slim strip")],
              wide=True,
              opts=["Full card for new cats, slim strip for the rest", "Full card after every cat", "Slim strip after every cat", ELSE]),
-        dict(id="hud", t="Menu buttons appear one at a time",
+        dict(id="hud", t="Menu buttons appear one at a time Restaurant Tycoon 3 keeps one goal bar at the top with a count, such as Cook 5 dishes, 0 of 5. Ours gets the same one line goal with a count, which Suds points at once.",
              d="The draft has four round buttons on the left: Index, Tools, Helpers and Build. Our pick: a new player sees none, and each pops in with a short pointer the first time it is useful. Index after the first cat, Tools at the first upgrade, Build and Helpers later. That keeps the first minutes about the cat. Suds does the pointing: he trots to the new thing and sits by it. He shows each thing once, never opens a window himself and never points at anything that costs Robux. For comparison, your screenshot shows My Pet Salon with all four of its buttons on screen from the first second.",
              imgs=[("art2/hud.jpg", "Draft screen: the main view with four round buttons at the left, a goal line at the top, coins at the top right and two waiting cats at the right.", "Draft: the main screen with all four buttons")],
              solo=True,
@@ -296,12 +289,12 @@ SAVED = [
 ]
 TODAY = [
     ("The opening", "A quick intro you watch, about 4 seconds: a truck goes by and a plain brown box falls in front of you. It starts the moment your character loads, with no loading screen and no standing still. Then the camera is yours."),
-    ("The carry and the wash view", "You lift the muddy kitten out of the box and carry him to the tub. Placing him in the tub switches to a close up wash view, where the steps are taught. The hold pose waits for your example."),
+    ("The carry and the wash view", "You lift the muddy kitten out of the box and carry him to the tub. Placing him in the tub switches to a close up wash view, where the steps are taught. Your example of the hold is in, a clip and six pictures from Catch a Cat Cafe."),
     ("Suds", "The kitten becomes Suds once he is clean. He is the mascot, walks on four paws, never washes and is not in the index. Human staff do the washing."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Open on purpose", "The playstyle, which you decide after the rest of the playtests. Pets from crates and a pet slot for you and each worker, your idea to play with after more games. Friends as customers, after Restaurant Tycoon 3."),
-    ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020) and two minutes of our scrub."),
+    ("Open on purpose", "The playstyle, which you decide after the last playtest. Pets from crates and a pet slot for you and each worker, your idea to play with after more games."),
+    ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
     ("Name", "Clean a Cat, locked November 23."),
@@ -439,10 +432,10 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <div class="intro">
     <p class="eyebrow">Clean a Cat, round two, November 24</p>
     <h1>What is left before we build</h1>
-    <p class="lede">Updated November 24 in the afternoon. The horse game and Clean Everything are saved, so two games are left, listed with the most useful first. Every job on the old to-do list is done. What you decided today is <a href="#today">near the bottom</a>. This page holds only what is still open.</p>
+    <p class="lede">Updated November 24 in the afternoon. The horse game, Clean Everything and Restaurant Tycoon 3 are saved, so one game is left: Barber Simulator. Every job on the old to-do list is done. What you decided today is <a href="#today">near the bottom</a>. This page holds only what is still open.</p>
     <ol class="steps">
-      <li><a href="#playtests">Play __NG__ more games</a>, starting with Restaurant Tycoon 3.</li>
-      <li><a href="#todo">__NT__ small jobs</a>, and only one of them can be done now.</li>
+      <li><a href="#playtests">Play one more game</a>, Barber Simulator.</li>
+      <li><a href="#todo">One job</a> that waits on us: playing the draft in the dev place.</li>
       <li><a href="#questions">Tap through __NQ__ picks</a> once the games are played. The first eleven decide the game.</li>
     </ol>
   </div>
@@ -456,8 +449,8 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 
   <section id="playtests">
     <header>
-      <h2>Play these __NG__ next</h2>
-      <p>Most useful first. As a brand new player, on a phone if you can, with a timer running. These two ask how a busy shop feels and whether work done by hand stays fun past the first ten minutes, because that is what your idea and the research now turn on. Player counts are from the morning of November 24, 2026 and move all day.</p>
+      <h2>One game left to play</h2>
+      <p>As a brand new player, on a phone if you can, with a timer running. It asks whether work done by hand stays fun past the first ten minutes, because that is what your idea and the research now turn on. Player counts are from the morning of November 24, 2026 and move all day.</p>
     </header>
     <div class="notes">
       <h3>What to write down for each game</h3>
@@ -476,7 +469,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <section id="todo">
     <header>
       <h2>Your to-do list</h2>
-      <p>Only open jobs are listed. You finished all six jobs from the last list, and they are saved under Decided on November 24.</p>
+      <p>Only open jobs are listed. You finished every job from the last list and sent the hold example, and they are saved under Decided on November 24.</p>
     </header>
     __TODOS__
     <details class="more">
@@ -690,7 +683,7 @@ M.append("This is the file copy of Derek's plan page, second version. The page l
 M.append("")
 M.append("Round one is saved (playtest-notes.md, plan-page-round-one.md). This version holds only what is open. The questions are new and came from Derek's playtest notes, his comments on the mud, the baths and the store art, the two research rounds and the open calls from the other threads. Database ids: playtests `p-<id>`, to-dos `c-<id>`, questions `q2-<id>` (the round one questions were `q-<id>` and stay in the database untouched).")
 M.append("")
-M.append(f"## 1. Play these {NG} next")
+M.append("## 1. One game left to play")
 M.append("Player counts are from the morning of November 24, 2026.")
 M.append("")
 M.append("| Game (id) | Time | Players and votes | Why it is on the list | Look for |")

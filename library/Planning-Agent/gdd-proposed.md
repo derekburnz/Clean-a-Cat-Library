@@ -96,7 +96,7 @@ What it would change in this page if he keeps it:
 
 **Reason to come back tomorrow** (changed) [return]: empty slots in the index, a tip jar that fills while away and stops at a cap and one different visitor cat each day. No streak and nothing lost by missing a day. A bell for finished builds stays as a small extra for players of 13 and over, who are the only ones Roblox lets us notify.
 
-**Social** [friends, visit]: spas sit side by side on one street. Players see each other's windows and reveals but do not walk in at launch. Each friend in the server adds 10% to tips, shown on screen from the start. Not in: stealing, trading, fighting and typed text. OPEN, not to be built [friendcust]: friends as customers. My Pet Salon makes customers from the friend list. Derek is not sure it is good and will look at Restaurant Tycoon 3 first (2026-11-24). If he wants it, our pick is a friend's name and face picture on the cat's card, on the player's own screen only, with written names as the fallback.
+**Social** [friends, visit]: spas sit side by side on one street. Players see each other's windows and reveals but do not walk in at launch. Each friend in the server adds 10% to tips, shown on screen from the start. Not in: stealing, trading, fighting and typed text. Friends as customers [friendcust]: our pick is now to leave it out at launch. Derek checked Restaurant Tycoon 3 on 2026-11-24 and it does not use friends as waiters or customers. It waits for his tap or word and is not to be built.
 
 **Monetization** (follows monetization-policy) [passes]: three game passes at launch: 2x Coins, Second Builder and Golden Sponge. Coins, helpers, rare visitors and cats are never sold, so nothing random is ever paid for. PolicyService is fetched per player from day one.
 
@@ -130,6 +130,8 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 **Rules Derek set on 2026-11-24:** dev first. Everything is uploaded to the dev place and nothing goes to the live game until he confirms it is good. Feature switches stay off on live until he decides the game.
 
 **From his playtests of 2026-11-24** (Planning-Agent/playtest-notes.md): the horse game put a timer where the wash should be and felt like an egg game to him, so in ours the wash is always done by hand and waits belong to builds and upgrades only. Clean Everything keeps its players with maps, counters and friends on top of the tidying, so the spa keeps things to count and unlock in view. Neither game changes the open loop choice, which waits for Restaurant Tycoon 3 and Barber Simulator.
+
+**Ideas from Restaurant Tycoon 3** (Derek's playtest of 2026-11-24, detail in restaurant-tycoon-3-screens-2026-11-24.md): one goal bar at the top with a count, a Show Me button when a rare visitor comes in, an upgrades window that shows locked upgrades and what each requires, upgrades that add new things to do (a new service, a new kind of customer, more room, a sign that brings cats more often) and workers hired and levelled with coins. A choice of spa front comes after the first wash, never before it.
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 

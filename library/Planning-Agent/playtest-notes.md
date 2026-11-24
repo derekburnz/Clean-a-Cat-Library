@@ -57,6 +57,17 @@ Planning-Agent's reading (from his words and the pictures, not his words):
 - Avoid: two loading screens before play, a Robux offer on the screen from the first second (+1 Max Holding), a reward for a like and a group join, helpers rented by the minute for Robux (2 minutes to forever), a watch an ad button and only the host's game saving. 1,040 objects is a long job for one sitting.
 - For our plan: the lesson matches loop question one. Cleaning alone fades, so the spa needs things to count and unlock in view: the index, stations, spa stars and rooms.
 
+## Restaurant Tycoon 3, played 2026-11-24 ET
+Pictures: Coordinator/references/restaurant-tycoon-3-2026-11-24/ (20, shared files only). What we take and leave: restaurant-tycoon-3-screens-2026-11-24.md.
+
+Derek's notes:
+- "here attached is resturant tycoon they don't use friends as waiters or customers can take some ideas from them"
+
+Planning-Agent's reading (from his words and the pictures, not his words):
+- Friends as customers: they do not do it, so our pick is now to leave it out at launch (plan page `friendcust`, waits for his tap or word).
+- Worth taking: a goal bar at the top with a count, a Show Me button when a rare customer comes in, an upgrades window that shows locked upgrades and what each requires, upgrades that add new things to do, workers with a hire price and a level price.
+- Not taken: three setup screens before the first customer, a typed name, a starter pack with a countdown in the first minute and a premium worker in the hire list.
+
 ## For other threads
 - Store art (Model-Agent and Growth-Agent, later): Derek liked a half dirty and half clean picture split by a thin line.
 - Screens (Design-Agent, when unpaused): he liked clean pop-ups, a step counter such as "step 1 of 3", flowing arrows on the ground with a bobbing arrow at the goal, and a recap card with stars, coins and experience.
