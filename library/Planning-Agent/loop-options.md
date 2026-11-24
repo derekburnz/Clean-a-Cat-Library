@@ -26,7 +26,7 @@ Loops B and D together. Loop B is the cat collector: the cat is the prize and th
 New target: a first session of 20 minutes or more, which needs about 12 cats, 3 kinds of dirt and 4 tools on day one.
 
 ## What the second round added (read November 24, 2026 UTC)
-- Picking who is next is the core of shop games outside Roblox and only works when customers differ (in Sally's Spa the best tippers are the least patient). No Roblox game found has a visible queue with a pick.
+- Picking who is next is the core of shop games outside Roblox and only works when customers differ (in Sally's Spa the best tippers are the least patient). Corrected 2026-11-24: we first wrote that no Roblox game has a visible queue with a pick. Derek checked and My Pet Salon lets you press next pet or choose which waiting pet goes next. What stays ours is that the waiting cats differ and the card shows it.
 - Customers who leave with a penalty are what parents and reviewers complain about. Proposed: soft impatience. A waiting cat's mood drops and only the bonus tip shrinks. A cat that waits too long goes home and comes back later. Nothing is lost.
 - Helpers: bought with coins, wash common cats slowly, earn fewer stars. Strays and rare cats wait for the player. Never sold for Robux.
 - Rare visitors: unlocked by spa stars, odds on the board, never sold. Pickier or in chapters, not 16 steps in a row.

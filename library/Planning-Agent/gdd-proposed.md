@@ -19,6 +19,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **The bench: who is next** (new) [queue, impatience]
 - Three or four cats wait, each with a card: name, how dirty, what kind of dirt and what it pays. (new 2026-11-24) Each card has one line of our own on how the cat got so dirty, which hints at the kind of dirt.
+- A Next cat button takes the first cat in line for players who do not want to choose. (new 2026-11-24) My Pet Salon has both a next pet button and a manual pick (Derek checked 2026-11-24), so the pick itself is not new on Roblox. What ours adds is cats that differ, shown on the card.
 - Cats differ so the pick matters: a muddier cat pays more and a fussy cat tips more but waits less.
 - A waiting cat gets grumpy and only its bonus tip shrinks. A cat that waits far too long goes home and comes back later. Nothing is ever lost.
 
@@ -83,7 +84,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **Reason to come back tomorrow** (changed) [return]: empty slots in the index, a tip jar that fills while away and stops at a cap and one different visitor cat each day. No streak and nothing lost by missing a day. A bell for finished builds stays as a small extra for players of 13 and over, who are the only ones Roblox lets us notify.
 
-**Social** [friends, visit]: spas sit side by side on one street. Players see each other's windows and reveals but do not walk in at launch. Each friend in the server adds 10% to tips, shown on screen from the start. Not in: stealing, trading, fighting and typed text.
+**Social** [friends, visit]: spas sit side by side on one street. Players see each other's windows and reveals but do not walk in at launch. Each friend in the server adds 10% to tips, shown on screen from the start. Not in: stealing, trading, fighting and typed text. OPEN, not to be built [friendcust]: friends as customers. My Pet Salon makes customers from the friend list. Derek is not sure it is good and will look at Restaurant Tycoon 3 first (2026-11-24). If he wants it, our pick is a friend's name and face picture on the cat's card, on the player's own screen only, with written names as the fallback.
 
 **Monetization** (follows monetization-policy) [passes]: three game passes at launch: 2x Coins, Second Builder and Golden Sponge. Coins, helpers, rare visitors and cats are never sold, so nothing random is ever paid for. PolicyService is fetched per player from day one.
 
@@ -116,6 +117,6 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 43 on the plan page. The first nine decide the game.
+**Open questions for the owner:** the 44 on the plan page. The first nine decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`

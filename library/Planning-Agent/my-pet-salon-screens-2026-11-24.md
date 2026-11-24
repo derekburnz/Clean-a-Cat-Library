@@ -30,6 +30,7 @@ Derek sent 16 phone screenshots of My Pet Salon as reference and ideas. The pict
 
 ## Things to check with Derek or in a playtest
 
-- They sell a Waiting Bench for 25 cash (2) and show "1 pet waiting, Groom next pet" (12). We wrote that no Roblox game lets you pick from a line you can see. With the bench bought, can you choose which waiting pet goes first, or only take the next one? Added to the optional ten more minutes of My Pet Salon on the plan page.
+- ANSWERED by Derek 2026-11-24: with the waiting bench (2, 12) you can press next pet on the table or choose which waiting pet goes next. So a pick from a line is not new on Roblox. Ours adds cats that differ on the card, and takes the one tap Next cat button.
+- Derek also saw that their customers are made from your friend list, which explains the name tags that look like player names (2, 12, 16). He is not sure it is good and will look at Restaurant Tycoon 3. Open on the plan page as question `friendcust`, not to be built.
 - A reward for joining the group (3). Derek's group already has players. It might suit us, but Roblox's rules have to be checked first. For Growth-Agent, after the game is picked.
 - The rarity of the pet is on the card before the wash (11). Ours hides the coat until the wash is done. That difference is on purpose and is the heart of our collection.
