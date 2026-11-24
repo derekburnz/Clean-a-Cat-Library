@@ -44,6 +44,7 @@ The six games: My Pet Salon (the closest to ours), Capybara Onsen (a pad and mer
 ## 7. The screen and the guiding
 - Bottom help bubble with one button and a result card with stars and a line per reason (My Pet Salon). Goal bar with a count (Restaurant Tycoon 3). Step line and floor arrows (horse game, My Pet Salon). Marker with an icon over the next thing and a card of what the customer wants (Barber Simulator). Friend bonus percent on screen (Capybara Onsen, Barber Simulator). Glowing target for where a thing goes (Clean Everything).
 - Derek: "the big black buttons on mobile take up a lot of the screen and block view sometimes (also happens for us in the picking up cat out of box)". Every prompt in ours becomes a small button in our own look.
+- Puppy Spa: small prompt pills with one word (Admit, Clean), a ring on the floor at the goal, the owner's wish in a bubble and a star meter with a percent during the groom.
 - Catches to avoid: Roblox's badge note covering a button (My Pet Salon, horse game, Barber Simulator) and a bubble under the jump button (My Pet Salon).
 
 ## 8. Asking and selling
@@ -53,7 +54,7 @@ The six games: My Pet Salon (the closest to ours), Capybara Onsen (a pad and mer
 
 ## More playtests
 - My Pet Salon replay: ten pictures of the washing are in. Derek confirmed the pet there rotates by itself and cannot be turned by the player. Still missing: a screen recording of one wash, a result card without full stars, the pet egg screen and three numbers.
-- Added at Derek's request: Puppy Spa (listed as [NEW] Puppy Spa, 11 playing and 52% liked on the evening of 2026-11-24).
+- Played 2026-11-24 at Derek's request: Puppy Spa (listed as [NEW] Puppy Spa, 11 playing and 52% liked). Eight pictures, no notes from him yet. Takes: small prompt pills, the owner's wish in a bubble, a star meter that fills while you work, locked tools shown in the tool bar, a tip line for a flawless job. Detail in puppy-spa-screens-2026-11-24.md.
 - Our one suggestion: Pet Store Tycoon (about 3,400 playing, 96% liked), for how pets are earned and where workers fit.
 - Only if curious: Clean the Animal Daycare, Throw Food For Animals.
 - A search on the evening of 2026-11-24 for pet spa, salon and wash games found none with more than about 25 players besides My Pet Salon.

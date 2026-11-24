@@ -87,6 +87,14 @@ Derek's notes:
 
 Planning-Agent's reading: the default black prompt is out for every prompt in our game. The washing pictures are sorted in my-pet-salon-screens-2026-11-24.md, second batch.
 
+## Puppy Spa, played 2026-11-24 ET on PC
+Pictures: Coordinator/references/puppy-spa-2026-11-24/ (8, shared files only). What we take and leave: puppy-spa-screens-2026-11-24.md.
+
+Derek's notes:
+- "puppy spa, screenshots attached" (no impressions yet; asked for on his to-do list as `puppytake`).
+
+Planning-Agent's reading: small prompt pills are the fix for the big black buttons, the owner's wish in a bubble suits our rare visitors and the star meter that fills while you work is worth taking.
+
 ## Across the games (Derek, 2026-11-24 ET)
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
 - Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).

@@ -53,11 +53,6 @@ GAMES = [
          fields=[F_JOB, ("txt", "stopjobs", "Washes before you wanted to stop", "for example 6"),
                  ("txt", "helperslow", "How much slower is the hired helper?", "for example half as fast"),
                  ("txt", "notifsec", "Seconds until it asked for notifications", "for example 30, or never")]),
-    dict(id="puppyspa", name="Puppy Spa", url="https://www.roblox.com/games/100574821891367",
-         stats="11 playing, 52% liked of about 290 votes (evening of November 24)", mins="5 to 10 minutes",
-         why="You asked for it. We read it as the game listed as [NEW] Puppy Spa, the only live game with that name besides an empty one called Run a Puppy Spa. Say if you meant another. We know it only from its numbers. Nearly half its voters disliked it, so it may teach more about what to avoid.",
-         look="What the washing is: by hand, one button or a timer. What made you want to stop. And since it has [NEW] in its name, whether that did anything for you when you saw it in the list.",
-         fields=[("sel", "pet", "How do you get a pet?", PET_OPTS), F_FUN, ("sel", "wash", "The washing is", WASH_OPTS), F_JOB, F_BACK]),
     dict(id="petstore", name="Pet Store Tycoon", url="https://www.roblox.com/games/118845698633260",
          stats="about 3,400 playing, 96% liked of about 128K votes (evening of November 24)", mins="10 minutes",
          why="Our one new suggestion. It is the best liked pet shop game we found, and your pets idea is the biggest thing still open: how pets are earned, what they do and where workers fit. We know it only from its numbers and have not seen inside.",
@@ -78,6 +73,8 @@ DONE_GAMES = [
          took="Played November 24. Your summary: you choose a map, load into it with 1 to 4 players and pick up scattered items and place them where they belong until the place is clean. So it is a sorting game with friends, not a wash game. What we take, from your eight pictures: it gives players a lot to chase besides the cleaning, with nine maps and three more shown as question marks, two bars that count every object and shelf, and a glowing target that shows where the thing in your hand goes. That fits why it kept its players. What we avoid: two loading screens before you play, a Robux offer on the screen from the first second, a reward for a like and a group join, helpers rented by the minute for Robux and a watch an ad button. One bakery holds 1,040 objects, which is a long job for one sitting."),
     dict(id="rt3", name="Restaurant Tycoon 3", tag=" (played November 24)",
          took="Played November 24. Your finding: they do not use friends as waiters or customers, and we can take some ideas from them. Ideas we take, from your 20 pictures: one goal bar at the top with a count, such as Cook 5 dishes, 0 of 5. Work that is one short swipe with a bar that fills and a Cancel button. A trail from you to the customer with a plain line that says what to do. A line that says a VIP customer just came in, with a Show Me button. An upgrades window with a tab for what you can buy now and a tab for what is locked, where each locked one says what it requires, so the long road is in view. Workers with a name, a job, a hire price and a price to level up. Not taken: three setup screens before the first customer, a starter pack with a countdown on the screen in the first minute and a premium worker in the hire list."),
+    dict(id="puppyspa", name="Puppy Spa", tag=" (played November 24)",
+         took="Played November 24 on your PC. You sent eight pictures and no notes yet, so the reading is ours and your own take is on the to-do list. What we take: small prompt pills, such as Admit and Clean, which are the answer to the big black buttons you disliked. The owner's wish in a bubble during the groom. A star meter with a percent that fills while you work. A tint on the part still to do. A tool bar that shows the locked tools and the level that opens each. A rainbow bonus star and a separate tip line for a flawless job. You also carry the dog to the table there, as you carry the kitten to our tub. Not taken: a plus button beside the coins, since ours are never sold."),
     dict(id="barber", name="Barber Simulator", tag=" (played November 24)",
          took="Played November 24. Your words: holding on an area to cut while your right thumb turns the camera around the head was smooth and felt good. You could not find a way to get pets without paying, apart from a pop up that said to come back tomorrow for a pet egg when you walked out of the shop. What we take, from your 13 pictures: the hold and turn control as an idea for our wash view. A free pet egg promised for tomorrow, and a pet roll as the day 2 reward. A level up that unlocks a new tool. A card that shows what this customer wants. A marker over the next thing to do. A line of customers waiting outside. Not taken: pet spins sold only for Robux, pet slots sold for Robux, a starter pack with a countdown and a random pet in it and a watch an ad button."),
     dict(id="petsalon", name="My Pet Salon!",
@@ -88,13 +85,13 @@ DONE_GAMES = [
 
 # what the six playtests told us, sorted by theme
 THEMES = [
-    ("The wash is the game", "The horse game put a timer where the wash should be and felt like an egg game to you. In My Pet Salon you liked the different kinds of step and disliked the same swipe three times, 16 steps in one job and the pet turning by itself. Your replay pictures show how it teaches a step: one line at the top, a hand that shows the move, a card that ticks off the steps and a bonus for perfect washes in a row. In Barber Simulator, holding on an area while your right thumb turns the view felt smooth and good. Restaurant Tycoon keeps its work to one short swipe. Ours: always by hand, four to six short steps that differ, a cat that holds still and a view you turn yourself."),
+    ("The wash is the game", "The horse game put a timer where the wash should be and felt like an egg game to you. In My Pet Salon you liked the different kinds of step and disliked the same swipe three times, 16 steps in one job and the pet turning by itself. Your replay pictures show how it teaches a step: one line at the top, a hand that shows the move, a card that ticks off the steps and a bonus for perfect washes in a row. In Barber Simulator, holding on an area while your right thumb turns the view felt smooth and good. Restaurant Tycoon keeps its work to one short swipe. Puppy Spa tints the part still to do and fills a star meter while you work. Ours: always by hand, four to six short steps that differ, a cat that holds still and a view you turn yourself."),
     ("The first minute", "My Pet Salon made you wait through about 10 seconds of loading and a cutscene with no skip. Clean Everything has two loading screens and Restaurant Tycoon has three setup screens before the first customer. Capybara Onsen's short tutorial with a free first buy worked. Ours: the truck and the box start the moment you load and your first tap comes at about second 4."),
     ("Customers and the line", "One customer at a time felt lame in My Pet Salon, though you can choose who is next there. Barber Simulator shows a line of customers waiting outside. Restaurant Tycoon tells you when a VIP walks in, with a Show Me button. Ours: a bench of cats that differ, a Next cat button and rare visitors that are announced."),
     ("Workers", "My Pet Salon and Restaurant Tycoon both have named workers you hire and level up, and Restaurant Tycoon ties some upgrades to a worker's level. Ours: human staff, Jo and Sam, hired and levelled with coins, slower than you."),
     ("Pets", "My Pet Salon has a My Pets window where pets boost cash. In Barber Simulator pets come from spins sold for Robux, and the only free one you found was a pet egg promised for tomorrow. Your idea: washing earns the money and the pets you own come from crates, one for you and one for each worker. Our pick: every pet can be earned, crates are never sold for Robux and the chances are shown."),
     ("Things to chase and reasons to come back", "Clean Everything, the cleaning game that kept its players, has maps, counters and modes on top of the tidying. Restaurant Tycoon shows a long chain of locked upgrades and what each requires. My Pet Salon's album has 59 pets. Barber Simulator gives a pet roll on day 2 and a new tool on level up. The horse game shows what you made while away. Ours: the index of coats, an upgrade road you can see, a free crate tomorrow and a tip jar that fills while you are away."),
-    ("The screen and the guiding", "Help bubbles along the bottom and a result card with stars in My Pet Salon. A goal bar with a count in Restaurant Tycoon. A step line at the top and arrows on the floor in the horse game. A marker over the next thing and a card of what the customer wants in Barber Simulator. A friend bonus percent on screen in Capybara Onsen and Barber Simulator. We take all of these in our own look. One thing we do not take: the big black prompt buttons, which you said block the view on a phone."),
+    ("The screen and the guiding", "Help bubbles along the bottom and a result card with stars in My Pet Salon. A goal bar with a count in Restaurant Tycoon. A step line at the top and arrows on the floor in the horse game. A marker over the next thing and a card of what the customer wants in Barber Simulator. A friend bonus percent on screen in Capybara Onsen and Barber Simulator. We take all of these in our own look. One thing we do not take: the big black prompt buttons, which you said block the view on a phone. Puppy Spa shows the fix, a small pill with one word."),
     ("Asking and selling", "Many of these games ask for notifications almost at once. Capybara Onsen asked for a favourite at about minute 4. My Pet Salon and Clean Everything reward likes. Starter packs with countdowns sit on the screen in the first minute in Restaurant Tycoon, Barber Simulator and My Pet Salon. Clean Everything and Barber Simulator have watch an ad buttons. My Pet Salon makes customers from your friends and Restaurant Tycoon does not. Ours: one notification ask at about minute 1, no offer in the first session, no countdowns, no rewards for likes and no friends as customers at launch."),
 ]
 
@@ -105,6 +102,8 @@ TODOS = [
              d="Your ten pictures covered most of the list. What is left is on the game's card above: a screen recording of one whole wash, a result card without full stars, the pet egg screen and three numbers. You answered the turning question on November 24: the pet goes round and round by itself and you cannot turn it."),
     ]),
     ("Quick answers, in the box or in chat", [
+        dict(id="puppytake", t="Your own take on Puppy Spa",
+             d="You sent the pictures with no notes. Three things help: did the grooming feel good, what made you want to stop and whether [NEW] in its name did anything for you. Nearly half its voters disliked it, and we cannot tell why from pictures."),
         dict(id="rtskip", t="Does the skip button on Restaurant Tycoon's goal bar cost Robux?",
              d="It sits beside Cook 5 dishes at the top. If you did not press it, say so and we leave it."),
         dict(id="notifshot", t="Screenshot a notification ask the next time one pops up",
@@ -124,11 +123,11 @@ TODOS = [
         dict(id="t-sudsbubble", q="sudsbubble", t="Suds talks in a help bubble at the bottom",
              d="From the My Pet Salon bubbles you sent."),
         dict(id="t-newtag", q="newtag", t="[NEW] in front of the game name or not",
-             d="You asked us to look into it. Puppy Spa uses it, so that playtest is a small test of it."),
+             d="You asked us to look into it. Puppy Spa uses it and you have now played it, so say whether the tag did anything for you."),
     ]),
     ("The big one: pick the game", [
         dict(id="t-loop", q="loop", t="Pick the playstyle",
-             d="You said you would decide after the playtests. The six games are sorted under What the six games told us, and the first eleven picks below are the decision. If the two new games might change your mind, play them first."),
+             d="You said you would decide after the playtests. The seven games are sorted under What the games told us, and the first eleven picks below are the decision. If Pet Store Tycoon might change your mind, play it first."),
         dict(id="t-keep", q="keep", t="Your pets idea: do washed cats still fill an index",
              d="First of three picks on your idea that the pets you own come from crates."),
         dict(id="t-crates", q="crates", t="Your pets idea: the four crate rules",
@@ -160,11 +159,11 @@ PARKED = [
 YES = "Yes, go with it"
 ELSE = "Something else"
 QUESTIONS = [
-    ("The game", "Planning-Agent", "These eleven decide what we build. Your six playtests are in, so they are ready when you are.", [
+    ("The game", "Planning-Agent", "These eleven decide what we build. Your playtests are in, so they are ready when you are.", [
         dict(id="loop", t="Your busy spa and a cat collection, together",
-             d="All six playtests are in, sorted under What the six games told us near the top of this page. They point one way: the wash has to be real hand work, and the games that last give players more to chase than the work itself. Your idea after My Pet Salon becomes the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, and each new one fills a slot in your Cat Index. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
+             d="Seven playtests are in, sorted under What the games told us near the top of this page. They point one way: the wash has to be real hand work, and the games that last give players more to chase than the work itself. Your idea after My Pet Salon becomes the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, and each new one fills a slot in your Cat Index. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
              opts=["Yes, both together", "Busy spa only", "Collection only, one cat at a time", ELSE],
-             note="You said on November 24 that you would decide this after the playtests. The six are in. Two new games are on the list, Puppy Spa and Pet Store Tycoon, so decide now or after those, as you prefer."),
+             note="You said on November 24 that you would decide this after the playtests. They are in. One suggested game is left, Pet Store Tycoon, so decide now or after it, as you prefer."),
         dict(id="queue", t="Cats wait on a bench and you pick who is next",
              d="You called one customer at a time kinda lame. Three or four cats wait, each with a card: name, how dirty, what kind of dirt and what it pays. Picking only matters when the cats differ, so a muddier cat pays more and a fussy one tips more but waits less. Each card also gets one line of our own on how the cat got so dirty, an idea from the story line on the wash screen you sent. You checked on November 24: My Pet Salon lets you press next pet on the table or choose which waiting pet goes next. So picking is not new on Roblox, and we were wrong to say no game has it. What ours adds is a reason to choose: the cats on the bench differ in what they pay, how long they wait and what kind of dirt they have, and the card shows it. We also take the one tap Next cat button for players who do not want to choose.",
              imgs=[("art2/queue-normal.jpg", "Draft screen: a row of waiting cats with a name, rarity, dirt icons, a mood bar, a coin amount and a Wash button each. One card says Helper Suds is washing.", "Draft: who is next")],
@@ -182,7 +181,7 @@ QUESTIONS = [
              d="You said on November 24 that helpers are likely staff like humans. Our pick agrees. A person in a spa apron reads as staff at a glance, has hands for the sponge and the towel and can reuse the customer figures we already build, so it costs less than a kitten that has to hold tools. One other idea: staff do the washing and Suds the kitten stays as the spa's mascot, who points things out in the first minutes and cheers but never washes. The builder kitten for stations is a separate call. Say in the note if the builder should be a person too. Update: you said ok to staff with Suds as the mascot, and that Suds should not stand. So he walks on four paws like every other cat, which also means he cannot hold a tool. He explains things by trotting to them and sitting beside them with a speech bubble of a few words, and he shows up again each time something new unlocks.",
              opts=["Human staff, no helper cats", "Human staff, and Suds stays as the mascot", "Kitten helpers as drawn", ELSE]),
         dict(id="rare", t="Rare visitors who are pickier, not longer",
-             d="You liked the influencer customers and their lasting reward, but 16 steps felt long. Ours bring a rare cat and want a near perfect wash, with the same short job as any cat. A finished visit gives a lasting reward, for example a small permanent tip bonus and a framed photo for your wall. Visitors unlock as your spa earns stars. The chance of each is on a board and none can be bought. Restaurant Tycoon 3 tells you when a VIP customer walks in, with a Show Me button that points you to them. Ours does the same for a rare visitor, so nobody misses one.",
+             d="You liked the influencer customers and their lasting reward, but 16 steps felt long. Ours bring a rare cat and want a near perfect wash, with the same short job as any cat. A finished visit gives a lasting reward, for example a small permanent tip bonus and a framed photo for your wall. Visitors unlock as your spa earns stars. The chance of each is on a board and none can be bought. Restaurant Tycoon 3 tells you when a VIP customer walks in, with a Show Me button that points you to them. Ours does the same for a rare visitor, so nobody misses one. Puppy Spa shows what the owner wants in a small bubble during the groom, such as short and even all over. A rare visitor in ours states a wish the same way, so being pickier is clear before you start.",
              opts=["Yes, pickier and not longer", "Longer jobs for rare visitors", "No rare visitors at launch", ELSE]),
         dict(id="keep", t="Washing earns the money, and the pets you own come from crates",
              d="Open until you have played more games. Your thought on November 24: cleaning cats is how you make money, and it has nothing to do with the pets your shop owns. Those come from crates that are hard to earn or are bought with coins, like the My Pets window you sent. This replaces our first idea, strays you wash and keep in the window. What it leaves open is the Cat Index. Our pick keeps it: every customer cat's coat is still hidden under the mud, and each new coat you wash fills a slot and counts toward a bonus. That way the wash keeps its surprise and the crates are a second thing to chase, not the only one. Suds stays outside both.",
@@ -206,7 +205,7 @@ QUESTIONS = [
     ]),
     ("The wash", "Planning-Agent and Design-Agent", "", [
         dict(id="steps", t="Four kinds of step at the start",
-             d="You liked the variety in My Pet Salon. Ours at launch: scrub the mud, rinse with the shower, pick burrs out of the fur and towel dry. Later tools add nail trim, comb, shampoo and the dryer. The models for all of these are drafted. Barber Simulator gives a new tool at level 2 with a Level Up banner. Ours hands out the later tools the same way, so the first ten minutes hold two or three of those moments.",
+             d="You liked the variety in My Pet Salon. Ours at launch: scrub the mud, rinse with the shower, pick burrs out of the fur and towel dry. Later tools add nail trim, comb, shampoo and the dryer. The models for all of these are drafted. Barber Simulator gives a new tool at level 2 with a Level Up banner. Ours hands out the later tools the same way, so the first ten minutes hold two or three of those moments. Puppy Spa keeps the locked tools in the tool bar with the level that opens each, so the next tool is always in view. Ours does the same.",
              imgs=[("art2/wash-scrub.jpg", "Draft screen: a muddy cat in a tub, the line Step 1 of 4 Scrub the mud, four tool buttons at the bottom, a progress bar, the praise word Awesome with x12 and a round turn button on each side.", "Draft: the wash")],
              solo=True,
              opts=["Yes, these four first", "Fewer: scrub, rinse and dry", "All of them from the start", ELSE]),
@@ -259,7 +258,7 @@ QUESTIONS = [
     ]),
     ("Screens", "Design-Agent", "", [
         dict(id="recap", t="After each cat: the full card or a slim strip",
-             d="You called the star card with a coins and experience breakdown kinda cool. With a line of cats waiting, a full window after every wash slows you down. Our pick: the full card for your first cats and for any new or rare cat, and the slim strip for the rest. Two things from your My Pet Salon screenshots go into ours. Their card sits at the side so the clean pet stays in view, with one line for each reason you earned. And Roblox's own badge note covered their Collect button, so our button stays out of that corner.",
+             d="You called the star card with a coins and experience breakdown kinda cool. With a line of cats waiting, a full window after every wash slows you down. Our pick: the full card for your first cats and for any new or rare cat, and the slim strip for the rest. Two things from your My Pet Salon screenshots go into ours. Their card sits at the side so the clean pet stays in view, with one line for each reason you earned. And Roblox's own badge note covered their Collect button, so our button stays out of that corner. Puppy Spa adds a rainbow bonus star and a separate tip line when a job is flawless. Ours shows the tip on its own line too, so a perfect wash visibly pays more.",
              imgs=[("art2/recap-full.jpg", "Draft screen: a Great job window with the cat's picture, three stars, three rows of coins earned, a total and a Next cat button.", "Full card"),
                    ("art2/recap-compact.jpg", "Draft screen: a slim strip at the bottom with the cat's face, three stars, the coins earned and a Next cat button, the tub still in view.", "Slim strip")],
              wide=True,
@@ -527,7 +526,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <div class="intro">
     <p class="eyebrow">Clean a Cat, round two, November 24</p>
     <h1>What is left before we build</h1>
-    <p class="lede">Updated November 24 in the afternoon. All six playtests are in and sorted by theme below. Three games are on the list: your My Pet Salon replay, Puppy Spa and one new suggestion. Every new decision and question from today is on the to-do list. Every job on the old to-do list is done. What you decided today is <a href="#today">near the bottom</a>. This page holds only what is still open.</p>
+    <p class="lede">Updated November 24 in the afternoon. Seven games are played and sorted by theme below. Two are left on the list: your My Pet Salon replay and one new suggestion, Pet Store Tycoon. Every new decision and question from today is on the to-do list. Every job on the old to-do list is done. What you decided today is <a href="#today">near the bottom</a>. This page holds only what is still open.</p>
     <ol class="steps">
       <li><a href="#playtests">__NG__ games to try</a>, starting with your My Pet Salon replay.</li>
       <li><a href="#todo">__NT__ things on the to-do list</a>. Most are one tap or one line.</li>
@@ -545,15 +544,15 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <section id="playtests">
     <header>
       <h2>Playtests</h2>
-      <p>Six games are played and saved. Below is what they told us, then the three games still worth your time. Player counts are from the evening of November 24, 2026 and move all day.</p>
+      <p>Seven games are played and saved. Below is what they told us, then the two still worth your time. Player counts are from the evening of November 24, 2026 and move all day.</p>
     </header>
-    <h3 class="group">What the six games told us</h3>
+    <h3 class="group">What the games told us</h3>
     <ul class="saved">__THEMES__</ul>
     <h3 class="group">Still worth playing, most useful first</h3>
     __GAMES__
     <h3 class="group">Only if you are curious</h3>
     <ul class="optlist">__OPT__</ul>
-    <p class="fine">Dropped from the old list because the six games already answer them: Clean The Ballpit, Wash the Pets, Clean an Animal, Wash a Cat, Wash the Car and Steal An Egg. We searched Roblox again on the evening of November 24 for pet spa, salon and wash games. Besides My Pet Salon, none has more than about 25 players, so nothing else earns a playtest.</p>
+    <p class="fine">Dropped from the old list because the games you played already answer them: Clean The Ballpit, Wash the Pets, Clean an Animal, Wash a Cat, Wash the Car and Steal An Egg. We searched Roblox again on the evening of November 24 for pet spa, salon and wash games. Besides My Pet Salon, none has more than about 25 players, so nothing else earns a playtest.</p>
     <h3 class="group">Played and saved</h3>
     <ul class="saved">__DONE__</ul>
   </section>
@@ -791,9 +790,9 @@ M.append("This is the file copy of Derek's plan page, second version. The page l
 M.append("")
 M.append("Round one is saved (playtest-notes.md, plan-page-round-one.md). This version holds only what is open. The questions are new and came from Derek's playtest notes, his comments on the mud, the baths and the store art, the two research rounds and the open calls from the other threads. Database ids: playtests `p-<id>`, to-dos `c-<id>`, questions `q2-<id>` (the round one questions were `q-<id>` and stay in the database untouched).")
 M.append("")
-M.append("## 1. Playtests: six played, three to try")
+M.append("## 1. Playtests: seven played, two to try")
 M.append("")
-M.append("**What the six games told us**")
+M.append("**What the games told us**")
 for a, b in THEMES:
     M.append(f"- **{a}.** {b}")
 M.append("")
