@@ -54,3 +54,13 @@ Driving Studio from written steps and copying files are chores. Haiku 5.5 is eno
 
 ## 7. Skills
 `roblox-doctor` (checks the PC's toolchain and connectors), `roblox-mobile-playtest`, `playtest-report`, `roblox-dev-skill` (its Studio connector reference).
+
+## 8. Lessons from the first days (2026-11-23 and 24)
+- **Libraries.** The library is derekburnz/Clean-a-Cat-Library; the game repo is derekburnz/Clean-a-Cat and holds only the game. Both are public until release (owner's call). I have push on the library only.
+- **Memory and instructions copy.** My memory mount can lag. If the index looks old, ask the coordinator to drop the current text in `Sync-Agent/incoming/` in the shared folder, copy it word for word, then remove the folder.
+- **Never edit the `memory/` copies.** Only copy them; a reference fix there breaks word for word.
+- **Secret scan hits** can be the scan instructions themselves (`library/Setup/4-library-and-sync.md`). Read the hit before acting, and never chain commit after a scan that printed a count.
+- **Studio jobs run through the Remote Control session** with `start_remote_control` instructions. It tests in fresh local places built with `rojo build` from the exact commit, never the dev or published place. Studio's device simulator can be driven from Lua, so iPhone captures need no screen control. The screen-control prompt on the PC times out unless someone is there, so Studio windows that stop on a Save dialog are ended by process (own scratch files only, with the owner's OK).
+- **Captures stay on the PC** (`C:\Users\Derek\Downloads\Clean-a-Cat-captures\`). Write each report to `Sync-Agent/studio-reports/` and tell the asking thread the file names.
+- **PC state:** Git, Node, Rokit with pinned tools, the Rojo plugin and the clone are in place. The clone uses Unix line endings.
+- **I cannot comment on game repo PRs.** Send results to the thread that owns the PR.
