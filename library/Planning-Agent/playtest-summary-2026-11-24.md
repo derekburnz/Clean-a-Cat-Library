@@ -53,9 +53,10 @@ The six games: My Pet Salon (the closest to ours), Capybara Onsen (a pad and mer
 - Starter packs with countdowns in the first minute (Restaurant Tycoon 3, Barber Simulator, My Pet Salon), Robux offers on the screen from second one (Clean Everything, horse game), watch an ad buttons (Clean Everything, Barber Simulator), a stock counter (My Pet Salon), helpers rented by the minute (Clean Everything). Ours: no offer in the first session, no countdowns, nothing sold that skips the game.
 
 ## More playtests
-- My Pet Salon replay: ten pictures of the washing are in. Derek confirmed the pet there rotates by itself and cannot be turned by the player. Still missing: a screen recording of one wash, a result card without full stars, the pet egg screen and three numbers.
-- Played 2026-11-24 at Derek's request: Puppy Spa (listed as [NEW] Puppy Spa, 11 playing and 52% liked). Eight pictures, no notes from him yet. Takes: small prompt pills, the owner's wish in a bubble, a star meter that fills while you work, locked tools shown in the tool bar, a tip line for a flawless job. Detail in puppy-spa-screens-2026-11-24.md.
-- Our one suggestion: Pet Store Tycoon (about 3,400 playing, 96% liked), for how pets are earned and where workers fit.
-- Only if curious: Clean the Animal Daycare, Throw Food For Animals.
+Derek's call, 2026-11-24 evening: "petstore tycoon and clean the animal daycare are the other 2 left I will playtest before I move on to todolist/questions for screenshots/recording make do with what you have for the rest unless its questions I can just answer".
+- Left to play: Pet Store Tycoon (about 3,400 playing, 96% liked; how pets are earned and where workers fit) and Clean the Animal Daycare (about 100 playing, 87% liked; whether animals are washed by hand).
+- Played on 2026-11-24 at his request: Puppy Spa. Eight pictures, no notes from him yet. Detail in puppy-spa-screens-2026-11-24.md.
+- My Pet Salon replay: ten pictures of the washing are in, and he confirmed the pet rotates by itself and cannot be turned by the player.
+- No more screenshots or recordings are asked of him. What we would still have liked is now asked in words on his to-do list: seconds per wash, helper speed, how pets are got and what loses a star in My Pet Salon, which games asked for notifications and how soon, and his own take on Puppy Spa.
+- Dropped: the screen recording of a whole wash, the result card without full stars, the notification screenshot and the day 2 look at what greets a returning player.
 - A search on the evening of 2026-11-24 for pet spa, salon and wash games found none with more than about 25 players besides My Pet Salon.
-- Tomorrow: a five minute look at what Barber Simulator and My Pet Salon show a returning player.
