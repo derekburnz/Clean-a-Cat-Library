@@ -55,7 +55,7 @@ Player counts are from the evening of November 24, 2026.
 **Now**
 - [ ] **My Pet Salon replay: the few things still missing** (`mpsreplay`). Your ten pictures covered most of the list. What is left is on the game's card above: a screen recording of one whole wash, a result card without full stars, the pet egg screen and three numbers. You answered the turning question on November 24: the pet goes round and round by itself and you cannot turn it.
 
-**Quick answers, one line in chat each**
+**Quick answers, in the box or in chat**
 - [ ] **Does the skip button on Restaurant Tycoon's goal bar cost Robux?** (`rtskip`). It sits beside Cook 5 dishes at the top. If you did not press it, say so and we leave it.
 - [ ] **Screenshot a notification ask the next time one pops up** (`notifshot`). You noted that many of these games ask almost at once. One picture with the game's name and about how many seconds in lets us word and time ours.
 

@@ -104,7 +104,7 @@ TODOS = [
         dict(id="mpsreplay", t="My Pet Salon replay: the few things still missing",
              d="Your ten pictures covered most of the list. What is left is on the game's card above: a screen recording of one whole wash, a result card without full stars, the pet egg screen and three numbers. You answered the turning question on November 24: the pet goes round and round by itself and you cannot turn it."),
     ]),
-    ("Quick answers, one line in chat each", [
+    ("Quick answers, in the box or in chat", [
         dict(id="rtskip", t="Does the skip button on Restaurant Tycoon's goal bar cost Robux?",
              d="It sits beside Cook 5 dishes at the top. If you did not press it, say so and we leave it."),
         dict(id="notifshot", t="Screenshot a notification ask the next time one pops up",
@@ -420,19 +420,26 @@ def opt_game(g):
 </li>'''
 
 def todo_item(t):
+    d = "c-" + t["id"]
+    note = f'<textarea class="tnote" id="{d}__note" data-doc="{d}" data-key="note" rows="2" placeholder="Write your answer here, or not needed" aria-label="Your answer: {e(t["t"])}"></textarea>'
     if t.get("q"):
         qd = "q2-" + t["q"]
         return f'''
 <li class="todo">
-  <input type="checkbox" id="c-{t["id"]}__done" data-q="{qd}" aria-label="Answered: {e(t["t"])}">
-  <label for="c-{t["id"]}__done"><strong>{e(t["t"])}</strong><span>{e(t["d"])} <a href="#{qd}">Go to the pick</a>. It ticks itself when you answer.</span></label>
+  <input type="checkbox" id="{d}__done" data-q="{qd}" data-note="{d}" aria-label="Answered: {e(t["t"])}">
+  <div class="tbody">
+    <label for="{d}__done"><strong>{e(t["t"])}</strong><span>{e(t["d"])} <a href="#{qd}">Go to the pick</a>. It ticks itself when you pick, or when you write in the box.</span></label>
+    {note}
+  </div>
 </li>'''
-    d = "c-" + t["id"]
     link = f' <a href="{t["link"][0]}" target="_blank" rel="noopener">{e(t["link"][1])}</a>' if t.get("link") else ""
     return f'''
 <li class="todo">
   <input type="checkbox" id="{d}__done" data-doc="{d}" data-key="done">
-  <label for="{d}__done"><strong>{e(t["t"])}</strong><span>{e(t["d"])}{link}</span></label>
+  <div class="tbody">
+    <label for="{d}__done"><strong>{e(t["t"])}</strong><span>{e(t["d"])}{link}</span></label>
+    {note}
+  </div>
 </li>'''
 
 def question(q, n):
@@ -504,6 +511,10 @@ details.more summary{cursor:pointer;font-weight:700}
 details.more[open] summary{margin-bottom:10px}
 .shots{margin:0 0 4px;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
 .todo input[data-q]{cursor:pointer}
+.tbody{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1}
+.todo input:checked+.tbody strong{text-decoration:line-through;text-decoration-color:var(--mint)}
+.tnote{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--surface);color:var(--ink);font:inherit;font-size:.95rem;resize:vertical;min-height:44px}
+.tnote:focus{outline:2px solid var(--mint);outline-offset:1px}
 .gapnote{background:var(--gum-bg);border-radius:12px;padding:12px 14px;font-size:.94rem}
 '''
 
@@ -550,7 +561,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <section id="todo">
     <header>
       <h2>Your to-do list</h2>
-      <p>Everything still open is here, in the order that helps most. The picks tick themselves when you answer them further down. Jobs you finished are saved under Decided on November 24.</p>
+      <p>Everything still open is here, in the order that helps most. Every item has a box: write your answer there when it is not a simple pick, or write not needed. What you write is saved like your picks and the team reads it. Jobs you finished are saved under Decided on November 24.</p>
     </header>
     __TODOS__
     <details class="more">
@@ -629,8 +640,8 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   function counts(){
     var play = 0, todo = 0, q = 0;
     DATA.main.forEach(function(g){ if ((state[g.id] || {}).played === true) play++; });
-    DATA.todos.forEach(function(t){ if (t.q ? has((state[t.q] || {}).pick) : (state[t.id] || {}).done === true) todo++; });
-    document.querySelectorAll("input[data-q]").forEach(function(el){ el.checked = has((state[el.dataset.q] || {}).pick); });
+    DATA.todos.forEach(function(t){ if (t.q ? (has((state[t.q] || {}).pick) || has((state[t.id] || {}).note)) : (state[t.id] || {}).done === true) todo++; });
+    document.querySelectorAll("input[data-q]").forEach(function(el){ el.checked = has((state[el.dataset.q] || {}).pick) || has((state[el.dataset.note] || {}).note); });
     DATA.qs.forEach(function(x){ if (has((state[x.id] || {}).pick)) q++; });
     document.getElementById("n-play").textContent = play;
     document.getElementById("n-todo").textContent = todo;
@@ -669,6 +680,10 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     if (v === undefined) return;
     state[doc] = Object.assign({}, state[doc] || {});
     state[doc][k] = v;
+    if (k === "note" && doc.indexOf("c-") === 0 && has(v) && state[doc].done !== true) {
+      var box = document.getElementById(doc + "__done");
+      if (box && box.dataset.doc) { state[doc].done = true; box.checked = true; }
+    }
     changed(doc, (el.type === "text" || el.tagName === "TEXTAREA") ? 900 : 150);
   }
   document.addEventListener("input", onInput);
@@ -703,8 +718,11 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
       L.push("- " + g.name + (d.played ? " (played)" : "") + (bits.length ? ". " + bits.join("; ") : ""));
       if (d.notes) L.push("  Notes: " + d.notes);
     });
-    L.push("", "TO DO, DONE");
-    DATA.todos.forEach(function(t){ if (!t.q && (state[t.id] || {}).done === true) L.push("- " + t.t); });
+    L.push("", "TO DO, DONE OR ANSWERED");
+    DATA.todos.forEach(function(t){
+      var d = state[t.id] || {};
+      if ((!t.q && d.done === true) || has(d.note)) L.push("- " + t.t + (has(d.note) ? ": " + d.note : ""));
+    });
     L.push("", "PICKS");
     DATA.qs.forEach(function(x, i){
       var d = state[x.id] || {};
