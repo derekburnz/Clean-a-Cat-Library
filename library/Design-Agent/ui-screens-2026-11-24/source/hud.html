@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="">
+<title>HUD</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* HUD while walking around the spa. Numbers are outlined words with no box; only pressable things look like buttons. */
+.top { position: absolute; top: calc(58px / var(--s) + 6px); }
+.goal { left: 50%; transform: translateX(-50%); top: 14px; display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-size: 30px; white-space: nowrap; }
+.goal .step { font-size: 22px; color: #ffe98f; }
+.goal .ic { font-size: 34px; }
+.money { right: 22px; top: 12px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.money .coins { display: flex; align-items: center; gap: 8px; font-size: 46px; line-height: 1; }
+.money .coins .ic { font-size: 48px; }
+.lvl { display: flex; align-items: center; gap: 8px; }
+.lvl .lv { font-family: var(--font-head); font-size: 18px; color: #fff; background: #a45be6; border: 3px solid var(--ink); border-radius: 14px; height: 30px; padding: 0 10px; display: grid; place-items: center; }
+.lvl .xpb { width: 150px; height: 20px; }
+.friends { display: flex; align-items: center; gap: 6px; font-size: 20px; }
+.friends .ic { font-size: 28px; }
+
+.side { left: 20px; margin-top: 18px; display: grid; grid-template-columns: repeat(2, 76px); gap: 40px 16px; }
+.queue { position: absolute; right: 26px; top: 54%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.queue .head { font-family: var(--font-head); font-size: 20px; }
+.qface { position: relative; width: 74px; height: 74px; border-radius: 50%; border: 4px solid var(--ink); background: #fff4e6; overflow: visible; box-shadow: 0 5px 0 var(--ink); }
+.qface img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.qface .pat { position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px); transform: rotate(-90deg); overflow: visible; }
+.qface .pat circle { fill: none; stroke-width: 8; }
+.qface .pat .trk { stroke: rgba(255,255,255,.85); }
+.qface .pat .val { stroke: var(--c, #3fa868); stroke-linecap: round; }
+.qface .rar { position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); height: 24px; font-size: 16px; padding: 0 9px; }
+.qmore { font-family: var(--font-head); font-size: 18px; }
+
+.prompt { position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; }
+.key { min-width: 48px; height: 48px; padding: 0 10px; border-radius: 12px; border: 4px solid var(--ink); background: #fff; display: grid; place-items: center;
+  font-family: var(--font-head); font-size: 22px; box-shadow: 0 4px 0 var(--ink); }
+body.touch .key { display: none; }
+
+body.short .side { grid-template-columns: repeat(4, 66px); gap: 0 14px; }
+body.short .side .rbtn { width: 66px; height: 66px; font-size: 38px; border-radius: 20px; }
+body.short .queue { top: calc(58px / var(--s) + 122px); transform: none; flex-direction: row-reverse; gap: 22px; right: 30px; }
+body.short .qmore { align-self: center; }
+body.short .qface { width: 60px; height: 60px; }
+body.short .qface .pat { inset: -9px; width: calc(100% + 18px); height: calc(100% + 18px); }
+body.short .money { flex-direction: column; gap: 4px; }
+body.short .lvl .xpb { width: 120px; }
+body.short .queue .head { display: none; }
+</style>
+</head>
+<body>
+<div id="screen"><div id="stage">
+  <div class="world spa" style="background-image:url(img/world-spa.jpg)"></div>
+
+  <div class="top goal outlined"><i data-ic="paw"></i><span>Wash 3 cats</span><span class="step">1 / 3</span></div>
+
+  <div class="top money">
+    <div class="coins outlined"><i data-ic="coin"></i><span class="num">1,240</span></div>
+    <div class="lvl"><div class="friends outlined thin"><i data-ic="friends"></i><span>+10%</span></div><span class="lv">Lv 4</span><div class="bar xpb"><i style="width:62%;background:linear-gradient(#e2c6ff,#a45be6)"></i></div></div>
+  </div>
+
+  <div class="top side">
+    <button class="rbtn mint" data-tap aria-label="Cat Index"><i data-ic="book"></i><span class="cap outlined thin">Index</span><span class="dot">2</span></button>
+    <button class="rbtn sky" data-tap aria-label="Tools"><i data-ic="tools"></i><span class="cap outlined thin">Tools</span></button>
+    <button class="rbtn pink" data-tap aria-label="Helpers"><i data-ic="helper"></i><span class="cap outlined thin">Helpers</span></button>
+    <button class="rbtn gold" data-tap aria-label="Builder"><i data-ic="hammer"></i><span class="cap outlined thin">Build</span><span class="dot">!</span></button>
+  </div>
+
+  <div class="queue">
+    <span class="head outlined thin">Waiting</span>
+    <button class="qface" data-tap aria-label="Muffin, waiting"><svg class="pat" viewBox="0 0 100 100"><circle class="trk" cx="50" cy="50" r="45"/><circle class="val" cx="50" cy="50" r="45" pathLength="100" stroke-dasharray="85 100"/></svg><img src="img/Cat_Muffin_Dirty_Sit.png" alt=""></button>
+    <button class="qface" data-tap aria-label="Toffee, rare, waiting"><svg class="pat" viewBox="0 0 100 100" style="--c:#ff9d1f"><circle class="trk" cx="50" cy="50" r="45"/><circle class="val" cx="50" cy="50" r="45" pathLength="100" stroke-dasharray="45 100"/></svg><img src="img/Cat_Toffee_Dirty_Sit.png" alt=""><span class="rar rare">Rare</span></button>
+    <span class="qmore outlined thin">+1 more</span>
+  </div>
+
+  <div class="prompt"><span class="key">E</span><span class="outlined" style="font-family:var(--font-head);font-size:26px">Take next cat</span></div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

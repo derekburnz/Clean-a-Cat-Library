@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="chip,card">
+<title>While you were away</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* Coming back after time away. No window opens by itself, so the news waits in a chip.
+
+   chip  A gold chip with a soft glow sits in the message slot (top centre under the goal line, the toasts' place;
+         on narrow phones it docks under the coins, as the toasts do). While it is there it counts as one of the
+         slot's two messages. It stays until the player taps it. It never counts down, and nothing is lost by
+         leaving it for later.
+   card  The player tapped it: a small window with what happened, in plain numbers, and one Collect button.
+         Tip jar coins, what the helpers earned (cats x coins each, so the sum can be checked) and a build that
+         finished. The X closes the window and keeps the chip, so the coins can be collected later.
+         No streaks, no "come back in", no bonus for hurrying. */
+
+/* ---------- the HUD, copied from hud.html ---------- */
+.top { position: absolute; top: calc(58px / var(--s) + 6px); }
+.goal { left: 50%; transform: translateX(-50%); top: 14px; display: flex; align-items: center; gap: 10px; font-size: 30px; white-space: nowrap; }
+.goal .step { font-size: 22px; color: #ffe98f; }
+.goal .ic { font-size: 34px; }
+.money { right: 22px; top: 12px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.money .coins { display: flex; align-items: center; gap: 8px; font-size: 46px; line-height: 1; }
+.money .coins .ic { font-size: 48px; }
+.lvl { display: flex; align-items: center; gap: 8px; }
+.lvl .lv { font-family: var(--font-head); font-size: 18px; color: #fff; background: #a45be6; border: 3px solid var(--ink); border-radius: 14px; height: 30px; padding: 0 10px; display: grid; place-items: center; }
+.lvl .xpb { width: 150px; height: 20px; }
+.friends { display: flex; align-items: center; gap: 6px; font-size: 20px; }
+.friends .ic { font-size: 28px; }
+.side { left: 20px; margin-top: 18px; display: grid; grid-template-columns: repeat(2, 76px); gap: 40px 16px; }
+.queue { position: absolute; right: 26px; top: 54%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.queue .head { font-family: var(--font-head); font-size: 20px; }
+.qface { position: relative; width: 74px; height: 74px; border-radius: 50%; border: 4px solid var(--ink); background: #fff4e6; overflow: visible; box-shadow: 0 5px 0 var(--ink); }
+.qface img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.qface .pat { position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px); transform: rotate(-90deg); overflow: visible; }
+.qface .pat circle { fill: none; stroke-width: 8; }
+.qface .pat .trk { stroke: rgba(255,255,255,.85); }
+.qface .pat .val { stroke: var(--c, #3fa868); stroke-linecap: round; }
+.qface .rar { position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); height: 24px; font-size: 16px; padding: 0 9px; }
+.qmore { font-family: var(--font-head); font-size: 18px; }
+.prompt { position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; }
+.key { min-width: 48px; height: 48px; padding: 0 10px; border-radius: 12px; border: 4px solid var(--ink); background: #fff; display: grid; place-items: center;
+  font-family: var(--font-head); font-size: 22px; box-shadow: 0 4px 0 var(--ink); }
+body.touch .key { display: none; }
+body.short .side { grid-template-columns: repeat(4, 66px); gap: 0 14px; }
+body.short .side .rbtn { width: 66px; height: 66px; font-size: 38px; border-radius: 20px; }
+body.short .queue { top: calc(58px / var(--s) + 122px); transform: none; flex-direction: row-reverse; gap: 22px; right: 30px; }
+body.short .qmore { align-self: center; }
+body.short .qface { width: 60px; height: 60px; }
+body.short .qface .pat { inset: -9px; width: calc(100% + 18px); height: calc(100% + 18px); }
+body.short .money { flex-direction: column; gap: 4px; }
+body.short .lvl .xpb { width: 120px; }
+body.short .queue .head { display: none; }
+
+
+/* ---------- the chip ---------- */
+.away-chip { position: absolute; left: 50%; top: 72px; transform: translateX(-50%); }
+.chipbtn { --top: #fff0a3; --bot: #ffc94d; --dep: #d19e22; position: relative; display: flex; align-items: center; height: max(54px, calc(46px / var(--s)));
+  padding: 0 24px 3px 66px; border-radius: 30px; border: var(--stroke) solid var(--ink); background: linear-gradient(var(--top), var(--bot));
+  box-shadow: 0 5px 0 var(--dep), 0 5px 0 var(--stroke) var(--ink); font-family: var(--font-head); font-size: 23px; color: #4a3200; white-space: nowrap; cursor: pointer; }
+.chipbtn::before { content: ""; position: absolute; left: 60px; right: 16px; top: 5px; height: 28%; border-radius: 10px; background: rgba(255, 255, 255, .5); pointer-events: none; }
+/* the glow: a soft ring behind the chip that breathes (colour only, the words never move) */
+.chipbtn::after { content: ""; position: absolute; inset: -7px -7px -12px; border-radius: 40px; z-index: -1; pointer-events: none;
+  background: rgba(255, 233, 143, .6); box-shadow: 0 0 16px 8px rgba(255, 221, 110, .65); animation: breathe 1.6s ease-in-out infinite alternate; }
+@keyframes breathe { from { opacity: 1; } to { opacity: .45; } }
+.chipbtn .med { position: absolute; left: -6px; top: 50%; transform: translateY(-52%); width: 62px; height: 62px; border-radius: 50%; border: var(--stroke) solid var(--ink);
+  background: #fff; box-shadow: 0 4px 0 var(--ink); display: grid; place-items: center; font-size: 42px; }
+.chipbtn .dot { position: absolute; top: -12px; right: -8px; min-width: 30px; height: 30px; padding: 0 7px; border-radius: 15px; background: var(--red); color: #fff;
+  border: 3px solid var(--ink); font-size: 18px; display: grid; place-items: center; }
+.chipbtn .lbl { position: relative; }
+body.narrow .away-chip { left: auto; right: 22px; transform: none; top: calc(58px / var(--s) + 30px); }
+body.narrow .chipbtn { font-size: 21px; padding: 0 20px 3px 62px; }
+body.narrow .chipbtn .med { width: 58px; height: 58px; font-size: 38px; }
+@media (prefers-reduced-motion: reduce) { .chipbtn::after { animation: none; } }
+
+/* ---------- the card ---------- */
+.win.away { width: 600px; }
+.badge.face { overflow: hidden; background: #fff4e6; }
+.shot { position: absolute; inset: 0; transform: scale(1.7); transform-origin: 35% 17%; }   /* close on the face */
+.badge.face .shot { transform: scale(1.12) translateY(6%); transform-origin: 50% 50%; }
+.mini .shot { transform: scale(1.1); transform-origin: 50% 30%; }
+.shot img, .shot svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; border-radius: 0; }
+.away .rows { display: flex; flex-direction: column; gap: 8px; }
+.away .line { display: flex; align-items: center; gap: 12px; min-height: 68px; padding: 6px 16px 6px 8px; border-radius: 16px; background: #fff; border: 2px solid var(--line); }
+.away .pic { position: relative; width: 78px; height: 50px; flex: none; display: grid; place-items: center; font-size: 46px; }
+.away .mini { position: absolute; top: 0; width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--ink); background: #fff4e6; overflow: hidden; }
+.away .mini:nth-child(1) { left: 0; z-index: 1; } .away .mini:nth-child(2) { left: 28px; }
+.away .t { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.away .t .a { font-family: var(--font-head); font-size: 22px; line-height: 1.15; }
+.away .t .b { font-weight: 800; font-size: 18px; color: var(--ink-soft); line-height: 1.2; }
+.away .v { margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: var(--font-head); font-size: 26px; color: var(--gold-ink); white-space: nowrap; }
+.away .v .ic { font-size: 28px; }
+.away .v.done { font-size: 22px; color: var(--good); }
+.away .v.done .ic { font-size: 28px; }
+.away .foot { display: flex; align-items: center; gap: 16px; margin-top: 14px; }
+.away .gone { font-weight: 800; font-size: 18px; color: var(--ink-soft); line-height: 1.25; }
+.away .gone b { display: block; font-family: var(--font-head); font-weight: 400; font-size: 22px; color: var(--ink); }
+.away .foot .btn { margin-left: auto; min-width: 290px; font-size: 28px; gap: 12px; }
+.away .foot .btn .price .ic { font-size: 30px; }
+
+/* short screens: the rows on the left, the total and the button on the right */
+body.short .win.away { width: 760px; }
+body.short .away .body { display: grid; grid-template-columns: 1fr 232px; gap: 16px; align-items: stretch; }
+body.short .away .rows { gap: 6px; }
+body.short .away .line { min-height: 58px; padding: 4px 14px 4px 4px; gap: 8px; }
+body.short .away .pic { width: 70px; height: 44px; font-size: 40px; }
+body.short .away .mini { width: 44px; height: 44px; }
+body.short .away .mini:nth-child(2) { left: 26px; }
+body.short .away .t .a { font-size: 21px; }
+body.short .away .t .b { font-size: 19px; }
+body.short .away .v { font-size: 24px; }
+body.short .away .gone { font-size: 19px; }
+body.short .away .foot { flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; margin-top: 0; text-align: center; }
+body.short .away .foot .btn { margin-left: 0; min-width: 0; }
+</style>
+</head>
+<body>
+<div id="screen"><div id="stage">
+  <div class="world spa" style="background-image:url(img/world-spa.jpg)"></div>
+
+  <div class="top goal outlined"><i data-ic="paw"></i><span>Wash 3 cats</span><span class="step">1 / 3</span></div>
+
+  <div class="top money">
+    <div class="coins outlined"><i data-ic="coin"></i><span class="num">1,240</span></div>
+    <div class="lvl"><div class="friends outlined thin"><i data-ic="friends"></i><span>+10%</span></div><span class="lv">Lv 4</span><div class="bar xpb"><i style="width:62%;background:linear-gradient(#e2c6ff,#a45be6)"></i></div></div>
+  </div>
+
+  <div class="top side">
+    <button class="rbtn mint" data-tap aria-label="Cat Index"><i data-ic="book"></i><span class="cap outlined thin">Index</span><span class="dot">2</span></button>
+    <button class="rbtn sky" data-tap aria-label="Tools"><i data-ic="tools"></i><span class="cap outlined thin">Tools</span></button>
+    <button class="rbtn pink" data-tap aria-label="Helpers"><i data-ic="helper"></i><span class="cap outlined thin">Helpers</span></button>
+    <button class="rbtn gold" data-tap aria-label="Builder"><i data-ic="hammer"></i><span class="cap outlined thin">Build</span><span class="dot">!</span></button>
+  </div>
+
+  <div class="queue">
+    <span class="head outlined thin">Waiting</span>
+    <button class="qface" data-tap aria-label="Muffin, waiting"><svg class="pat" viewBox="0 0 100 100"><circle class="trk" cx="50" cy="50" r="45"/><circle class="val" cx="50" cy="50" r="45" pathLength="100" stroke-dasharray="85 100"/></svg><img src="img/portrait_Muffin_Dirty_ink.png" alt=""></button>
+    <button class="qface" data-tap aria-label="Toffee, rare, waiting"><svg class="pat" viewBox="0 0 100 100" style="--c:#ff9d1f"><circle class="trk" cx="50" cy="50" r="45"/><circle class="val" cx="50" cy="50" r="45" pathLength="100" stroke-dasharray="45 100"/></svg><img src="img/portrait_Toffee_Dirty_ink.png" alt=""><span class="rar rare">Rare</span></button>
+    <span class="qmore outlined thin">+1 more</span>
+  </div>
+
+  <div class="prompt"><span class="key">E</span><span class="outlined" style="font-family:var(--font-head);font-size:26px">Take next cat</span></div>
+
+
+  <!-- chip: waits in the message slot until the player taps it -->
+  <div class="away-chip" data-only="chip">
+    <button class="chipbtn" data-tap aria-label="While you were away. Tap to see what happened">
+      <span class="med"><i data-ic="jar"></i></span><span class="lbl">While you were away</span><span class="dot">!</span>
+    </button>
+  </div>
+
+  <!-- card: opened by the player's tap -->
+  <div class="backdrop" data-only="card"></div>
+  <div class="win away" data-only="card">
+    <div class="band"><div class="badge face"><div class="shot"><img src="img/portrait_Helper2_ink.png" alt=""></div></div><span class="title outlined">While you were away</span></div>
+    <button class="xbtn" data-tap aria-label="Close. Nothing is lost: your coins stay on the chip until you collect them"><i data-ic="x"></i></button>
+    <div class="body">
+      <div class="rows">
+        <div class="line">
+          <span class="pic"><i data-ic="jar"></i></span>
+          <span class="t"><span class="a">Tip jar is full</span><span class="b">It holds 180 coins</span></span>
+          <span class="v">+180<i data-ic="coin"></i></span>
+        </div>
+        <div class="line">
+          <span class="pic"><span class="mini"><span class="shot"><img src="img/portrait_Helper2_ink.png" alt=""></span></span><span class="mini"><span class="shot"><img src="img/portrait_Helper_ink.png" alt=""></span></span></span>
+          <span class="t"><span class="a">Helpers washed 14 cats</span><span class="b">30 coins each</span></span>
+          <span class="v">+420<i data-ic="coin"></i></span>
+        </div>
+        <div class="line">
+          <span class="pic"><i data-ic="hammer"></i></span>
+          <span class="t"><span class="a">VIP Room is ready!</span><span class="b">Your builder finished it</span></span>
+          <span class="v done"><i data-ic="check"></i>Built</span>
+        </div>
+      </div>
+      <div class="foot">
+        <span class="gone">You were away for<b>3 h 20 min</b></span>
+        <button class="btn green" data-tap aria-label="Collect 600 coins"><span class="lbl">Collect</span><span class="lbl price"><i data-ic="coin"></i>600</span></button>
+      </div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+<script>
+(function () {
+  // a window is open in the card state: the thumbstick is hidden as on the other window screens, and the HUD
+  // behind the backdrop cannot be pressed, so it is not counted as pressable
+  if (document.body.dataset.state === 'card') {
+    document.body.classList.add('no-move');
+    document.querySelectorAll('[data-tap]').forEach((el) => { if (!el.closest('.win')) el.removeAttribute('data-tap'); });
+  }
+  // narrow: the design width is under 1060, so the message slot docks under the coins (see toasts.html)
+  function narrow() { document.body.classList.toggle('narrow', parseFloat(document.getElementById('stage').style.width) < 1060); }
+  window.addEventListener('DOMContentLoaded', narrow);
+  window.addEventListener('resize', narrow);
+})();
+</script>
+</body>
+</html>

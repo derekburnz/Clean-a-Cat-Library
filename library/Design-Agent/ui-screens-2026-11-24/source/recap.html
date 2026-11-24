@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="full,compact">
+<title>Recap card</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* After each cat: stars, then the coins and XP breakdown (Derek liked this in My Pet Salon!).
+   full: the card the first times, and for a rare cat. compact: the slim strip for every other cat, so 20 cats a
+   session do not mean 20 windows to close. The player taps Next cat (or X); nothing here closes by itself. */
+.win.recap { width: 760px; }
+.recap .body { display: grid; grid-template-columns: 230px 1fr; gap: 22px; }
+.who { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.who .tile { width: 210px; height: 210px; }
+.who .name { font-family: var(--font-head); font-size: 30px; }
+.who .tags { display: flex; gap: 6px; align-items: center; }
+.who .new { display: inline-flex; align-items: center; height: 28px; background: #ff86cf; color: #fff; border: 2px solid var(--ink);
+  border-radius: 14px; padding: 0 10px; font-family: var(--font-head); font-size: 17px; white-space: nowrap; }
+.stars-big { display: flex; justify-content: center; gap: 10px; font-size: 74px; margin: -6px 0 6px; }
+.stars-big svg:nth-child(2) { transform: translateY(-12px) scale(1.12); }
+.rows { display: flex; flex-direction: column; gap: 6px; }
+.line { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 14px; border-radius: 12px; background: #fff; border: 2px solid var(--line);
+  font-weight: 800; font-size: 20px; }
+.line .ic { font-size: 26px; }
+.line .v { margin-left: auto; font-family: var(--font-head); font-size: 22px; font-weight: 400; color: var(--gold-ink); }
+.line.xp .v { color: #7d3cc4; }
+.total { display: flex; align-items: center; gap: 12px; margin-top: 4px; padding: 8px 14px; border-radius: 14px; background: #fff1c7; border: 3px solid #f0cf6b; }
+.total .big { font-family: var(--font-head); font-size: 34px; color: var(--gold-ink); display: flex; align-items: center; gap: 8px; }
+.total .big .ic { font-size: 40px; }
+.total .xpb { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.total .xpb .t { font-family: var(--font-head); font-size: 18px; color: #7d3cc4; }
+.total .xpb .bar { width: 170px; height: 18px; }
+.actions { display: flex; gap: 14px; margin-top: 14px; }
+.actions .btn { flex: 1; }
+
+/* the compact strip: bottom centre, above the hotbar's place, no backdrop */
+.strip { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; padding: 10px 14px 10px 10px;
+  background: var(--cream); border: var(--stroke) solid var(--ink); border-radius: 22px; box-shadow: 0 6px 0 var(--ink); }
+.strip .tile { width: 72px; height: 72px; border-radius: 14px; }
+.strip .stars { font-size: 34px; }
+.strip .got { font-family: var(--font-head); font-size: 28px; color: var(--gold-ink); display: flex; align-items: center; gap: 6px; }
+.strip .got .ic { font-size: 32px; }
+.strip .xp { font-family: var(--font-head); font-size: 22px; color: #7d3cc4; }
+body:not([data-state="compact"]) .strip { display: none; }
+body[data-state="compact"] .full { display: none; }
+body[data-state="compact"] { }
+
+body.short .win.recap { width: 700px; }
+body.short .who .tile { width: 150px; height: 150px; }
+body.short .who { gap: 6px; }
+body.short .who .name { font-size: 26px; }
+body.short .recap .body { grid-template-columns: 160px 1fr; gap: 18px; }
+body.short .stars-big { font-size: 50px; margin: -4px 0 2px; }
+body.short .line { height: 34px; font-size: 18px; }
+body.short .rows { gap: 5px; }
+body.short .total { padding: 4px 12px; }
+body.short .total .big { font-size: 30px; }
+body.short .foot { display: flex; gap: 12px; align-items: stretch; margin-top: 6px; }
+body.short .foot .total { flex: 1; margin-top: 0; }
+body.short .foot .total .xpb .bar { width: 110px; }
+body.short .foot .actions { margin-top: 0; }
+body.short .foot .actions .btn { padding: 0 26px 4px; }
+</style>
+</head>
+<body class="no-move">
+<div id="screen"><div id="stage">
+  <div class="world" style="background-image:url(img/world-tub.jpg)"></div>
+
+  <div class="full">
+    <div class="backdrop"></div>
+    <div class="win recap">
+      <div class="band"><div class="badge"><i data-ic="star"></i></div><span class="title outlined">Great job!</span></div>
+      <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+      <div class="body">
+        <div class="who">
+          <div class="tile common"><img src="img/portrait_Muffin_ink.png" alt=""></div>
+          <span class="name">Muffin</span>
+          <span class="tags"><span class="rar common">Common</span><span class="new">New!</span></span>
+        </div>
+        <div>
+          <div class="stars-big"><i data-ic="star"></i><i data-ic="star"></i><i data-ic="starEmpty"></i></div>
+          <div class="rows">
+            <div class="line"><i data-ic="paw"></i>Washed and dried<span class="v">+40</span></div>
+            <div class="line"><i data-ic="clock"></i>Quick job<span class="v">+10</span></div>
+            <div class="line"><i data-ic="heart"></i>Happy owner tip<span class="v">+8</span></div>
+          </div>
+          <div class="foot">
+          <div class="total">
+            <span class="big"><i data-ic="coin"></i>+58</span>
+            <div class="xpb"><span class="t">+25 XP</span><div class="bar"><i style="width:74%;background:linear-gradient(#e2c6ff,#a45be6)"></i></div></div>
+          </div>
+          <div class="actions">
+            <button class="btn green" data-tap><span class="lbl">Next cat</span></button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="tile rare"><img src="img/portrait_Toffee_ink.png" alt=""></div>
+    <div class="col" style="gap:4px">
+      <span class="stars"><i data-ic="star"></i><i data-ic="star"></i><i data-ic="star"></i></span>
+      <span class="xp">+25 XP</span>
+    </div>
+    <span class="got"><i data-ic="coin"></i>+64</span>
+    <button class="btn green small" data-tap><span class="lbl">Next cat</span></button>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

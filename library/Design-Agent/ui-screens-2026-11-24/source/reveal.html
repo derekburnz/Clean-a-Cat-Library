@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="rare,legendary">
+<title>New cat reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* The reveal: the moment a cat the player has not met (or a rare one) comes out of the wash clean. A celebration
+   card, not a menu: no title band and no X, a sunburst behind it, the clean cat in a medallion, a rarity ribbon,
+   the name, "Added to your Index" and the honest chance in the same words the chance board uses. One green button
+   moves on; nothing here closes by itself and nothing is for sale.
+   rare: Marble (Rare, 11% of customers). legendary: Starcoat (Legendary, 0.5%), with a crown, a gold ring and
+   more sparkles. Tall screens stack the card; phones held sideways put the cat on the left and the words on the right. */
+.rare { --rc: #5fa8ff; --rib: #3d8fe8; --rib-d: #2a6ec2; --ray1: #dcecff; --ray2: #b9d9ff; --glow: 120, 186, 255; --deep: 52, 62, 150; }
+.legend { --rc: #ffc94d; --rib: #ffb81f; --rib-d: #d9820f; --ray1: #fff3c2; --ray2: #ffdf80; --glow: 255, 226, 130; --deep: 222, 138, 32; }
+body:not([data-state="legendary"]) .reveal.legend, body[data-state="legendary"] .reveal.rare { display: none; }
+
+.reveal { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.dim { position: absolute; inset: 0; background: radial-gradient(circle at 50% 46%, rgba(var(--glow), .92) 0, rgba(var(--deep), .9) 46%, rgba(34, 14, 58, .94) 100%); }
+.burst { position: absolute; left: 50%; top: 46%; width: 1900px; height: 1900px; margin: -950px 0 0 -950px; border-radius: 50%;
+  background: repeating-conic-gradient(from 5deg, rgba(255, 255, 255, .17) 0 9deg, rgba(255, 255, 255, 0) 9deg 18deg);
+  -webkit-mask-image: radial-gradient(circle, #000 14%, transparent 60%); mask-image: radial-gradient(circle, #000 14%, transparent 60%); }
+
+.head { position: relative; display: flex; align-items: center; gap: 12px; font-family: var(--font-head); font-size: 52px; line-height: 1; white-space: nowrap; }
+.head .ic { font-size: 40px; }
+
+.rcard { position: relative; width: 440px; background: var(--cream); border: var(--stroke) solid var(--ink); border-radius: 28px;
+  box-shadow: 0 8px 0 #e3cdb7, 0 8px 0 var(--stroke) var(--ink), 0 26px 44px rgba(20, 6, 40, .4); }
+.legend .rcard { box-shadow: 0 0 0 5px #ffd84d, 0 0 0 9px var(--ink), 0 9px 0 9px var(--ink), 0 26px 44px 6px rgba(20, 6, 40, .4); }
+.art { position: relative; height: 258px; border-radius: 23px 23px 0 0; border-bottom: var(--stroke) solid var(--ink); display: grid; place-items: center; overflow: hidden;
+  background: radial-gradient(circle at 50% 46%, rgba(255, 255, 255, .95) 0, rgba(255, 255, 255, 0) 64%),
+    repeating-conic-gradient(from 0deg at 50% 46%, var(--ray1) 0 12deg, var(--ray2) 12deg 24deg); }
+.medal { position: relative; width: 212px; height: 212px; margin-top: -16px; border-radius: 50%; border: 6px solid #fff; background: #fce6ca; overflow: hidden;
+  box-shadow: 0 0 0 4px var(--ink), 0 7px 0 4px var(--ink); }
+.medal img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.crown { position: absolute; left: 50%; top: 2px; transform: translateX(-50%) rotate(-6deg); font-size: 56px; z-index: 2; }
+.sp { position: absolute; z-index: 3; pointer-events: none; }
+.s1 { left: 42px; top: 30px; font-size: 38px; }
+.s2 { right: 40px; top: 104px; font-size: 30px; }
+.s3 { left: 64px; top: 150px; font-size: 22px; }
+.s4 { right: 34px; top: 22px; font-size: 26px; }
+.s5 { left: 18px; top: 96px; font-size: 26px; transform: rotate(-12deg); }
+.s6 { right: 70px; top: 168px; font-size: 22px; transform: rotate(10deg); }
+
+/* the rarity ribbon, across the bottom of the picture */
+.ribbon { position: absolute; left: 50%; top: 226px; width: 300px; height: 66px; margin-left: -150px; z-index: 4; }
+.ribbon svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ribbon span { position: absolute; left: 0; right: 0; top: 4px; height: 48px; display: grid; place-items: center; font-family: var(--font-head); font-size: 30px; line-height: 1; letter-spacing: .03em; }
+
+.info { display: flex; flex-direction: column; align-items: center; gap: 9px; padding: 40px 22px 16px; }
+.nm { font-family: var(--font-head); font-size: 46px; line-height: 1; }
+.added { display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px 0 9px; border-radius: 18px; background: #e3f7ea; border: 2px solid #9ed9b2; color: var(--good);
+  font-family: var(--font-head); font-size: 20px; white-space: nowrap; }
+.added .ic { font-size: 26px; }
+.odds { display: inline-flex; align-items: center; gap: 7px; font-weight: 800; font-size: 20px; line-height: 1; color: var(--ink); white-space: nowrap; }
+.odds .ic { font-size: 24px; }
+.info .btn { margin: 5px 0 10px; }
+
+/* phones held sideways: the cat on the left, the words on the right */
+body.short .reveal { gap: 8px; padding-top: 6px; }
+body.short .head { font-size: 38px; gap: 10px; }
+body.short .head .ic { font-size: 30px; }
+body.short .rcard { width: 660px; display: grid; grid-template-columns: 292px 1fr; }
+body.short .art { height: 262px; border-radius: 23px 0 0 23px; border-bottom: 0; border-right: var(--stroke) solid var(--ink); }
+body.short .medal { width: 190px; height: 190px; margin-top: -30px; }
+body.short .crown { top: 0; font-size: 50px; }
+body.short .s1 { left: 12px; top: 12px; font-size: 32px; }
+body.short .s2 { right: 10px; top: 76px; font-size: 26px; }
+body.short .s3 { left: 16px; top: 132px; font-size: 20px; }
+body.short .s4 { right: 16px; top: 12px; font-size: 24px; }
+body.short .s5, body.short .s6 { display: none; }
+body.short .ribbon { left: 146px; top: 186px; width: 264px; height: 58px; margin-left: -132px; }
+body.short .ribbon span { top: 3px; height: 43px; font-size: 26px; }
+body.short .info { justify-content: center; padding: 10px 22px 8px; gap: 8px; }
+body.short .nm { font-size: 42px; }
+body.short .info .btn { margin: 6px 0 8px; }
+</style>
+</head>
+<body class="no-move">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ribbon" viewBox="0 0 300 66">
+    <g stroke="#45226b" stroke-width="4" stroke-linejoin="round">
+      <path d="M6 18h46v44H6l14-22z" style="fill:var(--rib-d)"/><path d="M294 18h-46v44h46l-14-22z" style="fill:var(--rib-d)"/>
+      <rect x="30" y="4" width="240" height="48" rx="10" style="fill:var(--rib)"/>
+    </g>
+    <rect x="40" y="9" width="220" height="9" rx="4.5" fill="#fff" opacity=".3"/>
+  </symbol>
+</svg>
+<div id="screen"><div id="stage">
+  <div class="world" style="background-image:url(img/world-tub.jpg)"></div>
+
+  <!-- rare -->
+  <div class="reveal rare">
+    <div class="dim"></div><div class="burst"></div>
+    <div class="head outlined"><i data-ic="sparkle"></i><span>New cat!</span><i data-ic="sparkle"></i></div>
+    <div class="rcard">
+      <div class="art">
+        <div class="medal"><img src="img/Cat_Marble_Sit.png" alt=""></div>
+        <i data-ic="sparkle" class="sp s1"></i><i data-ic="sparkle" class="sp s2"></i><i data-ic="sparkle" class="sp s3"></i>
+      </div>
+      <div class="ribbon"><svg><use href="#ribbon"/></svg><span class="outlined thin">Rare</span></div>
+      <div class="info">
+        <span class="nm">Marble</span>
+        <span class="added"><i data-ic="book"></i>Added to your Index</span>
+        <span class="odds"><i data-ic="dice"></i>Rare · 11% of customers</span>
+        <button class="btn green wide" data-tap><span class="lbl">Continue</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- legendary -->
+  <div class="reveal legend">
+    <div class="dim"></div><div class="burst"></div>
+    <div class="head outlined"><i data-ic="sparkle"></i><span>New cat!</span><i data-ic="sparkle"></i></div>
+    <div class="rcard">
+      <div class="art">
+        <i data-ic="crown" class="crown"></i>
+        <div class="medal"><img src="img/Cat_Starcoat_Sit.png" alt=""></div>
+        <i data-ic="sparkle" class="sp s1"></i><i data-ic="sparkle" class="sp s2"></i><i data-ic="sparkle" class="sp s3"></i>
+        <i data-ic="sparkle" class="sp s4"></i><i data-ic="star" class="sp s5"></i><i data-ic="star" class="sp s6"></i>
+      </div>
+      <div class="ribbon"><svg><use href="#ribbon"/></svg><span class="outlined thin">Legendary</span></div>
+      <div class="info">
+        <span class="nm">Starcoat</span>
+        <span class="added"><i data-ic="book"></i>Added to your Index</span>
+        <span class="odds"><i data-ic="dice"></i>Legendary · 0.5% of customers</span>
+        <button class="btn green wide" data-tap><span class="lbl">Continue</span></button>
+      </div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+<script>
+// The stacked card needs about 640 design px of height; anything shorter gets the sideways layout.
+(function () {
+  const NEED = 640;
+  const fit = () => document.body.classList.toggle('short', innerHeight / (Number(document.body.dataset.scale) || 1) < NEED);
+  window.addEventListener('DOMContentLoaded', fit);
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>

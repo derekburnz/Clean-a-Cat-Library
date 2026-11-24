@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="grid,detail">
+<title>Cat Index</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* Cat Index: every cat a customer can bring, in the coat table's order. A cat the player has washed shows its clean
+   portrait in its rarity colour with its stamps (Washed, Resident); a cat not met yet is a dark shape with a "?",
+   still in its rarity colour so the player can see what is left to find. The filter chips narrow the grid, the gold
+   strip is the set (wash all ten) with its reward, and "2 new" plus the pink New! ribbons mark what was added since
+   the window was last open.
+   grid: the whole index. detail: one cat picked (Marble): big portrait, name, rarity, stamps, times washed, the
+   honest chance and where it comes from. On wide screens the grid stays beside the detail; on phones held sideways
+   the detail takes the window and Back returns to the grid. */
+:root { --sil: url("data:image/png;base64,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"); }
+.win.index { width: 1080px; --avail: calc((100vh - 58px) / var(--s) - 36px); }
+.index .body { display: flex; flex-direction: column; gap: 10px; }
+.common { --rc: #8e97b2; } .uncommon { --rc: #3fb071; } .rare { --rc: #3d8fe8; } .epic { --rc: #a45be6; } .legend { --rc: #ffc94d; }
+
+.newchip { position: relative; z-index: 1; margin-left: 14px; transform: rotate(-4deg); background: #ff86cf; color: #fff; border: 3px solid var(--ink); border-radius: 12px;
+  padding: 3px 10px 4px; font-family: var(--font-head); font-size: 18px; line-height: 1.1; box-shadow: 0 3px 0 var(--ink); white-space: nowrap; }
+
+/* filter chips */
+.filters { display: flex; align-items: center; gap: 8px; }
+.fchip { display: inline-flex; align-items: center; gap: 7px; min-height: max(44px, calc(46px / var(--s))); padding: 0 13px; border-radius: 999px; border: 3px solid var(--ink);
+  background: #fff; color: var(--ink); font-family: var(--font-head); font-size: 18px; line-height: 1; white-space: nowrap; box-shadow: 0 3px 0 var(--ink); cursor: pointer; }
+.fchip .n { font-family: var(--font-body); font-weight: 800; font-size: 16px; color: var(--ink-soft); }
+.fchip .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--rc); border: 2.5px solid var(--ink); flex: none; }
+.fchip.on { background: var(--ink); color: #fff; }
+.fchip.on .n { color: #e2d3f5; }
+.legend-row { position: relative; z-index: 1; margin-left: auto; margin-right: 62px; display: flex; align-items: center; gap: 16px; font-weight: 800; font-size: 17px; color: var(--ink); white-space: nowrap; }
+.legend-row span { display: inline-flex; align-items: center; gap: 5px; }
+.legend-row .ic { font-size: 26px; }
+
+/* the grid of cats */
+.main { display: grid; grid-template-columns: 1fr; height: 366px; }
+.grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; align-content: start; padding: 10px 10px 8px; overflow-y: auto; overflow-x: hidden; min-height: 0; }
+.ctile { position: relative; display: flex; flex-direction: column; padding: 4px 4px 0; border: 3px solid var(--ink); border-radius: 16px; background: var(--rc);
+  box-shadow: 0 4px 0 var(--ink); cursor: pointer; font: inherit; color: inherit; text-align: center; min-width: 0; container-type: inline-size; }
+.ctile .art { position: relative; display: block; height: 120px; margin-bottom: 4px; border-radius: 10px 10px 5px 5px; overflow: hidden; background: #fce6ca; }
+.ctile .art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 26%; }
+/* the name shrinks with a narrow tile (the build: TextScaled with a 16 px floor), so an 11-letter name still fits */
+.ctile .nm { display: grid; place-items: center; height: 30px; font-family: var(--font-head); font-size: clamp(16px, 15cqw, 20px); line-height: 1; color: #fff; text-shadow: 0 2px 0 rgba(40, 14, 70, .4); white-space: nowrap;
+  margin: 0 -4px; border-radius: 0 0 12px 12px; background: rgba(40, 14, 70, .14); } /* a shade deeper than the frame, so white names read on grey and green */
+.ctile.legend .nm { color: #3a2a00; text-shadow: 0 1px 0 rgba(255, 255, 255, .5); background: rgba(160, 90, 0, .16); }
+.ctile .st { position: absolute; top: 8px; right: 8px; display: flex; gap: 3px; font-size: 28px; }
+.ctile .new, .dpic .new { position: absolute; top: -10px; left: -10px; transform: rotate(-8deg); background: #ff86cf; color: #fff; border: 3px solid var(--ink);
+  border-radius: 12px; padding: 3px 9px; font-family: var(--font-head); font-size: 18px; line-height: 1.1; box-shadow: 0 3px 0 var(--ink); z-index: 2; }
+/* not met yet */
+.ctile.unknown .art { background: #e7dccf; }
+.sil { position: absolute; inset: 0; background: #3b2456; -webkit-mask: var(--sil) 50% 26% / cover no-repeat; mask: var(--sil) 50% 26% / cover no-repeat; opacity: .88; }
+.q { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-46%); font-family: var(--font-head); font-size: 52px; line-height: 1; color: #fff;
+  text-shadow: -2px -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 2px 0 var(--ink), 2px 2px 0 var(--ink), 0 3px 0 var(--ink); }
+body[data-state="detail"] .ctile.sel { box-shadow: 0 0 0 4px #ffd84d, 0 0 0 7px var(--ink); }
+
+/* the set strip: wash all ten */
+.set { display: flex; align-items: center; gap: 12px; }
+.set.foot { padding: 6px 16px 6px 12px; border-radius: 14px; background: #fff1c7; border: 3px solid #f0cf6b; }
+.set .ic.gift { font-size: 36px; }
+.set .t { font-family: var(--font-head); font-size: 22px; white-space: nowrap; }
+.set .bar { flex: 1; height: 22px; }
+.set .n { font-family: var(--font-head); font-size: 22px; white-space: nowrap; }
+.set .rew { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: 18px; color: var(--ink-soft); white-space: nowrap; margin-left: 6px; }
+.set .rew b { font-family: var(--font-head); font-weight: 400; font-size: 26px; color: var(--gold-ink); }
+.set .rew .ic { font-size: 28px; }
+.set.inband { display: none; }
+
+/* one cat picked */
+.detail { display: none; }
+body[data-state="detail"] .main { grid-template-columns: minmax(0, 1fr) 492px; gap: 12px; }
+body[data-state="detail"] .grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.grid.more { -webkit-mask-image: linear-gradient(#000 calc(100% - 22px), transparent); mask-image: linear-gradient(#000 calc(100% - 22px), transparent); }
+body[data-state="detail"] .detail { display: grid; grid-template-columns: 150px 1fr; grid-template-areas: "pic who" "pic hint" "rows rows" "act act"; grid-template-rows: auto 1fr auto auto;
+  gap: 10px 14px; padding: 12px 14px 8px; background: #fff; border: 3px solid var(--line); border-radius: var(--radius-card); min-width: 0; }
+.dpic { grid-area: pic; position: relative; }
+.bigtile { padding: 5px; border: 3px solid var(--ink); border-radius: 18px; background: var(--rc); height: 150px; }
+.bigtile img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 10px; }
+.dwho { grid-area: who; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+.dname { font-family: var(--font-head); font-size: 38px; line-height: 1; }
+.dstamps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+.stamp { display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 10px 0 5px; border-radius: 10px; border: 2.5px solid currentColor; font-family: var(--font-head);
+  font-size: 17px; line-height: 1; white-space: nowrap; transform: rotate(-3deg); }
+.stamp .ic { font-size: 22px; }
+.stamp.washed { color: var(--good); background: #e3f7ea; }
+.stamp.resident { color: #b83378; background: #ffe6f2; transform: rotate(2deg); }
+.stamp.todo { color: #7b6d88; background: transparent; border-style: dashed; padding-left: 10px; }
+.hint { grid-area: hint; align-self: end; font-weight: 800; font-size: 16px; line-height: 1.2; color: var(--ink-soft); }
+.rows { grid-area: rows; display: flex; flex-direction: column; gap: 6px; justify-content: center; margin-top: 2px; }
+.line { display: flex; align-items: center; gap: 9px; height: 36px; padding: 0 12px; border-radius: 12px; background: var(--cream); border: 2px solid var(--line);
+  font-weight: 800; font-size: 18px; white-space: nowrap; }
+.line .ic { font-size: 24px; }
+.line .v { margin-left: auto; font-family: var(--font-head); font-weight: 400; font-size: 19px; }
+.dact { grid-area: act; display: flex; gap: 12px; padding-bottom: 9px; }
+.dact .btn { flex: 1; }
+.dact .btn .ic { font-size: 24px; }
+
+/* phones held sideways */
+body.short .win.index { width: 880px; }
+body.short .index .body { padding: 8px 12px 10px; gap: 6px; }
+body.short .legend-row, body.short .set.foot, body.short .fchip .n { display: none; }
+body.short .set.inband { display: flex; position: relative; z-index: 1; margin-left: auto; margin-right: 60px; gap: 8px; padding: 4px 12px 4px 8px; border-radius: 14px; background: rgba(255, 253, 248, .72); }
+body.short .set.inband .ic.gift { font-size: 28px; }
+body.short .set.inband .t, body.short .set.inband .n { font-size: 18px; }
+body.short .set.inband .bar { flex: none; width: 76px; height: 18px; }
+body.short .set.inband .rew { margin-left: 0; }
+body.short .set.inband .rew b { font-size: 20px; }
+body.short .set.inband .rew .ic { font-size: 22px; }
+body.short .newchip { margin-left: 10px; font-size: 16px; }
+body.short .filters { gap: 6px; }
+body.short .fchip { padding: 0 14px; }
+body.short .main { height: min(226px, calc(var(--avail) - 153px)); }
+body.short .grid { grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 8px; padding: 10px 8px 4px 10px; }
+body.short .grid.more { -webkit-mask-image: linear-gradient(#000 calc(100% - 26px), transparent); mask-image: linear-gradient(#000 calc(100% - 26px), transparent); }
+body.short .ctile { border-radius: 14px; }
+body.short .ctile .art { height: 66px; border-radius: 8px 8px 4px 4px; }
+body.short .ctile .art img { object-position: 50% 14%; }
+body.short .sil { -webkit-mask-position: 50% 14%; mask-position: 50% 14%; }
+body.short .q { font-size: 40px; }
+body.short .ctile .nm { height: 24px; font-size: 16px; border-radius: 0 0 10px 10px; }
+body.short .ctile .st { top: 6px; right: 6px; font-size: 22px; gap: 2px; }
+body.short .ctile .new { top: -9px; left: -9px; font-size: 16px; padding: 2px 7px; }
+
+body.short[data-state="detail"] .filters, body.short[data-state="detail"] .grid { display: none; }
+body.short[data-state="detail"] .main { grid-template-columns: 1fr; height: min(293px, calc(var(--avail) - 86px)); }
+body.short[data-state="detail"] .detail { grid-template-columns: 168px 1fr auto; grid-template-areas: "pic who who" "pic rows rows" "back hint odds"; grid-template-rows: auto 1fr auto;
+  gap: 6px 16px; padding: 4px 2px 0; background: none; border: 0; }
+body.short .bigtile { height: auto; aspect-ratio: 1; padding: 4px; }
+body.short .dpic { align-self: center; }
+body.short .dwho { flex-direction: row; align-items: center; gap: 10px; }
+body.short .dname { font-size: 32px; }
+body.short .dstamps { margin: 0 0 0 auto; flex-wrap: nowrap; }
+body.short .stamp { height: 30px; font-size: 16px; }
+body.short .rows { gap: 5px; justify-content: flex-start; }
+body.short .line { height: auto; flex: 1 1 34px; max-height: 42px; }
+body.short .hint { align-self: center; text-align: center; margin-bottom: 8px; }
+body.short .rows { margin-top: 0; }
+body.short .dact { display: contents; }
+body.short .dact .back { grid-area: back; margin-bottom: 8px; }
+body.short .dact .odds { grid-area: odds; justify-self: end; margin-bottom: 8px; flex: none; padding: 0 22px 3px; }
+</style>
+</head>
+<body class="no-move">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="home" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="#ff7fb5" stroke="#45226b" stroke-width="4"/><path d="M19 33l13-12 13 12" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M23.5 33v11h17V33" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="chev" viewBox="0 0 64 64"><path d="M40 12L20 32l20 20" fill="none" stroke="#45226b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<div id="screen"><div id="stage">
+  <div class="world spa" style="background-image:url(img/world-spa.jpg)"></div>
+  <div class="backdrop"></div>
+
+  <div class="win index">
+    <div class="band">
+      <div class="badge"><i data-ic="book"></i></div>
+      <span class="title outlined">Cat Index</span>
+      <span class="newchip">2 new</span>
+      <div class="legend-row" aria-label="Stamps"><span><i data-ic="check"></i>Washed</span><span><svg class="ic"><use href="#home"/></svg>Resident</span></div>
+      <!-- the set strip again, slim, for short screens (the gold strip under the grid on tall ones) -->
+      <div class="set inband" aria-label="Wash all 10 cats: 6 of 10. Reward 400 coins"><i data-ic="gift" class="gift"></i><span class="t">Wash all 10</span><div class="bar gold"><i style="width:60%"></i></div><span class="n">6 / 10</span><span class="rew"><i data-ic="coin"></i><b>400</b></span></div>
+    </div>
+    <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+    <div class="body">
+      <div class="filters">
+        <button class="fchip on" data-tap>All <span class="n">6/10</span></button>
+        <button class="fchip common" data-tap><i class="dot"></i>Common <span class="n">4/4</span></button>
+        <button class="fchip uncommon" data-tap><i class="dot"></i>Uncommon <span class="n">1/2</span></button>
+        <button class="fchip rare" data-tap><i class="dot"></i>Rare <span class="n">1/2</span></button>
+        <button class="fchip epic" data-tap><i class="dot"></i>Epic <span class="n">0/1</span></button>
+        <button class="fchip legend" data-tap><i class="dot"></i>Legendary <span class="n">0/1</span></button>
+      </div>
+
+      <div class="main">
+        <div class="grid scroll" id="grid">
+        <button class="ctile common" data-tap aria-label="Muffin, Common. Washed, Resident"><span class="art"><img src="img/Cat_Muffin_Sit.png" alt=""></span><span class="nm">Muffin</span><span class="st"><i data-ic="check"></i><svg class="ic"><use href="#home"/></svg></span></button>
+        <button class="ctile common" data-tap aria-label="Smudge, Common. Washed"><span class="art"><img src="img/Cat_Smudge_Sit.png" alt=""></span><span class="nm">Smudge</span><span class="st"><i data-ic="check"></i></span></button>
+        <button class="ctile common" data-tap aria-label="Inky, Common. Washed, Resident"><span class="art"><img src="img/Cat_Inky_Sit.png" alt=""></span><span class="nm">Inky</span><span class="st"><i data-ic="check"></i><svg class="ic"><use href="#home"/></svg></span></button>
+        <button class="ctile common" data-tap aria-label="Cotton, Common. Washed"><span class="art"><img src="img/Cat_Cotton_Sit.png" alt=""></span><span class="nm">Cotton</span><span class="st"><i data-ic="check"></i></span></button>
+        <button class="ctile uncommon unknown" data-tap aria-label="Not met yet, Uncommon"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">Uncommon?</span></button>
+        <button class="ctile uncommon" data-tap aria-label="Patches, Uncommon. Washed. New"><span class="art"><img src="img/Cat_Patches_Sit.png" alt=""></span><span class="nm">Patches</span><span class="st"><i data-ic="check"></i></span><span class="new">New!</span></button>
+        <button class="ctile rare unknown" data-tap aria-label="Not met yet, Rare"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">Rare?</span></button>
+        <button class="ctile rare sel" data-tap aria-label="Marble, Rare. Washed. New"><span class="art"><img src="img/Cat_Marble_Sit.png" alt=""></span><span class="nm">Marble</span><span class="st"><i data-ic="check"></i></span><span class="new">New!</span></button>
+        <button class="ctile epic unknown" data-tap aria-label="Not met yet, Epic"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">Epic?</span></button>
+        <button class="ctile legend unknown" data-tap aria-label="Not met yet, Legendary"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">Legendary?</span></button>
+        </div>
+
+        <div class="detail">
+          <div class="dpic"><div class="bigtile rare"><img src="img/Cat_Marble_Sit.png" alt=""></div><span class="new">New!</span></div>
+          <div class="dwho">
+            <span class="dname">Marble</span>
+            <span class="rar rare">Rare</span>
+            <div class="dstamps"><span class="stamp washed"><i data-ic="check"></i>Washed</span><span class="stamp todo">Resident</span></div>
+          </div>
+          <div class="hint">A Resident lives in your spa window.</div>
+          <div class="rows">
+            <div class="line"><i data-ic="sponge"></i>Washed<span class="v">3 times</span></div>
+            <div class="line"><i data-ic="dice"></i>Chance<span class="v">Rare cats: 11% of customers</span></div>
+            <div class="line"><i data-ic="customer"></i>Comes from<span class="v">Rare customers at your door</span></div>
+          </div>
+          <div class="dact">
+            <button class="btn ghost small back" data-tap><svg class="ic"><use href="#chev"/></svg><span class="lbl">Back</span></button>
+            <button class="btn sky small odds" data-tap><i data-ic="dice"></i><span class="lbl">All chances</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="set foot"><i data-ic="gift" class="gift"></i><span class="t">Wash all 10 cats</span><div class="bar gold"><i style="width:60%"></i></div><span class="n">6 / 10</span><span class="rew">Reward <i data-ic="coin"></i><b>400</b></span></div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+<script>
+// Rows that carry on below the grid fade out at its bottom edge ("more this way"). With a cat picked, the grid
+// scrolls only if the picked tile is out of view.
+// The tall window needs about 700 design px of height; anything shorter gets the compact layout.
+(function () {
+  const NEED = 700;
+  const fit = () => document.body.classList.toggle('short', innerHeight / (Number(document.body.dataset.scale) || 1) < NEED);
+  window.addEventListener('DOMContentLoaded', fit);
+  window.addEventListener('resize', fit);
+})();
+window.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('grid'), sel = grid.querySelector('.sel');
+  const more = () => grid.classList.toggle('more', grid.scrollTop < grid.scrollHeight - grid.clientHeight - 4);
+  grid.addEventListener('scroll', more);
+  window.addEventListener('resize', more);
+  more();
+  if (document.body.dataset.state !== 'detail') return;
+  if (!sel || !grid.clientHeight) return;
+  const top = sel.offsetTop - grid.offsetTop, bottom = top + sel.offsetHeight;
+  if (bottom > grid.scrollTop + grid.clientHeight || top < grid.scrollTop) grid.scrollTop = Math.max(0, bottom - grid.clientHeight + 12);
+});
+</script>
+</body>
+</html>

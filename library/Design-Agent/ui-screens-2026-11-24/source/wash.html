@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="scrub,pick,nails">
+<title>Wash</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* Washing one cat, close up at the tub. Derek's playtest notes: several kinds of step (scrub, aim water, pick things
+   out of the fur, hold on the claws), a step counter like "Step 2 of 4", praise with a growing combo, and the pet
+   should not turn by itself, so the player turns the cat with the two round arrows. The thumbstick is hidden while
+   washing so a drag on the cat never walks the avatar. */
+.world.wash { background: radial-gradient(ellipse at 50% 40%, #fbe6cf, #f2d2b0); }
+.scene { position: absolute; left: 50%; top: calc(50% + 10px); height: 92%; aspect-ratio: 1040 / 820; transform: translate(-50%, -50%); }
+.scene > img { width: 100%; height: 100%; display: block;
+  -webkit-mask-image: radial-gradient(ellipse 62% 64% at 50% 50%, #000 62%, transparent 100%); mask-image: radial-gradient(ellipse 62% 64% at 50% 50%, #000 62%, transparent 100%); }
+.mark { position: absolute; transform: translate(-50%, -50%); }
+
+/* top: the step counter with one icon per step */
+.steps { position: absolute; left: 50%; top: calc(58px / var(--s) + 8px); transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.steps .t { font-family: var(--font-head); font-size: 30px; white-space: nowrap; }
+.steps .t b { font-weight: 400; color: #ffe98f; }
+.pips { display: flex; gap: 10px; }
+.pip { position: relative; width: 50px; height: 50px; border-radius: 50%; border: 4px solid var(--ink); background: #fff; display: grid; place-items: center; font-size: 30px; box-shadow: 0 4px 0 var(--ink); }
+.pip.done { background: #c9f5e5; }
+.pip.done::after { content: ""; position: absolute; right: -8px; bottom: -8px; width: 24px; height: 24px; border-radius: 50%; border: 3px solid var(--ink);
+  background: #3fa868 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-9' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/80% no-repeat; }
+.pip.now { background: #ffe98f; transform: scale(1.18); }
+.pip.next { opacity: .75; }
+
+/* bottom: what to do now, its progress, and the tools */
+.task { position: absolute; left: 50%; bottom: 128px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.task .say { font-family: var(--font-head); font-size: 30px; white-space: nowrap; }
+.task .bar { width: 380px; height: 24px; }
+.tray { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); display: flex; gap: 12px; padding: 10px 14px; border-radius: 24px;
+  background: rgba(255, 246, 236, .92); border: 4px solid var(--ink); box-shadow: 0 5px 0 var(--ink); }
+.slot { position: relative; width: 72px; height: 72px; border-radius: 18px; border: 4px solid var(--ink); background: #fff; display: grid; place-items: center; font-size: 46px; }
+.slot.sel { background: linear-gradient(#ffe98f, #ffc94d); transform: translateY(-10px); box-shadow: 0 6px 0 var(--ink); }
+.slot.used { background: #e7f6ef; }
+.slot.used .ic { opacity: .45; }
+.slot .k { position: absolute; left: 6px; top: 2px; font-family: var(--font-head); font-size: 15px; }
+body.touch .slot .k { display: none; }
+
+/* sides: turn the cat, stop washing, the coin counter */
+.turn { position: absolute; top: 50%; transform: translateY(-50%); }
+.turn.l { left: 26px; } .turn.r { right: 26px; }
+.turn .rbtn { width: 84px; height: 84px; border-radius: 50%; font-size: 40px; }
+.turn svg { width: 46px; height: 46px; }
+.stop { position: absolute; left: 20px; top: calc(58px / var(--s) + 14px); }
+.coins { position: absolute; right: 22px; top: calc(58px / var(--s) + 12px); display: flex; align-items: center; gap: 8px; font-size: 40px; }
+.coins .ic { font-size: 42px; }
+
+/* praise: outlined words beside the cat, never over the middle */
+.praise { position: absolute; left: calc(50% + 230px); top: 34%; transform: rotate(-8deg); display: flex; flex-direction: column; align-items: flex-start; }
+.praise .w { font-family: var(--font-head); font-size: 54px; color: #fff; }
+.praise .x { font-family: var(--font-head); font-size: 40px; color: #ffe14a; margin-left: 30px; }
+
+/* the state's marks on the cat */
+.burr { width: 64px; height: 64px; }
+.burr .ic { width: 100%; height: 100%; }
+.burr.got { opacity: .35; }
+.hand { width: 70px; height: 70px; }
+.hold { width: 120px; height: 120px; }
+.hold svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.hold .lbl { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-head); font-size: 22px; }
+
+
+body.short .scene { top: calc(50% + 34px); height: 80%; }
+body.short .task { bottom: 112px; }
+body.short .task .say { font-size: 26px; }
+body.short .task .bar { width: 300px; height: 20px; }
+body.short .slot { width: 64px; height: 64px; font-size: 40px; }
+body.short .tray { gap: 10px; padding: 8px 12px; }
+body.short .pip { width: 44px; height: 44px; font-size: 26px; }
+body.short .steps .t { font-size: 26px; }
+body.short .praise { left: calc(50% + 170px); }
+body.short .praise .w { font-size: 44px; }
+body.short .praise .x { font-size: 32px; }
+body.short .turn .rbtn { width: 76px; height: 76px; }
+</style>
+</head>
+<body class="no-move">
+<div id="screen"><div id="stage">
+  <div class="world wash"><div class="scene"><img src="img/wash-close.jpg" alt=""></div></div>
+  <div class="scene">
+    <!-- pick: burrs stuck in the fur, drag each one off -->
+    <div class="mark burr" data-only="pick" style="left:56%;top:22%"><i data-ic="burr"></i></div>
+    <div class="mark burr got" data-only="pick" style="left:39%;top:40%"><i data-ic="burr"></i></div>
+    <div class="mark burr" data-only="pick" style="left:52%;top:47%"><i data-ic="burr"></i></div>
+    <div class="mark hand" data-only="pick" style="left:60%;top:30%"><i data-ic="hand"></i></div>
+    <!-- nails: hold on the paw until the ring fills -->
+    <div class="mark hold" data-only="nails" style="left:45%;top:51%">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="rgba(255,255,255,.55)" stroke="#45226b" stroke-width="7"/><circle cx="50" cy="50" r="42" fill="none" stroke="#ffc94d" stroke-width="9" pathLength="100" stroke-dasharray="64 100" stroke-linecap="round"/></svg>
+      <span class="lbl outlined thin">Hold</span>
+    </div>
+  </div>
+
+  <button class="btn ghost small stop" data-tap><span class="lbl">Stop</span></button>
+  <div class="coins outlined"><i data-ic="coin"></i><span>1,240</span></div>
+
+  <div class="steps">
+    <span class="t outlined" data-only="scrub">Step 1 of 4 · <b>Scrub the mud</b></span>
+    <span class="t outlined" data-only="pick">Step 2 of 4 · <b>Pick out the burrs</b></span>
+    <span class="t outlined" data-only="nails">Step 4 of 4 · <b>Trim the claws</b></span>
+    <div class="pips" data-only="scrub"><span class="pip now"><i data-ic="sponge"></i></span><span class="pip next"><i data-ic="tweezers"></i></span><span class="pip next"><i data-ic="shower"></i></span><span class="pip next"><i data-ic="clipper"></i></span></div>
+    <div class="pips" data-only="pick"><span class="pip done"><i data-ic="sponge"></i></span><span class="pip now"><i data-ic="tweezers"></i></span><span class="pip next"><i data-ic="shower"></i></span><span class="pip next"><i data-ic="clipper"></i></span></div>
+    <div class="pips" data-only="nails"><span class="pip done"><i data-ic="sponge"></i></span><span class="pip done"><i data-ic="tweezers"></i></span><span class="pip done"><i data-ic="shower"></i></span><span class="pip now"><i data-ic="clipper"></i></span></div>
+  </div>
+
+  <div class="turn l"><button class="rbtn lilac" data-tap aria-label="Turn left"><svg viewBox="0 0 64 64"><path d="M40 14a20 20 0 1 1-22 6" fill="none" stroke="#45226b" stroke-width="9" stroke-linecap="round"/><path d="M40 14a20 20 0 1 1-22 6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M8 14l14 2-4 14z" fill="#fff" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></svg></button></div>
+  <div class="turn r"><button class="rbtn lilac" data-tap aria-label="Turn right"><svg viewBox="0 0 64 64" style="transform:scaleX(-1)"><path d="M40 14a20 20 0 1 1-22 6" fill="none" stroke="#45226b" stroke-width="9" stroke-linecap="round"/><path d="M40 14a20 20 0 1 1-22 6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M8 14l14 2-4 14z" fill="#fff" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></svg></button></div>
+
+  <div class="praise" data-only="scrub"><span class="w outlined">Awesome!</span><span class="x outlined">x12</span></div>
+  <div class="praise" data-only="pick"><span class="w outlined">Nice pick!</span><span class="x outlined">x3</span></div>
+  <div class="praise" data-only="nails"><span class="w outlined">Steady...</span></div>
+
+  <div class="task">
+    <span class="say outlined" data-only="scrub">Rub the mud off</span>
+    <span class="say outlined" data-only="pick">Drag each burr away</span>
+    <span class="say outlined" data-only="nails">Hold on the paw</span>
+    <div class="bar sky" data-only="scrub"><i style="width:70%"></i></div>
+    <div class="bar" data-only="pick"><i style="width:34%"></i></div>
+    <div class="bar gold" data-only="nails"><i style="width:50%"></i></div>
+  </div>
+
+  <div class="tray">
+    <button class="slot sel" data-only="scrub" data-tap><span class="k">1</span><i data-ic="sponge"></i></button>
+    <button class="slot used" data-only="pick nails" data-tap><span class="k">1</span><i data-ic="sponge"></i></button>
+    <button class="slot" data-only="scrub" data-tap><span class="k">2</span><i data-ic="tweezers"></i></button>
+    <button class="slot sel" data-only="pick" data-tap><span class="k">2</span><i data-ic="tweezers"></i></button>
+    <button class="slot used" data-only="nails" data-tap><span class="k">2</span><i data-ic="tweezers"></i></button>
+    <button class="slot" data-only="scrub pick" data-tap><span class="k">3</span><i data-ic="shower"></i></button>
+    <button class="slot used" data-only="nails" data-tap><span class="k">3</span><i data-ic="shower"></i></button>
+    <button class="slot" data-only="scrub pick" data-tap><span class="k">4</span><i data-ic="clipper"></i></button>
+    <button class="slot sel" data-only="nails" data-tap><span class="k">4</span><i data-ic="clipper"></i></button>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

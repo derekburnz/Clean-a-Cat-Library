@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="">
+<title>Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* Tools window: one card per tool with its picture, level pips, what the next level does in plain words and a
+   price button. Every state is on show: Sponge is maxed (gold pips, a Max chip and no button), Brush, Shower and
+   Tweezers can be bought (green), Dryer costs more than the coins in the band (grey), Nail clipper is locked until
+   a spa level. The coins sit in the band as outlined words so a grey price explains itself.
+   Wide screens: two columns of cards, nothing scrolls. Short phones: one row per tool in a scroll list. */
+.win.tools { width: 1140px; display: flex; flex-direction: column; }
+.win.tools > .band { flex: none; }
+.win.tools > .band .sub { font-size: 20px; opacity: 1; white-space: nowrap; }
+.band .purse { position: relative; z-index: 1; margin-left: auto; margin-right: 62px; display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-head); font-size: 32px; line-height: 1; }
+.band .purse .ic { font-size: 36px; }
+.win.tools > .body { position: relative; padding: 0; display: flex; flex-direction: column; min-height: 0; }
+.list { padding: 18px 22px 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; border-radius: 0 0 20px 20px; }
+
+.tool { display: grid; grid-template-columns: 104px 1fr auto; grid-template-rows: 1fr auto; grid-template-areas: "pic who act" "pic next next";
+  column-gap: 16px; row-gap: 8px; align-items: center; padding: 12px 16px 12px 12px; }
+.tool .pic { grid-area: pic; position: relative; width: 104px; height: 104px; border-radius: 16px; overflow: hidden;
+  background: linear-gradient(#fde7cb, #ffeed0); display: grid; place-items: center; }
+.tool .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tool .pic svg { width: 76px; height: 76px; }
+.tool .who { grid-area: who; align-self: center; display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.tool .name { font-family: var(--font-head); font-size: 28px; line-height: 1; white-space: nowrap; }
+.tool .lv { display: flex; align-items: center; gap: 10px; }
+.tool .lv .n { font-family: var(--font-head); font-size: 18px; color: var(--ink-soft); white-space: nowrap; }
+.pips { display: flex; gap: 4px; }
+.pips i { width: 22px; height: 14px; border-radius: 7px; border: 3px solid var(--ink); background: #fff; }
+.pips i.on { background: linear-gradient(#8df2bb, #35c27c); }
+.pips.max i.on { background: linear-gradient(#ffe36b, #ffb31f); }
+.tool .next { grid-area: next; align-self: start; font-weight: 800; font-size: 20px; line-height: 1.2; white-space: nowrap; }
+.tool .next .k { color: var(--ink-soft); }
+.tool .act { grid-area: act; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.tool .act .btn { min-width: 156px; padding: 0 12px 4px; }
+.tool .act .btn .ic { font-size: 30px; }
+
+/* maxed: the same column, a quiet gold chip where the button was */
+.maxchip { height: 44px; padding: 0 18px; font-size: 24px; border-width: 3px; border-radius: 22px; min-width: 110px; justify-content: center; }
+.maxchip .ic { font-size: 26px; }
+/* locked: dimmed card, the lock and the spa level it opens at */
+.tool.locked { background: var(--cream-2); border-color: #e6d5c2; }
+.tool.locked .pic { background: #eadccd; }
+.tool.locked .pic svg { opacity: .45; filter: grayscale(.6); }
+.tool.locked .name, .tool.locked .next { color: var(--ink-soft); }
+.tool .gate { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 156px; font-family: var(--font-head); font-size: 18px; color: var(--ink-soft); white-space: nowrap; }
+.tool .gate .ic { font-size: 40px; }
+
+/* short phones: one row per tool, the list scrolls and fades out at the bottom to show there is more */
+body.short .win.tools { width: 900px; }
+body.short .win.tools > .band .sub { font-size: 19px; }
+body.short .band .purse { font-size: 28px; margin-right: 56px; }
+body.short .band .purse .ic { font-size: 32px; }
+body.short .list { grid-template-columns: 1fr; gap: 8px; padding: 12px 22px 18px 16px; }
+body.short .tool { grid-template-columns: 64px 176px 1fr auto; grid-template-rows: auto; grid-template-areas: "pic who next act"; column-gap: 14px;
+  padding: 4px 12px 4px 8px; }
+body.short .tool .pic { width: 64px; height: 64px; border-radius: 13px; }
+body.short .tool .pic svg { width: 48px; height: 48px; }
+body.short .tool .who { align-self: center; gap: 6px; }
+body.short .tool .name { font-size: 24px; }
+body.short .tool .lv { gap: 8px; }
+body.short .pips i { width: 17px; height: 12px; }
+body.short .tool .next { align-self: center; font-size: 19px; }
+body.short .tool .act .btn { min-width: 136px; font-size: 24px; margin-bottom: 6px; }
+body.short .tool .gate { min-width: 136px; flex-direction: row; gap: 6px; justify-content: center; }
+body.short .tool .gate .ic { font-size: 30px; }
+body.short .maxchip { height: 40px; font-size: 22px; }
+body.short .win.tools > .body::after { content: ""; position: absolute; left: 4px; right: 18px; bottom: 0; height: 16px; pointer-events: none;
+  background: linear-gradient(rgba(255, 246, 236, 0), var(--cream)); border-radius: 0 0 20px 20px; }
+/* the scroll bar is drawn (the check's browser hides real ones): a ScrollingFrame's bar stays on show in the build */
+body.short .list.scroll { scrollbar-width: none; }
+body.short .win.tools > .body::before { content: ""; position: absolute; right: 6px; top: 12px; width: 8px; height: 46%; border-radius: 4px; background: var(--lilac-d); z-index: 1; }
+</style>
+</head>
+<body class="no-move">
+<div id="screen"><div id="stage">
+  <div class="world" style="background-image:url(img/world-spa.jpg)"></div>
+  <div class="backdrop"></div>
+
+  <div class="win tools">
+    <div class="band">
+      <div class="badge"><i data-ic="tools"></i></div>
+      <span class="title outlined">Tools</span>
+      <span class="sub">Better tools clean faster</span>
+      <span class="purse outlined thin"><i data-ic="coin"></i><span>1,240</span></span>
+    </div>
+    <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+    <div class="body">
+      <div class="list scroll">
+
+        <div class="tool card">
+          <div class="pic"><img src="img/Tool_SpongeGolden.png" alt=""></div>
+          <div class="who">
+            <span class="name">Sponge</span>
+            <div class="lv"><span class="pips max" aria-label="Level 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="n">Level 5</span></div>
+          </div>
+          <div class="next">Scrubs the biggest spot</div>
+          <div class="act"><span class="chip gold maxchip"><i data-ic="star"></i>Max</span></div>
+        </div>
+
+        <div class="tool card">
+          <div class="pic"><img src="img/Tool_Brush.png" alt=""></div>
+          <div class="who">
+            <span class="name">Brush</span>
+            <div class="lv"><span class="pips" aria-label="Level 2 of 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span class="n">Level 2</span></div>
+          </div>
+          <div class="next"><span class="k">Next:</span> Untangles knots faster</div>
+          <div class="act"><button class="btn green" data-tap aria-label="Upgrade Brush for 250 coins"><span class="lbl price"><i data-ic="coin"></i>250</span></button></div>
+        </div>
+
+        <div class="tool card">
+          <div class="pic"><i data-ic="shower"></i></div>
+          <div class="who">
+            <span class="name">Shower</span>
+            <div class="lv"><span class="pips" aria-label="Level 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span><span class="n">Level 3</span></div>
+          </div>
+          <div class="next"><span class="k">Next:</span> Rinses a wider strip</div>
+          <div class="act"><button class="btn green" data-tap aria-label="Upgrade Shower for 600 coins"><span class="lbl price"><i data-ic="coin"></i>600</span></button></div>
+        </div>
+
+        <div class="tool card">
+          <div class="pic"><i data-ic="dryer"></i></div>
+          <div class="who">
+            <span class="name">Dryer</span>
+            <div class="lv"><span class="pips" aria-label="Level 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="n">Level 4</span></div>
+          </div>
+          <div class="next"><span class="k">Next:</span> Dries fur in half the time</div>
+          <div class="act"><button class="btn off" data-tap aria-label="Upgrade Dryer for 2,000 coins. Not enough coins yet"><span class="lbl price"><i data-ic="coin"></i>2,000</span></button></div>
+        </div>
+
+        <div class="tool card">
+          <div class="pic"><i data-ic="tweezers"></i></div>
+          <div class="who">
+            <span class="name">Tweezers</span>
+            <div class="lv"><span class="pips" aria-label="Level 1 of 5"><i class="on"></i><i></i><i></i><i></i><i></i></span><span class="n">Level 1</span></div>
+          </div>
+          <div class="next"><span class="k">Next:</span> Pulls burrs out in one go</div>
+          <div class="act"><button class="btn green" data-tap aria-label="Upgrade Tweezers for 120 coins"><span class="lbl price"><i data-ic="coin"></i>120</span></button></div>
+        </div>
+
+        <div class="tool card locked">
+          <div class="pic">
+            <!-- nail clipper, drawn here in the kit's style: 64 x 64, ink outline 4 -->
+            <svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#45226b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M5 47c0-5 5-8 13-9l32-4c4 0 8 2 9 5l-6 4 6 5c-2 3-5 5-10 5H15c-6 0-10-2-10-6z" fill="#e3e9f2"/><path d="M12 46l38-2.500" fill="none" stroke-width="3"/><rect x="-4" y="-6.500" width="46" height="13" rx="6.500" transform="translate(47 31) rotate(203)" fill="#ffb3c7"/><circle cx="45" cy="33" r="2.600" fill="#45226b" stroke="none"/></g><path d="M13 16.500l13 5.500" stroke="#fff" stroke-width="2.600" stroke-linecap="round" opacity=".85"/></svg>
+          </div>
+          <div class="who">
+            <span class="name">Nail clipper</span>
+            <span class="lv"><span class="n">Not yours yet</span></span>
+          </div>
+          <div class="next">Trims long claws neatly</div>
+          <div class="act"><div class="gate"><i data-ic="lock"></i><span>Spa level 6</span></div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

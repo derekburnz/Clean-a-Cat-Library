@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="">
+<title>Helpers</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* Helpers window: three spots side by side, two filled (Suds, Biscuit) and one empty spot to hire into.
+   A helper is a cat in a little mint cap. Its card says who it is, what it does, how fast it works (a bar; the striped piece is what
+   the next "Speed up" adds), what it is doing right now (washing a named customer with a small progress bar, or
+   resting) and one button with a coin price. The one-line explainer sits in the band beside the title, so it costs
+   no height on a phone. Nothing here is random and nothing is timed.
+   Wide screens: tall cards with a big portrait. Short phones: the portrait moves beside the name; nothing scrolls. */
+.win.helpers { width: 1040px; display: flex; flex-direction: column; }
+.win.helpers > .band { flex: none; }
+.win.helpers > .body { min-height: 0; border-radius: 0 0 20px 20px; }   /* scrolls only on a screen shorter than any we test */
+.win.helpers > .band .sub { font-size: 20px; opacity: 1; white-space: nowrap; }
+.band .purse { position: relative; z-index: 1; margin-left: auto; margin-right: 62px; display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-head); font-size: 32px; line-height: 1; padding-left: 12px; }
+.band .purse .ic { font-size: 36px; }
+
+.slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.slot { display: flex; flex-direction: column; gap: 12px; padding: 16px 16px 14px; min-width: 0; }
+.slot .top { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.face { width: 150px; height: 150px; flex: none; }
+.face .shot { position: absolute; left: -2%; top: 0; width: 104%; height: 104%; }
+.face .shot img, .face .shot svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.slot .id { align-self: stretch; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.slot .nm { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.slot .name { font-family: var(--font-head); font-size: 30px; line-height: 1; white-space: nowrap; }
+.lv { font-family: var(--font-head); font-size: 18px; color: #fff; background: #a45be6; border: 3px solid var(--ink); border-radius: 14px; height: 30px; padding: 0 10px;
+  display: grid; place-items: center; white-space: nowrap; }
+.slot .role { font-weight: 800; font-size: 19px; line-height: 1; color: var(--ink-soft); text-align: center; white-space: nowrap; margin-top: -2px; }
+.spd { display: flex; align-items: center; gap: 10px; }
+.spd .k { font-family: var(--font-head); font-size: 18px; color: var(--ink-soft); }
+.spd .bar { flex: 1; height: 20px; }
+.spd .bar > b { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(-55deg, #bfe9ff 0 5px, #ecf8ff 5px 10px); border-left: 2px solid var(--ink); }
+
+/* what the helper is doing right now */
+.job { display: flex; align-items: center; gap: 10px; padding: 8px 12px 8px 8px; min-height: 62px; }
+.job .pic { position: relative; width: 46px; height: 46px; border-radius: 50%; border: 3px solid var(--ink); overflow: hidden; flex: none; background: #fff4e6; display: grid; place-items: center; }
+.job .pic img { position: absolute; left: -24%; top: -17%; width: 180%; height: 180%; max-width: none; display: block; }
+.job .pic.zz { background: var(--lilac); font-family: var(--font-head); font-size: 20px; }
+.job .t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.job .s { font-weight: 800; font-size: 20px; line-height: 1.1; white-space: nowrap; }
+.job .d { font-weight: 800; font-size: 17px; line-height: 1.1; color: var(--ink-soft); white-space: nowrap; }
+.job .bar { height: 14px; border-width: 3px; }
+.slot .btn { margin-top: auto; margin-bottom: 6px; gap: 10px; padding: 0 12px 4px; }
+.slot .btn .ic { font-size: 30px; }
+
+/* the empty spot: dashed, quiet, one green button */
+.slot.empty { background: transparent; border: 3px dashed #d7bfa3; }
+.ghost { position: relative; width: 150px; height: 150px; flex: none; border-radius: 16px; background: var(--cream-2); display: grid; place-items: center; }
+.ghost .ic { width: 92px; height: 92px; opacity: .3; filter: grayscale(1); }
+.ghost .plus { position: absolute; right: -10px; bottom: -10px; width: 44px; height: 44px; border-radius: 50%; border: 3px solid var(--ink); background: linear-gradient(#7be85a, #3dbf3f);
+  display: grid; place-items: center; box-shadow: 0 3px 0 var(--ink); }
+.ghost .plus svg { width: 22px; height: 22px; }
+.slot.empty .name { color: var(--ink-soft); }
+.slot.empty .say { font-weight: 800; font-size: 20px; line-height: 1.25; text-align: center; color: var(--ink-soft); padding: 0 6px; min-height: 62px; display: grid; place-items: center; }
+
+/* short phones: portrait beside the name, tighter rows, still three across */
+body.short .win.helpers { width: 900px; }
+body.short .win.helpers > .band .sub { font-size: 19px; margin-left: 12px; white-space: normal; line-height: 1.1; max-width: 250px; }
+body.short .band .purse { font-size: 28px; margin-right: 56px; }
+body.short .band .purse .ic { font-size: 32px; }
+body.short .win.helpers > .body { padding: 12px 14px 14px; }
+body.short .slots { gap: 10px; }
+body.short .slot { gap: 8px; padding: 8px 10px 6px; }
+body.short .slot .top { flex-direction: row; gap: 10px; }
+body.short .face, body.short .ghost { width: 72px; height: 72px; border-radius: 14px; }
+body.short .face .shot { left: -8%; top: -2%; width: 142%; height: 142%; }
+body.short .ghost .ic { width: 50px; height: 50px; }
+body.short .ghost .plus { width: 30px; height: 30px; right: -8px; bottom: -8px; border-width: 3px; }
+body.short .ghost .plus svg { width: 16px; height: 16px; }
+body.short .slot .id { align-self: center; flex: 1; gap: 5px; }
+body.short .slot .nm { justify-content: flex-start; gap: 8px; }
+body.short .slot .name { font-size: 26px; }
+body.short .lv { height: 28px; font-size: 17px; padding: 0 8px; }
+body.short .spd { gap: 6px; }
+body.short .spd .k { font-size: 17px; }
+body.short .spd .bar { height: 18px; }
+body.short .job { min-height: 50px; padding: 5px 10px 5px 6px; gap: 8px; }
+body.short .job .pic { width: 38px; height: 38px; }
+body.short .job .pic.zz { font-size: 17px; }
+body.short .job .s { font-size: 19px; }
+body.short .job .t { gap: 4px; }
+body.short .job .bar { height: 12px; }
+body.short .slot .btn { font-size: 22px; gap: 8px; padding: 0 8px 4px; }
+body.short .slot .btn .ic { font-size: 26px; }
+body.short .slot.empty .say { min-height: 50px; font-size: 18px; line-height: 1.15; padding: 0; }
+body.short .slot .role { text-align: left; font-size: 17px; margin-top: 0; }
+body.short .slot.empty .role { display: none; }
+</style>
+</head>
+<body class="no-move">
+<div id="screen"><div id="stage">
+  <div class="world" style="background-image:url(img/world-spa.jpg)"></div>
+  <div class="backdrop"></div>
+
+  <div class="win helpers">
+    <div class="band">
+      <div class="badge"><i data-ic="helper"></i></div>
+      <span class="title outlined">Helpers</span>
+      <span class="sub">They work by themselves, slower than you</span>
+      <span class="purse outlined thin"><i data-ic="coin"></i><span>1,240</span></span>
+    </div>
+    <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+    <div class="body scroll">
+      <div class="slots">
+
+        <div class="slot card">
+          <div class="top">
+            <div class="tile face"><div class="shot"><img src="img/Cat_Tux_Sit.png" alt="">
+              <!-- the helper cap, drawn over the render until Model-Agent's capped portraits arrive -->
+              <svg viewBox="0 0 256 256" aria-hidden="true"><polygon points="121.0,74.0 165.5,59.0 165.5,71.0 121.0,86.0" fill="#79c9ad"/><polygon points="37.5,58.0 121.0,74.0 121.0,86.0 37.5,70.0" fill="#a8e6cf"/><polygon points="37.5,58.0 121.0,74.0 121.0,77.0 37.5,61.0" fill="#ffffff"/><polygon points="121.0,74.0 165.5,59.0 165.5,62.0 121.0,77.0" fill="#dcefe8"/><polygon points="37.5,70.0 121.0,86.0 102.9,92.3 19.4,76.3" fill="#d2f7ea"/><polygon points="19.4,76.3 102.9,92.3 102.9,95.3 19.4,79.3" fill="#8ad6ba"/></svg>
+            </div></div>
+            <div class="id">
+              <div class="nm"><span class="name">Suds</span><span class="lv">Lv 3</span></div>
+              <div class="role">Washes customers</div>
+              <div class="spd" aria-label="Speed 3 of 5. The next level adds 1"><span class="k">Speed</span><div class="bar sky"><i style="width:60%"></i><b style="left:60%;width:20%"></b></div></div>
+            </div>
+          </div>
+          <div class="job well">
+            <div class="pic"><img src="img/Cat_Muffin_Dirty_Sit.png" alt=""></div>
+            <div class="t"><span class="s">Washing Muffin</span><div class="bar"><i style="width:64%"></i></div></div>
+          </div>
+          <button class="btn off wide" data-tap aria-label="Speed up Suds for 1,600 coins. Not enough coins yet"><span class="lbl">Speed up</span><span class="lbl price"><i data-ic="coin"></i>1,600</span></button>
+        </div>
+
+        <div class="slot card">
+          <div class="top">
+            <div class="tile face"><div class="shot"><img src="img/Cat_Toffee_Sit.png" alt="">
+              <svg viewBox="0 0 256 256" aria-hidden="true"><polygon points="126.0,83.0 166.5,71.0 166.5,83.0 126.0,95.0" fill="#79c9ad"/><polygon points="46.5,67.0 126.0,83.0 126.0,95.0 46.5,79.0" fill="#a8e6cf"/><polygon points="46.5,67.0 126.0,83.0 126.0,86.0 46.5,70.0" fill="#ffffff"/><polygon points="126.0,83.0 166.5,71.0 166.5,74.0 126.0,86.0" fill="#dcefe8"/><polygon points="46.5,79.0 126.0,95.0 109.6,100.0 30.1,84.0" fill="#d2f7ea"/><polygon points="30.1,84.0 109.6,100.0 109.6,103.0 30.1,87.0" fill="#8ad6ba"/></svg>
+            </div></div>
+            <div class="id">
+              <div class="nm"><span class="name">Biscuit</span><span class="lv">Lv 1</span></div>
+              <div class="role">Washes customers</div>
+              <div class="spd" aria-label="Speed 1 of 5. The next level adds 1"><span class="k">Speed</span><div class="bar sky"><i style="width:20%"></i><b style="left:20%;width:20%"></b></div></div>
+            </div>
+          </div>
+          <div class="job well">
+            <div class="pic zz">Zz</div>
+            <div class="t"><span class="s">Resting</span><span class="d">No cats waiting</span></div>
+          </div>
+          <button class="btn green wide" data-tap aria-label="Speed up Biscuit for 300 coins"><span class="lbl">Speed up</span><span class="lbl price"><i data-ic="coin"></i>300</span></button>
+        </div>
+
+        <div class="slot card empty">
+          <div class="top">
+            <div class="ghost"><i data-ic="helper"></i><span class="plus"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M4 12h16" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg></span></div>
+            <div class="id">
+              <div class="nm"><span class="name">Empty spot</span></div>
+              <div class="role">Room for one more</div>
+            </div>
+          </div>
+          <div class="say">A new helper washes one more cat at a time.</div>
+          <button class="btn green wide" data-tap aria-label="Hire a helper for 1,000 coins"><span class="lbl">Hire</span><span class="lbl price"><i data-ic="coin"></i>1,000</span></button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

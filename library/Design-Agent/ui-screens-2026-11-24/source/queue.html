@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="normal,rare">
+<title>Who's next?</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* "Who's next?": the player opens it from the HUD's waiting faces and picks which customer to serve.
+   One card per waiting cat: dirty portrait, rarity, what it needs, a calm patience bar (a heart and a bar, no
+   numbers and no warning words), what it pays and one green Wash button. A cat a helper is washing shows who has
+   it instead of a button. normal: five everyday customers. rare: the second card is a rare VIP customer (glow and
+   crown) with the same honest rows as everyone else, and the title band says how often a Rare cat visits.
+   The row scrolls sideways when the cards do not fit; the arrows show only then (the script at the bottom). */
+.win.queue { width: max-content; }
+.queue .body { display: flex; align-items: center; gap: 10px; }
+.band .sub .ic { font-size: 24px; margin-right: 4px; }
+body:not([data-state="rare"]) .only-rare { display: none !important; }
+body[data-state="rare"] .only-normal { display: none !important; }
+
+.cards { flex: 1; min-width: 0; display: flex; gap: 14px; padding: 32px 8px 6px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--fade-l, 0px), #000 calc(100% - var(--fade-r, 0px)), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 var(--fade-l, 0px), #000 calc(100% - var(--fade-r, 0px)), transparent 100%); }
+.cards::-webkit-scrollbar { display: none; }
+
+/* the arrows: only when the row scrolls */
+.nav { flex: none; width: max(56px, calc(46px / var(--s))); height: 104px; border-radius: 18px; border: var(--stroke) solid var(--ink); padding: 0;
+  background: linear-gradient(#ece2fb, #d9c7f5); box-shadow: 0 5px 0 #b79be8, 0 5px 0 var(--stroke) var(--ink); display: none; place-items: center; font-size: 40px; cursor: pointer; }
+.nav.next svg { transform: scaleX(-1); }
+.nav.end { background: linear-gradient(#efe9e2, #ddd2c6); box-shadow: 0 5px 0 #b5a595, 0 5px 0 var(--stroke) var(--ink); }
+.nav.end svg { opacity: .45; }
+body.scrolls .nav { display: grid; }
+
+/* one customer */
+.qcard { position: relative; flex: none; width: 204px; display: flex; flex-direction: column; gap: 8px; padding: 10px 10px 8px;
+  background: #fff; border: 3px solid var(--line); border-radius: var(--radius-card); }
+.qcard .pic { position: relative; }
+.qcard .tile { height: 132px; }
+.qcard .tile img { object-position: 50% 30%; }
+/* the rarity ring, drawn over the picture (the kit's inset ring sits under it) */
+.tile::after { content: ""; position: absolute; inset: 0; border-radius: 12px; pointer-events: none; }
+.tile.common::after { box-shadow: inset 0 0 0 4px var(--r-common); }
+.tile.uncommon::after { box-shadow: inset 0 0 0 4px var(--r-uncommon); }
+.tile.rare::after { box-shadow: inset 0 0 0 4px var(--r-rare); }
+.qcard > .rar { position: absolute; left: 50%; top: 130px; transform: translateX(-50%); }
+.qcard .name { font-family: var(--font-head); font-size: 26px; line-height: 1; text-align: center; margin-top: 13px; }
+.qcard .pay { display: flex; align-items: center; justify-content: space-between; font-weight: 800; font-size: 18px; color: var(--ink-soft); line-height: 1; }
+.qcard .pay .v { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-head); font-weight: 400; font-size: 28px; color: var(--gold-ink); }
+.qcard .pay .v .ic { font-size: 30px; }
+.needs { display: flex; flex-direction: column; gap: 4px; }
+.cap { font-weight: 800; font-size: 16px; line-height: 1; color: var(--ink-soft); }
+.needs .set { display: flex; justify-content: center; gap: 5px; padding: 5px 4px; }
+.need { width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 2px solid var(--line); display: grid; place-items: center; font-size: 29px; flex: none; }
+.pat { display: flex; align-items: center; gap: 8px; }
+.pat > .ic { font-size: 26px; }
+.pat .bar { flex: 1; height: 20px; }
+.bar.peach > i { background: linear-gradient(#ffdcc0, #ffab73); }
+.qcard .act { margin-top: 2px; padding-bottom: 10px; }
+.qcard .act .btn .ic { font-size: 30px; }
+
+.new { position: absolute; top: -9px; left: -9px; transform: rotate(-8deg); background: #ff86cf; color: #fff; border: 3px solid var(--ink);
+  border-radius: 12px; padding: 3px 9px; font-family: var(--font-head); font-size: 18px; line-height: 1.1; box-shadow: 0 3px 0 var(--ink); z-index: 2; }
+
+/* a helper has this one: who is on it, where the button would be */
+.qcard.helped { background: #f1f9ff; border-color: #bfe3fa; }
+.busy { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: max(60px, calc(46px / var(--s))); border-radius: 14px;
+  background: #dff1fd; border: 2px solid #a9d8f7; font-weight: 800; font-size: 18px; line-height: 1.15; color: var(--ink); }
+.busy .ic { font-size: 38px; }
+.busy b { font-family: var(--font-head); font-weight: 400; font-size: 20px; }
+
+/* the rare VIP customer: a rarity glow and a crown; every row stays the same as on the other cards */
+.qcard.vip { background: linear-gradient(#e3f0ff, #fff 46%); border-color: var(--r-rare);
+  box-shadow: 0 0 0 4px rgba(95, 168, 255, .32), 0 0 22px 4px rgba(95, 168, 255, .55); }
+.vipmark { position: absolute; left: 50%; top: -41px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; z-index: 3; pointer-events: none; }
+.vipmark .ic { font-size: 46px; }
+.vipmark span { margin-top: -9px; font-family: var(--font-head); font-size: 16px; line-height: 1; color: #3a2a00; background: linear-gradient(#ffe98f, #ffc94d);
+  border: 3px solid var(--ink); border-radius: 10px; padding: 2px 8px 3px; }
+.spark { position: absolute; pointer-events: none; z-index: 2; }
+.spark.a { right: -7px; top: 104px; font-size: 30px; }
+.spark.b { left: -8px; top: 180px; font-size: 22px; }
+
+/* phones held sideways: the picture moves beside the name and the pay beside the patience bar, so the card is
+   short enough and three fit with the next one peeking in */
+body.short .queue .body { padding: 8px 12px 10px; gap: 8px; }
+body.short .cards { gap: 10px; padding: 14px 6px 4px; }
+body.short .nav { height: 88px; }
+body.short .qcard { width: 200px; display: grid; grid-template-columns: 66px 1fr auto; grid-template-rows: 33px 33px auto auto auto;
+  grid-template-areas: "pic name name" "pic rar rar" "needs needs needs" "pat pat pay" "act act act"; column-gap: 10px; row-gap: 0; padding: 8px; }
+body.short .qcard .pic { grid-area: pic; }
+body.short .qcard .tile { width: 66px; height: 66px; border-radius: 14px; }
+body.short .tile::after { border-radius: 10px; }
+body.short .qcard .tile img { object-position: 50% 10%; }
+body.short .qcard > .rar { grid-area: rar; position: static; transform: none; justify-self: start; align-self: start; margin-top: 3px; height: 24px; font-size: 16px; padding: 0 8px; }
+body.short .qcard .name { grid-area: name; margin: 0; text-align: left; font-size: 24px; align-self: end; }
+/* a name over 9 letters takes .long: smaller, and it may wrap to two lines (the build: TextScaled with a floor) */
+body.short .qcard .name.long { font-size: 19px; }
+body.short .qcard .pay { grid-area: pay; align-self: center; margin-top: 7px; }
+body.short .qcard .pay > span:first-child { display: none; }
+body.short .qcard .pay .v { font-size: 24px; gap: 5px; }
+body.short .qcard .pay .v .ic { font-size: 24px; }
+body.short .needs { grid-area: needs; margin-top: 7px; }
+body.short .needs .cap { display: none; }
+body.short .needs .set { justify-content: flex-start; padding: 2px 4px; gap: 4px; }
+body.short .need { width: 32px; height: 32px; font-size: 24px; }
+body.short .pat { grid-area: pat; margin-top: 7px; gap: 6px; }
+body.short .pat > .ic { font-size: 22px; }
+body.short .pat .bar { height: 16px; }
+body.short .qcard .act { grid-area: act; margin-top: 8px; padding-bottom: 7px; }
+body.short .qcard .act .btn { font-size: 22px; --lip: 5px; border-radius: 13px; }
+body.short .busy { font-size: 16px; }
+body.short .busy b { font-size: 18px; }
+body.short .busy .ic { font-size: 34px; }
+body.short .new { top: -8px; left: -8px; font-size: 16px; padding: 2px 7px; }
+body.short .vipmark { left: 50px; top: -14px; transform: rotate(14deg); }
+body.short .vipmark .ic { font-size: 32px; }
+body.short .vipmark span { display: none; }
+body.short .spark.a { right: -8px; top: -9px; font-size: 26px; }
+body.short .spark.b { display: none; }
+</style>
+</head>
+<body class="no-move">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="chev" viewBox="0 0 64 64"><path d="M40 12L20 32l20 20" fill="none" stroke="#45226b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 12L20 32l20 20" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<div id="screen"><div id="stage">
+  <div class="world spa" style="background-image:url(img/world-spa.jpg)"></div>
+  <div class="backdrop"></div>
+
+  <div class="win queue">
+    <div class="band">
+      <div class="badge"><i data-ic="queue"></i></div>
+      <span class="title outlined">Who's next?</span>
+      <span class="sub only-normal">Pick a cat to wash</span>
+      <span class="sub only-rare"><i data-ic="crown"></i>A Rare cat is here · 11% of customers</span>
+    </div>
+    <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+    <div class="body">
+      <button class="nav prev end" data-tap aria-label="Earlier customers"><svg class="ic"><use href="#chev"/></svg></button>
+      <div class="cards scroll" id="cards">
+
+        <div class="qcard">
+          <div class="pic"><div class="tile common"><img src="img/Cat_Muffin_Dirty_Sit.png" alt=""></div></div>
+          <span class="rar common">Common</span>
+          <span class="name">Muffin</span>
+          <div class="needs" aria-label="Needs: mud, tangles"><span class="cap">Needs</span><div class="set well"><span class="need"><i data-ic="mud"></i></span><span class="need"><i data-ic="tangle"></i></span></div></div>
+          <div class="pat" aria-label="Patience: happy to wait"><i data-ic="heart"></i><div class="bar"><i style="width:86%"></i></div></div>
+          <div class="pay"><span>Pays</span><span class="v"><i data-ic="coin"></i>40</span></div>
+          <div class="act"><button class="btn green wide" data-tap><i data-ic="sponge"></i><span class="lbl">Wash</span></button></div>
+        </div>
+
+        <div class="qcard only-normal">
+          <div class="pic"><div class="tile common"><img src="img/Cat_Cotton_Dirty_Sit.png" alt=""></div></div>
+          <span class="rar common">Common</span>
+          <span class="name">Cotton</span>
+          <div class="needs" aria-label="Needs: mud, burrs"><span class="cap">Needs</span><div class="set well"><span class="need"><i data-ic="mud"></i></span><span class="need"><i data-ic="burr"></i></span></div></div>
+          <div class="pat" aria-label="Patience: happy to wait"><i data-ic="heart"></i><div class="bar"><i style="width:68%"></i></div></div>
+          <div class="pay"><span>Pays</span><span class="v"><i data-ic="coin"></i>40</span></div>
+          <div class="act"><button class="btn green wide" data-tap><i data-ic="sponge"></i><span class="lbl">Wash</span></button></div>
+        </div>
+
+        <div class="qcard vip only-rare">
+          <div class="vipmark"><i data-ic="crown"></i><span>VIP</span></div>
+          <i data-ic="sparkle" class="spark a"></i><i data-ic="sparkle" class="spark b"></i>
+          <div class="pic"><div class="tile rare"><img src="img/Cat_Marble_Dirty_Sit.png" alt=""></div><span class="new">New!</span></div>
+          <span class="rar rare">Rare</span>
+          <span class="name">Marble</span>
+          <div class="needs" aria-label="Needs: mud, tangles, wet coat, nails"><span class="cap">Needs</span><div class="set well"><span class="need"><i data-ic="mud"></i></span><span class="need"><i data-ic="tangle"></i></span><span class="need"><i data-ic="wet"></i></span><span class="need"><i data-ic="nails"></i></span></div></div>
+          <div class="pat" aria-label="Patience: happy to wait"><i data-ic="heart"></i><div class="bar"><i style="width:74%"></i></div></div>
+          <div class="pay"><span>Pays</span><span class="v"><i data-ic="coin"></i>100</span></div>
+          <div class="act"><button class="btn green wide" data-tap><i data-ic="sponge"></i><span class="lbl">Wash</span></button></div>
+        </div>
+
+        <div class="qcard helped">
+          <div class="pic"><div class="tile common"><img src="img/Cat_Smudge_Dirty_Sit.png" alt=""></div></div>
+          <span class="rar common">Common</span>
+          <span class="name">Smudge</span>
+          <div class="needs" aria-label="Needs: mud, smell"><span class="cap">Needs</span><div class="set well"><span class="need"><i data-ic="mud"></i></span><span class="need"><i data-ic="smell"></i></span></div></div>
+          <div class="pat" aria-label="Patience: being washed"><i data-ic="heart"></i><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="pay"><span>Pays</span><span class="v"><i data-ic="coin"></i>40</span></div>
+          <div class="act"><div class="busy"><i data-ic="helper"></i><span><b>Helper Suds</b><br>is washing</span></div></div>
+        </div>
+
+        <div class="qcard">
+          <div class="pic"><div class="tile uncommon"><img src="img/Cat_Patches_Dirty_Sit.png" alt=""></div></div>
+          <span class="rar uncommon">Uncommon</span>
+          <span class="name">Patches</span>
+          <div class="needs" aria-label="Needs: mud, tangles, wet coat"><span class="cap">Needs</span><div class="set well"><span class="need"><i data-ic="mud"></i></span><span class="need"><i data-ic="tangle"></i></span><span class="need"><i data-ic="wet"></i></span></div></div>
+          <div class="pat" aria-label="Patience: waiting"><i data-ic="heart"></i><div class="bar gold"><i style="width:48%"></i></div></div>
+          <div class="pay"><span>Pays</span><span class="v"><i data-ic="coin"></i>60</span></div>
+          <div class="act"><button class="btn green wide" data-tap><i data-ic="sponge"></i><span class="lbl">Wash</span></button></div>
+        </div>
+
+        <div class="qcard">
+          <div class="pic"><div class="tile uncommon"><img src="img/Cat_Tux_Dirty_Sit.png" alt=""></div><span class="new">New!</span></div>
+          <span class="rar uncommon">Uncommon</span>
+          <span class="name">Tux</span>
+          <div class="needs" aria-label="Needs: tangles, wet coat, nails"><span class="cap">Needs</span><div class="set well"><span class="need"><i data-ic="tangle"></i></span><span class="need"><i data-ic="wet"></i></span><span class="need"><i data-ic="nails"></i></span></div></div>
+          <div class="pat" aria-label="Patience: getting sleepy"><i data-ic="heart"></i><div class="bar peach"><i style="width:26%"></i></div></div>
+          <div class="pay"><span>Pays</span><span class="v"><i data-ic="coin"></i>60</span></div>
+          <div class="act"><button class="btn green wide" data-tap><i data-ic="sponge"></i><span class="lbl">Wash</span></button></div>
+        </div>
+
+      </div>
+      <button class="nav next" data-tap aria-label="More customers"><svg class="ic"><use href="#chev"/></svg></button>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+<script>
+// Arrows show only when the row of cards is wider than the window, and grey out at each end.
+(function () {
+  const cards = document.getElementById('cards');
+  const prev = document.querySelector('.nav.prev'), next = document.querySelector('.nav.next');
+  function ends() {
+    const atStart = cards.scrollLeft < 4, atEnd = cards.scrollLeft > cards.scrollWidth - cards.clientWidth - 4;
+    prev.classList.toggle('end', atStart);
+    next.classList.toggle('end', atEnd);
+    // cards that carry on past an edge fade out there, so a part-seen card reads as "more this way"
+    cards.style.setProperty('--fade-l', atStart ? '0px' : '30px');
+    cards.style.setProperty('--fade-r', atEnd ? '0px' : '30px');
+  }
+  // The tall cards need about 700 design px of height; anything shorter gets the compact cards.
+  const NEED = 700;
+  function fit() {
+    document.body.classList.toggle('short', innerHeight / (Number(document.body.dataset.scale) || 1) < NEED);
+    document.body.classList.remove('scrolls');
+    document.body.classList.toggle('scrolls', cards.scrollWidth > cards.clientWidth + 2);
+    ends();
+  }
+  const step = (dir) => cards.scrollBy({ left: dir * (cards.querySelector('.qcard').offsetWidth + 14), behavior: 'smooth' });
+  prev.addEventListener('click', () => step(-1));
+  next.addEventListener('click', () => step(1));
+  cards.addEventListener('scroll', ends);
+  window.addEventListener('DOMContentLoaded', fit);
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>

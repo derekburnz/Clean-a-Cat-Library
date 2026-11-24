@@ -1,0 +1,2323 @@
+[
+ {
+  "screen": "builder",
+  "state": "busy",
+  "profile": "smallphone",
+  "shot": "builder-busy-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "busy",
+  "profile": "phone",
+  "shot": "builder-busy-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "busy",
+  "profile": "a06",
+  "shot": "builder-busy-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "busy",
+  "profile": "tablet",
+  "shot": "builder-busy-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "busy",
+  "profile": "ipad43",
+  "shot": "builder-busy-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "busy",
+  "profile": "desktop",
+  "shot": "builder-busy-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "busy",
+  "profile": "console",
+  "shot": "builder-busy-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "ready",
+  "profile": "smallphone",
+  "shot": "builder-ready-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "ready",
+  "profile": "phone",
+  "shot": "builder-ready-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "ready",
+  "profile": "a06",
+  "shot": "builder-ready-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "ready",
+  "profile": "tablet",
+  "shot": "builder-ready-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "ready",
+  "profile": "ipad43",
+  "shot": "builder-ready-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "ready",
+  "profile": "desktop",
+  "shot": "builder-ready-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "builder",
+  "state": "ready",
+  "profile": "console",
+  "shot": "builder-ready-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "grid",
+  "profile": "smallphone",
+  "shot": "catindex-grid-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "grid",
+  "profile": "phone",
+  "shot": "catindex-grid-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "grid",
+  "profile": "a06",
+  "shot": "catindex-grid-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "grid",
+  "profile": "tablet",
+  "shot": "catindex-grid-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "grid",
+  "profile": "ipad43",
+  "shot": "catindex-grid-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "grid",
+  "profile": "desktop",
+  "shot": "catindex-grid-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "grid",
+  "profile": "console",
+  "shot": "catindex-grid-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "detail",
+  "profile": "smallphone",
+  "shot": "catindex-detail-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "detail",
+  "profile": "phone",
+  "shot": "catindex-detail-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "detail",
+  "profile": "a06",
+  "shot": "catindex-detail-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "detail",
+  "profile": "tablet",
+  "shot": "catindex-detail-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "detail",
+  "profile": "ipad43",
+  "shot": "catindex-detail-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "detail",
+  "profile": "desktop",
+  "shot": "catindex-detail-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "catindex",
+  "state": "detail",
+  "profile": "console",
+  "shot": "catindex-detail-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "helpers",
+  "state": "",
+  "profile": "smallphone",
+  "shot": "helpers-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "helpers",
+  "state": "",
+  "profile": "phone",
+  "shot": "helpers-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "helpers",
+  "state": "",
+  "profile": "a06",
+  "shot": "helpers-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "helpers",
+  "state": "",
+  "profile": "tablet",
+  "shot": "helpers-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "helpers",
+  "state": "",
+  "profile": "ipad43",
+  "shot": "helpers-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "helpers",
+  "state": "",
+  "profile": "desktop",
+  "shot": "helpers-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "helpers",
+  "state": "",
+  "profile": "console",
+  "shot": "helpers-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "hud",
+  "state": "",
+  "profile": "smallphone",
+  "shot": "hud-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "hud",
+  "state": "",
+  "profile": "phone",
+  "shot": "hud-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "hud",
+  "state": "",
+  "profile": "a06",
+  "shot": "hud-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "hud",
+  "state": "",
+  "profile": "tablet",
+  "shot": "hud-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "hud",
+  "state": "",
+  "profile": "ipad43",
+  "shot": "hud-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "hud",
+  "state": "",
+  "profile": "desktop",
+  "shot": "hud-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "hud",
+  "state": "",
+  "profile": "console",
+  "shot": "hud-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "odds",
+  "state": "",
+  "profile": "smallphone",
+  "shot": "odds-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "odds",
+  "state": "",
+  "profile": "phone",
+  "shot": "odds-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "odds",
+  "state": "",
+  "profile": "a06",
+  "shot": "odds-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "odds",
+  "state": "",
+  "profile": "tablet",
+  "shot": "odds-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "odds",
+  "state": "",
+  "profile": "ipad43",
+  "shot": "odds-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "odds",
+  "state": "",
+  "profile": "desktop",
+  "shot": "odds-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "odds",
+  "state": "",
+  "profile": "console",
+  "shot": "odds-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "normal",
+  "profile": "smallphone",
+  "shot": "queue-normal-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "normal",
+  "profile": "phone",
+  "shot": "queue-normal-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "normal",
+  "profile": "a06",
+  "shot": "queue-normal-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "normal",
+  "profile": "tablet",
+  "shot": "queue-normal-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "normal",
+  "profile": "ipad43",
+  "shot": "queue-normal-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "normal",
+  "profile": "desktop",
+  "shot": "queue-normal-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "normal",
+  "profile": "console",
+  "shot": "queue-normal-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "rare",
+  "profile": "smallphone",
+  "shot": "queue-rare-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "rare",
+  "profile": "phone",
+  "shot": "queue-rare-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "rare",
+  "profile": "a06",
+  "shot": "queue-rare-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "rare",
+  "profile": "tablet",
+  "shot": "queue-rare-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "rare",
+  "profile": "ipad43",
+  "shot": "queue-rare-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "rare",
+  "profile": "desktop",
+  "shot": "queue-rare-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "queue",
+  "state": "rare",
+  "profile": "console",
+  "shot": "queue-rare-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "full",
+  "profile": "smallphone",
+  "shot": "recap-full-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "full",
+  "profile": "phone",
+  "shot": "recap-full-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "full",
+  "profile": "a06",
+  "shot": "recap-full-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "full",
+  "profile": "tablet",
+  "shot": "recap-full-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "full",
+  "profile": "ipad43",
+  "shot": "recap-full-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "full",
+  "profile": "desktop",
+  "shot": "recap-full-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "full",
+  "profile": "console",
+  "shot": "recap-full-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "compact",
+  "profile": "smallphone",
+  "shot": "recap-compact-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "compact",
+  "profile": "phone",
+  "shot": "recap-compact-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "compact",
+  "profile": "a06",
+  "shot": "recap-compact-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "compact",
+  "profile": "tablet",
+  "shot": "recap-compact-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "compact",
+  "profile": "ipad43",
+  "shot": "recap-compact-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "compact",
+  "profile": "desktop",
+  "shot": "recap-compact-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "recap",
+  "state": "compact",
+  "profile": "console",
+  "shot": "recap-compact-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "rare",
+  "profile": "smallphone",
+  "shot": "reveal-rare-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "rare",
+  "profile": "phone",
+  "shot": "reveal-rare-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "rare",
+  "profile": "a06",
+  "shot": "reveal-rare-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "rare",
+  "profile": "tablet",
+  "shot": "reveal-rare-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "rare",
+  "profile": "ipad43",
+  "shot": "reveal-rare-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "rare",
+  "profile": "desktop",
+  "shot": "reveal-rare-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "rare",
+  "profile": "console",
+  "shot": "reveal-rare-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "legendary",
+  "profile": "smallphone",
+  "shot": "reveal-legendary-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "legendary",
+  "profile": "phone",
+  "shot": "reveal-legendary-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "legendary",
+  "profile": "a06",
+  "shot": "reveal-legendary-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "legendary",
+  "profile": "tablet",
+  "shot": "reveal-legendary-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "legendary",
+  "profile": "ipad43",
+  "shot": "reveal-legendary-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "legendary",
+  "profile": "desktop",
+  "shot": "reveal-legendary-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "reveal",
+  "state": "legendary",
+  "profile": "console",
+  "shot": "reveal-legendary-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "settings",
+  "state": "",
+  "profile": "smallphone",
+  "shot": "settings-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "settings",
+  "state": "",
+  "profile": "phone",
+  "shot": "settings-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "settings",
+  "state": "",
+  "profile": "a06",
+  "shot": "settings-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "settings",
+  "state": "",
+  "profile": "tablet",
+  "shot": "settings-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "settings",
+  "state": "",
+  "profile": "ipad43",
+  "shot": "settings-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "settings",
+  "state": "",
+  "profile": "desktop",
+  "shot": "settings-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "settings",
+  "state": "",
+  "profile": "console",
+  "shot": "settings-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "toasts",
+  "profile": "smallphone",
+  "shot": "toasts-toasts-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "toasts",
+  "profile": "phone",
+  "shot": "toasts-toasts-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "toasts",
+  "profile": "a06",
+  "shot": "toasts-toasts-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "toasts",
+  "profile": "tablet",
+  "shot": "toasts-toasts-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "toasts",
+  "profile": "ipad43",
+  "shot": "toasts-toasts-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "toasts",
+  "profile": "desktop",
+  "shot": "toasts-toasts-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "toasts",
+  "profile": "console",
+  "shot": "toasts-toasts-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "single",
+  "profile": "smallphone",
+  "shot": "toasts-single-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "single",
+  "profile": "phone",
+  "shot": "toasts-single-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "single",
+  "profile": "a06",
+  "shot": "toasts-single-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "single",
+  "profile": "tablet",
+  "shot": "toasts-single-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "single",
+  "profile": "ipad43",
+  "shot": "toasts-single-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "single",
+  "profile": "desktop",
+  "shot": "toasts-single-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "single",
+  "profile": "console",
+  "shot": "toasts-single-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-great",
+  "profile": "smallphone",
+  "shot": "toasts-praise-great-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-great",
+  "profile": "phone",
+  "shot": "toasts-praise-great-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-great",
+  "profile": "a06",
+  "shot": "toasts-praise-great-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-great",
+  "profile": "tablet",
+  "shot": "toasts-praise-great-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-great",
+  "profile": "ipad43",
+  "shot": "toasts-praise-great-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-great",
+  "profile": "desktop",
+  "shot": "toasts-praise-great-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-great",
+  "profile": "console",
+  "shot": "toasts-praise-great-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-awesome",
+  "profile": "smallphone",
+  "shot": "toasts-praise-awesome-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-awesome",
+  "profile": "phone",
+  "shot": "toasts-praise-awesome-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-awesome",
+  "profile": "a06",
+  "shot": "toasts-praise-awesome-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-awesome",
+  "profile": "tablet",
+  "shot": "toasts-praise-awesome-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-awesome",
+  "profile": "ipad43",
+  "shot": "toasts-praise-awesome-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-awesome",
+  "profile": "desktop",
+  "shot": "toasts-praise-awesome-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise-awesome",
+  "profile": "console",
+  "shot": "toasts-praise-awesome-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise",
+  "profile": "smallphone",
+  "shot": "toasts-praise-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise",
+  "profile": "phone",
+  "shot": "toasts-praise-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise",
+  "profile": "a06",
+  "shot": "toasts-praise-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise",
+  "profile": "tablet",
+  "shot": "toasts-praise-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise",
+  "profile": "ipad43",
+  "shot": "toasts-praise-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise",
+  "profile": "desktop",
+  "shot": "toasts-praise-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "toasts",
+  "state": "praise",
+  "profile": "console",
+  "shot": "toasts-praise-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tools",
+  "state": "",
+  "profile": "smallphone",
+  "shot": "tools-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tools",
+  "state": "",
+  "profile": "phone",
+  "shot": "tools-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tools",
+  "state": "",
+  "profile": "a06",
+  "shot": "tools-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tools",
+  "state": "",
+  "profile": "tablet",
+  "shot": "tools-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tools",
+  "state": "",
+  "profile": "ipad43",
+  "shot": "tools-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tools",
+  "state": "",
+  "profile": "desktop",
+  "shot": "tools-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tools",
+  "state": "",
+  "profile": "console",
+  "shot": "tools-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "trail",
+  "profile": "smallphone",
+  "shot": "tutorial-trail-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "trail",
+  "profile": "phone",
+  "shot": "tutorial-trail-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "trail",
+  "profile": "a06",
+  "shot": "tutorial-trail-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "trail",
+  "profile": "tablet",
+  "shot": "tutorial-trail-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "trail",
+  "profile": "ipad43",
+  "shot": "tutorial-trail-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "trail",
+  "profile": "desktop",
+  "shot": "tutorial-trail-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "trail",
+  "profile": "console",
+  "shot": "tutorial-trail-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "tip",
+  "profile": "smallphone",
+  "shot": "tutorial-tip-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "tip",
+  "profile": "phone",
+  "shot": "tutorial-tip-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "tip",
+  "profile": "a06",
+  "shot": "tutorial-tip-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "tip",
+  "profile": "tablet",
+  "shot": "tutorial-tip-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "tip",
+  "profile": "ipad43",
+  "shot": "tutorial-tip-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "tip",
+  "profile": "desktop",
+  "shot": "tutorial-tip-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "tip",
+  "profile": "console",
+  "shot": "tutorial-tip-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "dim",
+  "profile": "smallphone",
+  "shot": "tutorial-dim-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "dim",
+  "profile": "phone",
+  "shot": "tutorial-dim-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "dim",
+  "profile": "a06",
+  "shot": "tutorial-dim-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "dim",
+  "profile": "tablet",
+  "shot": "tutorial-dim-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "dim",
+  "profile": "ipad43",
+  "shot": "tutorial-dim-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "dim",
+  "profile": "desktop",
+  "shot": "tutorial-dim-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "tutorial",
+  "state": "dim",
+  "profile": "console",
+  "shot": "tutorial-dim-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "scrub",
+  "profile": "smallphone",
+  "shot": "wash-scrub-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "scrub",
+  "profile": "phone",
+  "shot": "wash-scrub-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "scrub",
+  "profile": "a06",
+  "shot": "wash-scrub-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "scrub",
+  "profile": "tablet",
+  "shot": "wash-scrub-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "scrub",
+  "profile": "ipad43",
+  "shot": "wash-scrub-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "scrub",
+  "profile": "desktop",
+  "shot": "wash-scrub-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "scrub",
+  "profile": "console",
+  "shot": "wash-scrub-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "pick",
+  "profile": "smallphone",
+  "shot": "wash-pick-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "pick",
+  "profile": "phone",
+  "shot": "wash-pick-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "pick",
+  "profile": "a06",
+  "shot": "wash-pick-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "pick",
+  "profile": "tablet",
+  "shot": "wash-pick-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "pick",
+  "profile": "ipad43",
+  "shot": "wash-pick-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "pick",
+  "profile": "desktop",
+  "shot": "wash-pick-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "pick",
+  "profile": "console",
+  "shot": "wash-pick-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "nails",
+  "profile": "smallphone",
+  "shot": "wash-nails-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "nails",
+  "profile": "phone",
+  "shot": "wash-nails-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "nails",
+  "profile": "a06",
+  "shot": "wash-nails-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "nails",
+  "profile": "tablet",
+  "shot": "wash-nails-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "nails",
+  "profile": "ipad43",
+  "shot": "wash-nails-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "nails",
+  "profile": "desktop",
+  "shot": "wash-nails-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "wash",
+  "state": "nails",
+  "profile": "console",
+  "shot": "wash-nails-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Fredoka One",
+   "Nunito"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "chip",
+  "profile": "smallphone",
+  "shot": "welcome-chip-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "chip",
+  "profile": "phone",
+  "shot": "welcome-chip-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "chip",
+  "profile": "a06",
+  "shot": "welcome-chip-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "chip",
+  "profile": "tablet",
+  "shot": "welcome-chip-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "chip",
+  "profile": "ipad43",
+  "shot": "welcome-chip-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "chip",
+  "profile": "desktop",
+  "shot": "welcome-chip-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "chip",
+  "profile": "console",
+  "shot": "welcome-chip-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "card",
+  "profile": "smallphone",
+  "shot": "welcome-card-smallphone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "card",
+  "profile": "phone",
+  "shot": "welcome-card-phone.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "card",
+  "profile": "a06",
+  "shot": "welcome-card-a06.png",
+  "findings": [],
+  "scale": 0.75,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "card",
+  "profile": "tablet",
+  "shot": "welcome-card-tablet.png",
+  "findings": [],
+  "scale": 0.922,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "card",
+  "profile": "ipad43",
+  "shot": "welcome-card-ipad43.png",
+  "findings": [],
+  "scale": 0.8,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "card",
+  "profile": "desktop",
+  "shot": "welcome-card-desktop.png",
+  "findings": [],
+  "scale": 1,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ },
+ {
+  "screen": "welcome",
+  "state": "card",
+  "profile": "console",
+  "shot": "welcome-card-console.png",
+  "findings": [],
+  "scale": 1.3,
+  "fonts": [
+   "Nunito",
+   "Fredoka One"
+  ]
+ }
+]

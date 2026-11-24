@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="trail,tip,dim">
+<title>Tutorial pointers</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* The tutorial's three pointers, shown as one first session. All of it sits behind an off switch in the game, and
+   the player presses every step: nothing here opens a window, presses a button or moves the player.
+
+   trail  Step 1: green arrows flow along the floor to the next customer, and a gold arrow bobs over them.
+          Both are things in the world (a floor beam and a billboard), so they are drawn on the world picture.
+   tip    Step 2: the small tip line at the top, "Step 2 of 3: Scrub the mud". It takes the goal line's place, so
+          there is still only one line at the top centre. The same gold arrow bobs over the thing to use.
+   dim    Step 3: the screen dims, one gold arrow points at one HUD button and a few words say what to do.
+          The game then waits for the player's own tap.
+
+   The first-session HUD is quiet: a button appears when its step teaches it, so here only Index is on screen. Taught
+   in the HUD's own order, the newest button is always the last one, and the arrow always has free room to its right. */
+
+/* ---------- the HUD, copied from hud.html ---------- */
+.top { position: absolute; top: calc(58px / var(--s) + 6px); }
+.goal { left: 50%; transform: translateX(-50%); top: 14px; display: flex; align-items: center; gap: 10px; font-size: 30px; white-space: nowrap; }
+.goal .ic { font-size: 34px; }
+.money { right: 22px; top: 12px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.money .coins { display: flex; align-items: center; gap: 8px; font-size: 46px; line-height: 1; }
+.money .coins .ic { font-size: 48px; }
+.lvl { display: flex; align-items: center; gap: 8px; }
+.lvl .lv { font-family: var(--font-head); font-size: 18px; color: #fff; background: #a45be6; border: 3px solid var(--ink); border-radius: 14px; height: 30px; padding: 0 10px; display: grid; place-items: center; }
+.lvl .xpb { width: 150px; height: 20px; }
+.side { left: 20px; margin-top: 18px; display: grid; grid-template-columns: repeat(2, 76px); gap: 40px 16px; --b: 76px; }
+.prompt { position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; }
+.key { min-width: 48px; height: 48px; padding: 0 10px; border-radius: 12px; border: 4px solid var(--ink); background: #fff; display: grid; place-items: center;
+  font-family: var(--font-head); font-size: 22px; box-shadow: 0 4px 0 var(--ink); }
+body.touch .key { display: none; }
+body.short .side { grid-template-columns: repeat(4, 66px); gap: 0 14px; --b: 66px; }
+body.short .side .rbtn { width: 66px; height: 66px; font-size: 38px; border-radius: 20px; }
+body.short .money { flex-direction: column; gap: 4px; }
+body.short .lvl .xpb { width: 120px; }
+
+/* words on the world with a clean ring: the fill is painted over a thick stroke, plus the kit's drop */
+.ol { color: #fff; font-family: var(--font-head); -webkit-text-stroke: 7px var(--ink); paint-order: stroke fill; text-shadow: 0 3px 0 var(--ink); }
+
+/* ---------- tip line: in the goal line's place ---------- */
+.tipline { gap: 9px; }
+.tipline .n { font-size: 22px; color: #ffe98f; }
+.tipline .w { font-size: 30px; }
+body.short .tipline .n { font-size: 20px; }
+body.short .tipline .w { font-size: 27px; }
+body.short .tipline .ic { font-size: 30px; }
+
+/* ---------- trail and bobbing arrow: drawn in the world picture's own pixels so they stay on the floor ---------- */
+.ground { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bob { animation: bob .55s ease-in-out infinite alternate; }
+@keyframes bob { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+.ringpulse { animation: ringpulse 1.1s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+@keyframes ringpulse { from { opacity: .95; } to { opacity: .55; } }
+
+/* ---------- dim: a hole over one button, one arrow, a few words ---------- */
+.rbtn.focus::after { content: ""; position: absolute; inset: -16px -16px -38px -16px; border-radius: 32px; pointer-events: none; z-index: 40;
+  box-shadow: 0 0 0 4px #fff, 0 0 22px 6px rgba(255, 240, 170, .75), 0 0 0 4000px rgba(36, 16, 56, .62); }
+.callout { position: absolute; left: calc(var(--b) + 26px); top: calc(var(--b) / 2 + 4px); transform: translateY(-50%); display: flex; align-items: center; gap: 12px; z-index: 50; white-space: nowrap; pointer-events: none; }
+.callout .pt { font-size: 66px; transform: rotate(90deg); }
+.callout .nudge { display: grid; animation: nudge .55s ease-in-out infinite alternate; }
+@keyframes nudge { from { transform: translateX(0); } to { transform: translateX(10px); } }
+.callout .say { font-size: 40px; -webkit-text-stroke-width: 8px; text-shadow: 0 4px 0 var(--ink); }
+body.short .callout .pt { font-size: 60px; }
+body.short .callout .say { font-size: 36px; }
+
+@media (prefers-reduced-motion: reduce) { .bob, .ringpulse, .callout .nudge { animation: none; } }
+</style>
+</head>
+<body>
+<div id="screen"><div id="stage">
+  <!-- trail: outside the spa, customers wait by the door -->
+  <div class="world" data-only="trail" style="background-image:url(img/world-street.jpg)">
+    <svg class="ground" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g id="trail"></g>
+      <g transform="translate(722 292)"><g class="bob"><path d="M-12 -52h24v26h12L0 0-24 -26h12z" transform="scale(1.15)" fill="#ffd84d" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></g></g>
+    </svg>
+  </div>
+
+  <!-- tip and dim: inside the spa, the first cat is in the tub -->
+  <div class="world spa" data-only="tip dim" style="background-image:url(img/world-spa.jpg)">
+    <svg class="ground" data-only="tip" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g transform="translate(482 212)"><g class="bob"><path d="M-12 -52h24v26h12L0 0-24 -26h12z" transform="scale(1.05)" fill="#ffd84d" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></g></g>
+    </svg>
+  </div>
+
+  <div class="top goal tipline" data-only="trail"><i data-ic="customer"></i><span class="n ol outlined">Step 1 of 3:</span><span class="w ol outlined">Follow the arrows</span></div>
+  <div class="top goal tipline" data-only="tip"><i data-ic="sponge"></i><span class="n ol outlined">Step 2 of 3:</span><span class="w ol outlined">Scrub the mud</span></div>
+  <div class="top goal tipline" data-only="dim"><i data-ic="book"></i><span class="n ol outlined">Step 3 of 3:</span><span class="w ol outlined">Open your Index</span></div>
+
+  <div class="top money">
+    <div class="coins outlined"><i data-ic="coin"></i><span class="num" data-only="trail tip">0</span><span class="num" data-only="dim">58</span></div>
+    <div class="lvl"><span class="lv">Lv 1</span>
+      <div class="bar xpb" data-only="trail tip"><i style="width:0"></i></div>
+      <div class="bar xpb" data-only="dim"><i style="width:25%;background:linear-gradient(#e2c6ff,#a45be6)"></i></div></div>
+  </div>
+
+  <div class="top side" data-only="dim">
+    <button class="rbtn mint focus" data-tap aria-label="Cat Index"><i data-ic="book"></i><span class="cap outlined thin">Index</span><span class="dot">1</span></button>
+    <div class="callout"><span class="nudge"><i data-ic="arrow" class="pt"></i></span><span class="say ol outlined">Tap Index</span></div>
+  </div>
+
+  <div class="prompt" data-only="tip"><span class="key">E</span><span class="outlined" style="font-family:var(--font-head);font-size:26px">Wash Muffin</span></div>
+</div></div>
+<script src="kit.js"></script>
+<script>
+// The floor trail. The arrows are laid out on the floor (not on the screen) and then drawn in perspective, so they
+// shrink and flatten with distance like a Beam on the ground does in the game. They flow toward the customer.
+(function () {
+  const g = document.getElementById('trail');
+  if (!g) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const HY = 228, CX = 480, C = 800;                       // the picture's horizon line, centre and depth scale
+  const toGround = (x, y) => { const k = y - HY; return [(x - CX) / k, C / k]; };
+  const toScreen = (X, D) => { const k = C / D; return [CX + X * k, HY + k, k]; };
+  // from the player's feet, bending round to a spot on the pavement in front of the customer
+  const A = toGround(466, 549), B = toGround(642, 534), E = toGround(716, 445);
+  const pts = [];
+  for (let i = 0; i <= 200; i++) {
+    const t = i / 200, u = 1 - t;
+    pts.push([u * u * A[0] + 2 * u * t * B[0] + t * t * E[0], u * u * A[1] + 2 * u * t * B[1] + t * t * E[1]]);
+  }
+  const len = [0];
+  for (let i = 1; i < pts.length; i++) len.push(len[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+  const L = len[len.length - 1];
+  function at(s) {                                          // point and direction at a distance along the path
+    let i = 1; while (i < len.length - 1 && len[i] < s) i++;
+    const f = (s - len[i - 1]) / (len[i] - len[i - 1] || 1);
+    const p = [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * f, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * f];
+    const d = [pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]]; const m = Math.hypot(d[0], d[1]) || 1;
+    return { p, t: [d[0] / m, d[1] / m] };
+  }
+  const GAP = 0.215, W = 0.135, H = 0.075, T = 0.078;        // spacing and chevron size, in floor units
+  const shape = [[-H, -W], [-H + T, -W], [H, 0], [-H + T, W], [-H, W], [H - T, 0]];
+  const n = Math.ceil(L / GAP) + 1;
+  const glow = [], face = [];
+  // the spot to walk to: a ring on the floor in front of the customer
+  const ring = document.createElementNS(NS, 'ellipse');
+  const e = toScreen(E[0], E[1]);
+  ring.setAttribute('cx', e[0]); ring.setAttribute('cy', e[1]); ring.setAttribute('rx', 0.19 * e[2]); ring.setAttribute('ry', 0.19 * e[2] * e[2] / C);
+  ring.setAttribute('fill', 'rgba(99,232,127,.45)'); ring.setAttribute('stroke', '#1c8a3f'); ring.setAttribute('stroke-width', 4); ring.setAttribute('class', 'ringpulse');
+  g.appendChild(ring);
+  // each arrow is a pale glow under a green face; all the glows go in first so no glow covers a face
+  function poly(list, attrs) {
+    const el = document.createElementNS(NS, 'polygon');
+    for (const k in attrs) el.setAttribute(k, attrs[k]);
+    g.appendChild(el); list.push(el);
+  }
+  for (let i = 0; i < n; i++) poly(glow, { fill: 'none', stroke: '#d6ffd9', 'stroke-width': 9, 'stroke-linejoin': 'round' });
+  for (let i = 0; i < n; i++) poly(face, { fill: '#63e87f', stroke: '#1c8a3f', 'stroke-width': 3, 'stroke-linejoin': 'round' });
+  const END = L - 0.36;                                     // the arrows stop short of the ring
+  function draw(phase) {
+    for (let i = 0; i < n; i++) {
+      const s = i * GAP + phase;
+      const show = s > 0.02 && s < END;
+      glow[i].style.display = face[i].style.display = show ? '' : 'none';
+      if (!show) continue;
+      const { p, t } = at(s), nx = -t[1], ny = t[0];
+      const points = shape.map(([a, b]) => { const q = toScreen(p[0] + a * t[0] + b * nx, p[1] + a * t[1] + b * ny); return q[0].toFixed(1) + ',' + q[1].toFixed(1); }).join(' ');
+      const fade = Math.min(1, s / 0.16, (END - s) / 0.14);
+      glow[i].setAttribute('points', points); face[i].setAttribute('points', points);
+      glow[i].setAttribute('opacity', (0.55 * fade).toFixed(2)); face[i].setAttribute('opacity', fade.toFixed(2));
+    }
+  }
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const t0 = performance.now();
+  (function tick(now) { draw(still ? GAP / 2 : (((now - t0) / 1000) * 0.22 + GAP / 2) % GAP); if (!still) requestAnimationFrame(tick); })(t0);
+})();
+</script>
+</body>
+</html>

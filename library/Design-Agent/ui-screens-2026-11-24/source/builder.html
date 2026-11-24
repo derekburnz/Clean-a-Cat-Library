@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="busy,ready">
+<title>Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* Builder window: two build slots side by side, so a short build and a long build can run at once.
+   Stations: the builder kitten builds one station at a time. Rooms: the building site builds one room.
+   busy:  Bubble Bath is building (countdown and bar); the next station is grey with "Kitten busy".
+          VIP Room is building, 7:42:10 left, with a bell button and the words "Notify me" under it,
+          because a phone has no hover text.
+   ready: Bubble Bath is finished: a Ready! marker and a green "Open it!" button; the kitten is free, so the next
+          station has its green price button. The room is still building and its bell is now on.
+   There is no way to pay to skip a timer, and a timer here is a real build, never a sale clock. */
+.win.builder { width: 1060px; display: flex; flex-direction: column; }
+.win.builder > .band { flex: none; }
+.win.builder > .body { min-height: 0; border-radius: 0 0 20px 20px; }   /* scrolls only on a screen shorter than any we test */
+.band .purse { position: relative; z-index: 1; margin-left: auto; margin-right: 62px; display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-head); font-size: 32px; line-height: 1; }
+.band .purse .ic { font-size: 36px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.panel { display: flex; flex-direction: column; gap: 12px; padding: 14px 16px 16px; min-width: 0; }
+
+.phead { display: flex; align-items: center; gap: 12px; }
+.phead .av { position: relative; width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--ink); overflow: hidden; flex: none;
+  background: linear-gradient(#fde7cb, #ffeed0); display: grid; place-items: center; }
+.phead .av img { position: absolute; left: -15%; top: -24%; width: 175%; height: 175%; max-width: none; }
+.phead .av svg { width: 40px; height: 40px; }
+.phead .t { font-family: var(--font-head); font-size: 28px; line-height: 1; }
+.phead .d { font-weight: 800; font-size: 18px; line-height: 1.15; color: var(--ink-soft); margin-top: 4px; }
+
+/* the build in this slot */
+.now { position: relative; display: grid; grid-template-columns: 116px 1fr auto; column-gap: 14px; align-items: center; padding: 12px 14px 12px 12px; }
+.now .tile { width: 116px; height: 116px; background: linear-gradient(#fde7cb, #ffeed0); display: grid; place-items: center; }
+.now .tile svg.art { width: 92px; height: 92px; }
+.now .tile img.bath { position: absolute; left: -22%; top: -50%; width: 165%; height: 165%; max-width: none; object-fit: fill; }
+.now .info { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.now .k { font-weight: 800; font-size: 18px; line-height: 1; color: var(--ink-soft); }
+.now .name { font-family: var(--font-head); font-size: 28px; line-height: 1; white-space: nowrap; }
+.now .time { display: flex; align-items: baseline; gap: 7px; font-family: var(--font-head); font-size: 26px; line-height: 1; white-space: nowrap; }
+.now .time .ic { font-size: 26px; align-self: center; }
+.now .time .u { font-family: var(--font-body); font-weight: 800; font-size: 19px; color: var(--ink-soft); }
+.now .bar { height: 22px; }
+.bell { display: flex; flex-direction: column; align-items: center; gap: 15px; padding-left: 4px; }
+.bell .rbtn { width: 68px; height: 68px; font-size: 40px; border-radius: 20px; }
+.bell .cap { font-family: var(--font-head); font-size: 18px; line-height: 1; white-space: nowrap; }
+.bell .tick { position: absolute; right: -10px; top: -10px; width: 28px; height: 28px; font-size: 28px; display: grid; place-items: center; }
+.bell .tick .ic { width: 28px; height: 28px; }
+
+/* finished: mint well, a Ready! marker on the picture and the Open it! button */
+.now.done { background: #dff5e7; }
+.now .mark { position: absolute; left: -10px; top: -2px; transform: rotate(-8deg); background: #3fa868; color: #fff; border: 3px solid var(--ink); border-radius: 12px;
+  padding: 4px 10px; font-family: var(--font-head); font-size: 18px; line-height: 1.1; box-shadow: 0 3px 0 var(--ink); white-space: nowrap; z-index: 2; }
+.now .spark { position: absolute; z-index: 2; pointer-events: none; }
+.now .spark.a { left: 104px; top: 4px; width: 34px; height: 34px; }
+.now .spark.b { left: 112px; top: 96px; width: 22px; height: 22px; }
+.now .k.good { color: var(--good); }
+.now .info .btn { align-self: flex-start; min-width: 190px; margin: 2px 0 6px; }
+.now .info .btn .ic { font-size: 30px; }
+
+/* what comes after */
+.after { display: grid; grid-template-columns: 64px 1fr auto; column-gap: 12px; align-items: center; padding: 0 2px 0 12px; margin-top: auto; min-height: 72px; }
+.after .pic { width: 64px; height: 64px; border-radius: 13px; overflow: hidden; background: #eadccd; display: grid; place-items: center; font-size: 38px; }
+.after .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.after.wait .pic img { filter: grayscale(.75); opacity: .7; }
+.after .name { font-family: var(--font-head); font-size: 22px; line-height: 1; white-space: nowrap; }
+.after.wait .name, .after.locked .name { color: var(--ink-soft); }
+.after .sub { display: flex; align-items: center; gap: 6px; margin-top: 6px; font-weight: 800; font-size: 18px; line-height: 1; color: var(--ink-soft); white-space: nowrap; }
+.after .sub .ic { font-size: 22px; }
+.after .sub .num { color: var(--gold-ink); font-size: 20px; }
+.after .btn { font-size: 22px; padding: 0 16px 4px; margin-bottom: 6px; min-width: 150px; }
+.after .btn .ic { font-size: 28px; }
+
+body[data-state="ready"] .only-busy { display: none; }
+body:not([data-state="ready"]) .only-ready { display: none; }
+
+/* short phones: the same two slots, tighter */
+body.short .win.builder { width: 900px; }
+body.short .win.builder > .body { padding: 10px 14px 12px; }
+body.short .band .purse { font-size: 28px; margin-right: 56px; }
+body.short .band .purse .ic { font-size: 32px; }
+body.short .cols { gap: 10px; }
+body.short .panel { gap: 8px; padding: 6px 10px 6px; }
+body.short .phead { gap: 8px; }
+body.short .phead .av { width: 36px; height: 36px; border-width: 3px; }
+body.short .phead .av svg { width: 26px; height: 26px; }
+body.short .phead .tx { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+body.short .phead .t { font-size: 24px; }
+body.short .phead .d { font-size: 17px; margin-top: 0; white-space: nowrap; }
+body.short .phead .d .long { display: none; }
+body.short .now { grid-template-columns: 76px 1fr auto; column-gap: 10px; padding: 6px 8px 6px 8px; }
+body.short .now .tile { width: 76px; height: 76px; border-radius: 14px; }
+body.short .now .tile svg.art { width: 60px; height: 60px; }
+body.short .now .info { gap: 5px; }
+body.short .now .k { font-size: 17px; }
+body.short .now .name { font-size: 22px; }
+body.short .now .time { font-size: 22px; gap: 5px; }
+body.short .now .time .ic { font-size: 21px; }
+body.short .now .time .u { font-size: 18px; }
+body.short .now .bar { height: 16px; }
+body.short .bell { gap: 12px; padding-left: 0; }
+body.short .bell .rbtn { width: 60px; height: 60px; font-size: 36px; border-radius: 18px; --lip: 4px; }
+body.short .bell .cap { font-size: 17px; }
+body.short .now .mark { font-size: 17px; padding: 3px 8px; left: -8px; top: -4px; }
+body.short .now .spark.a { left: 62px; top: -6px; width: 26px; height: 26px; }
+body.short .now .spark.b { left: 72px; top: 66px; width: 18px; height: 18px; }
+body.short .now.done .k { display: none; }
+body.short .now .info .btn { min-width: 0; align-self: stretch; margin: 0 0 6px; font-size: 24px; }
+body.short .after { grid-template-columns: 50px 1fr auto; column-gap: 8px; padding: 0 0 0 8px; min-height: 68px; }
+body.short .after .pic { width: 50px; height: 50px; border-radius: 11px; font-size: 30px; }
+body.short .after .name { font-size: 20px; }
+body.short .after .sub { font-size: 17px; margin-top: 5px; }
+body.short .after .sub .num { font-size: 19px; }
+body.short .after .btn { font-size: 20px; padding: 0 10px 4px; min-width: 128px; }
+body.short .after .btn .ic { font-size: 24px; }
+</style>
+</head>
+<body class="no-move">
+<div id="screen"><div id="stage">
+  <div class="world" style="background-image:url(img/world-spa.jpg)"></div>
+  <div class="backdrop"></div>
+
+  <div class="win builder">
+    <div class="band">
+      <div class="badge"><i data-ic="hammer"></i></div>
+      <span class="title outlined">Builder</span>
+      <span class="purse outlined thin"><i data-ic="coin"></i><span>1,240</span></span>
+    </div>
+    <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+    <div class="body scroll">
+      <div class="cols">
+
+        <!-- slot 1: stations, built by the kitten -->
+        <div class="panel card">
+          <div class="phead">
+            <div class="av"><img src="img/NPC_BuilderKitten.png" alt=""></div>
+            <div class="tx"><div class="t">Stations</div><div class="d"><span class="long">The builder kitten builds </span>one at a time</div></div>
+          </div>
+
+          <div class="now well only-busy">
+            <div class="tile"><img class="bath" src="img/Station_BubbleBath.png" alt=""></div>
+            <div class="info">
+              <span class="k">Building now</span>
+              <span class="name">Bubble Bath</span>
+              <span class="time"><i data-ic="clock"></i><span>4:12</span><span class="u">left</span></span>
+              <div class="bar gold" aria-label="62 percent built"><i style="width:62%"></i></div>
+            </div>
+          </div>
+          <div class="after wait only-busy">
+            <div class="pic"><img src="img/Station_Pawdicure.png" alt=""></div>
+            <div><div class="name">Pawdicure</div><div class="sub"><i data-ic="coin"></i><span class="num">900</span></div></div>
+            <button class="btn off" data-tap aria-label="Build Pawdicure for 900 coins. The kitten is busy"><span class="lbl">Kitten busy</span></button>
+          </div>
+
+          <div class="now well done only-ready">
+            <span class="mark">Ready!</span>
+            <i data-ic="sparkle" class="spark a"></i><i data-ic="sparkle" class="spark b"></i>
+            <div class="tile"><img class="bath" src="img/Station_BubbleBath.png" alt=""></div>
+            <div class="info">
+              <span class="k good">The kitten is done!</span>
+              <span class="name">Bubble Bath</span>
+              <button class="btn green" data-tap aria-label="Open the Bubble Bath"><span class="lbl">Open it!</span></button>
+            </div>
+          </div>
+          <div class="after only-ready">
+            <div class="pic"><img src="img/Station_Pawdicure.png" alt=""></div>
+            <div><div class="name">Pawdicure</div><div class="sub"><i data-ic="clock"></i><span>Takes 20 min</span></div></div>
+            <button class="btn green" data-tap aria-label="Build Pawdicure for 900 coins"><span class="lbl price"><i data-ic="coin"></i>900</span></button>
+          </div>
+        </div>
+
+        <!-- slot 2: rooms, built at the building site -->
+        <div class="panel card">
+          <div class="phead">
+            <div class="av">
+              <!-- building-site cone, drawn here in the kit's style: 64 x 64, ink outline 4 -->
+              <svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#45226b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M26 8h12l10 40H16z" fill="#ffae1f"/><rect x="6" y="46" width="52" height="12" rx="5" fill="#ffae1f"/></g><path d="M22.500 24h19l2.500 10h-24z" fill="#fff"/><path d="M26 8h12l10 40H16z" fill="none" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tx"><div class="t">Rooms</div><div class="d"><span class="long">The building site builds </span>one at a time</div></div>
+          </div>
+
+          <div class="now well">
+            <div class="tile">
+              <!-- VIP Room behind a site barrier, drawn here until Model-Agent renders the room -->
+              <svg class="art" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#45226b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><rect x="11" y="24" width="42" height="32" rx="3" fill="#fff"/><path d="M5 26L32 6l27 20z" fill="#ffb3c7"/><path d="M25 56V40a7 7 0 0 1 14 0v16" fill="#d9c7f5" stroke-width="3"/><path d="M32 13l2.200 4.400 4.800.700-3.500 3.400.800 4.800-4.300-2.300-4.300 2.300.800-4.800-3.500-3.400 4.800-.700z" fill="#ffd84d" stroke-width="2"/><path d="M8 42v18M56 42v18" stroke-width="5"/><rect x="3" y="43" width="58" height="10" rx="3" fill="#ffd84d" stroke-width="3"/></g><path d="M12 52l6-8M24 52l6-8M36 52l6-8M48 52l6-8" stroke="#45226b" stroke-width="3.500" stroke-linecap="round"/></svg>
+            </div>
+            <div class="info">
+              <span class="k">Building now</span>
+              <span class="name">VIP Room</span>
+              <span class="time only-busy"><i data-ic="clock"></i><span>7:42:10</span><span class="u">left</span></span>
+              <div class="bar gold only-busy" aria-label="36 percent built"><i style="width:36%"></i></div>
+              <span class="time only-ready"><i data-ic="clock"></i><span>7:31:48</span><span class="u">left</span></span>
+              <div class="bar gold only-ready" aria-label="37 percent built"><i style="width:37%"></i></div>
+            </div>
+            <div class="bell only-busy">
+              <!-- Under 13 gate: the bell, "Notify me" and "Bell is on" stay hidden unless the server says this player may
+                   get experience notifications. Roblox never shows the opt-in prompt to players under 13. -->
+              <button class="rbtn gold" data-tap aria-label="Notify me when the VIP Room is built"><i data-ic="bell"></i></button>
+              <span class="cap">Notify me</span>
+            </div>
+            <div class="bell only-ready">
+              <button class="rbtn mint" data-tap aria-label="The bell is on. Tap to turn it off"><i data-ic="bell"></i><span class="tick"><i data-ic="check"></i></span></button>
+              <span class="cap">Bell is on</span>
+            </div>
+          </div>
+          <div class="after locked">
+            <div class="pic"><i data-ic="lock"></i></div>
+            <div><div class="name">Garden Room</div><div class="sub">Opens at Spa level 8</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

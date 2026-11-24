@@ -1,0 +1,199 @@
+/* Clean a Cat UI kit for HTML mockups (Design-Agent, 2026-11-24).
+   Mirrors the Roblox build: design pixels on a 1280 x 720 canvas, scaled by kit.js like the asset library's
+   Scale.luau (min 0.75, max 1.3, touch floor 0.75). Fonts: Fredoka One and Nunito only (the UI gate allows two).
+   Colours: Bubble Pastel from docs/art/style-guide.md, the purple ink and lilac-to-pink title of the store art,
+   and the asset library's chunky three-colour buttons (Theme.button) that Derek approved on Catch a Cat Cafe. */
+
+:root {
+  /* ink and paper */
+  --ink: #45226b;          /* outlines and dark words (the store art's title outline) */
+  --ink-soft: #6c4f86;     /* second-level words on cream, 5.6:1 */
+  --paper: #fffdf8;
+  --cream: #fff6ec;        /* spa_cream */
+  --cream-2: #f7e9da;      /* a step darker for wells and tracks */
+  --line: #ecdcca;
+
+  /* Bubble Pastel */
+  --mint: #a8e6cf; --mint-d: #6fcfae;
+  --pink: #ffb3c7; --pink-d: #f08aa6;
+  --sky: #8fd3fe;  --sky-d: #4fb4f0;
+  --lilac: #d9c7f5; --lilac-d: #b79be8;
+  --water: #3faef2;
+  --mud: #5a4632;
+  --gold: #ffc94d; --gold-d: #d19e22; --gold-ink: #8f5a00;
+  --good: #1f7a3e; --good-bright: #3fa868;
+  --red: #e0453f;
+
+  /* rarity (studio row 2 plus rarity_uncommon) */
+  --r-common: #8e97b2; --r-uncommon: #5fc98b; --r-rare: #5fa8ff; --r-epic: #c07cff; --r-legend: #ffc94d;
+
+  /* shape */
+  --radius-win: 26px;
+  --radius-card: 18px;
+  --radius-btn: 16px;
+  --stroke: 4px;           /* window and button outline */
+  --lip: 6px;              /* the 3D lip under buttons and windows */
+
+  --font-head: "Fredoka One", "Fredoka", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #2b2430; }
+body { font-family: var(--font-body); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+/* ---------- the stage: one device screen ---------- */
+#screen { position: fixed; inset: 0; overflow: hidden; }
+#stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+
+/* the world behind the UI (a render or a flat stand-in) */
+.world { position: absolute; inset: 0; background: #cfe9f3 center/cover no-repeat; }
+.world.spa { background-image: url("img/world-spa.png"), linear-gradient(#fdf1e6 0 58%, #f1d6b8 58%); }
+.world.dim::after { content: ""; position: absolute; inset: 0; background: rgba(36, 16, 56, 0.45); }
+
+/* Roblox's own UI, drawn for realism and never covered: the top bar and the touch controls. */
+.rbx-topbar { position: absolute; left: 0; top: 0; height: calc(58px / var(--s)); width: calc(184px / var(--s));
+  display: flex; gap: calc(8px / var(--s)); align-items: center; padding-left: calc(16px / var(--s)); pointer-events: none; z-index: 90; }
+.rbx-topbar i { width: calc(44px / var(--s)); height: calc(44px / var(--s)); border-radius: 50%; background: rgba(18, 18, 21, 0.55); display: block; }
+.rbx-stick { position: absolute; left: calc(40px / var(--s)); bottom: calc(30px / var(--s)); width: calc(130px / var(--s)); height: calc(130px / var(--s));
+  border-radius: 50%; border: calc(3px / var(--s)) solid rgba(255,255,255,.45); background: rgba(0,0,0,.12); z-index: 90; pointer-events: none; }
+.rbx-jump { position: absolute; right: calc(36px / var(--s)); bottom: calc(36px / var(--s)); width: calc(84px / var(--s)); height: calc(84px / var(--s));
+  border-radius: 50%; border: calc(3px / var(--s)) solid rgba(255,255,255,.45); background: rgba(0,0,0,.12); z-index: 90; pointer-events: none; }
+body:not(.touch) .rbx-stick, body:not(.touch) .rbx-jump { display: none; }
+body.no-move .rbx-stick, body.no-move .rbx-jump { display: none; }
+
+/* ---------- type ---------- */
+.h, .title, .btn, .num { font-family: var(--font-head); font-weight: 400; letter-spacing: 0.01em; }
+/* outlined words on the world (HUD numbers, praise): white with an ink ring, never in a box */
+.outlined { color: #fff; text-shadow:
+  -3px -3px 0 var(--ink), 3px -3px 0 var(--ink), -3px 3px 0 var(--ink), 3px 3px 0 var(--ink),
+  0 -3px 0 var(--ink), 0 3px 0 var(--ink), -3px 0 0 var(--ink), 3px 0 0 var(--ink), 0 5px 0 var(--ink); }
+.outlined.thin { text-shadow:
+  -2px -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 2px 0 var(--ink), 2px 2px 0 var(--ink),
+  0 -2px 0 var(--ink), 0 2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink), 0 3px 0 var(--ink); }
+
+/* ---------- icons (inline SVG sprite from icons.svg) ---------- */
+.ic { width: 1em; height: 1em; display: inline-block; vertical-align: -0.15em; flex: none; }
+.ic-img { display: inline-block; flex: none; background: center/contain no-repeat; }
+
+/* ---------- buttons: face, ink outline and a lip (Theme.button top, bottom, depth) ---------- */
+.btn { --top: #7be85a; --bot: #3dbf3f; --dep: #2a8a2e; --txt: #fff;
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 60px; padding: 0 22px 4px; border-radius: var(--radius-btn); border: var(--stroke) solid var(--ink);
+  background: linear-gradient(var(--top), var(--bot)); color: var(--txt); font-size: 26px; line-height: 1; white-space: nowrap;
+  box-shadow: 0 var(--lip) 0 var(--dep), 0 var(--lip) 0 var(--stroke) var(--ink); cursor: pointer; }
+.btn::before { content: ""; position: absolute; left: 10px; right: 10px; top: 5px; height: 30%; border-radius: 10px;
+  background: rgba(255,255,255,.35); pointer-events: none; }
+.btn > * { position: relative; }
+.btn .lbl { text-shadow: 0 2px 0 rgba(0,0,0,.18); }
+.btn.green  { --top:#7be85a; --bot:#3dbf3f; --dep:#2a8a2e; }
+.btn.sky    { --top:#8fe3ff; --bot:#2bb3e6; --dep:#1c86b0; }
+.btn.gold   { --top:#ffe14a; --bot:#ffae1f; --dep:#d9820f; --txt: #3a2a00; }
+.btn.gold .lbl { text-shadow: 0 2px 0 rgba(255,255,255,.4); }
+.btn.berry  { --top:#ff86cf; --bot:#f0479f; --dep:#b8336f; }
+.btn.purple { --top:#cf96ff; --bot:#8a47ea; --dep:#6630be; }
+.btn.ghost  { --top:#ffffff; --bot:#f1ece6; --dep:#cdbfb0; --txt: var(--ink); }
+.btn.ghost .lbl { text-shadow: none; }
+.btn.off    { --top:#e4dbd2; --bot:#cfc2b4; --dep:#b5a595; --txt: #6f6359; }
+.btn.off .lbl { text-shadow: none; }
+.btn.small { min-height: max(48px, calc(46px / var(--s))); font-size: 20px; padding: 0 14px 3px; border-radius: 13px; --lip: 5px; }
+.btn.wide { width: 100%; }
+.btn .price { display: inline-flex; align-items: center; gap: 4px; }
+
+/* on touch every pressable thing is at least 44 real px (the UI gate's floor) */
+body.touch .btn { min-height: max(60px, calc(46px / var(--s))); }
+body.touch .btn.small { min-height: max(48px, calc(46px / var(--s))); }
+
+/* short screens (phones held sideways): slimmer window bands */
+body.short .win > .band { height: 60px; padding-left: 88px; }
+body.short .win > .band .title { font-size: 32px; }
+body.short .badge { width: 84px; height: 84px; font-size: 46px; top: -14px; }
+body.short .win > .body { padding: 14px 18px 16px; }
+
+/* round icon button (HUD side buttons and the X) */
+.rbtn { --top:#ffffff; --bot:#f3ebe3; --dep:#cdbfb0; position: relative; width: 76px; height: 76px; border-radius: 22px;
+  border: var(--stroke) solid var(--ink); background: linear-gradient(var(--top), var(--bot));
+  box-shadow: 0 var(--lip) 0 var(--dep), 0 var(--lip) 0 var(--stroke) var(--ink); display: grid; place-items: center; font-size: 44px; }
+.rbtn .cap { position: absolute; left: 50%; bottom: -24px; transform: translateX(-50%); font-family: var(--font-head);
+  font-size: 18px; white-space: nowrap; }
+.rbtn .dot { position: absolute; top: -12px; right: -12px; min-width: 30px; height: 30px; padding: 0 7px; border-radius: 15px;
+  background: var(--red); color: #fff; border: 3px solid var(--ink); font-family: var(--font-head); font-size: 18px;
+  display: grid; place-items: center; }
+.rbtn.mint { --top:#c9f5e5; --bot:#a8e6cf; --dep:#6fcfae; }
+.rbtn.pink { --top:#ffd3df; --bot:#ffb3c7; --dep:#f08aa6; }
+.rbtn.sky  { --top:#c4eaff; --bot:#8fd3fe; --dep:#4fb4f0; }
+.rbtn.lilac{ --top:#ece2fb; --bot:#d9c7f5; --dep:#b79be8; }
+.rbtn.gold { --top:#ffe98f; --bot:#ffc94d; --dep:#d19e22; }
+
+.xbtn { position: absolute; top: -20px; right: -20px; width: 64px; height: 64px; border-radius: 20px; border: var(--stroke) solid var(--ink);
+  background: linear-gradient(#ff7062, #e83a3a); box-shadow: 0 5px 0 #a82525, 0 5px 0 var(--stroke) var(--ink);
+  color: #fff; display: grid; place-items: center; font-family: var(--font-head); font-size: 34px; z-index: 3; }
+.xbtn svg { width: 30px; height: 30px; }
+
+/* ---------- windows: cream body, lilac-to-pink title band, round badge ---------- */
+.backdrop { position: absolute; inset: 0; background: rgba(36, 16, 56, 0.42); }
+.win { position: absolute; left: 50%; top: calc(50% + 29px / var(--s) + 4px); transform: translate(-50%, -50%); background: var(--cream);
+  max-width: calc(100% - 64px); max-height: calc(100% - 58px / var(--s) - 36px);
+  border: var(--stroke) solid var(--ink); border-radius: var(--radius-win);
+  box-shadow: 0 8px 0 #e3cdb7, 0 8px 0 var(--stroke) var(--ink), 0 24px 40px rgba(30, 10, 50, .28); }
+.win > .band { position: relative; height: 72px; margin: -1px -1px 0; border-radius: calc(var(--radius-win) - 4px) calc(var(--radius-win) - 4px) 0 0;
+  background: linear-gradient(180deg, #e7dbff 0%, #d4b8f7 48%, #f6a9c9 100%); border-bottom: var(--stroke) solid var(--ink);
+  display: flex; align-items: center; padding-left: 96px; overflow: visible; }
+.win > .band::after { content: ""; position: absolute; left: 14px; right: 14px; top: 6px; height: 16px; border-radius: 10px; background: rgba(255,255,255,.45); }
+.win > .band .title { font-size: 38px; position: relative; z-index: 1; }
+.win > .band .sub { font-family: var(--font-body); font-weight: 800; font-size: 18px; margin-left: 14px; color: var(--ink); position: relative; z-index: 1; opacity: .85; }
+.badge { position: absolute; left: -14px; top: -18px; width: 98px; height: 98px; border-radius: 50%; border: var(--stroke) solid var(--ink);
+  background: radial-gradient(circle at 35% 30%, #ffffff, #e8f7ff 55%, #b9e4fb); display: grid; place-items: center; font-size: 54px; z-index: 2;
+  box-shadow: 0 5px 0 var(--ink); }
+.badge img { width: 84%; height: 84%; object-fit: cover; border-radius: 50%; }
+.win > .body { padding: 18px 22px 22px; }
+
+/* ---------- cards ---------- */
+.card { background: #fff; border: 3px solid var(--line); border-radius: var(--radius-card); }
+.card.ink { border-color: var(--ink); }
+.well { background: var(--cream-2); border-radius: 14px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 16px; font-family: var(--font-head);
+  font-size: 18px; background: #fff; border: 2px solid var(--line); color: var(--ink); white-space: nowrap; }
+.chip.good { background: #e3f7ea; border-color: #9ed9b2; color: var(--good); }
+.chip.gold { background: #fff1c7; border-color: #f0cf6b; color: var(--gold-ink); }
+.chip.ink { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* rarity tag: a solid pill with words that read on it */
+.rar { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 14px; font-family: var(--font-head);
+  font-size: 17px; color: #fff; border: 2px solid var(--ink); white-space: nowrap; }
+.rar.common { background: #6b7591; } .rar.uncommon { background: #3fb071; } .rar.rare { background: #3d8fe8; }
+.rar.epic { background: #a45be6; } .rar.legend { background: var(--r-legend); color: #3a2a00; }
+
+/* progress bar */
+.bar { position: relative; height: 22px; border-radius: 11px; background: var(--cream-2); border: 3px solid var(--ink); overflow: hidden; }
+.bar > i { position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(#9ff0c8, #4fcf93); border-radius: 8px; }
+.bar.gold > i { background: linear-gradient(#ffe98f, #ffbe2e); }
+.bar.sky > i { background: linear-gradient(#bfe9ff, #4fb4f0); }
+.bar.pink > i { background: linear-gradient(#ffd0dd, #f28aa8); }
+
+/* portrait tile: a cat picture on a rarity-tinted tile */
+.tile { position: relative; border-radius: 16px; border: 3px solid var(--ink); overflow: hidden; background: #fff4e6; }
+.tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tile::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 4px var(--ring, transparent); }
+.tile.common { --ring: var(--r-common); }
+.tile.uncommon { --ring: var(--r-uncommon); }
+.tile.rare { --ring: var(--r-rare); }
+.tile.epic { --ring: var(--r-epic); }
+.tile.legend { --ring: var(--r-legend); }
+
+/* stars */
+.stars { display: inline-flex; gap: 4px; }
+.stars svg { width: 1em; height: 1em; }
+
+/* scroll area for touch: plain overflow, no bounce (the build sets ScrollingFrame.ElasticBehavior Never) */
+.scroll { overflow: auto; scrollbar-width: thin; scrollbar-color: var(--lilac-d) transparent; }
+
+/* utility */
+.row { display: flex; align-items: center; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; min-width: 0; }
+.center { text-align: center; }
+.muted { color: var(--ink-soft); }
+.b { font-weight: 800; }
+.nowrap { white-space: nowrap; }
+.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

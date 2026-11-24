@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="">
+<title>Settings</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* Settings window: plain, calm and roomy. Two volume sliders with big bubble thumbs (at least 44 px on touch; the
+   whole slider is the touch area), then four switches. A switch row is pressable anywhere along its length and its
+   switch says On or Off in words, so colour is never the only clue. Odds are an info line, not a switch,
+   because the game never hides odds.
+   Wide screens: one column. Short phones: two columns of three rows, so nothing scrolls. */
+.win.settings { width: 760px; display: flex; flex-direction: column; }
+.win.settings > .band { flex: none; }
+.win.settings > .body { padding: 10px 26px 16px; min-height: 0; border-radius: 0 0 20px 20px; }   /* scrolls only on a screen shorter than any we test */
+.rows { display: grid; grid-template-columns: 1fr; }
+.set { display: grid; grid-template-columns: 44px 1fr auto; column-gap: 14px; align-items: center; min-height: 74px; padding: 0 4px; border-top: 3px solid var(--line); }
+.set:first-child { border-top: 0; }
+.set > .ic { width: 40px; height: 40px; justify-self: center; }
+.set .lab { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.set .l { font-family: var(--font-head); font-size: 24px; line-height: 1; white-space: nowrap; }
+.set .d { font-weight: 800; font-size: 18px; line-height: 1.1; color: var(--ink-soft); white-space: nowrap; }
+
+/* volume: a fat track and a bubble thumb */
+.set.vol { grid-template-columns: 44px 150px 1fr; }
+.slider { --th: max(48px, calc(45px / var(--s))); position: relative; height: var(--th); margin-right: 14px; }
+.slider .trk { position: absolute; left: 0; right: 0; top: 50%; height: 18px; transform: translateY(-50%); border-radius: 9px; border: 3px solid var(--ink);
+  background: var(--cream-2); overflow: hidden; }
+.slider .trk i { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--th) / 2 + (100% - var(--th)) * var(--v)); background: linear-gradient(#bfe9ff, #4fb4f0); }
+.slider .thumb { position: absolute; left: calc(var(--th) / 2 + (100% - var(--th)) * var(--v)); top: 50%; width: var(--th); height: var(--th); transform: translate(-50%, -50%); border-radius: 50%;
+  border: var(--stroke) solid var(--ink); background: radial-gradient(circle at 35% 30%, #ffffff, #e8f7ff 55%, #b9e4fb); box-shadow: 0 4px 0 var(--ink); }
+.slider .thumb::after { content: ""; position: absolute; left: 22%; top: 18%; width: 22%; height: 16%; border-radius: 50%; background: #fff; transform: rotate(-30deg); }
+
+/* switch */
+.sw { position: relative; width: 92px; height: 46px; border-radius: 23px; border: var(--stroke) solid var(--ink); background: linear-gradient(#e4dbd2, #cfc2b4);
+  box-shadow: 0 4px 0 var(--ink); margin: 0 4px 4px 0; flex: none; }
+.sw .w { position: absolute; right: 9px; top: 50%; transform: translateY(-50%); font-family: var(--font-head); font-size: 17px; line-height: 1; color: var(--ink); }
+.sw .knob { position: absolute; left: 2px; top: 2px; width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--ink); background: linear-gradient(#ffffff, #f1ece6);
+  display: grid; place-items: center; }
+.set.on .sw { background: linear-gradient(#7be85a, #3dbf3f); }
+.set.on .sw .w { right: auto; left: 10px; }
+.set.on .sw .knob { left: auto; right: 2px; }
+.sw .knob .ic { width: 22px; height: 22px; }
+.set .always { font-size: 40px; display: grid; place-items: center; width: 64px; }
+.set.locked .sw { box-shadow: none; margin-bottom: 0; background: linear-gradient(#a9e59a, #7fcf83); }
+
+/* short phones: two columns of three rows */
+body.short .win.settings { width: 900px; }
+body.short .win.settings > .body { padding: 6px 18px 10px; }
+body.short .rows { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; column-gap: 26px; }
+body.short .set { min-height: 74px; column-gap: 10px; grid-template-columns: 38px 1fr auto; padding: 0 2px; }
+body.short .set:nth-child(4) { border-top: 0; }
+body.short .set > .ic { width: 34px; height: 34px; }
+body.short .set .l { font-size: 22px; }
+body.short .set .d { font-size: 17px; }
+body.short .set.vol { grid-template-columns: 38px 86px 1fr; }
+body.short .slider { margin-right: 8px; }
+body.short .sw { width: 86px; height: 44px; margin-right: 2px; }
+body.short .sw .knob { width: 32px; height: 32px; }
+body.short .sw .knob .ic { width: 20px; height: 20px; }
+</style>
+</head>
+<body class="no-move">
+<div id="screen"><div id="stage">
+  <div class="world" style="background-image:url(img/world-spa.jpg)"></div>
+  <div class="backdrop"></div>
+
+  <div class="win settings">
+    <div class="band">
+      <div class="badge"><i data-ic="gear"></i></div>
+      <span class="title outlined">Settings</span>
+    </div>
+    <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+    <div class="body scroll">
+      <div class="rows">
+
+        <div class="set vol">
+          <i data-ic="music"></i>
+          <span class="lab"><span class="l">Music</span></span>
+          <div class="slider" data-tap role="slider" aria-label="Music volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="--v:.6">
+            <div class="trk"><i></i></div><span class="thumb"></span>
+          </div>
+        </div>
+
+        <div class="set vol">
+          <i data-ic="speaker"></i>
+          <span class="lab"><span class="l">Sounds</span></span>
+          <div class="slider" data-tap role="slider" aria-label="Sound volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" style="--v:.85">
+            <div class="trk"><i></i></div><span class="thumb"></span>
+          </div>
+        </div>
+
+        <div class="set tog on" data-tap role="switch" aria-checked="true" aria-label="Tips on screen">
+          <i data-ic="hand"></i>
+          <span class="lab"><span class="l">Tips on screen</span><span class="d">Little hints while you play</span></span>
+          <span class="sw"><span class="w">On</span><span class="knob"></span></span>
+        </div>
+
+        <div class="set tog" data-tap role="switch" aria-checked="false" aria-label="Less screen shake">
+          <!-- a screen with wobble lines, drawn here in the kit's style: 64 x 64, ink outline 4 -->
+          <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#45226b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none"><rect x="17" y="12" width="30" height="40" rx="7" fill="#8fd3fe"/><path d="M9 20q-6 12 0 24M55 20q6 12 0 24"/><path d="M25 22l6 8" stroke="#fff"/></g></svg>
+          <span class="lab"><span class="l">Less screen shake</span><span class="d">Softer bumps and wobbles</span></span>
+          <span class="sw"><span class="w">Off</span><span class="knob"></span></span>
+        </div>
+
+        <div class="set tog" data-tap role="switch" aria-checked="false" aria-label="Less sparkle">
+          <i data-ic="sparkle"></i>
+          <span class="lab"><span class="l">Less sparkle</span><span class="d">Fewer flashes and bubbles</span></span>
+          <span class="sw"><span class="w">Off</span><span class="knob"></span></span>
+        </div>
+
+        <div class="set info">
+          <i data-ic="dice"></i>
+          <span class="lab"><span class="l">Odds on boards</span><span class="d">Always shown, for every cat</span></span>
+          <span class="always"><i data-ic="check"></i></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

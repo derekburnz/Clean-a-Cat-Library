@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="states" content="">
+<title>Cat chances</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+/* The chance board as a window (the board by the door, and the "All chances" button in the Cat Index, open it).
+   One column per rarity: its share of customers in big numbers, the cats in it (a cat not met yet is a dark shape
+   with a "?"), and what the share becomes at the spa's next star step. The striped bar on top is the same five
+   numbers drawn to scale. Two plain lines underneath: how spa stars move the chances, and that nothing bought
+   changes them. The numbers are CatRules.TIERS: 60 / 25 / 11 / 3.5 / 0.5 for a new spa, 54 / 27 / 13 / 5 / 1 at
+   15 stars. Nothing here can be pressed except the X. */
+:root { --sil: url("data:image/png;base64,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"); }
+.win.odds { width: max-content; }
+.odds .body { display: flex; flex-direction: column; gap: 12px; }
+.common { --rc: #8e97b2; --rt: #f1f3f8; } .uncommon { --rc: #3fb071; --rt: #e9f8ef; } .rare { --rc: #3d8fe8; --rt: #e8f2ff; }
+.epic { --rc: #a45be6; --rt: #f4eaff; } .legend { --rc: #ffc94d; --rt: #fff6d9; }
+
+/* the five shares drawn to scale */
+.share { display: flex; height: 26px; border: 3px solid var(--ink); border-radius: 13px; overflow: hidden; background: var(--cream-2); }
+.share i { display: block; background: var(--rc); box-shadow: inset 0 5px 0 rgba(255, 255, 255, .3); }
+.share i + i { border-left: 2px solid var(--ink); }
+
+.cols { display: flex; gap: 12px; align-items: stretch; }
+.rcol { display: flex; flex-direction: column; align-items: center; min-width: 152px; background: var(--rt); border: 3px solid var(--rc); border-radius: var(--radius-card); overflow: hidden; }
+.rcol .cap { align-self: stretch; height: 36px; display: grid; place-items: center; background: linear-gradient(rgba(40, 14, 70, .1), rgba(40, 14, 70, .1)), var(--rc); color: #fff; font-family: var(--font-head); font-size: 22px; line-height: 1;
+  text-shadow: 0 2px 0 rgba(40, 14, 70, .3); }
+.rcol.legend .cap { color: #3a2a00; text-shadow: 0 1px 0 rgba(255, 255, 255, .5); background: var(--rc); }
+.rcol .pct { margin-top: 8px; font-family: var(--font-head); font-size: 56px; line-height: 1; }
+.rcol .of { font-weight: 800; font-size: 16px; line-height: 1.2; color: var(--ink-soft); }
+.cats { display: flex; gap: 8px; padding: 10px 12px 0; }
+.cat { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 78px; }
+.cat .art { position: relative; display: block; width: 78px; height: 78px; border-radius: 14px; border: 3px solid var(--ink); overflow: hidden; background: #fce6ca; }
+.cat .art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.cat .nm { font-weight: 800; font-size: 16px; line-height: 1.15; white-space: nowrap; }
+.cat.unknown .art { background: #e7dccf; }
+.cat.unknown .nm { color: var(--ink-soft); }
+.sil { position: absolute; inset: 0; background: #3b2456; -webkit-mask: var(--sil) 50% 20% / cover no-repeat; mask: var(--sil) 50% 20% / cover no-repeat; opacity: .88; }
+.q { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-44%); text-align: center; font-family: var(--font-head); font-size: 36px; line-height: 1; color: #fff;
+  text-shadow: 0 2px 0 rgba(30, 10, 52, .55); }
+.next { margin: 10px 0 10px; display: inline-flex; align-items: center; gap: 4px; height: 30px; padding: 0 12px; border-radius: 15px; background: #fff; border: 2px solid var(--line);
+  font-weight: 800; font-size: 16px; line-height: 1; color: var(--ink-soft); white-space: nowrap; }
+.next .ic { font-size: 20px; margin-right: 3px; }
+.next b { font-family: var(--font-head); font-weight: 400; font-size: 19px; color: var(--ink); }
+
+/* the two plain lines */
+.notes { display: flex; gap: 12px; align-items: stretch; width: 0; min-width: 100%; } /* as wide as the columns, never wider */
+.note { display: flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 14px; font-weight: 800; font-size: 18px; line-height: 1.2; }
+.note .ic { font-size: 30px; }
+.note.stars { flex: 1; background: #fff; border: 2px solid var(--line); }
+.note.stars b { font-weight: 900; }
+.note.fair { background: #e3f7ea; border: 2px solid #9ed9b2; color: var(--good); font-family: var(--font-head); font-weight: 400; font-size: 20px; white-space: nowrap; }
+
+/* phones held sideways */
+body.short .odds .body { padding: 8px 12px 10px; gap: 7px; }
+body.short .share { height: 16px; border-radius: 8px; }
+body.short .share i { box-shadow: inset 0 3px 0 rgba(255, 255, 255, .3); }
+body.short .cols { gap: 8px; }
+body.short .rcol { min-width: 106px; border-radius: 14px; }
+body.short .rcol .cap { height: 26px; font-size: 18px; }
+body.short .rcol .pct { margin-top: 4px; font-size: 36px; }
+body.short .rcol .of, body.short .cat .nm { display: none; }
+body.short .cats { gap: 6px; padding: 4px 8px 0; }
+body.short .cat { width: 56px; }
+body.short .cat .art { width: 56px; height: 56px; border-radius: 12px; }
+body.short .q { font-size: 27px; }
+body.short .next { margin: 5px 0 6px; height: 24px; padding: 0 9px; }
+body.short .next .ic { font-size: 17px; }
+body.short .next b { font-size: 17px; }
+body.short .notes { gap: 8px; }
+body.short .note { padding: 3px 12px 3px 8px; font-size: 16px; gap: 7px; border-radius: 12px; }
+body.short .note .ic { font-size: 24px; }
+body.short .note.fair { font-size: 17px; }
+body.narrow .notes { flex-direction: column; gap: 5px; }
+body.narrow .note.fair { justify-content: center; }
+</style>
+</head>
+<body class="no-move">
+<div id="screen"><div id="stage">
+  <div class="world spa" style="background-image:url(img/world-spa.jpg)"></div>
+  <div class="backdrop"></div>
+
+  <div class="win odds">
+    <div class="band"><div class="badge"><i data-ic="dice"></i></div><span class="title outlined">Cat chances</span><span class="sub">Who might visit your spa</span></div>
+    <button class="xbtn" data-tap aria-label="Close"><i data-ic="x"></i></button>
+    <div class="body">
+      <div class="share" aria-hidden="true"><i class="common" style="flex:60"></i><i class="uncommon" style="flex:25"></i><i class="rare" style="flex:11"></i><i class="epic" style="flex:3.5"></i><i class="legend" style="flex:0.5"></i></div>
+      <div class="cols">
+        <div class="rcol common" aria-label="Common: 60% of customers. At 15 stars: 54%">
+          <div class="cap">Common</div>
+          <div class="pct">60%</div>
+          <div class="of">of customers</div>
+          <div class="cats"><div class="cat"><span class="art"><img src="img/Cat_Muffin_Sit.png" alt=""></span><span class="nm">Muffin</span></div><div class="cat"><span class="art"><img src="img/Cat_Smudge_Sit.png" alt=""></span><span class="nm">Smudge</span></div><div class="cat"><span class="art"><img src="img/Cat_Inky_Sit.png" alt=""></span><span class="nm">Inky</span></div><div class="cat"><span class="art"><img src="img/Cat_Cotton_Sit.png" alt=""></span><span class="nm">Cotton</span></div></div>
+          <div class="next"><span>At 15</span><i data-ic="star"></i><b>54%</b></div>
+        </div>
+        <div class="rcol uncommon" aria-label="Uncommon: 25% of customers. At 15 stars: 27%">
+          <div class="cap">Uncommon</div>
+          <div class="pct">25%</div>
+          <div class="of">of customers</div>
+          <div class="cats"><div class="cat unknown" aria-label="Not met yet"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">???</span></div><div class="cat"><span class="art"><img src="img/Cat_Patches_Sit.png" alt=""></span><span class="nm">Patches</span></div></div>
+          <div class="next"><span>At 15</span><i data-ic="star"></i><b>27%</b></div>
+        </div>
+        <div class="rcol rare" aria-label="Rare: 11% of customers. At 15 stars: 13%">
+          <div class="cap">Rare</div>
+          <div class="pct">11%</div>
+          <div class="of">of customers</div>
+          <div class="cats"><div class="cat unknown" aria-label="Not met yet"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">???</span></div><div class="cat"><span class="art"><img src="img/Cat_Marble_Sit.png" alt=""></span><span class="nm">Marble</span></div></div>
+          <div class="next"><span>At 15</span><i data-ic="star"></i><b>13%</b></div>
+        </div>
+        <div class="rcol epic" aria-label="Epic: 3.5% of customers. At 15 stars: 5%">
+          <div class="cap">Epic</div>
+          <div class="pct">3.5%</div>
+          <div class="of">of customers</div>
+          <div class="cats"><div class="cat unknown" aria-label="Not met yet"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">???</span></div></div>
+          <div class="next"><span>At 15</span><i data-ic="star"></i><b>5%</b></div>
+        </div>
+        <div class="rcol legend" aria-label="Legendary: 0.5% of customers. At 15 stars: 1%">
+          <div class="cap">Legendary</div>
+          <div class="pct">0.5%</div>
+          <div class="of">of customers</div>
+          <div class="cats"><div class="cat unknown" aria-label="Not met yet"><span class="art"><span class="sil"></span><span class="q">?</span></span><span class="nm">???</span></div></div>
+          <div class="next"><span>At 15</span><i data-ic="star"></i><b>1%</b></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="note stars"><i data-ic="star"></i><span><b>More spa stars bring rarer cats.</b> You have 9 stars. The chances step up at 15 stars.</span></div>
+        <div class="note fair"><i data-ic="check"></i><span>Nothing you buy changes these chances.</span></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+<script src="kit.js"></script>
+<script>
+// The tall board needs about 620 design px of height and 1190 of width; anything smaller gets the compact one.
+// When the two lines under the columns do not fit side by side they stack.
+(function () {
+  const NEED_H = 620, NEED_W = 1190;
+  function fit() {
+    const b = document.body, s = Number(b.dataset.scale) || 1;
+    b.classList.toggle('short', innerHeight / s < NEED_H || innerWidth / s < NEED_W);
+    b.classList.remove('narrow');
+    const notes = document.querySelector('.notes'), cols = document.querySelector('.cols');
+    b.classList.toggle('narrow', notes.scrollWidth > cols.offsetWidth + 1);
+  }
+  window.addEventListener('DOMContentLoaded', fit);
+  window.addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>

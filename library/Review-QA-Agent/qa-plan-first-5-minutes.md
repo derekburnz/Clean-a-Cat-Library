@@ -71,3 +71,18 @@ Studio device emulator sizes per run: small phone, large phone, tablet, desktop.
 ## 7. What this plan assumes
 - The design draft holds: customers plus strays, timed builds from seconds to 24 hours, no paid skips, three game passes. If Derek's playtests change the loop, sections 3 and 4 change with it.
 - Scrub runs on the client for feel and the server confirms the result. I will hold the scrub PR to that.
+
+## 8. Visual QA for draft models and screens (Derek's ask, 2026-11-24 ET)
+Every draft model or screen from Model-Agent or Design-Agent gets this pass on top of the code checks. I look at the rendered picture, not only the file.
+- Phone size: shown at 48 px (icons), at real phone screen size (screens) and from the default camera distance (models). It must still say what it is.
+- One read: a new player can name the thing in one second without a label. Silhouette first, colour second, detail last.
+- Style: Bubble Pastel palette, chunky rounded shapes, same outline and light as the merged cats, tub and plot. Nothing realistic or gritty next to it.
+- Contrast: text at least 4.5:1, key shapes against their usual background at least 3:1 (the mud fix on Inky set the bar).
+- Tap targets: at least 44 px, nothing under the thumbstick, jump button or notch; no menu opens by itself.
+- Honest: no fake urgency, no "free", odds shown before anything random that Robux can reach.
+- Budget and safety: inside the style guide budgets, no scripts in models, CanQuery off on hidden or invisible parts, uploads owned by the group.
+- Verdict per item: KEEP, FIX (with the one change that matters most) or DROP.
+
+### Open visual checks for the first human playtest (2026-11-24)
+- Dirty cat read: show a new player a dirty Cotton at the tub at the default phone camera and ask "what is wrong with this cat?" with no prompt. It passes on "dirty" or "muddy". The emulator check passed for #155, but without the wisps a pale cat can still read as markings at 38 px.
+- Scrub feel (#149): count the strokes needed to clear a cat. One swipe clearing most of the mud is too fast.
