@@ -42,35 +42,35 @@ Ten minutes each, as a brand new player, on a phone if possible, with a timer ru
 Ids are not secret and can go in chat. Keys are secret and only ever go into GitHub.
 
 **Now, so building is not blocked**
-- [ ] **Send the Creampuff Games group id.** It is the number in the group page's address. It is not secret. Uploads and the game must have the same owner, so we need it before any art or sound goes up.
-- [ ] **Create the experience under the group and send its two ids.** An experience is Roblox's word for a game. In Creator Hub create it under Creampuff Games, then send the universe id (the whole game) and the start place id (its first map). Both are in the page address and are not secret.
-- [ ] **Make a dev copy of the place.** Agents never work in the published place. In the dev copy turn on Game Settings, Security, Enable Studio Access to API Services so saves and switches work in Studio.
-- [ ] **Get the PC ready for Studio work.** On DESKTOP-DFOGFG7: Git, Rokit and the Rojo plugin installed, the repo cloned under Downloads and Remote Control on. Rojo copies our files into Studio. Sync-Agent walks you through it. [Setup guide, steps 2 to 5](https://github.com/derekburnz/Clean-a-Cat/blob/main/docs/setup-guide.md)
-- [ ] **Listen to the 11 sounds (about 2 minutes).** Bubble pops, mud plop, reveal chime, brush swishes, bow pop, camera and click. Say which are too loud, too sharp or wrong. [The sound files](https://github.com/derekburnz/Clean-a-Cat/tree/main/assets/clean-a-cat/audio)
+- [ ] **Send the Creampuff Games group id.** Done. The group id is 107520049.
+- [ ] **Create the experience under the group and send its two ids.** Done. Universe id 10778773655 and start place id 79301459457383. An experience is Roblox's word for a game, the universe id names the whole game and the place id its first map.
+- [ ] **Make a dev copy of the place.** Done: Clean-a-Cat-Dev. No extra key is needed for it. Studio on your PC signs in as you, and your keys already cover it. Still to tick in the dev copy: Game Settings, Security, Enable Studio Access to API Services, so saves and switches work in Studio.
+- [ ] **Get the PC ready for Studio work.** You gave the go-ahead. Sync-Agent is checking DESKTOP-DFOGFG7 through Remote Control and installing what is missing (Git, Rokit, the Rojo plugin and the repo under Downloads). Nothing for you unless it gets stuck. [Setup guide, steps 2 to 5](https://github.com/derekburnz/Clean-a-Cat/blob/main/docs/setup-guide.md)
+- [ ] **Listen to the 11 sounds (about 2 minutes).** Done. You said they are fine for now and tuning waits until the gameplay is decided.
 
 **Before the first publish**
-- [ ] **Create the Open Cloud key and paste it into GitHub.** Open Cloud is Roblox's web API and a key is a password for it. Create it under the group, then paste it into GitHub as the secret ROBLOX_PUBLISH_KEY. Never paste it in chat. Claude never sees it. [Setup guide, step 8](https://github.com/derekburnz/Clean-a-Cat/blob/main/docs/setup-guide.md#8-the-open-cloud-key-lets-github-publish)
-- [ ] **Add the three repo variables.** In GitHub, Settings, Secrets and variables, Actions, Variables: ROBLOX_UNIVERSE_ID, ROBLOX_PLACE_ID and ROBLOX_GROUP_ID. These tell the publish workflow which game and who owns uploads.
-- [ ] **Optional: a second key for uploads.** ROBLOX_GROUP_KEY, created under the group with only asset read, asset write and asset permissions write. It keeps the publish key from uploading and the upload key from publishing.
-- [ ] **Check auto-merge and the two required checks.** In GitHub: Allow auto-merge is ticked and the ruleset for main requires both checks. Without required checks a pull request would merge before its tests ran. [Setup guide, step 9](https://github.com/derekburnz/Clean-a-Cat/blob/main/docs/setup-guide.md#9-required-check-and-auto-merge)
-- [ ] **Set the server size to match the street.** In the experience settings set the maximum players per server to the number of spas per street (our pick is 6, see the question near the end). Each player needs their own plot. [Issue 88](https://github.com/derekburnz/Clean-a-Cat/issues/88)
-- [ ] **Play the scrub prototype on your phone.** Two minutes when it is ready. Say keep or rethink. Nothing past the brush and photo step is built until you say keep. [Issue 29](https://github.com/derekburnz/Clean-a-Cat/issues/29)
+- [ ] **Create the Open Cloud key and paste it into GitHub.** Done. You saved it as OWNER_KEY. Our workflows looked for the name ROBLOX_PUBLISH_KEY, so we changed them to accept yours. Nothing more for you. [Pull request 110](https://github.com/derekburnz/Clean-a-Cat/pull/110)
+- [ ] **Add the three repo variables.** Done on our side. The three ids are public, so they are now built into the workflows and you do not need to add them. [Pull request 110](https://github.com/derekburnz/Clean-a-Cat/pull/110)
+- [ ] **Optional: a second key for uploads.** Done. You saved it as ROBLOX_GROUP_KEY, which is the name the upload workflows read first.
+- [ ] **Check the rule that makes pull requests wait for their tests.** Auto-merge is on, thank you, and pull requests have been merging only after both test runs pass. We cannot see the repo rules from here, so one look from you settles it. In the Clean-a-Cat repo open Settings, Rules, Rulesets. If an active rule for main lists these two checks, tick this job: Rojo sourcemap, luau-lsp, Selene, StyLua and Unit tests, strict types, UI gate. If the list is empty, make one: New ruleset, New branch ruleset, name it main, set Enforcement status to Active, under Target branches choose Include default branch, tick Require a pull request before merging, tick Require status checks to pass and add the two checks by name, then press Create. About 2 minutes. [Setup guide, step 9](https://github.com/derekburnz/Clean-a-Cat/blob/main/docs/setup-guide.md#9-required-check-and-auto-merge)
+- [ ] **Set the server size to match the street.** You said this waits until the game design and playtests are done. When the number is decided, set the maximum players per server to match in the experience settings. [Issue 88](https://github.com/derekburnz/Clean-a-Cat/issues/88)
+- [ ] **Play the scrub prototype on your phone.** You said no prototypes until the playtests and the research on hooks and loops are done. This stays parked until then. [Issue 29](https://github.com/derekburnz/Clean-a-Cat/issues/29)
 
 **Before build notifications go on**
-- [ ] **Create the build finished message and send its id.** Once the experience exists: Creator Dashboard, Engagement, Notifications. Create a message with a {buildName} parameter, for example: Your {buildName} is finished and the cats are waiting. Send us the message id. It is not secret and goes in the NotifyMessageId setting. [Pull request 90](https://github.com/derekburnz/Clean-a-Cat/pull/90)
-- [ ] **Create a key for sending notifications and save it as an experience secret.** An Open Cloud API key with user notification write access only. Save it yourself in the experience's secrets under the name CleanACat_NotifyKey, where only the game's server can read it. Never share the key, in chat or anywhere else. [Pull request 90](https://github.com/derekburnz/Clean-a-Cat/pull/90)
+- [ ] **Later: write the text of the build finished notification.** Only needed if we keep the idea of telling players when a long build is done. Roblox does not let a game send any text it likes. You write the sentence once in the Creator Dashboard (Engagement, Notifications), for example: Your {buildName} is finished and the cats are waiting. Roblox gives that sentence an id and we need the id. It is not secret. Park this until the gameplay is decided. [Pull request 90](https://github.com/derekburnz/Clean-a-Cat/pull/90)
+- [ ] **Later: a key the game itself uses to send that notification.** This is separate from your two GitHub keys. GitHub cannot hand a key to a running game, so this one is saved inside Roblox: Creator Dashboard, your experience, Secrets, under the name CleanACat_NotifyKey. It needs only user notification write access. Park this until the gameplay is decided, and never share the key. [Pull request 90](https://github.com/derekburnz/Clean-a-Cat/pull/90)
 
 **Before the first public test: Roblox Kids and Select**
-- [ ] **Creator account age-checked and verified, with 2-step verification.** Roblox shows a new game only to age-checked players of 16 and over until it passes the Kids and Select evaluation. Kids is ages 5 to 8 and Select is ages 9 to 15, which is our audience.
-- [ ] **An active Plus or Premium subscription, or the one-time fee.** The page asks for a subscription that is at least 2 months old, or a refundable fee per game.
-- [ ] **Fill in the full maturity questionnaire.** We write down the answers for you first. The game needs a Minimal or Mild result. Our reading is that it qualifies: only cats are bathed, on an open shop floor, with no chat rooms and no closed rooms for avatars.
-- [ ] **100 plays from highly engaged players within 60 days.** Roblox evaluates the game after that. Growth-Agent plans how to get them. Your group's players from the other game can help.
+- [ ] **Creator account age-checked and verified, with 2-step verification.** Done.
+- [ ] **An active Plus or Premium subscription, or the one-time fee.** You said this is not needed. If Roblox asks for it when we apply for Kids and Select, we will tell you then.
+- [ ] **Fill in the full maturity questionnaire.** You said this waits until the gameplay is decided. We write down the answers for you first. The game needs a Minimal or Mild result.
+- [ ] **100 plays from highly engaged players within 60 days.** You said ads for this come after the game is ready for more public testers. Roblox shows a new game only to age-checked players of 16 and over until it passes this evaluation.
 
 Read on Roblox's Kids and Select page on November 23, 2026. Roblox changes these rules, so check the page again before acting.
 
 **At release**
-- [ ] **OK the final icon and thumbnails before upload.** Pick from the drafts in the Store art questions at the end of this page. Model-Agent then makes the finals and nothing is uploaded without your OK. [Issue 24](https://github.com/derekburnz/Clean-a-Cat/issues/24)
-- [ ] **Make both repos private.** Your call from November 23: public for now, private at release.
+- [ ] **OK the final icon and thumbnails before upload.** A later problem, as you said. The draft picks are in the Store art questions at the end of this page. [Issue 24](https://github.com/derekburnz/Clean-a-Cat/issues/24)
+- [ ] **Make both repos private.** A later problem, as you said, and maybe not needed until the game gets popular.
 
 ## 3. Questions, each with our recommended answer
 The first option is the recommendation.
