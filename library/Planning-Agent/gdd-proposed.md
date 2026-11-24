@@ -4,7 +4,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **Hook (one sentence):** dirty cats line up at your spa, you pick who is next and scrub each one by hand to find out what coat is hiding under the mud.
 
-**Name and first minute** (changed 2026-11-24, Derek's lean, not yet a decision) [firstminute]: the game opens with a rescue the player plays. A truck drives past, a soap crate falls off the back and lands in front of the player, they tap it open and find Suds the kitten all muddy. Washing Suds is the tutorial. The camera stays the player's the whole time, nothing is watched for more than about 3 seconds and the scrub starts at about second 12. Derek said a box. Our pick is a soap crate with Suds printed on it, because My Pet Salon also opens with a muddy cat in a box (his own playtest notes) and a crate marked Suds is ours and explains the name. His pick on the plan page settles it.
+**Name and first minute** (changed 2026-11-24, Derek's lean, not yet a decision) [firstminute]: the game opens with a rescue the player plays. A truck drives past, a plain brown box falls off the back and lands in front of the player, they tap it open and find a messy, muddy kitten. Cleaning him up is the tutorial and once he is clean he becomes Suds, so his name comes from the wash. The camera stays the player's the whole time, nothing is watched for more than about 3 seconds and the scrub starts at about second 12. The box is decided: we proposed a soap crate marked Suds so the opening would not look like My Pet Salon's, and Derek said no ("not a soap crate should be a random brown box", 2026-11-24 12:27 PM ET).
 
 **Core loop**
 - Every 30 to 60 seconds: pick a cat from the bench, wash it in 4 to 6 short steps and get coins, a tip and stars, which buy tools, helpers and stations. (changed: a pick and several steps)
@@ -13,7 +13,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **How players get cats** [keep]
 - Customers bring cats and take them home. Every coat revealed fills a slot in the Cat Index.
-- Now and then a stray waits at the back door. A washed stray stays in the display window and earns tips. The very first cat is Suds, who is rescued in the opening and is the same for everyone. He is the mascot, so he has his own card outside the index count, does not sit in the window and earns no tips. (changed 2026-11-24) The first index stamp comes from the first customer cat and the first window stray comes at about minute 4.
+- Now and then a stray waits at the back door. A washed stray stays in the display window and earns tips. The very first cat is the muddy kitten rescued in the opening, who becomes Suds and is the same for everyone. He is not in the Cat Index (decided by Derek 2026-11-24: "dont include him on" the index). He has his own card outside the count, does not sit in the window and earns no tips. (changed 2026-11-24) The first index stamp comes from the first customer cat and the first window stray comes at about minute 4.
 - The coat is hidden under the mud until the wash is done. (new) The chance of each coat is on a board, cats are free and nothing sold changes the chances.
 - No catching, no buying cats and no trading [trading].
 
@@ -46,11 +46,11 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **First session** (brand new player, phone; times are targets to test; changed 2026-11-24 for the Suds opening. Design-Agent's step by step plan: `Design-Agent/first-session-2026-11-24/opening-and-tutorial-plan.md`)
 - 0:00 Loaded on the pavement in front of the spa, facing the street. The camera and the move stick stay the player's.
-- 0:01 to 0:04 A truck passes and a soap crate tumbles off the back and lands a few steps away. It wiggles and an arrow says Open.
-- 0:04 The player taps the crate. Muddy Suds pops out, shakes and hops into the player's arms.
-- 0:07 A trail leads through the open front to the tub. The player taps Wash Suds.
+- 0:01 to 0:04 A truck passes and a plain brown box tumbles off the back and lands a few steps away. It wiggles and an arrow says Open.
+- 0:04 The player taps the box. A muddy kitten with no name yet pops out, shakes and hops into the player's arms.
+- 0:07 A trail leads through the open front to the tub. The player taps the wash button, which does not say Suds yet.
 - 0:12 Scrub, then rinse and towel dry: three short steps.
-- 0:30 to 0:45 The clean coat is revealed and Suds gets his score, always three stars. He hops onto his cushion on the front desk and is the player's from then on.
+- 0:30 to 0:45 The clean coat is revealed, the kitten is named Suds and he gets his score, always three stars. He hops onto his cushion on the front desk and is the player's from then on.
 - About 1:00 The first customer arrives with the guaranteed easy common cat. Its wash gives the first coins, the first tip and the first index stamp. The Index button pops in.
 - About 1:45 Two more customers arrive and the bench opens. From here the player picks who is next.
 - About 2:30 First tool upgrade, instant. Suds trots to the Tools button.
@@ -59,7 +59,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 - About 10:00 The first helper can be hired. A third and fourth cat wait on the bench.
 - About 15:00 The first long build is offered (hours), on its own slot [longbuild].
 - No like or favourite ask, no shop prompt and no window that opens by itself in this session [favourite]. Tutorial steps are tapped by the player.
-- The opening plays once per save. A player who leaves in the middle comes back at the tub with Suds still muddy.
+- The opening plays once per save. A player who leaves in the middle comes back at the tub with the kitten still muddy.
 - Switches: the opening and Suds as guide each ship behind their own off switch, so the first test can run the opening against spawning at the tub.
 
 **Checks on the Suds opening** (Planning-Agent, 2026-11-24)
@@ -69,9 +69,9 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 - Tutorial rules: fit, with the four Suds rules above.
 - Clash, small: the first stray no longer comes first, so the window lesson moves to about minute 4 and the bench pick moves from about 1:00 to about 1:45.
 - Clash, for Gameplay-Engineer: the server opens bench picks when the save has stars above zero (`SpaService`, the guaranteed common cat rule). Suds's stars would open picks one cat early. The gate has to count customers served.
-- Likeness: the box with a muddy cat is how My Pet Salon opens. Our pick is the soap crate. Rule 8 allows shared ideas but not a look that reads as a copy.
-- Tone: the crate lands soft, Suds pops out happy and nobody is shown hurt or left behind on purpose.
-- Cost: a plain truck with no brand, a crate and a four legged Suds on the shared cat body. The truck runs on the player's device only, so other players on the street never see it.
+- Likeness: the box with a muddy cat is how My Pet Salon opens. We flagged it and proposed a soap crate. Derek chose the plain brown box, so that is settled. What keeps the opening ours: the truck, a scene that is played and not watched and the kitten earning the name Suds from his wash.
+- Tone: the box lands soft, Suds pops out happy and nobody is shown hurt or left behind on purpose.
+- Cost: a plain truck with no brand, a brown box and a four legged Suds on the shared cat body. The truck runs on the player's device only, so other players on the street never see it.
 
 **Progression:** tools (instant), stations (seconds to 1 hour), helpers (coins), rooms (hours, 24 at most, offered after about minute 15), rare visitors (spa stars), then a Grand Reopening: move to a bigger spa, keep every cat and gain a permanent tip bonus [reopen]. The Grand Reopening is built after the first test, but the save data allows for it from the start. No paid skips on any timer [skips].
 
@@ -97,9 +97,9 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 | One helper | One staff member washes one common cat at a time at a fixed slow speed | M | Gameplay-Engineer |
 | Rare visitors | One visitor behind a star goal, after the first test | M, smaller version: none in the slice | Gameplay-Engineer |
 | Day one content | About 12 coats, 3 kinds of dirt and 4 tools | M | Model-Agent |
-| Opening | Truck pass, soap crate, tap to open, carry Suds to the tub, played once per save, behind an off switch | M | Motion-FX-Agent and Model-Agent, then Gameplay-Engineer |
+| Opening | Truck pass, brown box, tap to open, carry Suds to the tub, played once per save, behind an off switch | M | Motion-FX-Agent and Model-Agent, then Gameplay-Engineer |
 | Suds the guide | Trots to a new unlock and sits by it with a short bubble, once per thing, behind an off switch | M | Design-Agent then Gameplay-Engineer |
-| Analytics | Add: crate opened, seconds to the first scrub, first pick from the bench, first helper hired, cats washed per session, session length | S | Growth-Agent |
+| Analytics | Add: box opened, seconds to the first scrub, first pick from the bench, first helper hired, cats washed per session, session length | S | Growth-Agent |
 
 Build order: the scrub on a phone first (issue 29). Then the other three steps, the bench, the reveal and index, the recap, one helper, builds and saving.
 
