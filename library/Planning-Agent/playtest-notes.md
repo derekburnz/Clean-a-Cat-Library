@@ -99,6 +99,15 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
 - Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).
 
+## Derek's written answers on the plan page to-do list, 2026-11-24 evening ET
+- My Pet Salon from memory: "a normal wash it takes about 4-6 seconds per step and most washes I did (apart from vip) were 3-5 steps. Hired helper was somewhere in the 30sec-60sec range, didn't see any way of getting pets other then robux but that seems kinda scummy, I didn't notice anything that loses a star maybe time based."
+- Puppy Spa: "It honestly overall felt pretty bad just low quality and the trimming didn't even really work, and also was not step by step of what to groom and didn't point at what you needed to use or do really"
+- Restaurant Tycoon 3 skip button: "yes it costs robux"
+- Notification asks: "like all of them and within the first 1-2 minutes couldn't tell if it was any specific timing it did not feel smooth timing to throw it in in any game really even the popular ones."
+- Picks answered in words (saved on the page as our pick with his words): no friends as customers ("no friends"); notification ask "1-2min in"; day 2 crate "that works maybe make it a good crate and other crates earnable but hard like complete all weeklys quests"; Suds bubble "similar to the bottom text from the animal salon game with the guy on the side but suds for us"; [NEW] tag "probably not I never see it on top games in popularity or trending"; kitten's eyes "go with whatever you suggest depends if you carry customers pets or not" (our call: open); index "washed cats fill an index"; crates "can earn crates that roll for them but make them really hard to get like finishing all weeklys quests etc. but make them rewarding and help a lot"; pet slots "I think hats a good idea but might change later".
+- Not picks: turning the cat, "Maybe make it so when you complete a side it auto turns your cat for you" (our pick now, to try in dev); the playstyle, "we will sort it out later" (still open).
+- In chat the same evening, a decision: "I don't like the tool selector while doing the cleaning minigame should be more like animal salon where it just auto changes to proper tool no need for a selector menu".
+
 ## For other threads
 - Store art (Model-Agent and Growth-Agent, later): Derek liked a half dirty and half clean picture split by a thin line.
 - Screens (Design-Agent, when unpaused): he liked clean pop-ups, a step counter such as "step 1 of 3", flowing arrows on the ground with a bobbing arrow at the goal, and a recap card with stars, coins and experience.

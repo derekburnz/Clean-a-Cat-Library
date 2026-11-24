@@ -1,6 +1,6 @@
 # Puppy Spa screenshots: what helps our plan  (2026-11-24 ET, Planning-Agent)
 
-Derek played Puppy Spa on his PC and sent 8 screenshots with no notes of his own yet, so everything below is Planning-Agent's reading of the pictures. The game is listed on Roblox as [NEW] Puppy Spa (11 playing and 52% liked on the evening of 2026-11-24). The pictures are in `Coordinator/references/puppy-spa-2026-11-24/`. They are reference only and stay out of the public repos, and several show what looks like a player's name on the customer. We take ideas about how things work and never their art, names, wording or layouts.
+Derek played Puppy Spa on his PC and sent 8 screenshots and wrote his take later that evening: "It honestly overall felt pretty bad just low quality and the trimming didn't even really work, and also was not step by step of what to groom and didn't point at what you needed to use or do really". The rest below is Planning-Agent's reading of the pictures. Its tool bar idea is dropped: Derek ruled out a tool menu on 2026-11-24. The game is listed on Roblox as [NEW] Puppy Spa (11 playing and 52% liked on the evening of 2026-11-24). The pictures are in `Coordinator/references/puppy-spa-2026-11-24/`. They are reference only and stay out of the public repos, and several show what looks like a player's name on the customer. We take ideas about how things work and never their art, names, wording or layouts.
 
 ## Ideas worth taking, in our own form
 
