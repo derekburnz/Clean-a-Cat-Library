@@ -4,7 +4,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **Hook (one sentence):** dirty cats line up at your spa, you pick who is next and scrub each one by hand to find out what coat is hiding under the mud.
 
-**Name and first minute** (changed 2026-11-24, Derek's lean, not yet a decision) [firstminute]: the game opens with a rescue the player plays. A truck drives past, a plain brown box falls off the back and lands in front of the player, they tap it open and find a messy, muddy kitten. Cleaning him up is the tutorial and once he is clean he becomes Suds, so his name comes from the wash. The camera stays the player's the whole time, nothing is watched for more than about 3 seconds and the scrub starts at about second 12. The box is decided: we proposed a soap crate marked Suds so the opening would not look like My Pet Salon's, and Derek said no ("not a soap crate should be a random brown box", 2026-11-24 12:27 PM ET).
+**Name and first minute** (changed 2026-11-24, Derek's lean, not yet a decision) [firstminute]: the game opens with a rescue. A truck drives past, a plain brown box falls off the back and lands in front of the player, they tap it open and find a messy, muddy kitten. Cleaning him up is the tutorial and once he is clean he becomes Suds, so his name comes from the wash. How the scene plays is OPEN (Derek 2026-11-24 12:28 PM ET: "we will come back to" it, "maybe make it a quick intro scene of the truck going by and box falling infront of you then you get your camera back and can play"). His lean, and now our pick: a watched intro of about 4 seconds and no more, then the camera is the player's. The plus is that nobody misses the box. The other version keeps the camera the player's the whole time. In both the box is tapped at about second 4 and the scrub starts at about second 12. The box is decided: we proposed a soap crate marked Suds so the opening would not look like My Pet Salon's, and Derek said no ("not a soap crate should be a random brown box", 2026-11-24 12:27 PM ET).
 
 **Core loop**
 - Every 30 to 60 seconds: pick a cat from the bench, wash it in 4 to 6 short steps and get coins, a tip and stars, which buy tools, helpers and stations. (changed: a pick and several steps)
@@ -45,7 +45,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 **Rare visitors** (new) [rare]: unlocked as the spa earns stars. A rare visitor brings a rare cat and wants a near perfect wash, with the same short job as any cat. A finished visit gives a lasting reward, for example a small permanent tip bonus and a framed photo for the wall. Chances are on the board and no visitor can be bought.
 
 **First session** (brand new player, phone; times are targets to test; changed 2026-11-24 for the Suds opening. Design-Agent's step by step plan: `Design-Agent/first-session-2026-11-24/opening-and-tutorial-plan.md`)
-- 0:00 Loaded on the pavement in front of the spa, facing the street. The camera and the move stick stay the player's.
+- 0:00 Loaded on the pavement in front of the spa, facing the street. In Derek's version the camera shows the truck and the box for about 4 seconds and then goes back to the player. In the played version the camera and the move stick stay the player's. Both are storyboarded.
 - 0:01 to 0:04 A truck passes and a plain brown box tumbles off the back and lands a few steps away. It wiggles and an arrow says Open.
 - 0:04 The player taps the box. A muddy kitten with no name yet pops out, shakes and hops into the player's arms.
 - 0:07 A trail leads through the open front to the tub. The player taps the wash button, which does not say Suds yet.
@@ -64,7 +64,7 @@ This is what the one-page design becomes if Derek takes our pick on every questi
 
 **Checks on the Suds opening** (Planning-Agent, 2026-11-24)
 - Fun first 5 minutes: fits. The first tap is at about second 4 and it is a surprise. The cost is the scrub starting about 9 seconds later than spawning at the tub. Roblox judges a game on its first minutes and no source gives a safe number, so both versions are run and the one that holds more new players stays.
-- Low bounce: Derek disliked the cutscene with no skip in My Pet Salon. This one is played, not watched. Nothing is skipped because nothing takes the controls away.
+- Low bounce: Derek disliked the cutscene with no skip in My Pet Salon. A watched intro is fine if it is capped at about 4 seconds, shows only the truck and the box and hands the camera back before the first tap. Longer than that needs a skip.
 - Day 2: fits and helps. A kitten the player rescued is a reason to come back that the old stray was not, and Suds at the door shows the tip jar and the day's visitor.
 - Tutorial rules: fit, with the four Suds rules above.
 - Clash, small: the first stray no longer comes first, so the window lesson moves to about minute 4 and the bench pick moves from about 1:00 to about 1:45.
@@ -107,7 +107,7 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 - Fading: five of the six cleaning games from this summer are at 3% of their peak or less. Mitigation: the collection, helpers and the Grand Reopening give more to chase than the cleaning.
 - A longer job can bore: My Pet Salon's same swipe three times did. Mitigation: 4 to 6 short steps, never two alike in a row and Derek's phone test before more is built.
 - Waiting pressure can upset young players. Mitigation: only a bonus tip shrinks and no cat is lost.
-- The opening delays the first scrub by about 9 seconds. Mitigation: it is played and short, and the first test runs it against spawning at the tub.
+- The opening delays the first scrub by about 9 seconds. Mitigation: it is about 4 seconds of watching at most, and the first test runs it against spawning at the tub.
 - Scope: this is more than the first draft. Mitigation: the slice is one helper, three bench seats, 12 coats and no rare visitor.
 - No proof: no source gives a tested number for any hook, wait or job length. Mitigation: ship choices behind switches, run two versions and read Roblox's own numbers.
 - Policy: the hidden coat is random. Mitigation: it is free, the chances are shown and coins cannot be bought. The spa keeps an open front and only cats are bathed.
