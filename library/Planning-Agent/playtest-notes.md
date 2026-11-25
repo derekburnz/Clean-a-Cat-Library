@@ -114,6 +114,18 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - Helpers (`q2-helpers`, pick 0, 11:43 AM ET), special visitors (`q2-rare`, pick 0, 11:44 AM ET), helper look (`q2-helperlook`, pick 1): "yes suds doesnt help tho".
 - Crates (`q2-crates`, pick 0, note added 11:49 AM ET): "Can also be sold for robux or earned rarely. We can remove the unlucky run one it can always be unlucky thats not a problem." This reverses his 2026-11-24 answer that crates are earned only. Planning-Agent's reading: a Robux crate is a paid random item, so CLAUDE.md rule 9 and the monetization-policy skill apply in full (chances as percentages before purchase, PolicyService check, hidden from restricted players). The sure new pet rule is removed. Our added rule: an earned crate and a bought crate are the same crate, so every pet can be got without paying. Price open, with Growth-Agent.
 - Pet slots (`q2-petslots`, pick 0, note added 11:51 AM ET): "second slot is robux upgrade". So a paid second slot is in. Still open under `petpass`: whether the pass opens the player's slot only (our pick) or workers' slots too.
+- Second pass, 1:01 to 1:07 PM ET (all in his words):
+  - Special visitors (`q2-rare`, pick 0): "Special visitors only you can wash draft whatever idea you have for now for what they should be can tweak later"
+  - Pets (`q2-pets`, pick 0): "Suds isnt a pet just a tutorial mascot/helper. Pets stay beside either the player or helper worker can make it really cool cats can look through roblox assets if needed."
+  - First session (`q2-session`, pick 0): build more for day one.
+  - Step kinds (`q2-steps`, pick 2, ALL of them from the start, not our pick): "All in the game from start sent a video of some good ones but remember less dirty less steps and make tutorial just the simple 3 or 4"
+  - Job length (`q2-joblength`, pick 0): "3-10". So 3 to 10 steps by dirt, not 3 to 8.
+  - Turning (`q2-turn`, pick 0): "For now we try this"
+  - Praise and combo (`q2-praise`, pick 0): "up to you for this one make sure its not too much bloat but it looks good/cool"
+  - Tool upgrades (`q2-tools`, pick 0): "up to you"
+  - Long builds (`q2-longbuild`, pick 0): "up to you but make sure the earlier builds are really good, maybe make it so workers need a station to be purchased and thats their assigned one and you have your own, workers show a progress bar above the cat their working on so you know when they are almost done"
+  - Skips (`q2-skips`, pick 1, SELL skips at launch, not our pick): "paid skips absolutely need good monotization"
+- He wrote text on the helpers question that did not save (`q2-helpers` holds pick 0 only). He asked at 1:10 PM ET; asked to write it again. Likely cause, a guess: the page was republished at 12:41 and 12:46 PM ET while he had it open. Do not republish while he is working on the page.
 - One clause in the bench note is cut off ("and if he was"), about a cat whose heart bar runs low. Asked back on the page under `impatience`.
 
 ## Across the games (Derek, 2026-11-24 ET)

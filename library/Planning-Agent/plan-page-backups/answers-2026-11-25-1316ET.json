@@ -1,0 +1,252 @@
+{
+ "about": "Snapshot of the Clean a Cat Launch Plan page database, collection answers, read 2026-11-25 18:16 UTC (1:16 PM ET). 102 documents. q2 documents are verbatim. Restore with ArtifactData set on each id. The p- documents (nine playtests, with Derek's long notes on My Pet Salon and the capybara game) and the q- documents (round one picks of 2026-11-24, no longer shown) are not repeated here; Derek's playtest notes are verbatim in ../playtest-notes.md.",
+ "q2": {
+  "q2-camera": {
+   "at": "2026-11-24T19:58:00.000Z",
+   "note": "Saved by the team from your chat decision on November 24: placing the kitten in the tub switches to a close up wash view. Change it here if the move stick should stay.",
+   "pick": "0"
+  },
+  "q2-crates": {
+   "at": "2026-11-25T16:49:57.816Z",
+   "note": "Saved by the team from your to-do answer on November 24: crates are earned, really hard to get and rewarding. The other three rules are ours. Can also be sold for robux or earned rarely. We can remove the unlucky run one it can always be unlucky thats not a problem.",
+   "pick": "0"
+  },
+  "q2-firstminute": {
+   "at": "2026-11-24T17:44:52.560Z",
+   "note": "Confirmed in chat on November 24: A for sure for truck",
+   "pick": "0"
+  },
+  "q2-friendcust": {
+   "at": "2026-11-24T23:58:00.000Z",
+   "note": "Saved by the team from your to-do answer on November 24: no friends",
+   "pick": "0"
+  },
+  "q2-heldeyes": {
+   "at": "2026-11-24T23:58:00.000Z",
+   "note": "Saved by the team from your to-do answer on November 24: go with whatever you suggest. Our call is open eyes.",
+   "pick": "0"
+  },
+  "q2-helperlook": {
+   "at": "2026-11-25T16:43:46.894Z",
+   "note": "yes suds doesnt help tho",
+   "pick": "1"
+  },
+  "q2-helpers": {
+   "at": "2026-11-25T16:43:27.731Z",
+   "pick": "0"
+  },
+  "q2-impatience": {
+   "at": "2026-11-25T15:18:43.354Z",
+   "note": ""
+  },
+  "q2-joblength": {
+   "at": "2026-11-25T18:04:25.633Z",
+   "note": "3-10",
+   "pick": "0"
+  },
+  "q2-keep": {
+   "at": "2026-11-24T23:58:00.000Z",
+   "note": "Saved by the team from your to-do answer on November 24: washed cats fill an index",
+   "pick": "0"
+  },
+  "q2-longbuild": {
+   "at": "2026-11-25T18:06:46.241Z",
+   "note": "up to you but make sure the earlier builds are really good, maybe make it so workers need a station to be purchased and thats their assigned one and you have your own, workers show a progress bar above the cat their working on so you know when they are almost done",
+   "pick": "0"
+  },
+  "q2-loop": {
+   "at": "2026-11-25T14:55:29.686Z",
+   "note": "yes we gotta make the picking which cats I choose to wash really well polished and easy so people can choose the rare ones for themselves, and the helpers just periodically take whichever is next in line any rarity maybe let special customers appear that expire that only I can take their cats and have them have the really cool cat designs (can look in asset library)",
+   "pick": "0"
+  },
+  "q2-newtag": {
+   "at": "2026-11-24T23:58:00.000Z",
+   "note": "Saved by the team from your to-do answer on November 24: probably not, I never see it on top games",
+   "pick": "0"
+  },
+  "q2-notifyask": {
+   "at": "2026-11-24T23:58:00.000Z",
+   "note": "Saved by the team from your to-do answer on November 24: 1-2min in",
+   "pick": "0"
+  },
+  "q2-pets": {
+   "at": "2026-11-25T18:03:19.384Z",
+   "note": "Suds isnt a pet just a tutorial mascot/helper. Pets stay beside either the player or helper worker can make it really cool cats can look through roblox assets if needed.",
+   "pick": "0"
+  },
+  "q2-petslots": {
+   "at": "2026-11-25T16:51:31.257Z",
+   "note": "Saved by the team from your to-do answer on November 24: a good idea but might change later. Change it here any time. second slot is robux upgrade",
+   "pick": "0"
+  },
+  "q2-praise": {
+   "at": "2026-11-25T18:05:49.184Z",
+   "note": "up to you for this one make sure its not too much bloat but it looks good/cool",
+   "pick": "0"
+  },
+  "q2-queue": {
+   "at": "2026-11-25T15:18:31.892Z",
+   "note": "A bench and a pick make it all done through the menu like shown in the menu draft but also have a menu that just says pick next in line or something along those lines make sure the menu still holds clean and the cats look dirtier in their pictures the more dirty they are and take more steps to clean. Rarer the cat the more likely its dirtier/has more steps but pays a lot more. All cats should have a base money amount but that can increase/multiply based on how fast you cleaned them(stars received),how long the cat waited if above a certain wait time  like within the first 10% of heart bar it should be a big bonus multiplier, (heart bar) they should have no penalty if it was above another certain amount and if he was  and how dirty there were (how many steps it took) making it more worthwhile to take the dirtier rare ones really quick. When helpers clean the cats they also get bonuses based on those things but make it much less and make them take longer the dirtier the cat is, also for the helpers add a \"mode\" that you can change for them like do the prioritize cats about to leave, rarest cats, dirtiest cats first, cats that are first in line, etc...",
+   "pick": "0"
+  },
+  "q2-rare": {
+   "at": "2026-11-25T18:01:47.539Z",
+   "note": "Special visitors only you can wash draft whatever idea you have for now for what they should be can tweak later",
+   "pick": "0"
+  },
+  "q2-return": {
+   "at": "2026-11-24T23:58:00.000Z",
+   "note": "Saved by the team from your to-do answer on November 24: that works, make it a good crate, other crates earnable but hard like completing all weekly quests",
+   "pick": "0"
+  },
+  "q2-session": {
+   "at": "2026-11-25T18:03:27.385Z",
+   "pick": "0"
+  },
+  "q2-skips": {
+   "at": "2026-11-25T18:06:59.119Z",
+   "note": "paid skips absolutely need good monotization",
+   "pick": "1"
+  },
+  "q2-steps": {
+   "at": "2026-11-25T18:04:04.627Z",
+   "note": "All in the game from start sent a video of some good ones but remember less dirty less steps and make tutorial just the simple 3 or 4",
+   "pick": "2"
+  },
+  "q2-sudsbubble": {
+   "at": "2026-11-24T23:58:00.000Z",
+   "note": "Saved by the team from your to-do answer on November 24: similar to the bottom text from the animal salon game with the guy on the side, but Suds for us",
+   "pick": "0"
+  },
+  "q2-tools": {
+   "at": "2026-11-25T18:05:58.082Z",
+   "note": "up to you",
+   "pick": "0"
+  },
+  "q2-turn": {
+   "at": "2026-11-25T18:05:25.339Z",
+   "note": "For now we try this",
+   "pick": "0"
+  }
+ },
+ "todo_notes_linked": {
+  "c-t-crates": {
+   "note": "can earn crates that roll for them but make them really hard to get like finishing all weeklys quests etc. but make them rewarding and help a lot"
+  },
+  "c-t-friendcust": {
+   "note": "no friends"
+  },
+  "c-t-heldeyes": {
+   "note": "go with whatever you suggest depends if you carry customers pets or not"
+  },
+  "c-t-keep": {
+   "note": "washed cats fill an index"
+  },
+  "c-t-loop": {
+   "note": "we will sort it out later"
+  },
+  "c-t-newtag": {
+   "note": "probably not I never see it on top games in popularity or trending."
+  },
+  "c-t-notifyask": {
+   "note": "1-2min in"
+  },
+  "c-t-petslots": {
+   "note": "I think hats a good idea but might change later"
+  },
+  "c-t-return": {
+   "note": "that works maybe make it a good crate and other crates earnable but hard like complete all weeklys quests"
+  },
+  "c-t-sudsbubble": {
+   "note": "do it similar to the bottom text from the animal salon game with the guy on the side but suds for us."
+  },
+  "c-t-turn": {
+   "note": "Maybe make it so when you complete a side it auto turns your cat for you"
+  }
+ },
+ "todo_notes": {
+  "c-mpswords": {
+   "done": true,
+   "note": "a normal wash it takes about 4-6 seconds per step and most washes I did (apart from vip) were 3-5 steps.\nHired helper was somewhere in the 30sec-60sec range, didn't see any way of getting pets other then robux but that seems kinda scummy, I didn't notice anything that loses a star maybe time based."
+  },
+  "c-notifwords": {
+   "done": true,
+   "note": "like all of them and within the first 1-2 minutes couldn't tell if it was any specific timing it did not feel smooth timing to throw it in in any game really even the popular ones."
+  },
+  "c-puppytake": {
+   "done": true,
+   "note": "It honestly overall felt pretty bad just low quality and the trimming didn't even really work, and also was not step by step of what to groom and didn't point at what you needed to use or do really"
+  },
+  "c-rtskip": {
+   "done": true,
+   "note": "yes it costs robux"
+  }
+ },
+ "todo_done_only": [
+  "c-agecheck",
+  "c-apiaccess",
+  "c-automerge",
+  "c-devices",
+  "c-devplace",
+  "c-devtest",
+  "c-experience",
+  "c-group-id",
+  "c-groupkey",
+  "c-holdpose",
+  "c-key",
+  "c-loopdoc",
+  "c-notify-key",
+  "c-notify-message",
+  "c-pc",
+  "c-plays",
+  "c-plus",
+  "c-private",
+  "c-questionnaire",
+  "c-screens",
+  "c-scrub",
+  "c-scrub2",
+  "c-serversize",
+  "c-sounds",
+  "c-storeart",
+  "c-vars"
+ ],
+ "playtests_played": [
+  "p-animaldaycare",
+  "p-barber",
+  "p-capybara",
+  "p-cleaneverything",
+  "p-horse",
+  "p-petsalon",
+  "p-petsalon2",
+  "p-petstore",
+  "p-puppyspa",
+  "p-rt3"
+ ],
+ "round_one_picks": {
+  "q-bell": "2",
+  "q-body": "2",
+  "q-bows": "2",
+  "q-camera": "2",
+  "q-cats": "2",
+  "q-catspa": "2",
+  "q-event": "2",
+  "q-feel": "2",
+  "q-icon": "3",
+  "q-landscape": "2",
+  "q-longest": "3",
+  "q-names": "2",
+  "q-passes": "1",
+  "q-prices": "1",
+  "q-shop": "2",
+  "q-size": "1",
+  "q-skips": "2",
+  "q-slots": "2",
+  "q-soundreuse": "2",
+  "q-street": "1",
+  "q-streetsize": "3",
+  "q-style": "3",
+  "q-thumbs": "3",
+  "q-upload": "2",
+  "q-visit": "2"
+ }
+}
