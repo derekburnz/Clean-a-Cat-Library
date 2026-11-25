@@ -238,11 +238,11 @@ dict(id="petslots", t="One pet for you and one for each worker",
              d="Trading is the one feature with a clear record of harm to young players, mostly scams. This holds for crate pets too.",
              opts=["Yes, no trading", "Plan trading for later", ELSE]),
         dict(id="favourite", t="No like or favourite ask in the first session",
-             d="Capybara Onsen asked you for a favourite at about minute 4. Roblox judges a game on its first minutes, and an ask there is one more thing between a new player and the fun. Our pick: nothing in the first session, then one small ask after a great wash on a later visit. We wrote here that Roblox does not allow rewards for likes or favourites. On November 25 we could not find that rule on Roblox's own pages, so treat it as not confirmed. Growth-Agent is checking. Your screenshot shows My Pet Salon paying cash for both in its Rewards window. Your answer asks for a free pet for joining the group and liking the game, and that has its own question at the top of the page.",
+             d="Capybara Onsen asked you for a favourite at about minute 4. Roblox judges a game on its first minutes, and an ask there is one more thing between a new player and the fun. Our pick: nothing in the first session, then one small ask after a great wash on a later visit. We wrote here that Roblox does not allow rewards for likes or favourites. That was wrong as far as we can find: no such rule is on Roblox's own pages, and as you said plenty of games do things for likes. What they check is the favourite or the group, since Roblox lets no game read a like. Your screenshot shows My Pet Salon paying cash for both in its Rewards window. Your answer asks for a free pet for joining the group and liking the game, and that has its own question at the top of the page.",
              opts=["Yes, one ask on a later visit", "Ask once at about minute 5", "Never ask", ELSE]),
-        dict(id="grouppet", t="A free pet for joining the group, with the like asked on the same card",
-             d="From your words: ask for notifications, a like and a favourite, never all at once, and one pet for joining the group and liking the game that is easy to find. Our pick: a gift stand inside the spa with the pet sitting on it, always in view and never a pop up. Tapping it opens one card: join Creampuff Games and like the game, then claim your pet. The game can check the group, so the claim opens once the player has joined. A game has no sure way to see who liked it, so the like is asked in words and trusted. The asks are spread out: notifications after the first clean cat, one small like and favourite ask at about minute 5, and the gift stand whenever the player walks up to it. The pet is the same for everyone and nothing about it is random.",
-             opts=["Yes, a gift stand: the group is checked and the like is asked", "The pet for joining the group only, and the like asked apart", ELSE]),
+        dict(id="grouppet", t="The free pet: like, favourite and join the group, then claim",
+             d="Your answer in chat on November 25: prompt them to like, check, then give them the pet. We looked at what a game can read. A favourite: yes, Roblox has its own favourite prompt and tells the game the result. The group: yes. A like: no, Roblox gives games no prompt and no check for the thumbs up. The games you remember ask for a like and a favourite together and check the favourite. So ours does the same, as close to your words as Roblox allows. A gift stand stands inside the spa with the pet sitting on it, always in view and never a pop up. Its card has three steps: like the game, favourite it and join Creampuff Games. The favourite and the group are checked and the pet is given when both are done. The like is asked first and cannot be read, and we show no pretend check for it. The stand lights up once at about minute 7, after the first special visitor. The pet is the same for everyone and nothing about it is random. We found no Roblox rule for or against this.",
+             opts=["Yes: ask for the like, check the favourite and the group, then give the pet", "Check the group only", ELSE]),
     ]),
     ("Screens", "Design-Agent", "", [
         dict(id="recap", t="After each cat: the full card or a slim strip",
@@ -379,6 +379,7 @@ SAVED = [
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
 ]
 TODAY = [
+    ("The free pet, November 25", "You said to prompt for the like, check and then give the pet. Roblox lets a game check a favourite and the group but not a like. So the gift stand asks for the like, checks the favourite and the group, then gives the pet."),
     ("Done ticked, November 25", "You ticked done at 6:09 PM. Every answer and every note is saved in the notes, the design file, project memory and the library. The final one page design is written from your picks and comes to you before the build starts."),
     ("Your last answers, November 25 evening", "A couple of daily quests and a couple of weekly ones, with a crate for finishing the weekly list. A special visitor comes inside the first 5 minutes and that first one drops a crate. After that a crate from a visitor is rare. Other players can walk into your spa, with a setting to turn that off. A friend bonus and no trading. The full card after every cat. Menu buttons arrive one at a time, each with a short tip. Phones are locked to landscape. No stink wisps, and darker mud if needed. A human builder, Bubble Pastel and a soft and cosy feel. The icon and thumbnail are fine for now, with a half dirty and half clean picture as the second thumbnail. Christmas is likely the first event and the Cat Show idea is kept for later. The Grand Reopening is not decided, but the game is built so it can be added."),
     ("The playstyle, November 25", "Picked: your busy spa and the cat collection together. Picking a cat has to be polished and easy. Helpers take whichever cat is next, of any rarity. Special visitors with the coolest cats are only for you."),
@@ -402,7 +403,7 @@ TODAY = [
     ("From your to-do list", "No friends as customers. The notification ask comes 1 to 2 minutes in. Suds explains in a bubble along the bottom. Plain Clean a Cat with no [NEW] tag. Washed cats fill an index. Crates are hard to earn and worth it, and the free one on day 2 is a good one. The kitten's eyes stay open while you carry him. A pet for you and one for each worker is the working plan and may change."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Still open", "Four small things at the top of this page."),
+    ("Still open", "A few small things at the top of this page."),
     ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
@@ -509,7 +510,7 @@ prompts_html = "".join(f"<li>{e(p)}</li>" for p in NOTE_PROMPTS)
 extra_html = "".join(f"<li><strong>{e(a)}.</strong> {e(b)}</li>" for a, b in EXTRA_PROMPTS)
 FIRST = ["bows", "grouppet", "catnames", "serversize"]
 _all = {q["id"]: q for _, _, _, items in QUESTIONS for q in items}
-QUESTIONS = [("Four last things from your answers", "Planning-Agent", "These came out of what you wrote on the evening of November 25. If you leave one, our pick stands.", [_all[i] for i in FIRST])] + [(t, w, l, [q for q in items if q["id"] not in FIRST]) for t, w, l, items in QUESTIONS]
+QUESTIONS = [("Last things from your answers", "Planning-Agent", "These came out of what you wrote on the evening of November 25. If you leave one, our pick stands.", [_all[i] for i in FIRST])] + [(t, w, l, [q for q in items if q["id"] not in FIRST]) for t, w, l, items in QUESTIONS]
 done_todo_html = "".join(todo_item(t) for t in TODOS[0][1])
 todos_html = ""
 for title, items in TODOS[1:]:
@@ -583,9 +584,9 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <div class="intro">
     <p class="eyebrow">Clean a Cat, updated November 25</p>
     <h1>What is left to answer</h1>
-    <p class="lede">You ticked done on November 25 at 6:09 PM. Every answer and every note you wrote is saved, and you can still see or change each one under <a href="#answered">Answered already</a>. Four small things came out of your last answers. If you leave them, our pick stands. The final one page design is being written from your picks and comes to you in the chat.</p>
+    <p class="lede">You ticked done on November 25 at 6:09 PM. Every answer and every note you wrote is saved, and you can still see or change each one under <a href="#answered">Answered already</a>. A few small things came out of your last answers. If you leave them, our pick stands. The final one page design is being written from your picks and comes to you in the chat.</p>
     <ol class="steps">
-      <li><a href="#questions">Tap through the four that are left</a>. The first option is always our pick.</li>
+      <li><a href="#questions">Tap through the few that are left</a>. The first option is always our pick.</li>
       <li>Or <a href="#acceptall">take our pick for all of them</a> in one press.</li>
       <li>That is all. Done is already ticked.</li>
     </ol>

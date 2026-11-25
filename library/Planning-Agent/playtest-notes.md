@@ -164,6 +164,14 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
   - Split thumbnail (`q2-split`, pick 0): "yes animal salon game has one i believe if you need to use it for reference so you dont do it wrong"
   - First event (`q2-event`, pick 1, a different event in mind): "I think christmas will he first event depending when done game but keep that idea in the vault for later"
   - He ticked "I am done, lock the design" (`c-lock`) at 6:09 PM ET. In chat at 6:10 PM ET: "go through plan artifact in depth save all of it and update plan artifact if anything else needed after".
+- In chat, 6:19 PM ET, on our line that Roblox forbids rewards for likes: "plenty of other games do things for likes". So rewards tied to likes are in. Page v44 asks it as `q2-grouppet`: a gift stand pet for joining the group, plus like goals that give everyone a reward code.
+- In chat, 6:20 PM ET: "I swear other games check for like make it prompt them to like check and then give them it". Then on the page at 6:22 PM ET (`q2-grouppet`, pick 2, something else): "like and group join for reward we will look more into this put on todo list to check how glory bound does it because they hold a 99% like". What a game can read: a favourite and the group, not a like. So the card asks for the like, checks the favourite and the group, then gives the pet.
+- On the page at 6:21 PM ET: `q2-bows` pick 3 (something else) with his bow note unchanged. At 6:22 PM ET: `q2-catnames` pick 0 (use the draft names), with a note he was still typing ("can use that or names fro").
+- On the page, 6:23 PM ET, the last follow ups:
+  - Customer cat names (`q2-catnames`, pick 0, final note): "can use that or names and designs from cats for catcafe especially for rare customers as catcafes detailed cats have some really cool designs"
+  - Server size (`q2-serversize`, pick 0): "6 and make private servers free with roblox plus or 100 robux to purchase"
+- In chat, 6:23 PM ET: "all plan answered". At 6:24 PM ET, on the free pet: "maybe ask for like and favourite together if that what it is but I will look more into it".
+- Growth-Agent on GloryBound (Growth-Agent/glorybound-like-reward-2026-11-25.md): 99.0% liked, and no sign of a reward for a like or a group join; codes come from its Discord, group and milestones and unlock after the tutorial. Its in-game cards could not be seen.
 - The clause that was cut off in his bench note ("and if he was") is answered by `q2-impatience` above.
 
 ## Across the games (Derek, 2026-11-24 ET)
