@@ -136,6 +136,14 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - In chat, 3:21 PM ET, on the starter pack countdown: "countdown but make it end". Saved on the page as `q2-packtimer` pick 1.
 - In chat, 3:28 PM ET, on the countdown length: "72h from first join I think". Saved on the page as `q2-packlength` pick 0.
 - In chat, 3:34 PM ET: "72h from start I don't care about rest you decide". Saved on the page as `q2-starterpack` pick 0; the rest of the starter pack is the team's call.
+- Fourth pass, 3:35 to 3:42 PM ET, on the page:
+  - Paid helper (`q2-helperpass`, pick 0): Jo and Sam for coins, Lou as a 249 Robux pass.
+  - Passes (`q2-passes`, pick 0): "do whatever prices for mono for now can tweak later"
+  - Skips (`q2-skipprice`, pick 1, the first long build can be skipped too): "Always can pay for skips for any build"
+  - Crate price (`q2-crateprice`, pick 0): 49 Robux, five for 199.
+  - Second pet slot (`q2-petpass`, pick 1, not our pick): one pass opens a second slot for the player and every worker.
+  - Waiting cats (`q2-impatience`, pick 1, not our pick: they leave and the job is lost): "grumpy and leave after bar is fully empty". This also answers the clause that was cut off in his bench note.
+  - Check in card (`q2-checkin`, pick 0).
 - One clause in the bench note is cut off ("and if he was"), about a cat whose heart bar runs low. Asked back on the page under `impatience`.
 
 ## Across the games (Derek, 2026-11-24 ET)
