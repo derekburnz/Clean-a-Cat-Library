@@ -126,6 +126,12 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
   - Long builds (`q2-longbuild`, pick 0): "up to you but make sure the earlier builds are really good, maybe make it so workers need a station to be purchased and thats their assigned one and you have your own, workers show a progress bar above the cat their working on so you know when they are almost done"
   - Skips (`q2-skips`, pick 1, SELL skips at launch, not our pick): "paid skips absolutely need good monotization"
 - He wrote text on the helpers question that did not save (`q2-helpers` holds pick 0 only). He asked at 1:10 PM ET; asked to write it again. Likely cause, a guess: the page was republished at 12:41 and 12:46 PM ET while he had it open. Do not republish while he is working on the page.
+- In chat, 1:33 and 1:35 PM ET: "spa staff looks good for now" and "let them rename staff also". Decided: players can rename their workers, with typed names filtered.
+- Third pass, 2:03 to 2:04 PM ET, on page v38 (his words saved this time):
+  - Helpers (`q2-helpers`, pick 0, rewritten): "Can add a robux helper extra that can be bough also comes with the station unlocking for him to work at. Either 2 workers earnable with 3rd paid or 3 earnable with 4th paid up to you."
+  - Stations (`q2-stations`, pick 0): "Maybe make it so the worker comes with the station."
+  - Doubles (`q2-doubles`, pick 0): "Can make it so they can fuse 3 into a star up that increases stats so something to do with dupes."
+  - Special visitors in the index (`q2-specialindex`, pick 0): a page of their own.
 - One clause in the bench note is cut off ("and if he was"), about a cat whose heart bar runs low. Asked back on the page under `impatience`.
 
 ## Across the games (Derek, 2026-11-24 ET)

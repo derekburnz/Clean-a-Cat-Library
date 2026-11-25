@@ -1,0 +1,24 @@
+{
+ "about": "Changes after the 1:16 PM ET snapshot, read 2026-11-25 19:21 UTC (2:21 PM ET). Verbatim. Everything else is unchanged from answers-2026-11-25-1316ET.json.",
+ "q2": {
+  "q2-doubles": {
+   "at": "2026-11-25T19:04:38.281Z",
+   "note": "Can make it so they can fuse 3 into a star up that increases stats so something to do with dupes.",
+   "pick": "0"
+  },
+  "q2-helpers": {
+   "at": "2026-11-25T19:03:50.008Z",
+   "note": "Can add a robux helper extra that can be bough also comes with the station unlocking for him to work at. Either 2 workers earnable with 3rd paid or 3 earnable with 4th paid up to you.",
+   "pick": "0"
+  },
+  "q2-specialindex": {
+   "at": "2026-11-25T19:04:44.843Z",
+   "pick": "0"
+  },
+  "q2-stations": {
+   "at": "2026-11-25T19:04:07.689Z",
+   "note": "Maybe make it so the worker comes with the station.",
+   "pick": "0"
+  }
+ }
+}
