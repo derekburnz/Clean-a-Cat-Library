@@ -100,6 +100,10 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - On its bundle pop up: "after day 2 it shows this popup for selling stuff might not be a bad idea for starter packs etc"
 - Takes and leaves: pet-store-tycoon-screens-2026-11-24.md. Plan page: new question `starterpack`; `return` gains a days played card after the tutorial; `sudsbubble` gains the tutorial habits (step count, one arrow, one lit thing).
 
+## Clean the Animal Daycare!, played 2026-11-24 ET (no pictures)
+- His words: "for Clean the Animal Daycare! its pretty much the same as Clean Everything unrelated"
+- Nothing taken. It was the last game on his list. Playtests are closed at nine games.
+
 ## Across the games (Derek, 2026-11-24 ET)
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
 - Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).
