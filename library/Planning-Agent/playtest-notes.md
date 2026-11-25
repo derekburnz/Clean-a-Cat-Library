@@ -144,6 +144,7 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
   - Second pet slot (`q2-petpass`, pick 1, not our pick): one pass opens a second slot for the player and every worker.
   - Waiting cats (`q2-impatience`, pick 1, not our pick: they leave and the job is lost): "grumpy and leave after bar is fully empty". This also answers the clause that was cut off in his bench note.
   - Check in card (`q2-checkin`, pick 0).
+- In chat, 3:58 PM ET: "starter pack stays for 72h is what i meant just confirming". Confirms the 72 hour clock from first join.
 - One clause in the bench note is cut off ("and if he was"), about a cat whose heart bar runs low. Asked back on the page under `impatience`.
 
 ## Across the games (Derek, 2026-11-24 ET)
