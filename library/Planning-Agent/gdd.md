@@ -42,13 +42,13 @@ Rules for the whole session: one ask at a time and at least a minute apart, noth
 
 **The spa**
 - The bench: three or four cats wait, each with a card that shows how dirty it is, its steps and its pay. Pick one from the menu or press Wash next. Rarer cats are more often dirty and pay much more.
-- Waiting: a waiting cat's heart bar drops and it gets grumpy. When the bar is fully empty the cat leaves and that job is lost. Nothing else is taken. Early bars are long so a new player on a phone does not lose cats.
+- Waiting: a waiting cat's heart bar drops and it gets grumpy. When the bar is fully empty the cat leaves and that job is lost. Nothing else is taken. Early bars are long so no cat can leave before about minute 10 of a new player's first session on a phone.
 - Workers: human staff. Jo and Sam are hired with coins and Lou is a paid extra. Each comes with their own station in one purchase. A worker takes any cat by the mode the player sets (about to leave, rarest, dirtiest or first in line), is slower on dirtier cats, earns much less than the player and shows a progress bar above the cat. Players can rename their workers and typed names are filtered.
 - Suds: the mascot kitten. He walks on four paws, explains new things in a bubble at the bottom of the screen and never washes. He is not a pet and not in the Cat Index.
 - Special visitors: they appear now and then and leave after a while. Only the player can wash their cats, which are always very dirty, pay the most and have the coolest designs. Names and designs from Catch a Cat Cafe, the owner's earlier game, may be reused for them. They fill their own page in the Cat Index. After the scripted first one, a crate from a visitor is rare.
 - Pets: cats that come from crates. One slot for the player and one for each worker. A pet stays beside the player or beside its worker and a worker's pet raises that worker's money. A pet already owned is kept, and three of the same fuse into a star up with better stats.
 
-**Progression:** tools from about 2:30, the Index at 2:45, Quests at 6:00, the first short station build, the first worker at about minute 10, the first long build at about minute 15 and then more stations up to four tubs. Long builds take hours and never more than 24. A Grand Reopening is not at launch, but the saves are shaped so it can be added.
+**Progression:** tools from about 2:30, the Index at 2:45, Quests at 6:00, the first short station build (15 seconds or less, so no Finish now price shows in the first minutes), the first worker at about minute 10, the first long build at about minute 15 and then more stations up to four tubs. Long builds take hours and never more than 24. A Grand Reopening is not at launch, but the saves are shaped so it can be added.
 
 **Economy**
 - Pay for one cat: a base amount, multiplied by speed (stars), by how soon the cat was taken and by how dirty it was (steps), plus the bow bonus and a tip. Taking a cat inside the first 10% of its heart bar gives a big bonus and a normal wait costs nothing.

@@ -379,6 +379,7 @@ SAVED = [
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
 ]
 TODAY = [
+    ("Planning closed, November 25", "You said all plan answered and asked for the whole playtest worthy game to be drafted. Server size is six, with private servers at 100 Robux or free with Roblox Plus. The customer cat names are the draft ones, and Cat Cafe names and designs can be used for rare customers. Bows follow your own words."),
     ("The free pet, November 25", "You said to prompt for the like, check and then give the pet. Roblox lets a game check a favourite and the group but not a like. So the gift stand asks for the like, checks the favourite and the group, then gives the pet."),
     ("Done ticked, November 25", "You ticked done at 6:09 PM. Every answer and every note is saved in the notes, the design file, project memory and the library. The final one page design is written from your picks and comes to you before the build starts."),
     ("Your last answers, November 25 evening", "A couple of daily quests and a couple of weekly ones, with a crate for finishing the weekly list. A special visitor comes inside the first 5 minutes and that first one drops a crate. After that a crate from a visitor is rare. Other players can walk into your spa, with a setting to turn that off. A friend bonus and no trading. The full card after every cat. Menu buttons arrive one at a time, each with a short tip. Phones are locked to landscape. No stink wisps, and darker mud if needed. A human builder, Bubble Pastel and a soft and cosy feel. The icon and thumbnail are fine for now, with a half dirty and half clean picture as the second thumbnail. Christmas is likely the first event and the Cat Show idea is kept for later. The Grand Reopening is not decided, but the game is built so it can be added."),
@@ -403,7 +404,7 @@ TODAY = [
     ("From your to-do list", "No friends as customers. The notification ask comes 1 to 2 minutes in. Suds explains in a bubble along the bottom. Plain Clean a Cat with no [NEW] tag. Washed cats fill an index. Crates are hard to earn and worth it, and the free one on day 2 is a good one. The kitten's eyes stay open while you carry him. A pet for you and one for each worker is the working plan and may change."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Still open", "A few small things at the top of this page."),
+    ("Still open", "Nothing on this page. You are still looking into how other games check a like, and private server pricing waits on what the Roblox setting allows."),
     ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
@@ -584,11 +585,11 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <div class="intro">
     <p class="eyebrow">Clean a Cat, updated November 25</p>
     <h1>What is left to answer</h1>
-    <p class="lede">You ticked done on November 25 at 6:09 PM. Every answer and every note you wrote is saved, and you can still see or change each one under <a href="#answered">Answered already</a>. A few small things came out of your last answers. If you leave them, our pick stands. The final one page design is being written from your picks and comes to you in the chat.</p>
+    <p class="lede">Planning is closed. You answered all 65 questions and said all plan answered on November 25. Every answer and note is saved, and you can still see or change each one under <a href="#answered">Answered already</a>. The one page design written from your picks is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>, and the builders are drafting the whole game in the dev place.</p>
     <ol class="steps">
-      <li><a href="#questions">Tap through the few that are left</a>. The first option is always our pick.</li>
-      <li>Or <a href="#acceptall">take our pick for all of them</a> in one press.</li>
-      <li>That is all. Done is already ticked.</li>
+      <li>Nothing is left to answer.</li>
+      <li>To change an answer, open <a href="#answered">Answered already</a> and tap another option or add words.</li>
+      <li>Anything new goes in the chat.</li>
     </ol>
   </div>
 
