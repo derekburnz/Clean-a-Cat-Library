@@ -95,6 +95,11 @@ Derek's notes:
 
 Planning-Agent's reading: small prompt pills are the fix for the big black buttons, the owner's wish in a bubble suits our rare visitors and the star meter that fills while you work is worth taking.
 
+## Pet Store Tycoon, played 2026-11-24 ET (14 pictures, Coordinator/references/pet-store-tycoon-2026-11-24/)
+- His words: "pet store tycoon uses the same little guys for tips and I like it, game is played in first person which is odd but the tutorial steps are very well done. feels easy to follow. shows the daily check in rewards and that day 2 has a good reward right after tutorial"
+- On its bundle pop up: "after day 2 it shows this popup for selling stuff might not be a bad idea for starter packs etc"
+- Takes and leaves: pet-store-tycoon-screens-2026-11-24.md. Plan page: new question `starterpack`; `return` gains a days played card after the tutorial; `sudsbubble` gains the tutorial habits (step count, one arrow, one lit thing).
+
 ## Across the games (Derek, 2026-11-24 ET)
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
 - Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).
