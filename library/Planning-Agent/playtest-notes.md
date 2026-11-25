@@ -104,6 +104,15 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - His words: "for Clean the Animal Daycare! its pretty much the same as Clean Everything unrelated"
 - Nothing taken. It was the last game on his list. Playtests are closed at nine games.
 
+## My Pet Salon gameplay video, 2026-11-25 ET
+- Notes with timings: my-pet-salon-video-2026-11-25.md. Video and frame sheets: Coordinator/references/my-pet-salon-video-2026-11-25/ (shared files only).
+- His calls: area steps (foam, rinse, trim) get a bar at the top that is full at about 90%, then the cat shakes off the rest and the next step starts. He likes our pet idea better than their day 2 pet, and floats a paid pass for a second pet slot.
+
+## Derek's picks on the plan page, 2026-11-25 ET (in his words)
+- Playstyle (`q2-loop`, pick 0, yes both together): "yes we gotta make the picking which cats I choose to wash really well polished and easy so people can choose the rare ones for themselves, and the helpers just periodically take whichever is next in line any rarity maybe let special customers appear that expire that only I can take their cats and have them have the really cool cat designs (can look in asset library)"
+- The bench (`q2-queue`, pick 0): "A bench and a pick make it all done through the menu like shown in the menu draft but also have a menu that just says pick next in line or something along those lines make sure the menu still holds clean and the cats look dirtier in their pictures the more dirty they are and take more steps to clean. Rarer the cat the more likely its dirtier/has more steps but pays a lot more. All cats should have a base money amount but that can increase/multiply based on how fast you cleaned them(stars received),how long the cat waited if above a certain wait time  like within the first 10% of heart bar it should be a big bonus multiplier, (heart bar) they should have no penalty if it was above another certain amount and if he was  and how dirty there were (how many steps it took) making it more worthwhile to take the dirtier rare ones really quick. When helpers clean the cats they also get bonuses based on those things but make it much less and make them take longer the dirtier the cat is, also for the helpers add a "mode" that you can change for them like do the prioritize cats about to leave, rarest cats, dirtiest cats first, cats that are first in line, etc..."
+- One clause in the bench note is cut off ("and if he was"), about a cat whose heart bar runs low. Asked back on the page under `impatience`.
+
 ## Across the games (Derek, 2026-11-24 ET)
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
 - Planning-Agent's reading: our plan had the bell only on a long build, too late for most new players. Plan page question `notifyask`: ask once after the first clean cat at about minute 1, in Suds's bubble, behind a switch so it can be tested against an instant ask. Roblox shows the ask only to players of 13 and over. Roblox's own rules for the ask are to be checked before it is built (Gameplay-Engineer, Growth-Agent).

@@ -2,6 +2,16 @@
 
 This is what the one-page design becomes if Derek takes our pick on every question of his plan page, round two (`pre-development-plan.md`). It is written ahead so no time is lost after his answers. **Nothing here is decided. Other threads keep building from `gdd-draft.md` until Derek says yes.** Each line that differs from the draft is marked (new) or (changed). Question ids in brackets point to the plan page. Research: `loop-options.md`. Derek's notes: `playtest-notes.md`.
 
+**PLAYSTYLE PICKED by Derek on 2026-11-25 ET** (plan page `q2-loop`, pick 0): the busy spa and the cat collection together. His rules from the same morning, all his own words in playtest-notes.md:
+- Picking a cat must be polished and easy, done through the bench menu, with one button for next in line [queue, picked].
+- Dirtier cats look dirtier in their picture, take more steps and pay more. Rarer cats are more likely to be dirty. Steps run from about 3 to 8 by dirt [joblength, our pick from his words].
+- Pay = a base amount x speed (stars) x how soon the cat was taken (big bonus inside the first 10% of its heart bar, no penalty for a normal wait) x how dirty it was (steps).
+- Helpers take whichever cat is next, any rarity, earn the same kinds of bonus but much less and take longer on dirtier cats. Each helper has a mode: about to leave first, rarest first, dirtiest first or first in line [helpers, our pick from his words].
+- Special visitors appear now and then and expire, only the player can wash them and their cats have the coolest designs (look in Roblox-Asset-Library first) [rare, our pick from his words].
+- Area steps (foam, rinse, trim) get a bar at the top that is full at about 90% done, then the cat shakes off the rest and the next step starts. Count steps show a count. Gameplay-Engineer builds it; 90% is a tunable [steps]. From his My Pet Salon video, notes in my-pet-salon-video-2026-11-25.md.
+- A paid pass for a second pet slot is his idea, open [petpass]: our pick is a pass for the player's own second slot and coins for workers' second slots.
+Where older lines below disagree with these (helpers wash only common cats, rare visitors are not longer, 4 to 6 steps for every cat), these win. The design still locks only when he says done.
+
 **Hook (one sentence):** dirty cats line up at your spa, you pick who is next and scrub each one by hand to find out what coat is hiding under the mud.
 
 **Name and first minute** (changed 2026-11-24, decided by Derek the same day in three answers) [firstminute]: the game opens with a rescue. A truck drives past, a plain brown box falls off the back and lands in front of the player, they tap it open and find a messy, muddy kitten. Cleaning him up is the tutorial and once he is clean he becomes Suds, so his name comes from the wash. How the scene plays is DECIDED (Derek 2026-11-24 1:36 PM ET: "A for sure for truck"): a quick intro the player watches, the truck going by and the box falling in front of them, about 4 seconds and no more, then the camera is the player's. The played version with the camera always the player's is dropped. The box is tapped at about second 4 and the scrub starts at about second 12. The box is decided: we proposed a soap crate marked Suds so the opening would not look like My Pet Salon's, and Derek said no ("not a soap crate should be a random brown box", 2026-11-24 12:27 PM ET).
@@ -147,6 +157,6 @@ Build order: the scrub on a phone first (issue 29). Then the other three steps, 
 
 **Out of scope for now:** trading, stealing, fighting, catching cats, paid luck, paid skips, buyable coins, typed cat names, rooms or tubs for avatars, walking into a neighbour's spa, more than one helper in the slice, the Cat Show event and any shared characters with Cat Cafe.
 
-**Open questions for the owner:** the 53 on the plan page (final list, 2026-11-24 evening ET; 12 answered). The first twelve decide the game.
+**Open questions for the owner:** the 54 on the plan page (final list; 14 answered by 2026-11-25 morning ET, the playstyle among them). The first twelve decide the game.
 
 **Proposed decision line:** `2026-11-24: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in a few short steps, reveal its hidden coat for the index and hire slow helpers. Why: it is Derek's own idea after My Pet Salon, joined to the one thing the lasting games share, which is something to collect.`
