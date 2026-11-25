@@ -86,7 +86,7 @@ Rules for the whole session: one ask at a time and at least a minute apart, noth
 | Crate | Developer product, random | 49, or 5 for 199 | The chance of every pet shows as a percentage before buying. PolicyService is read per player and the Robux crate is hidden where paid random items are restricted. The same crate can be earned. |
 | Finish now on any build | Developer product | 5, 15, 35, 75 or 99 by time left | The price is on the button, no pop up, waiting is always free |
 | Starter pack | Developer product, fixed | 299 | Golden Sponge, second pet slot and 2x Coins, worth 547. A real countdown of 72 hours from first join, kept on the server, then gone for good. |
-| Private server | Roblox setting | 100, or free with Roblox Plus | The owner sets it on the game's page. What the setting allows is being checked. |
+| Private server | Roblox setting | 100 a month | The owner sets Requires Robux at 100 on the game's page. Roblox Plus subscribers get paid private servers at no cost as a platform benefit, so no second price is needed. Changing the price later cancels every active private server. |
 
 Rules that hold everywhere: no Robux product gives coins. Fusing pets is free with a fixed result. Nothing is ever sold to keep or bring back a cat that is leaving, and no price shows when a cat is about to leave. A no is final for that visit.
 
@@ -129,7 +129,7 @@ The game is playtest worthy when a new player can run the whole first session on
 
 **Open questions for the owner** (none blocks the build; each has the version we build unless he says otherwise)
 1. The free pet. He is looking into how other games check a like. Recommended: like and favourite asked together, with the favourite and the group checked.
-2. Private servers. He wants them free with Roblox Plus or 100 Robux. Recommended: set what Roblox's setting allows once Growth-Agent has checked it.
+2. Private servers. He wants them free with Roblox Plus or 100 Robux. Checked by Growth-Agent on 2026-11-25: one price of 100 Robux does both, since Plus subscribers get paid private servers free. It is a monthly fee, not a one time purchase. Recommended: 100.
 3. Workers and bows. Recommended, from his note: workers tie no bow, so the bow bonus belongs to cats washed by hand.
 4. The like ask at minute 7. Recommended: keep it there, since the special visitor's wash and crate sit at minute 5.
 
