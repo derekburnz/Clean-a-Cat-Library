@@ -79,41 +79,9 @@ THEMES = [
 
 # ---------------------------------------------------------------- to-dos
 TODOS = [
-    ("The game: seven picks decide what we build", [
-        dict(id="t2-loop", q="loop", t="Pick the playstyle",
-             d="The pick the rest waits on. Our pick: your busy spa and the cat collection together. Your answers on the index, the crates and the pet slots already lean that way."),
-        dict(id="t-queue", q="queue", t="Cats wait on a bench and you pick who is next",
-             d="Our pick: yes, with a Next cat button for players who do not want to choose."),
-        dict(id="t-impatience", q="impatience", t="Waiting cats get grumpy but are never lost",
-             d="Our pick: only the bonus changes, with your heart bar. One part of your note was cut off, so check the last lines of the question."),
-        dict(id="t-helpers", q="helpers", t="Hired helpers wash any cat, slower and for less",
-             d="Changed to your note of November 25: any rarity, with a mode you set for each helper."),
-        dict(id="t-rare", q="rare", t="Special visitors only you can wash",
-             d="Changed to your note of November 25: they expire, and their cats have the coolest designs."),
-        dict(id="t-pets", q="pets", t="The pets you own: cats, seen in the spa",
-             d="New. Our pick: cats only, and Suds takes no slot."),
-        dict(id="t-session", q="session", t="Build enough for a first session of 20 minutes",
-             d="Our pick: yes, about 24 coats on day one."),
-    ]),
-    ("New since your last answers", [
-        dict(id="t-starterpack", q="starterpack", t="A starter pack: yes or no, and what is in it",
-             d="From the bundle Pet Store Tycoon showed you. Our pick: fixed contents for 99 Robux, shown once on your second visit."),
-        dict(id="t-checkin", q="checkin", t="A card after the tutorial with what waits on your next days",
-             d="From the check in card you noted in Pet Store Tycoon. Our pick: yes, counted by days you play, with no streak."),
-        dict(id="t-quests", q="quests", t="Weekly quests that give a crate",
-             d="From your answer that crates should be hard to get, like finishing all the weekly quests."),
-        dict(id="t-builder", q="builder", t="The builder: a person or a kitten",
-             d="Our pick: a person, since the staff are people now."),
-        dict(id="t-crateprice", q="crateprice", t="The price of a crate",
-             d="New, since you said crates can be sold. Our pick: 49 Robux for one and 199 for five."),
-        dict(id="t-petpass", q="petpass", t="A paid pass for a second pet slot",
-             d="You wrote on November 25 that the second slot is a Robux upgrade. Left to pick: whose slot the pass opens. Our pick: yours, and workers' second slots cost coins."),
-    ]),
-    ("Then the rest, and done", [
-        dict(id="takeall", t="The other picks: tap through them or take ours in one press",
-             d="They cover the wash, coming back, the screens, the look, the sound and the store page. Under Tap through our picks there is a button that takes our pick for everything you have not answered. Press it, change any you disagree with and tick this."),
-        dict(id="lock", t="Say done",
-             d="Tick this or say done in chat. We then write the final one page design from your picks and show it to you before the build starts. Nothing reaches the live game without your word."),
+    ("Done", [
+        dict(id="lock", t="I am done, lock the design",
+             d="Tick this or say done in chat. We then write the final one page design from your picks and show it to you before the build starts. Nothing locks before that."),
     ]),
     ("Answered already, your words are saved", [
         dict(id="puppytake", t="Your own take on Puppy Spa",
@@ -165,7 +133,7 @@ ELSE = "Something else"
 QUESTIONS = [
     ("The game", "Planning-Agent", "These twelve decide what we build. Your playtests are done and five are answered already. The other seven are at the top of your to-do list.", [
         dict(id="loop", t="Your busy spa and a cat collection, together",
-             d="All nine playtests are in, sorted under What the games told us near the top of this page. They point one way: the wash has to be real hand work, and the games that last give players more to chase than the work itself. Our pick puts your two ideas together. The busy spa is the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, each new one fills a slot in your Cat Index and the pets you own come from crates that are hard to earn. Your own answers already lean this way. You said washed cats fill an index, crates are earned and a pet for you and each worker is a good idea. So this pick mostly confirms what you have said. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
+             d="All nine playtests are in, sorted under What the games told us near the bottom of this page. They point one way: the wash has to be real hand work, and the games that last give players more to chase than the work itself. Our pick puts your two ideas together. The busy spa is the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, each new one fills a slot in your Cat Index and the pets you own come from crates that are hard to earn. Your own answers already lean this way. You said washed cats fill an index, crates are earned and a pet for you and each worker is a good idea. So this pick mostly confirms what you have said. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
              opts=["Yes, both together", "Busy spa only", "Collection only, one cat at a time", ELSE],
              note="Picked by you on November 25: yes, both together. You wrote that picking which cat to wash has to be really well polished and easy, so people can choose the rare ones for themselves. Your notes on the helpers and on special customers are folded into those questions below."),
         dict(id="queue", t="Cats wait on a bench and you pick who is next",
@@ -176,8 +144,9 @@ QUESTIONS = [
         dict(id="impatience", t="Waiting cats get grumpy but are never lost",
              d="You floated customers who get impatient and leave. Lost customers are what parents and reviewers complain about most in shop games. Our pick: a waiting cat's mood drops and only its bonus tip shrinks. A cat that waits far too long goes home and comes back later. Your note of November 25 puts a heart bar on each waiting cat: take a cat inside the first 10% of the bar for a big bonus, and a normal wait costs nothing. That fits this pick, because waiting only changes the bonus and never the base pay. One part of your note was cut off, about what happens when the bar runs low. Our pick for it: the cat goes home, nothing is lost and it comes back later. Write in the note if you meant something else.",
              opts=["Yes, grumpy and a smaller tip", "They leave and the job is lost", "No waiting pressure at all", ELSE]),
-        dict(id="helpers", t="Hired helpers wash any cat, slower than you and for less",
-             d="Your idea. Helpers are bought with coins and never with Robux. Your call on November 25: a helper takes whichever cat is next in line now and then, of any rarity. Helpers earn the same kinds of bonus as you but much less, and take longer the dirtier the cat is. You can set a mode for each helper: cats about to leave first, rarest first, dirtiest first or first in line. This replaces our earlier pick, where helpers washed only common cats. Special visitors are the one exception, since only you can wash those. Your number from My Pet Salon: a hired helper takes 30 to 60 seconds a pet, about twice as long as you, and ours keeps that gap. Pet Store Tycoon sells its staff for Robux, 199 to 299 each. Ours stay coins only, as you first said. The picture still shows kitten helpers. They are human staff now, which is the next question.",
+        dict(id="helpers", t="Hired helpers wash any cat, slower than you and for less", need_note=True,
+             alert="Your words on this question did not save on November 25. The likely cause was a fault in this page, which is fixed now. Your pick is saved. Please write your words again in the box under the options.",
+             d="Your idea. Helpers are bought with coins and never with Robux. Your call on November 25: a helper takes whichever cat is next in line now and then, of any rarity. Helpers earn the same kinds of bonus as you but much less, and take longer the dirtier the cat is. You can set a mode for each helper: cats about to leave first, rarest first, dirtiest first or first in line. This replaces our earlier pick, where helpers washed only common cats. Special visitors are the one exception, since only you can wash those. Your number from My Pet Salon: a hired helper takes 30 to 60 seconds a pet, about twice as long as you, and ours keeps that gap. Pet Store Tycoon sells its staff for Robux, 199 to 299 each. Ours stay coins only, as you first said. The picture still shows kitten helpers. They are human staff now.",
              imgs=[("art2/helpers.jpg", "Draft screen: a Helpers window with two helper kittens, their speed bars, what each is washing and a Hire button on an empty spot.", "Draft: helpers")],
              solo=True,
              opts=["Yes, any cat, slower and for less, with a mode you set", "Helpers wash common cats only", "No helpers at launch", ELSE]),
@@ -364,9 +333,21 @@ dict(id="petslots", t="One pet for you and one for each worker",
         dict(id="petpass", t="A Second Pet pass: a second pet slot for you",
              d="Your idea on November 25: maybe a second pet slot for players or workers as a paid pass. Later that day you wrote on the pet slots question: second slot is robux upgrade. So a paid second slot is in, and what is left to pick is whose slot the pass opens. It fits Roblox's rules. A slot is a fixed thing you keep and nothing in it is random, so it is a plain game pass. In My Pet Salon three pets can follow you and two of those slots start locked. Our pick: one game pass that opens a second slot for you, the player, because your own pets are the ones everyone on the street sees. Each worker's second slot is a late upgrade bought with coins. That way players who never pay still have it to work toward, and one purchase does not double the whole spa's income. The first slot for you and for every worker is always free. It would be a fourth pass, added when pets are built.",
              opts=["Yes, a pass for your own second slot, and workers' second slots cost coins", "One pass opens a second slot for you and every worker", "No paid slot, every second slot is earned with coins", ELSE]),
-        dict(id="crateprice", t="A crate costs 49 Robux, or five for 199",
+        dict(id="crateprice", t="A crate costs 49 Robux, or five for 199", new=True,
              d="New on November 25, since you said crates can be sold for Robux. Growth-Agent checked the crate rules against Roblox's page on paid random items the same day and they fit. Roblox gives no guide price, so this is a judgment. Pet Store Tycoon sells three random pets plus cash for 99 Robux, and one crate at about half of that keeps a first purchase small for young players. Our pick: one crate for 49 Robux and a pack of five for 199, which is a real saving of 46 Robux. The pack says 5 crates and its price and nothing else: no crossed out price, no countdown and no stock counter. Roblox sets no limit on how many a player buys in a day. Our pick is no limit at launch, looked at again once the first sales are in. The single crate is built first and the pack follows when it works. Two things Roblox asks for are built in either way. The chance list sits on the buy screen with the rarest pet in plain sight. And if a pet you already own can come out again, whatever the double turns into is on that list too. What a double turns into is set in the tuning pass.",
              opts=["Yes, 49 for one and 199 for five, with no daily limit", "One crate at a time only, no pack", "Add a daily limit on bought crates", ELSE]),
+        dict(id="skipprice", t="Paid skips: a Finish now button with four fixed prices", new=True,
+             d="You picked paid skips on November 25 and wrote that they absolutely need good monetization. Growth-Agent checked Roblox's pages the same day. A skip is allowed and is not random, so the rules on chances do not apply. What Roblox asks is that players are not misled or pressured. Our pick: one small Finish now button beside the timer in the builder window, with the price on it. Four prices by the time left: 15 Robux under 1 hour, 35 for 1 to 4 hours, 75 for 4 to 12 hours and 99 for 12 to 24 hours. Roblox publishes no guide price, so these are a starting guess to tune from real sales. Builds shorter than an hour have no button. Nothing pops up, no message ever mentions a skip and waiting is always free. One honest risk: long builds are your reason to come back on day 2, and a skip takes that reason away for the players who buy it. So our pick keeps the first long build, the VIP Room, without a skip, and skips open from the second long build on. It sits behind a switch, so you can change that once real numbers are in. The Second Builder pass would then cost about 299 Robux, so it is worth more than three or four skips.",
+             opts=["Yes, four prices, and no skip on the first long build", "Same prices, and the first long build can be skipped too", "One flat price for any skip", ELSE]),
+        dict(id="stations", t="Each worker gets their own station, bought before you hire", new=True,
+             d="From your note of November 25 on long builds: a worker needs a station that is bought for them and is theirs, you have your own, and a worker shows a progress bar above the cat so you know when they are almost done. Our pick: you start with your own tub. A worker's station is bought with coins and built by the builder. Then you hire the worker for it and they stay at that station. The progress bar above a worker's cat is in. At launch there is room for three worker stations beside yours, so four tubs in all. Jo and Sam are drawn and a third worker needs one more model. The first worker station is the early build that has to feel really good, so it takes under a minute and comes inside your first ten minutes. Later stations cost more and take longer. More than four tubs waits for the first update, when we know how a full spa runs on a phone.",
+             opts=["Yes, buy the station then hire, with three worker stations at launch", "Same, with five or more worker stations at launch", "Hiring a worker brings their station, in one purchase", ELSE]),
+        dict(id="doubles", t="A pet you already own can come again, and you keep it", new=True,
+             d="Needed because crates can now be bought. Roblox wants the chance list to cover everything a crate can give, so we have to say what happens when a pet you already own comes out again. Our pick: you keep it. Every worker has a pet slot, so a second one of the same pet is useful for another worker. A double never turns into coins, because a crate can be bought with Robux and coins must never come from Robux. The second option is merging three of the same pet into a stronger one, as the capybara game does with its animals. That gives doubles a use late in the game, but it is one more system to build and explain.",
+             opts=["Yes, doubles are kept and can go to another worker", "Three of the same merge into a stronger pet", "A double becomes progress toward a pet you choose", ELSE]),
+        dict(id="specialindex", t="Special visitors' cats get their own page in the Cat Index", new=True,
+             d="You said special visitors come for a short time, only you can wash them and their cats have the coolest designs. Model-Agent has six drafted. Left open: whether washing one counts in the index. Our pick: yes, on a page of their own. Each shows as a shadow until you have washed it, so a player sees there are six to find and has a reason to be in the spa when one turns up. They do not count toward finishing the main index, so nobody is stuck waiting for one rare visit.",
+             opts=["Yes, a page of their own in the index", "They count in the main index with the other cats", "Not in the index, the reward is enough", ELSE]),
         dict(id="event", t="A Cat Show weekend as your first event",
              d="Day 7 is yours. A themed show with voting is the natural first event. It is not part of the first build. Pet Store Tycoon runs a named event on a strip at the bottom of the screen that raises demand for one kind of pet, a Goldfish Derby with 60% more fish demand, and a button that counts down the days left. That is a light kind of event to run between the big ones: for a few days one kind of dirty cat tips more.",
              opts=["Yes, plan it for later", "I have a different event in mind", ELSE]),
@@ -384,6 +365,9 @@ TODAY = [
     ("The playstyle, November 25", "Picked: your busy spa and the cat collection together. Picking a cat has to be polished and easy. Helpers take whichever cat is next, of any rarity. Special visitors with the coolest cats are only for you."),
     ("The bench and the pay, November 25", "Picked from a menu, with a button for next in line. Dirtier cats look dirtier, take more steps and pay more. Pay is a base amount multiplied by your speed, how soon you took the cat and how dirty it was."),
     ("Crates and the second pet slot, November 25", "Crates are earned rarely and can also be bought with Robux. The chance of each pet shows before you buy, and players Roblox restricts are not shown the Robux crate. The sure new pet rule is removed. A second pet slot is a Robux upgrade."),
+    ("Steps, November 25", "Every kind of step is in the game from the start. A cat takes 3 to 10 steps by how dirty it is, and the tutorial uses only the simple 3 or 4. The cat turns by itself when a side is done, to try for now."),
+    ("Paid skips, November 25", "Skips on build timers are sold at launch. You said they need good monetization, so the prices are a question on this page."),
+    ("Workers and pets, November 25", "Each worker needs their own station and shows a progress bar above the cat. Suds is a tutorial mascot and never a pet. Pets stay beside you or beside a worker."),
     ("The bar that fills, November 25", "Area steps such as foam, rinse and trim get a bar at the top. It is full at about 90%, then the cat shakes off the rest and the next step starts. Gameplay-Engineer is building it."),
     ("The opening", "A quick intro you watch, about 4 seconds: a truck goes by and a plain brown box falls in front of you. It starts the moment your character loads, with no loading screen and no standing still. Then the camera is yours."),
     ("The carry and the wash view", "You lift the muddy kitten out of the box and carry him to the tub. Placing him in the tub switches to a close up wash view, where the steps are taught. Your example of the hold is in, a clip and six pictures from Catch a Cat Cafe."),
@@ -487,10 +471,10 @@ def question(q, n):
         note += f'<div class="{cls}">{figs}</div>'
     return f'''
 <article class="q" id="{d}">
-  <h3><span class="qn">{n}</span>{e(q["t"])}</h3>
-  <p>{e(q["d"])}</p>{note}
+  <h3><span class="qn">{n}</span>{e(q["t"])}{' <em class="newtag">New</em>' if q.get("new") else ""}</h3>
+  {f'<p class="qnote">{e(q["alert"])}</p>' if q.get("alert") else ""}<p>{e(q["d"])}</p>{note}
   <div class="opts" role="radiogroup" aria-label="{e(q["t"])}">{opts}</div>
-  <input type="text" class="qtext" id="{d}__note" data-doc="{d}" data-key="note" placeholder="Anything to add (optional)" aria-label="Note on: {e(q["t"])}">
+  <textarea class="qtext" id="{d}__note" data-doc="{d}" data-key="note" rows="2" placeholder="{'Write your words on helpers here' if q.get("need_note") else 'Anything to add (optional)'}" aria-label="Note on: {e(q["t"])}"></textarea>
 </article>'''
 
 games_html = "".join(game_card(g, i + 1) for i, g in enumerate(GAMES))
@@ -499,8 +483,12 @@ themes_html = "".join(f'<li><strong>{e(a)}</strong><span>{e(b)}</span></li>' for
 done_html = "".join(f'<li><strong>{e(g["name"])}</strong><span>{e(g["took"])}</span></li>' for g in DONE_GAMES)
 prompts_html = "".join(f"<li>{e(p)}</li>" for p in NOTE_PROMPTS)
 extra_html = "".join(f"<li><strong>{e(a)}.</strong> {e(b)}</li>" for a, b in EXTRA_PROMPTS)
+FIRST = ["helpers", "stations", "doubles", "specialindex", "skipprice", "crateprice", "petpass", "impatience"]
+_all = {q["id"]: q for _, _, _, items in QUESTIONS for q in items}
+QUESTIONS = [("Start here: new or changed today", "Planning-Agent", "These came out of your answers on November 25. The helpers question is back because your words on it were lost.", [_all[i] for i in FIRST])] + [(t, w, l, [q for q in items if q["id"] not in FIRST]) for t, w, l, items in QUESTIONS]
+done_todo_html = "".join(todo_item(t) for t in TODOS[0][1])
 todos_html = ""
-for title, items in TODOS:
+for title, items in TODOS[1:]:
     todos_html += f'<h3 class="group">{e(title)}</h3><ul class="todos">{"".join(todo_item(t) for t in items)}</ul>'
 parked_html = "".join(f"<li><strong>{e(a)}.</strong> {e(b)}</li>" for a, b in PARKED)
 q_html, n = "", 0
@@ -510,7 +498,7 @@ for title, who, lead, items in QUESTIONS:
         n += 1
         block += question(q, n)
     leadp = f'<p class="grouplead">{e(lead)}</p>' if lead else ""
-    q_html += f'<h3 class="group">{e(title)} <small>from {e(who)}</small></h3>{leadp}{block}'
+    q_html += f'<div class="qgroup"><h3 class="group">{e(title)} <small>from {e(who)}</small></h3>{leadp}{block}</div>'
 NQ = n
 NT = sum(len(i) for _, i in TODOS)
 NG = len(GAMES)
@@ -526,6 +514,7 @@ DATA = dict(
           + [dict(id="p-" + g["id"], name=g["name"] + g.get("tag", " (round one)"), fields=jf(OLD_FIELDS)) for g in DONE_GAMES],
     todos=[dict(id="c-" + t["id"], t=t["t"], q=("q2-" + t["q"]) if t.get("q") else None) for _, items in TODOS for t in items],
     qs=[dict(id="q2-" + q["id"], t=q["t"], opts=q["opts"]) for _, _, _, items in QUESTIONS for q in items],
+    need={"q2-" + q["id"]: 1 for _, _, _, items in QUESTIONS for q in items if q.get("need_note")},
 )
 
 EXTRA_CSS = r'''
@@ -548,6 +537,17 @@ details.more[open] summary{margin-bottom:10px}
 .tnote{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--surface);color:var(--ink);font:inherit;font-size:.95rem;resize:vertical;min-height:44px}
 .tnote:focus{outline:2px solid var(--mint);outline-offset:1px}
 .gapnote{background:var(--gum-bg);border-radius:12px;padding:12px 14px;font-size:.94rem}
+textarea.qtext{width:100%;max-width:560px;box-sizing:border-box;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--surface);color:var(--ink);font:inherit;font-size:1rem;resize:vertical;min-height:48px}
+textarea.qtext:focus{outline:2px solid var(--mint);outline-offset:1px}
+.tnote{font-size:1rem}
+.newtag{font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);background:var(--mint-bg);border:1px solid var(--mint);padding:1px 8px;border-radius:999px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.qnote{background:var(--gum-bg);border-radius:12px;padding:10px 14px;font-size:.95rem;margin:0}
+#answered-list .qn{display:none}
+#answered-list .newtag{display:none}
+details.more>section{margin-top:18px}
+details.more .todos{margin-top:8px}
+.alldone{background:var(--mint-bg);border-radius:12px;padding:12px 14px}
+.send .todos{list-style:none;margin:0;padding:0}
 '''
 
 PAGE = r'''<title>Clean a Cat Launch Plan</title>
@@ -557,76 +557,72 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 
 <div class="wrap">
   <div class="intro">
-    <p class="eyebrow">Clean a Cat, final questions, updated November 25</p>
-    <h1>What is left before we build</h1>
-    <p class="lede">Updated November 25. You picked the playstyle: your busy spa and the cat collection together. Your notes on the bench, the helpers and special visitors are folded into those questions, along with your two calls from the My Pet Salon video. What is left is picks only, each with our pick first. What you decided is <a href="#today">near the bottom</a>.</p>
+    <p class="eyebrow">Clean a Cat, updated November 25</p>
+    <h1>What is left to answer</h1>
+    <p class="lede">This page now shows only the picks you have not made. Everything you answered is saved and tucked under <a href="#answered">Answered already</a> near the bottom, where you can still change it. Nothing was deleted. Your words now stay on this device until they are saved online, so a reload cannot lose them.</p>
     <ol class="steps">
-      <li><a href="#q2-loop">The playstyle is picked</a>: your busy spa and the cat collection together.</li>
-      <li><a href="#todo">Your to-do list</a>: three more picks that decide the game, six new ones, then the rest in one press.</li>
-      <li><a href="#questions">Tap through __NQ__ picks</a>. The first twelve decide the game. Then say done.</li>
+      <li><a href="#questions">Start with the new ones</a> at the top. The helpers question is back so you can write your words again.</li>
+      <li>Tap through the rest, or <a href="#acceptall">take our pick for all of them</a> in one press.</li>
+      <li><a href="#send">Tick done</a>, or say done in the chat.</li>
     </ol>
   </div>
 
   <nav class="bar" aria-label="Progress">
-    <a class="pill full" href="#playtests" id="pill-play">Playtests <b>all 9 done<span id="n-play" hidden>0</span></b></a>
-    <a class="pill" href="#todo" id="pill-todo">To do <b><span id="n-todo">0</span> of __NT__</b></a>
-    <a class="pill" href="#questions" id="pill-q">Picks <b><span id="n-q">0</span> of __NQ__</b></a>
+    <a class="pill" href="#questions" id="pill-left">Left to answer <b><span id="n-left">0</span></b></a>
+    <a class="pill full" href="#answered" id="pill-done">Answered <b><span id="n-done">0</span></b></a>
     <span class="status" id="status" role="status">Loading your answers</span>
   </nav>
 
-  <section id="playtests">
-    <header>
-      <h2>Playtests</h2>
-      <p>Nine games are played and saved, and the playtests are closed. Below is what they told us and what we took from each. Nothing to do here.</p>
-    </header>
-    <h3 class="group">What the games told us</h3>
-    <ul class="saved">__THEMES__</ul>
-    __GAMES__
-    <p class="fine"><strong>More playtests: none.</strong> Nine games cover the wash, the first minute, workers, pets, things to chase and selling, and the last two added little that was new. What we still do not know, such as whether our own scrub feels good and how long a cat should take, only your test of our draft in the dev place can answer. Dropped from the old list because the games you played already answer them: Clean The Ballpit, Wash the Pets, Clean an Animal, Wash a Cat, Wash the Car, Throw Food For Animals and Steal An Egg. We searched Roblox again on the evening of November 24 for pet spa, salon and wash games. Besides My Pet Salon, none has more than about 25 players, so nothing else earns a playtest.</p>
-    <h3 class="group">Played and saved</h3>
-    <ul class="saved">__DONE__</ul>
-  </section>
-
-  <section id="todo">
-    <header>
-      <h2>Your to-do list</h2>
-      <p>Everything still open is here, in the order that helps most, and all of it is picks. An item ticks itself when you answer its question. Every item has a box: write your answer there when it is not a simple pick. What you write is saved like your picks and the team reads it. Jobs you finished are saved under Decided on November 24 and 25.</p>
-    </header>
-    __TODOS__
-    <details class="more">
-      <summary>Parked until the game is picked (nothing to do yet)</summary>
-      <ul class="parked">__PARKED__</ul>
-    </details>
-  </section>
-
   <section id="questions">
     <header>
-      <h2>Tap through our picks</h2>
-      <p>The first option is always our pick. Tap it to agree or choose another. Where a question came from something you said, it says so. Nothing locks until you say done.</p>
+      <h2>Left to answer</h2>
+      <p>The first option is always our pick. Tap it to agree or choose another. Every question has a box for your own words. A question you answer stays where it is until you open the page again, so you can still add to it.</p>
     </header>
-    <div class="row"><button type="button" class="ghost" id="acceptall">Take our pick for everything I have not answered</button></div>
+    <p class="alldone" id="alldone" hidden><strong>Nothing is left to answer.</strong> Tick done below or say done in the chat.</p>
     __QUESTIONS__
+    <div class="row"><button type="button" class="ghost" id="acceptall">Take our pick for everything I have not answered</button></div>
     <p class="gapnote"><strong>What nobody can tell us.</strong> No source gives a proven number for any hook, for how long a wait can be or for the right job length. We find out after launch by running two versions behind switches and reading Roblox's own numbers.</p>
-  </section>
-
-  <section id="today">
-    <header><h2>Decided on November 24 and 25</h2><p>What you have settled. Nothing to do here.</p></header>
-    <dl class="decided">__TODAY__</dl>
-  </section>
-
-  <section id="decided">
-    <header><h2>Saved from round one</h2><p>For reference. Nothing to do here. The team has all of this in its notes.</p></header>
-    <dl class="decided">__SAVED__</dl>
   </section>
 
   <section id="send">
     <div class="send">
       <h2>When you are done</h2>
-      <p>Your answers save on this page as you go and the team reads them from here. Say done in the project chat and we lock the design, finish the first milestone plan and start building. If saving shows a problem above, copy your answers and paste them in the chat.</p>
+      <ul class="todos">__DONETODO__</ul>
+      <p>Your answers save on this page as you go and the team reads them from here. If saving shows a problem at the top, your words are still kept on this device. You can also copy your answers and paste them in the chat.</p>
       <div class="row"><button type="button" id="copy">Copy my answers</button><span class="fine" id="copied" role="status"></span></div>
       <textarea id="copyout" rows="8" hidden readonly aria-label="Your answers as text"></textarea>
     </div>
   </section>
+
+  <details class="more" id="answered">
+    <summary>Answered already (<span id="n-done2">0</span>). Open to see or change an answer.</summary>
+    <p class="fine">These are saved. Change a pick or add to your words here at any time.</p>
+    <div id="answered-list"></div>
+    __TODOS__
+  </details>
+
+  <details class="more" id="reference">
+    <summary>What is decided and what the playtests told us (nothing to do here)</summary>
+    <section id="today">
+      <header><h2>Decided on November 24 and 25</h2></header>
+      <dl class="decided">__TODAY__</dl>
+    </section>
+    <section id="playtests">
+      <header><h2>Playtests</h2><p>Nine games are played and saved, and the playtests are closed.</p></header>
+      <h3 class="group">What the games told us</h3>
+      <ul class="saved">__THEMES__</ul>
+      <h3 class="group">Played and saved</h3>
+      <ul class="saved">__DONE__</ul>
+    </section>
+    <section id="decided">
+      <header><h2>Saved from round one</h2></header>
+      <dl class="decided">__SAVED__</dl>
+    </section>
+    <section>
+      <header><h2>Parked until the design is locked</h2></header>
+      <ul class="parked">__PARKED__</ul>
+    </section>
+  </details>
 </div>
 
 <script>
@@ -635,7 +631,9 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   var LS = "clean-a-cat-plan-v2";
   var state = {};      // docId -> {key: value}
   var dirty = {};      // docId -> true while a local change is unsaved
-  var timers = {}, writing = {}, again = {};
+  var timers = {}, writing = {}, again = {}, rev = {}, tries = {}, touched = {};
+  var LSD = LS + "-unsent";
+  var NEED = DATA.need || {};
   var db = null, online = false;
   var statusEl = document.getElementById("status");
 
@@ -648,6 +646,11 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     if (el.type === "radio") return el.checked ? el.value : undefined;
     return el.value;
   }
+  function grow(el){
+    if (!el || el.tagName !== "TEXTAREA" || el.id === "copyout") return;
+    el.style.height = "auto";
+    if (el.scrollHeight) el.style.height = (el.scrollHeight + 2) + "px";
+  }
   function applyDoc(doc){
     var d = state[doc] || {};
     controls(doc).forEach(function(el){
@@ -655,7 +658,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
       if (el === document.activeElement && dirty[doc]) return;
       if (el.type === "checkbox") el.checked = v === true;
       else if (el.type === "radio") el.checked = (has(v) && String(v) === el.value);
-      else el.value = v == null ? "" : String(v);
+      else { el.value = v == null ? "" : String(v); grow(el); }
     });
     markOther(doc);
   }
@@ -666,40 +669,63 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     var p = (state[doc] || {}).pick;
     art.classList.toggle("other", !!q && has(p) && Number(p) === q.opts.length - 1 && q.opts[q.opts.length - 1] === "Something else");
   }
+  function answered(id){ var d = state[id] || {}; return has(d.pick) && !(NEED[id] && !has(d.note)); }
   function counts(){
-    var play = 0, todo = 0, q = 0;
-    DATA.main.forEach(function(g){ if ((state[g.id] || {}).played === true) play++; });
-    DATA.todos.forEach(function(t){ if (t.q ? (has((state[t.q] || {}).pick) || has((state[t.id] || {}).note)) : (state[t.id] || {}).done === true) todo++; });
+    var left = 0, done = 0;
+    DATA.qs.forEach(function(x){ if (answered(x.id)) done++; else left++; });
     document.querySelectorAll("input[data-q]").forEach(function(el){ el.checked = has((state[el.dataset.q] || {}).pick) || has((state[el.dataset.note] || {}).note); });
-    DATA.qs.forEach(function(x){ if (has((state[x.id] || {}).pick)) q++; });
-    document.getElementById("n-play").textContent = play;
-    document.getElementById("n-todo").textContent = todo;
-    document.getElementById("n-q").textContent = q;
-    document.getElementById("pill-play").classList.toggle("full", play === DATA.main.length);
-    document.getElementById("pill-todo").classList.toggle("full", todo === DATA.todos.length);
-    document.getElementById("pill-q").classList.toggle("full", q === DATA.qs.length);
+    document.getElementById("n-left").textContent = left;
+    document.getElementById("n-done").textContent = done;
+    document.getElementById("n-done2").textContent = done;
+    document.getElementById("pill-left").classList.toggle("full", left === 0);
+    document.getElementById("alldone").hidden = left !== 0;
+  }
+  // Answered questions move under "Answered already". This runs only when the page opens, never while you work.
+  var home = {};
+  function tuck(){
+    var box = document.getElementById("answered-list");
+    DATA.qs.forEach(function(x){
+      var a = document.getElementById(x.id); if (!a) return;
+      if (!home[x.id]) home[x.id] = a.parentNode;
+      if (dirty[x.id] || a.contains(document.activeElement)) return;
+      (answered(x.id) ? box : home[x.id]).appendChild(a);
+    });
+    document.querySelectorAll("#questions .qgroup").forEach(function(g){ g.hidden = !g.querySelector("article.q"); });
+    var n = 0;
+    document.querySelectorAll("#questions article.q .qn").forEach(function(el){ n++; el.textContent = n; });
+    counts();
   }
   function saveLocal(){ try { localStorage.setItem(LS, JSON.stringify(state)); } catch (e) {} }
   function loadLocal(){ try { var s = JSON.parse(localStorage.getItem(LS) || "{}"); if (s && typeof s === "object") state = s; } catch (e) {} }
+  // Words not yet saved online are remembered across a reload and sent again.
+  function saveUnsent(){ try { var u = {}; Object.keys(dirty).forEach(function(k){ if (dirty[k]) u[k] = Object.keys(touched[k] || {}); }); localStorage.setItem(LSD, JSON.stringify(u)); } catch (e) {} }
+  function loadUnsent(){ try { var u = JSON.parse(localStorage.getItem(LSD) || "{}"); Object.keys(u || {}).forEach(function(k){ if (!state[k]) return; dirty[k] = true; touched[k] = {}; (Array.isArray(u[k]) ? u[k] : Object.keys(state[k])).forEach(function(f){ touched[k][f] = 1; }); }); } catch (e) {} }
+  function anyUnsent(){ return Object.keys(dirty).some(function(k){ return dirty[k]; }); }
 
   function flush(doc){
-    if (!db) { dirty[doc] = false; return; }
+    if (!db || !online) return;            // not connected yet: it stays marked unsent and goes out once the saved answers have loaded
     if (writing[doc]) { again[doc] = true; return; }
     writing[doc] = true;
     setStatus("Saving");
+    var r = rev[doc] || 0;
     var body = Object.assign({}, state[doc] || {}, { at: new Date().toISOString() });
     db.doc("answers/" + doc).set(body).then(function(){
-      writing[doc] = false;
-      if (again[doc]) { again[doc] = false; flush(doc); return; }
-      dirty[doc] = false;
-      setStatus("All answers saved");
+      writing[doc] = false; tries[doc] = 0;
+      if (again[doc] || (rev[doc] || 0) !== r) { again[doc] = false; flush(doc); return; }
+      dirty[doc] = false; touched[doc] = {}; saveUnsent();
+      if (!anyUnsent()) setStatus("All answers saved");
     }, function(){
       writing[doc] = false; again[doc] = false;
-      setStatus("Could not save online. Use Copy my answers below.", true);
+      tries[doc] = (tries[doc] || 0) + 1;
+      setStatus("Could not save online yet. Your words are kept on this device and will be sent again.", true);
+      setTimeout(function(){ if (dirty[doc]) flush(doc); }, Math.min(30000, 3000 * tries[doc]));
     });
   }
-  function changed(doc, delay){
-    dirty[doc] = true; saveLocal(); counts(); markOther(doc);
+  function flushAll(){ Object.keys(dirty).forEach(function(k){ if (dirty[k]) { clearTimeout(timers[k]); flush(k); } }); }
+  function changed(doc, delay, keys){
+    dirty[doc] = true; rev[doc] = (rev[doc] || 0) + 1;
+    touched[doc] = touched[doc] || {}; (keys || []).forEach(function(k){ touched[doc][k] = 1; });
+    saveLocal(); saveUnsent(); counts(); markOther(doc);
     clearTimeout(timers[doc]);
     timers[doc] = setTimeout(function(){ flush(doc); }, delay);
   }
@@ -707,13 +733,15 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     var el = ev.target; if (!el.dataset || !el.dataset.doc) return;
     var doc = el.dataset.doc, k = el.dataset.key, v = readControl(el);
     if (v === undefined) return;
+    grow(el);
     state[doc] = Object.assign({}, state[doc] || {});
     state[doc][k] = v;
+    var keys = [k];
     if (k === "note" && doc.indexOf("c-") === 0 && has(v) && state[doc].done !== true) {
       var box = document.getElementById(doc + "__done");
-      if (box && box.dataset.doc) { state[doc].done = true; box.checked = true; }
+      if (box && box.dataset.doc) { state[doc].done = true; box.checked = true; keys.push("done"); }
     }
-    changed(doc, (el.type === "text" || el.tagName === "TEXTAREA") ? 900 : 150);
+    changed(doc, (el.type === "text" || el.tagName === "TEXTAREA") ? 900 : 150, keys);
   }
   document.addEventListener("input", onInput);
   document.addEventListener("change", onInput);
@@ -730,9 +758,11 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     DATA.qs.forEach(function(x){
       if (!has((state[x.id] || {}).pick)) {
         state[x.id] = Object.assign({}, state[x.id] || {}, { pick: "0" });
-        applyDoc(x.id); changed(x.id, 150);
+        applyDoc(x.id); changed(x.id, 150, ["pick"]);
       }
     });
+    state["c-takeall"] = Object.assign({}, state["c-takeall"] || {}, { done: true });
+    changed("c-takeall", 150, ["done"]);
   });
 
   function summary(){
@@ -774,7 +804,12 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     counts();
   }
 
-  loadLocal(); renderAll();
+  loadLocal(); loadUnsent(); renderAll(); tuck();
+  document.querySelectorAll("details").forEach(function(d){
+    d.addEventListener("toggle", function(){ if (d.open) d.querySelectorAll("textarea").forEach(grow); });
+  });
+  document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "hidden") flushAll(); });
+  window.addEventListener("pagehide", flushAll);
 
   var gave = setTimeout(function(){ if (!online) setStatus("Answers are kept in this browser for now. Use Copy my answers to send them.", true); }, 10000);
   var use = window.claude && window.claude.use ? window.claude.use("db") : Promise.resolve(null);
@@ -783,8 +818,12 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     db = d;
     db.collection("answers").onSnapshot(function(snap){
       snap.docs.forEach(function(doc){
-        if (dirty[doc.id] || writing[doc.id]) return;
+        if (writing[doc.id]) return;
         var body = Object.assign({}, doc.data() || {}); delete body.at;
+        if (dirty[doc.id]) {               // keep what was changed on this device, take the rest from the saved answer
+          var loc = state[doc.id] || {};
+          Object.keys(touched[doc.id] || {}).forEach(function(k){ if (loc[k] !== undefined) body[k] = loc[k]; });
+        }
         state[doc.id] = body; applyDoc(doc.id);
       });
       counts(); saveLocal();
@@ -793,9 +832,10 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
         if (!online) {
           online = true;
           Object.keys(dirty).forEach(function(k){ if (dirty[k]) flush(k); });
+          tuck();
         }
         var busy = Object.keys(writing).some(function(k){ return writing[k]; });
-        if (!busy) setStatus("All answers saved");
+        if (!busy && !anyUnsent()) setStatus("All answers saved");
       }
     }, function(){
       clearTimeout(gave);
@@ -807,7 +847,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 '''
 page = (PAGE.replace("__CSS__", CSS + EXTRA_CSS).replace("__PROMPTS__", prompts_html).replace("__EXTRA__", extra_html)
         .replace("__THEMES__", themes_html).replace("__GAMES__", games_html).replace("__OPT__", opt_html).replace("__DONE__", done_html)
-        .replace("__TODAY__", today_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
+        .replace("__DONETODO__", done_todo_html).replace("__TODAY__", today_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
         .replace("__SAVED__", saved_html).replace("__NQ__", str(NQ)).replace("__NT__", str(NT)).replace("__NG__", str(NG))
         .replace("__DATA__", json.dumps(DATA)))
 open(OUT_HTML, "w", encoding="utf-8").write(page)

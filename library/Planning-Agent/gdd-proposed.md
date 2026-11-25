@@ -25,6 +25,7 @@ Where older lines below disagree with these (helpers wash only common cats, rare
 - First session [session]: build more for day one, aim for 20 minutes or more.
 - Turning [turn]: "For now we try this". Praise and combo [praise]: ours, not too much bloat but it should look cool.
 - LOST: his text on the helpers question did not save; asked again 1:10 PM ET.
+- New questions put on the plan page at 1:45 PM ET (v38), each with our pick, all OPEN: [stations] buy a worker's station with coins, then hire, three worker stations beside the player's at launch; [doubles] a pet you already own is kept and can go to another worker, never turned into coins; [specialindex] special visitors' cats get a page of their own in the Cat Index and do not count toward finishing the main index; [skipprice] a Finish now button with four prices by time left (15, 35, 75, 99 Robux), no skip on the first long build, Second Builder pass about 299; [crateprice] 49 for one, 199 for five.
 
 **Hook (one sentence):** dirty cats line up at your spa, you pick who is next and scrub each one by hand to find out what coat is hiding under the mud.
 
