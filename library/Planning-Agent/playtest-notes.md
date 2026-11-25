@@ -133,6 +133,7 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
   - Doubles (`q2-doubles`, pick 0): "Can make it so they can fuse 3 into a star up that increases stats so something to do with dupes."
   - Special visitors in the index (`q2-specialindex`, pick 0): a page of their own.
 - In chat, 2:59 PM ET, with a picture of another game's starter pack: "I found this type of starter pack monetization and its pretty good it bobs bigger/smaller and has shiny sparkles that pop up around it". The picture shows three item cards with Robux prices joined by plus signs, a struck through 720, a price of 199, a 72% off tag and a three hour limited time countdown.
+- In chat, 3:21 PM ET, on the starter pack countdown: "countdown but make it end". Saved on the page as `q2-packtimer` pick 1.
 - One clause in the bench note is cut off ("and if he was"), about a cat whose heart bar runs low. Asked back on the page under `impatience`.
 
 ## Across the games (Derek, 2026-11-24 ET)
