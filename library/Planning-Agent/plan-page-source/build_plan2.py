@@ -74,14 +74,14 @@ THEMES = [
     ("Pets", "My Pet Salon has a My Pets window where pets boost cash. In Barber Simulator pets come from spins sold for Robux, and the only free one you found was a pet egg promised for tomorrow. In Pet Store Tycoon pets come in packs bought with the shop's own cash, and you rip the pack open yourself. Your idea: washing earns the money and the pets you own come from crates, one for you and one for each worker. Our pick: every pet can be earned, crates are never sold for Robux and the chances are shown."),
     ("Things to chase and reasons to come back", "Clean Everything, the cleaning game that kept its players, has maps, counters and modes on top of the tidying. Restaurant Tycoon shows a long chain of locked upgrades and what each requires. My Pet Salon's album has 59 pets. Barber Simulator gives a pet roll on day 2 and a new tool on level up. The horse game shows what you made while away. Pet Store Tycoon shows a seven day check in card right after the tutorial, with a good reward on day 2, and a daily quest in the corner. Ours: the index of coats, an upgrade road you can see, a free crate tomorrow and a tip jar that fills while you are away."),
     ("The screen and the guiding", "Help bubbles along the bottom and a result card with stars in My Pet Salon. A goal bar with a count in Restaurant Tycoon. A step line at the top and arrows on the floor in the horse game. A marker over the next thing and a card of what the customer wants in Barber Simulator. A friend bonus percent on screen in Capybara Onsen and Barber Simulator. We take all of these in our own look. One thing we do not take: the big black prompt buttons, which you said block the view on a phone. Puppy Spa shows the fix, a small pill with one word."),
-    ("Asking and selling", "Nearly all of these games ask for notifications in the first minute or two, and you said the timing never felt smooth. Restaurant Tycoon sells a skip for Robux. In My Pet Salon you found no way to get a pet except Robux, which you called kinda scummy. Capybara Onsen asked for a favourite at about minute 4. My Pet Salon and Clean Everything reward likes. Starter packs with countdowns sit on the screen in the first minute in Restaurant Tycoon, Barber Simulator and My Pet Salon. Pet Store Tycoon waits until after day 2 and shows its bundle once, with no countdown, and you said that might not be a bad idea for ours. Clean Everything and Barber Simulator have watch an ad buttons. My Pet Salon makes customers from your friends and Restaurant Tycoon does not. Ours: one notification ask from Suds after his wash, no paid skips, pets that are earned, no offer in the first session, no countdowns, no rewards for likes and no friends as customers at launch."),
+    ("Asking and selling", "Nearly all of these games ask for notifications in the first minute or two, and you said the timing never felt smooth. Restaurant Tycoon sells a skip for Robux. In My Pet Salon you found no way to get a pet except Robux, which you called kinda scummy. Capybara Onsen asked for a favourite at about minute 4. My Pet Salon and Clean Everything reward likes. Starter packs with countdowns sit on the screen in the first minute in Restaurant Tycoon, Barber Simulator and My Pet Salon. Pet Store Tycoon waits until after day 2 and shows its bundle once, with no countdown, and you said that might not be a bad idea for ours. Clean Everything and Barber Simulator have watch an ad buttons. My Pet Salon makes customers from your friends and Restaurant Tycoon does not. Ours, after your picks: one notification ask from Suds after his wash, paid skips on any build with the price on the button, pets that can always be earned, a starter pack with a real 72 hour countdown, a free pet for joining the group and no friends as customers at launch."),
 ]
 
 # ---------------------------------------------------------------- to-dos
 TODOS = [
     ("Done", [
         dict(id="lock", t="I am done, lock the design",
-             d="Tick this or say done in chat. We then write the final one page design from your picks and show it to you before the build starts. Nothing locks before that."),
+             d="You ticked this on November 25 at 6:09 PM. We are writing the final one page design from your picks and will show it to you in the chat before the build starts. Nothing locks before you say yes to that page."),
     ]),
     ("Answered already, your words are saved", [
         dict(id="puppytake", t="Your own take on Puppy Spa",
@@ -117,7 +117,7 @@ TODOS = [
     ]),
 ]
 PARKED = [
-    ("Server size", "Set once the street and the design are picked."),
+    ("Server size", "Now a question at the top of this page. Our pick is six."),
     ("Maturity questionnaire", "We write the answers down for you once the gameplay is decided. The game needs a Minimal or Mild result."),
     ("100 plays from engaged players", "Your ads for this come when the game is ready for public testers."),
     ("Notification text and key", "Needed once you pick when we ask, which is in the questions below. Players under 13 cannot get notifications."),
@@ -178,6 +178,9 @@ dict(id="petslots", t="One pet for you and one for each worker",
         dict(id="session", t="Aim for a first session of 20 minutes or more",
              d="In one report on Roblox games, about 11 in 100 new players came back the next day when sessions ran over 25 minutes and about 4 in 100 when they ran under 3. That is a link, not proof. It means more on day one than we first planned: about 12 cats, 3 kinds of dirt and 4 tools. Your screenshot of My Pet Salon's album shows 59 pets in six rarities. Twelve coats would look thin beside that, and a coat costs us far less than a new animal because every cat shares one body. So we would go to about 24 coats on day one if Model-Agent confirms the cost.",
              opts=["Yes, build more for day one", "Keep the first build small and add later", ELSE]),
+        dict(id="serversize", t="Six players in a server",
+             d="This was parked until the design. The street has six spas, one for each player, and a smaller server keeps an older phone smooth. Six still leaves room for friends to join and for walking into each other's spas. It is a setting on the game's page that you change yourself, and it can be raised later if the street grows.",
+             opts=["Yes, six", "Eight, and we add two spas to the street", ELSE]),
     ]),
     ("The wash", "Planning-Agent and Design-Agent", "", [
         dict(id="steps", t="Four kinds of step at the start",
@@ -235,8 +238,11 @@ dict(id="petslots", t="One pet for you and one for each worker",
              d="Trading is the one feature with a clear record of harm to young players, mostly scams. This holds for crate pets too.",
              opts=["Yes, no trading", "Plan trading for later", ELSE]),
         dict(id="favourite", t="No like or favourite ask in the first session",
-             d="Capybara Onsen asked you for a favourite at about minute 4. Roblox judges a game on its first minutes, and an ask there is one more thing between a new player and the fun. Our pick: nothing in the first session, then one small ask after a great wash on a later visit. It never comes with a reward, because Roblox does not allow rewards for likes or favourites. Your screenshot shows My Pet Salon paying cash for both in its Rewards window. By our reading of the rules that is their risk and we do not copy it.",
+             d="Capybara Onsen asked you for a favourite at about minute 4. Roblox judges a game on its first minutes, and an ask there is one more thing between a new player and the fun. Our pick: nothing in the first session, then one small ask after a great wash on a later visit. We wrote here that Roblox does not allow rewards for likes or favourites. On November 25 we could not find that rule on Roblox's own pages, so treat it as not confirmed. Growth-Agent is checking. Your screenshot shows My Pet Salon paying cash for both in its Rewards window. Your answer asks for a free pet for joining the group and liking the game, and that has its own question at the top of the page.",
              opts=["Yes, one ask on a later visit", "Ask once at about minute 5", "Never ask", ELSE]),
+        dict(id="grouppet", t="A free pet for joining the group, with the like asked on the same card",
+             d="From your words: ask for notifications, a like and a favourite, never all at once, and one pet for joining the group and liking the game that is easy to find. Our pick: a gift stand inside the spa with the pet sitting on it, always in view and never a pop up. Tapping it opens one card: join Creampuff Games and like the game, then claim your pet. The game can check the group, so the claim opens once the player has joined. A game has no sure way to see who liked it, so the like is asked in words and trusted. The asks are spread out: notifications after the first clean cat, one small like and favourite ask at about minute 5, and the gift stand whenever the player walks up to it. The pet is the same for everyone and nothing about it is random.",
+             opts=["Yes, a gift stand: the group is checked and the like is asked", "The pet for joining the group only, and the like asked apart", ELSE]),
     ]),
     ("Screens", "Design-Agent", "", [
         dict(id="recap", t="After each cat: the full card or a slim strip",
@@ -259,9 +265,9 @@ dict(id="petslots", t="One pet for you and one for each worker",
         dict(id="landscape", t="Lock phones to landscape",
              d="One layout to get right, with more room for the tub.",
              opts=[YES, "Allow portrait too", ELSE]),
-        dict(id="bows", t="A bow as the finishing touch",
-             d="The first plan had you pick a bow on every cat. With a line waiting that is one tap too many. Our pick: bows for the pets you own and for rare visitors. My Pet Salon ends some washes with a tap to feed the pet a snack, a step nobody can fail. Our bow does the same job: an easy last step that ends the wash on a good note.",
-             opts=["Bows for your own cats and rare visitors", "A bow on every cat", "No bows", ELSE]),
+        dict(id="bows", t="A bow on every cat you wash, and it pays extra",
+             d="Rewritten from your words: a bow on every cat as an easy finish that adds money, with better bows to buy, so washing by hand stays worth it next to the workers. Our pick: tying the bow is the last step of every cat you wash yourself, one tap that cannot fail. It adds a bow bonus to that cat's pay. Better bows are bought with coins and each one raises the bonus. Workers tie no bow, so the bonus is only for cats you wash by hand. The other way you named is a bow on only some cats, by chance. Your words are kept in the box below.",
+             opts=["Yes, a bow on every cat I wash, with bow upgrades", "A bow on only some cats, by chance", "No bows", ELSE]),
     ]),
     ("The look", "Model-Agent", "", [
         dict(id="heldeyes", t="The kitten's eyes while you carry him",
@@ -290,8 +296,11 @@ dict(id="petslots", t="One pet for you and one for each worker",
              d="Same body shape, new coats and names, plus spa extras such as mud, fluff and bows. No Cat Cafe character is reused.",
              opts=[YES, "Make the cats look clearly different from Cat Cafe", ELSE]),
         dict(id="names", t="Working cat names",
-             d="Muffin, Smudge, Inky, Cotton, Tux, Patches, Toffee, Marble, Lilac Cloud and Starcoat. Suds is the mascot kitten and the first cat every player washes. He has no name until he is clean. None is used in Cat Cafe.",
+             d="You asked what working cats meant. That was badly put by us and there are no working cats. The question is asked again in clear words at the top of the page. The old text: Muffin, Smudge, Inky, Cotton, Tux, Patches, Toffee, Marble, Lilac Cloud and Starcoat. Suds is the mascot kitten and the first cat every player washes. He has no name until he is clean. None is used in Cat Cafe.",
              opts=["Yes, use these", "I want to name them", ELSE]),
+        dict(id="catnames", t="Names for the customer cats in the Cat Index",
+             d="You asked what working cats meant. That was badly put by us: there are no working cats. These are draft names for the customer cats, the ones people bring in and that fill the Cat Index. Each name shows on that cat's card: Muffin, Smudge, Inky, Cotton, Tux, Patches, Toffee, Marble, Lilac Cloud and Starcoat. The pets you own from crates and the special visitors' cats are named apart. None of these names is used in Cat Cafe.",
+             opts=["Yes, use these names", "I want to name them", ELSE]),
     ]),
     ("Sound and feel", "Motion-FX-Agent", "", [
         dict(id="feel", t="The feel of the cleaning",
@@ -370,11 +379,13 @@ SAVED = [
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
 ]
 TODAY = [
+    ("Done ticked, November 25", "You ticked done at 6:09 PM. Every answer and every note is saved in the notes, the design file, project memory and the library. The final one page design is written from your picks and comes to you before the build starts."),
+    ("Your last answers, November 25 evening", "A couple of daily quests and a couple of weekly ones, with a crate for finishing the weekly list. A special visitor comes inside the first 5 minutes and that first one drops a crate. After that a crate from a visitor is rare. Other players can walk into your spa, with a setting to turn that off. A friend bonus and no trading. The full card after every cat. Menu buttons arrive one at a time, each with a short tip. Phones are locked to landscape. No stink wisps, and darker mud if needed. A human builder, Bubble Pastel and a soft and cosy feel. The icon and thumbnail are fine for now, with a half dirty and half clean picture as the second thumbnail. Christmas is likely the first event and the Cat Show idea is kept for later. The Grand Reopening is not decided, but the game is built so it can be added."),
     ("The playstyle, November 25", "Picked: your busy spa and the cat collection together. Picking a cat has to be polished and easy. Helpers take whichever cat is next, of any rarity. Special visitors with the coolest cats are only for you."),
     ("The bench and the pay, November 25", "Picked from a menu, with a button for next in line. Dirtier cats look dirtier, take more steps and pay more. Pay is a base amount multiplied by your speed, how soon you took the cat and how dirty it was."),
     ("Crates and the second pet slot, November 25", "Crates are earned rarely and can also be bought with Robux. The chance of each pet shows before you buy, and players Roblox restricts are not shown the Robux crate. The sure new pet rule is removed. A second pet slot is a Robux upgrade."),
     ("Steps, November 25", "Every kind of step is in the game from the start. A cat takes 3 to 10 steps by how dirty it is, and the tutorial uses only the simple 3 or 4. The cat turns by itself when a side is done, to try for now."),
-    ("Paid skips, November 25", "Skips on build timers are sold at launch. You said they need good monetization, so the prices are a question on this page."),
+    ("Paid skips, November 25", "Skips on build timers are sold at launch, on any build, with the price on the button."),
     ("Workers and pets, November 25", "Each worker needs their own station and shows a progress bar above the cat. Suds is a tutorial mascot and never a pet. Pets stay beside you or beside a worker."),
     ("Starter pack, November 25", "A pack in the style of the picture you sent: three things worth 547 Robux for 299. It stays for 72 hours from a player's first join, then it is gone for that player and never restarts."),
     ("Money, November 25", "Crates cost 49 Robux or five for 199. Skips can be bought on any build. Five passes, with Lou the extra helper at 249 and one pet slot pass for you and every worker at 249. You said to set the prices for now and tune them later."),
@@ -391,7 +402,7 @@ TODAY = [
     ("From your to-do list", "No friends as customers. The notification ask comes 1 to 2 minutes in. Suds explains in a bubble along the bottom. Plain Clean a Cat with no [NEW] tag. Washed cats fill an index. Crates are hard to earn and worth it, and the free one on day 2 is a good one. The kitten's eyes stay open while you carry him. A pet for you and one for each worker is the working plan and may change."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Still open", "Only the picks you have not tapped yet."),
+    ("Still open", "Four small things at the top of this page."),
     ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
@@ -496,9 +507,9 @@ themes_html = "".join(f'<li><strong>{e(a)}</strong><span>{e(b)}</span></li>' for
 done_html = "".join(f'<li><strong>{e(g["name"])}</strong><span>{e(g["took"])}</span></li>' for g in DONE_GAMES)
 prompts_html = "".join(f"<li>{e(p)}</li>" for p in NOTE_PROMPTS)
 extra_html = "".join(f"<li><strong>{e(a)}.</strong> {e(b)}</li>" for a, b in EXTRA_PROMPTS)
-FIRST = ["starterpack", "helperpass", "passes", "skipprice", "crateprice", "petpass", "impatience"]
+FIRST = ["bows", "grouppet", "catnames", "serversize"]
 _all = {q["id"]: q for _, _, _, items in QUESTIONS for q in items}
-QUESTIONS = [("Start here: new or changed today", "Planning-Agent", "The starter pack is redrawn from the picture you sent on November 25. The rest came out of your answers that day.", [_all[i] for i in FIRST])] + [(t, w, l, [q for q in items if q["id"] not in FIRST]) for t, w, l, items in QUESTIONS]
+QUESTIONS = [("Four last things from your answers", "Planning-Agent", "These came out of what you wrote on the evening of November 25. If you leave one, our pick stands.", [_all[i] for i in FIRST])] + [(t, w, l, [q for q in items if q["id"] not in FIRST]) for t, w, l, items in QUESTIONS]
 done_todo_html = "".join(todo_item(t) for t in TODOS[0][1])
 todos_html = ""
 for title, items in TODOS[1:]:
@@ -572,11 +583,11 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <div class="intro">
     <p class="eyebrow">Clean a Cat, updated November 25</p>
     <h1>What is left to answer</h1>
-    <p class="lede">This page now shows only the picks you have not made. Everything you answered is saved and tucked under <a href="#answered">Answered already</a> near the bottom, where you can still change it. Nothing was deleted. Your words now stay on this device until they are saved online, so a reload cannot lose them.</p>
+    <p class="lede">You ticked done on November 25 at 6:09 PM. Every answer and every note you wrote is saved, and you can still see or change each one under <a href="#answered">Answered already</a>. Four small things came out of your last answers. If you leave them, our pick stands. The final one page design is being written from your picks and comes to you in the chat.</p>
     <ol class="steps">
-      <li><a href="#questions">Tap through what is left</a>. The first option is always our pick.</li>
+      <li><a href="#questions">Tap through the four that are left</a>. The first option is always our pick.</li>
       <li>Or <a href="#acceptall">take our pick for all of them</a> in one press.</li>
-      <li><a href="#send">Tick done</a>, or say done in the chat.</li>
+      <li>That is all. Done is already ticked.</li>
     </ol>
   </div>
 

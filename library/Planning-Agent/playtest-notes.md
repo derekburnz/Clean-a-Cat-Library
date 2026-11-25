@@ -145,7 +145,26 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
   - Waiting cats (`q2-impatience`, pick 1, not our pick: they leave and the job is lost): "grumpy and leave after bar is fully empty". This also answers the clause that was cut off in his bench note.
   - Check in card (`q2-checkin`, pick 0).
 - In chat, 3:58 PM ET: "starter pack stays for 72h is what i meant just confirming". Confirms the 72 hour clock from first join.
-- One clause in the bench note is cut off ("and if he was"), about a cat whose heart bar runs low. Asked back on the page under `impatience`.
+- Fifth pass, 5:51 to 6:09 PM ET, on page v42 (the 24 questions that were left; every one verbatim in plan-page-backups/answers-2026-11-25-1812ET-full.json):
+  - Quests (`q2-quests`, pick 0): "couple daily quests that reset each day per player and a couple weekly quests that give a crate when completed all weekly quests. Dont make crates always drop from rare visitors also but have it be a rare possibility maybe script the first one to drop a crate and make a rare customer come within the first 5 minutes so they stay"
+  - Grand Reopening (`q2-reopen`, pick 0, not at launch): "undecided but build whats needed to do it later anyways"
+  - Friends (`q2-friends`, pick 0): the friend bonus.
+  - Visiting (`q2-visit`, pick 1, walk in from the start, not our pick): "if by neighbors you mean other players allow it on for now and add a setting for players to turn allowing others in off"
+  - Trading (`q2-trading`, pick 0): no trading at launch.
+  - Asking for a like (`q2-favourite`, pick 1, ask once at about minute 5, not our pick): "ask for notify, like, favourite and have one pet that can be got by joining group and liking game. Make sure to not crowd any player with all at once but make sure the pet for liking/joining group is obvious to find."
+  - Recap (`q2-recap`, pick 1, the full card after every cat, not our pick).
+  - HUD (`q2-hud`, pick 0): "make sure they don't appear all at same time and overload a player can add a context tutorial when they get unlocked"
+  - Landscape (`q2-landscape`, pick 0): lock to landscape.
+  - Bows (`q2-bows`, NO pick, words only): "bow either on every cat or a chance of it being step at end maybe a bow on everycat that leaves it on an easy finish and could have it add money and make better bow upgrades that add money to either the base reward amount or after reward with every cat you put a bow on that way cleaning cats manually can feel more rewarding later still and not only leave it to workers"
+  - Builder (`q2-builder`, pick 0): a human builder. Mud (`q2-mud`, pick 0). Baths (`q2-baths`, pick 0). Style (`q2-style`, pick 0): Bubble Pastel. Feel (`q2-feel`, pick 0): soft and cosy. Sound upload (`q2-upload`, pick 0). Cat spa wording (`q2-catspa`, pick 0).
+  - Mud on a phone (`q2-mudphone`, pick 3, something else): "none of stink wisps, dirt is fine make it darker if needed but the minigame zooms in and is a different screen so its easier to see when cleaning"
+  - Cat bodies (`q2-body`, pick 0): "can re-use and I would suggest some models for customer variants or cat models etc but make sure they fit this game and tweak where needed"
+  - Cat names (`q2-names`, pick 2, something else): "wdym working cats there is no working cats? unless you mean pets or customer cats". The question was worded badly: it meant the draft names of the customer cats in the Cat Index. Asked again in clear words on page v43.
+  - Icon (`q2-icon`, pick 0) and thumbnail (`q2-thumb`, pick 0), same words on both: "use it for now will draft more later to pick from"
+  - Split thumbnail (`q2-split`, pick 0): "yes animal salon game has one i believe if you need to use it for reference so you dont do it wrong"
+  - First event (`q2-event`, pick 1, a different event in mind): "I think christmas will he first event depending when done game but keep that idea in the vault for later"
+  - He ticked "I am done, lock the design" (`c-lock`) at 6:09 PM ET. In chat at 6:10 PM ET: "go through plan artifact in depth save all of it and update plan artifact if anything else needed after".
+- The clause that was cut off in his bench note ("and if he was") is answered by `q2-impatience` above.
 
 ## Across the games (Derek, 2026-11-24 ET)
 - "note a lot of these games I am playtesting that are popular ask for notifications while away almost instantly after starting"
