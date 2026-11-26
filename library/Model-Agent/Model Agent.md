@@ -48,11 +48,20 @@ Blender work is long and multi-step, and a slip early wastes a whole build, so e
 - **Transparent or water parts may not show in a cut-out render.**
 - **The scratch disk fills** with worktrees and renders. Remove merged worktrees and old renders when commands start failing.
 - **Renames break animations.** Tell Motion-FX before changing a part name or a pivot.
+- **A Blender look is not a Roblox look.** Worn pieces are scaled and placed by the game, round parts are fuller in Roblox and a thin part can sit inside another with no faces crossing. Measure on the exported Part models and get a Studio look before calling a fit good.
+- **Small pieces at the outline read as flaps** in a store picture or at phone size. Check close crops for anything standing out past the character's side.
+- **Uploaded pictures do not follow the models.** After a face or colour change, list every uploaded picture that shows it and render and upload those again.
+- **A thread has a limit on attached files** (about 96). Replace files in place and attach the old path again, or hand new paths to the coordinator.
 
 ## 7. Skills
 `asset-pipeline`, `concept-visuals`, `blender-core`, `blender-asset-qa`, `blender-game-optimization`, `blender-export-pipelines`, `blender-retopology-uv`, `blender-to-roblox`, `find-resources`, `roblox-creator-store-security-audit`, `roblox-publishing-discovery`.
 
 ## 8. This game (Clean a Cat)
+- **Start here after a reset:** `Model-Agent/handoff-2026-11-26.md` (state, open issues, store art files, the owner's words on looks, build and check steps, lessons).
 - Code prefix `CleanACat`, slug `clean-a-cat`. Model names: `CleanACat_<Category>_<Name>`.
-- The first version's model list and issue numbers: `Model-Agent/model-list-v1.md`. Style until the owner swaps it: Bubble Pastel (flat pastel colours, no textures).
-- **Blender in a cloud thread:** the container has no Blender app and blender.org is blocked, but `pip install bpy==5.2.4` (Python 3.13) works. Run the generator scripts with `python3 build_x.py` and render with Workbench or EEVEE. Studio import checks and Studio screenshots go through Sync-Agent.
+- Style: Bubble Pastel colours on blocky chibi shapes, flat colours, no textures. The full state of every model is `docs/art/style-guide.md` in the game repo. `Model-Agent/model-list-v1.md` is the first version's list and is history now.
+- Models are Part-built `.model.json` files made by Python generators in `assets/clean-a-cat/blender/` (226 assets on 2026-11-26). No mesh uploads.
+- **Blender in a cloud thread:** the container has no Blender app and blender.org is blocked, but `pip install bpy==5.2.4` (Python 3.13) works, with `numpy` and `pillow` for the checks and sheets. Studio import checks and Studio screenshots go through Sync-Agent.
+- **Four checks after every build:** the build log has no FAIL, `gates.md` shows 0 FAIL, `rbx_zfight.py` prints only clean lines and `rbx_bowfit.py` ends "every bow clears".
+- **The owner's eye (2026-11-26):** nothing small standing out past a cat's outline (he called tangle clumps and fluff puffs "random skin sticking out their sides"), round cheeks and no bars beside the eyes, bows on the head's top corner, no big bow added where he did not ask for one. No asks for screenshots or recordings.
+- Store art is uploaded by the owner. The files to drag in are in `Model-Agent/store-art/picked-2026-11-26/`.
