@@ -80,10 +80,12 @@ THEMES = [
 # ---------------------------------------------------------------- to-dos
 TODOS = [
     ("Done", [
-        dict(id="lock", t="I am done, lock the design",
-             d="You ticked this on November 25 at 6:09 PM. We are writing the final one page design from your picks and will show it to you in the chat before the build starts. Nothing locks before you say yes to that page."),
+        dict(id="done2", t="I am done with the new questions",
+             d="Tick this when you have answered what you want to. Anything you leave takes our pick."),
     ]),
     ("Answered already, your words are saved", [
+        dict(id="lock", t="I am done, lock the design",
+             d="You ticked this on November 25 at 6:09 PM. The one page design was written from your picks and the build started that evening."),
         dict(id="puppytake", t="Your own take on Puppy Spa",
              d="You sent the pictures with no notes. Did the grooming feel good, what made you want to stop, how did the green tick that ends the groom feel and did [NEW] in its name do anything for you? Nearly half its voters disliked it, and we cannot tell why from pictures."),
         dict(id="mpswords", t="My Pet Salon, four things from memory",
@@ -116,12 +118,30 @@ TODOS = [
              d="Your rule from November 24: everything goes to the dev place first and nothing reaches the live game until you say it is good. You ticked this on November 24. Each time a new draft is up we say so in chat. Three answers help the most: did scrubbing feel good, was the clean kitten a nice moment and would you wash a second cat."),
     ]),
 ]
+SETUP = [
+    dict(id="s2-passes", t="Make the five game passes",
+         d="On the game you pick in the passes and products question above. Creator Hub, the game, Monetization, Passes. 2x Coins for 199 Robux, Second Builder for 299, Golden Sponge for 99, Lou the extra helper for 249 and Second pet slot for 249. Paste the five ids in the box, each with its name. Pass ids are public, so they are safe to paste. A pass cannot be deleted once it is made, which is why the code was merged first."),
+    dict(id="s2-products", t="Make the eight developer products",
+         d="Same page, under Developer Products. Finish now at 5, 15, 35, 75 and 99 Robux, for a build with 5 minutes or less left, 30 minutes, 2 hours, 8 hours and more than 8 hours. Crate at 49 and 5 Crates at 199. Starter Bundle at 299, or the price from the starter pack question. Paste the eight ids with their names."),
+    dict(id="s2-questionnaire", t="Fill in the maturity questionnaire",
+         d="On the live game's Creator Hub page, before the game opens to players. Growth-Agent wrote the answers from the design. Every answer is no except paid random items, which is yes because of the Robux crate. If it then asks whether the game checks Roblox's policy for each player, that is yes too. The result should be Minimal. If a question does not fit a plain no, write it in the box and we will answer it."),
+    dict(id="s2-serversize", t="Set the server size to six",
+         d="Your pick of November 25. In the game's settings, maximum players, 6. On the dev game and on the live game."),
+    dict(id="s2-private", t="Set private servers to 100 Robux",
+         d="On the live game. Creator Hub, Audience, Access Settings, private servers, Requires Robux, 100. It is a price per month, and Roblox Plus members get it free from Roblox, which is what you asked for. Changing the price later cancels the private servers players already pay for, so it is best set once."),
+    dict(id="s2-groupwall", t="Turn the Creampuff Games group wall off, or set it to moderated",
+         d="The gift stand asks players to join the group, so young players will land on that page. If you would rather leave the wall open, write that in the box."),
+    dict(id="s2-storeart", t="Put the store art in",
+         d="Model-Agent attached the files in the chat. The main icon and the alternates from your icon answer above, then the thumbnails in your order 2, 1, 3, 5. We cannot put files on the store page from here. When they are in, tick this and Model-Agent checks the page and the order."),
+    dict(id="s2-computeruse", t="Allow computer use for Studio on your PC",
+         d="When the card shows in the Claude app on your PC, press Allow. It lets Sync-Agent work Studio's own windows during test runs. We never press Allow for you."),
+]
 PARKED = [
-    ("Server size", "Now a question at the top of this page. Our pick is six."),
-    ("Maturity questionnaire", "We write the answers down for you once the gameplay is decided. The game needs a Minimal or Mild result."),
+    ("Server size", "Six, your pick. Setting it is in the setup list on this page."),
+    ("Maturity questionnaire", "The answers are written, and filling it in is in the setup list on this page."),
     ("100 plays from engaged players", "Your ads for this come when the game is ready for public testers."),
-    ("Notification text and key", "Needed once you pick when we ask, which is in the questions below. Players under 13 cannot get notifications."),
-    ("Store art, second version", "A more detailed icon and thumbnails wait for the design to lock."),
+    ("Notification text and key", "Now a question at the top of this page. Players under 13 cannot get notifications."),
+    ("Store art, second version", "Drawn on November 26. Your thumbnail order is saved and the icons are a question at the top of this page."),
     ("Sound uploads", "One batch after the game is picked."),
     ("Plus or Premium", "Only if Roblox asks for it when we apply for Kids and Select."),
     ("Private repos", "At release."),
@@ -131,6 +151,30 @@ PARKED = [
 YES = "Yes, go with it"
 ELSE = "Something else"
 QUESTIONS = [
+    ("New since the build started", "all the builders", "These came up on November 26 while the game was being built from your plan. If you leave one, our pick stands.", [
+        dict(id="packvalue", t="The starter pack ad shows the true saving, 45%", new=True,
+             d="You asked for a small side ad for the starter pack with a strong selling point such as 500% value. Design-Agent built the ad: the three items, 547 crossed out, 299 Robux, SAVE 45% and the time left. The number on it has to be true, and for this pack the true number is 45% off. Golden Sponge at 99, the second pet slot at 249 and 2x Coins at 199 come to 547, and the pack costs 299. A true 500% value would need the same three things for about 109 Robux. There are two honest ways to a bigger number. One is to show the saving in Robux, SAVE 248, which is the same deal and reads bigger. The other is a lower price: at 199 Robux the true saving is 63%. Our pick is to keep 299 and SAVE 45%. The price is a starting value you said to tune later, and a lower price earns a third less from each buyer before we know it brings more buyers. The ad works its number out from the real prices, so you can change the price on Roblox at any time and the ad follows.",
+             opts=["Yes, keep 299 Robux and show SAVE 45%", "Keep 299 Robux and show the saving in Robux, SAVE 248", "Lower the pack to 199 Robux, a true SAVE 63%", ELSE]),
+        dict(id="helperxp", t="Helpers have no XP: their levels are bought with coins", new=True,
+             d="You asked for a small popup over a helper when they finish a cat, showing the coins earned and the XP the helper gained. The popup is being built. But helpers have no XP today. A helper has five levels and each level is bought with coins in the Helpers window, so for now the popup shows coins only. Our pick is to keep it that way for the first playtests. Five levels are quick to follow, the coin price gives players something to save for, and helper pay is already balanced so that helpers and pets together earn less than your own washing. If you want XP, the second option adds it without changing what helpers earn: every cat a helper washes fills their bar, and a full bar unlocks the next level, which you still buy with coins. The popup then shows coins and XP as you described.",
+             opts=["Yes, keep levels bought with coins and show coins only", "Add helper XP: a full bar unlocks the next level, which still costs coins", "Helpers level up from XP alone, with no coin price", ELSE]),
+        dict(id="likeline", t="The like row says the gift comes either way", new=True,
+             d="Your Free Rewards idea is built as the Free gifts card at the gift stand. It stays off until this is settled. It has four rows: like the game for 150 coins, favourite the game, join the group and play 30 minutes for a free crate. Favourite plus group still gives Starcoat, as you decided. The 150 coins and the crate are Design-Agent's picks, so say in the box if you want other rewards. The like row works as you asked: it is first, you tap Like, a 10 second countdown runs and then Claim pays. A game cannot see a like, so the coins are paid whether the player liked or not. The open point is the wording. As built, the first line reads: If you enjoy it, 150 coins. Review-QA flagged it, because a young player reads that as like the game for 150 coins when the like is never checked. We found no Roblox rule for or against it, so this is our own rule for young players and your call. Our pick keeps the same flow and the same ask and changes that one line to: A gift either way, 150 coins. Nothing on the card pretends to check.",
+             opts=["Yes, the line reads: A gift either way, 150 coins", "Keep the line as built: If you enjoy it, 150 coins", "Like the example game: ask for the like, wait and claim, with no either way line", ELSE]),
+        dict(id="likeask", t="Asking for a like: after a good moment, once a visit", new=True,
+             d="You wanted to know how GloryBound holds a 99% like ratio and wondered if it only asks players who buy. Growth-Agent looked on November 26. GloryBound has 560,181 likes and 5,592 dislikes. No page shows how it asks, or that it asks at all, and you were never asked while playing. A game cannot pop up a like prompt and cannot read a like. It can pop up Roblox's own favourite prompt and check the result. The likely reason for a ratio that high is who votes: unhappy players mostly leave without voting and fans vote up. That part is our reasoning, not something a page says. Asking only buyers is possible, but we found nothing that shows GloryBound does it, and a like ask right after a purchase can feel like pressure to a young player. Our pick: the gift stand lights up at about minute 7, after the first special visitor's crate, as planned. A like ask only shows after a good moment, such as a crate opened, a three star card or a helper hired. There is one ask a visit, none within two minutes of a lost cat or a cancelled purchase, and after a no the game does not ask again for three visits. The favourite ask on the second visit stays. It is the more useful one, because a favourite can be prompted and checked.",
+             opts=["Yes, after a good moment, once a visit, never after a purchase or a lost cat", "Ask only players who have bought something", "No like ask shows by itself, the Free gifts row is the only place", ELSE]),
+        dict(id="icons2", t="Store icon: A stays the main one, with E, F and B as alternates", new=True,
+             d="Model-Agent drew a second set of store art. You ranked the thumbnails 2, 1, 3, 5 and that is saved. The icons are not picked yet. Roblox takes one main icon and a list of alternates that it tries on Home. Our pick: A, the orange cat in the bath, stays the main icon, because a main icon works best as a cat a new player meets in the first minute. E, half muddy and half clean, F, the stray in the box, and B, Prism, a special visitor's cat, are the alternates. C and D are spares. Nothing is uploaded until you put the files in yourself.",
+             imgs=[("art2/icons-set2.jpg", "Six draft store icons labelled A to F: an orange cat in a bath, a black unicorn cat in a bath, a pink sundae cat in a bath, an orange phoenix cat in a bath, a cat that is half muddy and half clean and a muddy grey cat in a cardboard box.", "Icons A to F")], wide=True,
+             opts=["Yes, A as the main icon with E, F and B as alternates", "A as the main icon with all five others as alternates", "A different main icon, named in the box", ELSE]),
+        dict(id="wheremake", t="Passes and products are made on the dev game first", new=True,
+             d="The shop code is merged: five passes, five Finish now prices, two crate buys and the starter pack. No buy button shows until the pass or product exists on Roblox and its id is in the code. Your dev game and your live game are two separate games on Roblox, and a pass or product made on one cannot be bought in the other. So there are two sets to make, 13 things each. Our pick follows your dev first rule: you make the dev set now, we test every purchase in Studio, where a test purchase costs no Robux, and you make the live set on the day you promote. The second option saves you the clicks on dev. Roblox lets a key make passes and products, so we would try making the dev set with the group key you already gave us. That changes your rule that store settings are yours, for the dev game only, and Gameplay-Engineer would first check that the key is allowed to. The lists with names and prices are in the setup steps below. The prices you set on Roblox are what players see, and you can change them there at any time.",
+             opts=["Yes, I make the dev set now and the live set when I promote", "You make the dev set with the key I already gave, and I make the live set", "Live only, with no shop buttons in the dev game", ELSE]),
+        dict(id="notifykey", t="Notifications: one small key that can only send them", new=True,
+             d="The game asks players of 13 and over once, at 1:45, whether they want a notification, and sends one when something they are waiting for is ready. The code is written. It cannot send anything until two things exist that only you can make: the notification message on the game's Creator Hub page, and a key saved on Roblox as a secret of the game, where only the game's server can read it. You said you want no more keys, so this is your call. Our pick is one new key that can do a single thing, which is send notifications for this game. If it ever leaked, that is all it could do. The other way is to save the group key you already have as the game's secret. That means no new key, but that key has full access, so a leak would matter far more. Either way the key goes straight from Roblox into the game's secrets. Never paste a key on this page or in the chat. When you pick, Gameplay-Engineer sends the exact message text and the clicks.",
+             opts=["Yes, one new key that can only send notifications", "No new key, save the group key I already have as the game's secret", "No notifications at launch, and the ask at 1:45 is removed", ELSE]),
+    ]),
     ("The game", "Planning-Agent", "These twelve decide what we build. Your playtests are done and five are answered already. The other seven are at the top of your to-do list.", [
         dict(id="loop", t="Your busy spa and a cat collection, together",
              d="All nine playtests are in, sorted under What the games told us near the bottom of this page. They point one way: the wash has to be real hand work, and the games that last give players more to chase than the work itself. Our pick puts your two ideas together. The busy spa is the minute to minute play: several cats wait, you pick who is next and helpers take the easy ones. The collection is the reason to keep going: every cat's coat is hidden under the mud, each new one fills a slot in your Cat Index and the pets you own come from crates that are hard to earn. Your own answers already lean this way. You said washed cats fill an index, crates are earned and a pet for you and each worker is a good idea. So this pick mostly confirms what you have said. Five of the six cleaning games from this summer are at 3% of their peak or less. The one that held on gives players more to chase than the cleaning.",
@@ -379,6 +423,7 @@ SAVED = [
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
 ]
 TODAY = [
+    ("The build, November 26", "The whole game is being drafted in the dev place from your plan. From your notes this morning: the phone HUD is tidied into a small grid with a More tray and gets a Build button, the coin popups for every cat go and a small popup shows over the helper, fewer white prompt bubbles show at once, two lines show around Roblox's leave screen, and waiting customers will stand at a counter window in a bigger spa. You said yes to one comparison run of the RbxSync test tools. Thumbnails go in your order 2, 1, 3, 5."),
     ("Planning closed, November 25", "You said all plan answered and asked for the whole playtest worthy game to be drafted. Server size is six, with private servers at 100 Robux or free with Roblox Plus. The customer cat names are the draft ones, and Cat Cafe names and designs can be used for rare customers. Bows follow your own words."),
     ("The free pet, November 25", "You said to prompt for the like, check and then give the pet. Roblox lets a game check a favourite and the group but not a like. So the gift stand asks for the like, checks the favourite and the group, then gives the pet."),
     ("Done ticked, November 25", "You ticked done at 6:09 PM. Every answer and every note is saved in the notes, the design file, project memory and the library. The final one page design is written from your picks and comes to you before the build starts."),
@@ -404,7 +449,7 @@ TODAY = [
     ("From your to-do list", "No friends as customers. The notification ask comes 1 to 2 minutes in. Suds explains in a bubble along the bottom. Plain Clean a Cat with no [NEW] tag. Washed cats fill an index. Crates are hard to earn and worth it, and the free one on day 2 is a good one. The kitten's eyes stay open while you carry him. A pet for you and one for each worker is the working plan and may change."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Still open", "Nothing on this page. You are still looking into how other games check a like, and private server pricing waits on what the Roblox setting allows."),
+    ("Still open", "The new questions at the top of this page, from November 26. Private servers can be set to 100 Robux a month, and Roblox Plus members get them free."),
     ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
@@ -509,10 +554,11 @@ themes_html = "".join(f'<li><strong>{e(a)}</strong><span>{e(b)}</span></li>' for
 done_html = "".join(f'<li><strong>{e(g["name"])}</strong><span>{e(g["took"])}</span></li>' for g in DONE_GAMES)
 prompts_html = "".join(f"<li>{e(p)}</li>" for p in NOTE_PROMPTS)
 extra_html = "".join(f"<li><strong>{e(a)}.</strong> {e(b)}</li>" for a, b in EXTRA_PROMPTS)
-FIRST = ["bows", "grouppet", "catnames", "serversize"]
+FIRST = []
 _all = {q["id"]: q for _, _, _, items in QUESTIONS for q in items}
-QUESTIONS = [("Last things from your answers", "Planning-Agent", "These came out of what you wrote on the evening of November 25. If you leave one, our pick stands.", [_all[i] for i in FIRST])] + [(t, w, l, [q for q in items if q["id"] not in FIRST]) for t, w, l, items in QUESTIONS]
+QUESTIONS = [(t, w, l, [q for q in items if q["id"] not in FIRST]) for t, w, l, items in QUESTIONS]
 done_todo_html = "".join(todo_item(t) for t in TODOS[0][1])
+setup_html = "".join(todo_item(t) for t in SETUP)
 todos_html = ""
 for title, items in TODOS[1:]:
     todos_html += f'<h3 class="group">{e(title)}</h3><ul class="todos">{"".join(todo_item(t) for t in items)}</ul>'
@@ -526,7 +572,7 @@ for title, who, lead, items in QUESTIONS:
     leadp = f'<p class="grouplead">{e(lead)}</p>' if lead else ""
     q_html += f'<div class="qgroup"><h3 class="group">{e(title)} <small>from {e(who)}</small></h3>{leadp}{block}</div>'
 NQ = n
-NT = sum(len(i) for _, i in TODOS)
+NT = sum(len(i) for _, i in TODOS) + len(SETUP)
 NG = len(GAMES)
 saved_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in SAVED + DECIDED)
 today_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in TODAY)
@@ -538,7 +584,7 @@ DATA = dict(
     main=[dict(id="p-" + g["id"], name=g["name"], fields=jf(g["fields"])) for g in GAMES],
     other=[dict(id="p-" + g["id"], name=g["name"], fields=[]) for g in OPTIONAL_GAMES]
           + [dict(id="p-" + g["id"], name=g["name"] + g.get("tag", " (round one)"), fields=jf(OLD_FIELDS)) for g in DONE_GAMES],
-    todos=[dict(id="c-" + t["id"], t=t["t"], q=("q2-" + t["q"]) if t.get("q") else None) for _, items in TODOS for t in items],
+    todos=[dict(id="c-" + t["id"], t=t["t"], q=("q2-" + t["q"]) if t.get("q") else None) for _, items in TODOS + [("Setup", SETUP)] for t in items],
     qs=[dict(id="q2-" + q["id"], t=q["t"], opts=q["opts"]) for _, _, _, items in QUESTIONS for q in items],
     need={"q2-" + q["id"]: 1 for _, _, _, items in QUESTIONS for q in items if q.get("need_note")},
 )
@@ -583,13 +629,13 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 
 <div class="wrap">
   <div class="intro">
-    <p class="eyebrow">Clean a Cat, updated November 25</p>
+    <p class="eyebrow">Clean a Cat, updated November 26</p>
     <h1>What is left to answer</h1>
-    <p class="lede">Planning is closed. You answered all 65 questions and said all plan answered on November 25. Every answer and note is saved, and you can still see or change each one under <a href="#answered">Answered already</a>. The one page design written from your picks is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>, and the builders are drafting the whole game in the dev place.</p>
+    <p class="lede">The game is being built in the dev place from your plan. __NNEW__ new questions came up on November 26, from your notes on the HUD, the starter pack ad and the Free gifts card and from what the builders need next. Each has our pick first. Under them is a short list of <a href="#setup">setup steps only you can do</a>. Your 65 earlier answers are saved under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
     <ol class="steps">
-      <li>Nothing is left to answer.</li>
-      <li>To change an answer, open <a href="#answered">Answered already</a> and tap another option or add words.</li>
-      <li>Anything new goes in the chat.</li>
+      <li>Answer the new questions. If you leave one, our pick stands.</li>
+      <li>Tick the setup steps as you do them. They can wait for a quiet moment, but the shop buttons stay hidden until the passes and products exist.</li>
+      <li>Tick done at the bottom, or say done in the chat.</li>
     </ol>
   </div>
 
@@ -608,6 +654,14 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
     __QUESTIONS__
     <div class="row"><button type="button" class="ghost" id="acceptall">Take our pick for everything I have not answered</button></div>
     <p class="gapnote"><strong>What nobody can tell us.</strong> No source gives a proven number for any hook, for how long a wait can be or for the right job length. We find out after launch by running two versions behind switches and reading Roblox's own numbers.</p>
+  </section>
+
+  <section id="setup">
+    <header>
+      <h2>Setup only you can do</h2>
+      <p>These are settings on your own Roblox pages and your PC. We cannot press them for you. Tick each one when it is done. The box under each is for ids or a note.</p>
+    </header>
+    <ul class="todos">__SETUP__</ul>
   </section>
 
   <section id="send">
@@ -873,7 +927,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 '''
 page = (PAGE.replace("__CSS__", CSS + EXTRA_CSS).replace("__PROMPTS__", prompts_html).replace("__EXTRA__", extra_html)
         .replace("__THEMES__", themes_html).replace("__GAMES__", games_html).replace("__OPT__", opt_html).replace("__DONE__", done_html)
-        .replace("__DONETODO__", done_todo_html).replace("__TODAY__", today_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
+        .replace("__DONETODO__", done_todo_html).replace("__SETUP__", setup_html).replace("__NNEW__", "Seven").replace("__TODAY__", today_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
         .replace("__SAVED__", saved_html).replace("__NQ__", str(NQ)).replace("__NT__", str(NT)).replace("__NG__", str(NG))
         .replace("__DATA__", json.dumps(DATA)))
 open(OUT_HTML, "w", encoding="utf-8").write(page)
@@ -914,6 +968,10 @@ for title, items in TODOS:
         link = f" [{t['link'][1]}]({t['link'][0]})" if t.get("link") else ""
         qn = f" Linked to question `{t['q']}`, ticks itself when answered." if t.get("q") else ""
         M.append(f"- [ ] **{t['t']}** (`{t['id']}`). {t['d']}{link}{qn}")
+M.append("")
+M.append("**Setup only Derek can do (added 2026-11-26)**")
+for t in SETUP:
+    M.append(f"- [ ] **{t['t']}** (`{t['id']}`). {t['d']}")
 M.append("")
 M.append("**Parked until the game is picked**")
 for a, b in PARKED:
