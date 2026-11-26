@@ -45,10 +45,35 @@ Never: secrets anywhere but GitHub secrets; player names in a public repo; spend
 - **A remote that may not exist yet:** hook with `FindFirstChild` plus `ChildAdded`, not an endless wait.
 - **Never say "live"** until a publish run containing the merge has succeeded.
 
+- **Read the PR's last comment after every push and on every wake.** Review comments do not always wake the thread;
+  a CHANGES NEEDED sat unseen for two hours on 2026-11-26.
+- **Piping the gate through grep hides luau-lsp's exit code.** Save its output to a file and count "Error" before
+  pushing.
+- **Weak tables with Instance keys** are not reliably collected (#679): use a strong table, clear it on Destroying.
+- **Telemetry fields** must be small fixed sets; measures (seconds, counts) go in the event's value.
+- **Only `claude/project-thread-<id>` may be pushed** from a project thread, and auto mode refuses a force-push on an
+  open PR. Park other work as `git format-patch` files in the shared folder; revert inside a PR rather than rewrite it.
+- **flags.yml runs share one concurrency group:** one run at a time, then `action show` to confirm.
+
 ## 6. Skills
 `luau-conventions`, `remote-security-checklist`, `merge-and-publish`, `roblox-dev-skill`, `roblox-testing`, `roblox-gui`, `ui-review`, `roblox-release-operations`, `roblox-doctor`.
 
 ## 7. This game (Clean a Cat)
+- **Start here:** the latest handoff in the shared project files, `Gameplay-Engineer/handoff-2026-11-26.md`. It holds
+  open PR 785, the parked like ask, notify id and window bow patches (`Gameplay-Engineer/wip-2026-11-26/`), the dev
+  switch state and the notification setup.
+- Game repo derekburnz/Clean-a-Cat, game folder `games/clean-a-cat/`, prefix `CleanACat`, skills in `.claude/skills/`.
+  Dev universe 10778775478, live 10778773655. Products and Passes pick ids per experience (`Products.currentGame`).
+- Gate from `games/clean-a-cat`: stylua --respect-ignores, rojo sourcemap, luau-lsp analyze (ignore Packages,
+  ServerPackages, src/server/Vendor), then in `tools/cloudcheck`: `node analyze.mjs`, `node analyze.mjs --tests`,
+  `node run-tests.mjs`, `node uigate.mjs`. Selene runs only in CI. Tool binaries go in the scratchpad's tools/bin.
+- Workflows: `flags.yml` {target, action set|show, key, value}; `restart-servers.yml` {target, warn_players}
+  (dev restarts allowed until public release); `notify-key.yml` {target, action check|install|string}. Live anything
+  only on Derek's own word.
+- PR body starts with the claude-projects attribution comment and the "Requested by" line, as the thread's
+  instructions give them. Never assign or request review from the 2573351 login.
+
+### Older notes (2026-11-23 to 11-24)
 - Game repo derekburnz/Clean-a-Cat (library is in derekburnz/Clean-a-Cat-Library). Game folder `games/clean-a-cat/`, prefix `CleanACat`, skills in `.claude/skills/`. Seeded by PR #2 on 2026-11-23 ET.
 - Selene cannot run in a cloud thread (it fetches Roblox's API dump, which the proxy blocks). Run the rest of `check.sh` by hand (rojo, luau-lsp, stylua) and let CI judge Selene. Toolchain binaries download fine from GitHub releases.
 - Publish stays idle until the Roblox experience, `ROBLOX_PUBLISH_KEY`, `ROBLOX_UNIVERSE_ID` and `ROBLOX_PLACE_ID` exist.

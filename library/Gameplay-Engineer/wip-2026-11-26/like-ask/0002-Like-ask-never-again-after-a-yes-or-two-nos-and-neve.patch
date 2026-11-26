@@ -1,0 +1,181 @@
+From 927840583c17b134a3aa0518eb9f63e04c18d627 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 26 Nov 2026 18:28:31 +0000
+Subject: [PATCH 2/2] Like ask: never again after a yes or two nos, and never
+ in the first session's tutorial
+
+Review-QA's pressure limits from the review of Design PR 774, on top of Derek's rule. The save keeps
+likeNos and likeYes; the tutorial is SpaRules.TUTORIAL_ENDS_AT seconds of play.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2up1ifWDJxe6WW4Refrv
+---
+ .../src/server/Services/LikeAskService.luau   | 12 +++++++++--
+ .../clean-a-cat/src/shared/LikeAskRules.luau  | 11 +++++++++-
+ games/clean-a-cat/src/shared/SaveSchema.luau  |  4 ++++
+ .../tests/specs/LikeAskRules.spec.luau        | 20 +++++++++++++++++++
+ .../tests/specs/SaveSchema.spec.luau          |  2 ++
+ 5 files changed, 46 insertions(+), 3 deletions(-)
+
+diff --git a/games/clean-a-cat/src/server/Services/LikeAskService.luau b/games/clean-a-cat/src/server/Services/LikeAskService.luau
+index e05fe58..14bfb00 100644
+--- a/games/clean-a-cat/src/server/Services/LikeAskService.luau
++++ b/games/clean-a-cat/src/server/Services/LikeAskService.luau
+@@ -4,8 +4,9 @@
+ --   LikeAskService.moment(player, kind)   a good moment ("special", "crate", "stars", "helper", "purchase")
+ --   LikeAskService.bad(player)            a lost cat or a cancelled purchase: no ask for two minutes
+ -- When the ask is due the Player attribute LikeAskDue holds the moment's name; the client's ask queue shows Design's
+--- card when the screen is free and answers with RequestLikeAnswer. A "no" is saved (likeNoVisit), so the ask waits
+--- three visits; "closed" is no answer. Nothing here pays anything: the like row's coins stay FreeRewardService's.
++-- card when the screen is free and answers with RequestLikeAnswer. A "no" is saved (likeNoVisit, likeNos), so the
++-- ask waits three visits and stops after two; a "yes" is saved (likeYes) and it never comes again; "closed" is no
++-- answer. None while the first session's tutorial runs. Nothing here pays anything: the like row's coins stay FreeRewardService's.
+ local Players = game:GetService("Players")
+ local ReplicatedStorage = game:GetService("ReplicatedStorage")
+ 
+@@ -13,6 +14,7 @@ local Shared = ReplicatedStorage:WaitForChild("Shared")
+ local AskRules = require(Shared:WaitForChild("AskRules"))
+ local LikeAskRules = require(Shared:WaitForChild("LikeAskRules"))
+ local LiveFlags = require(Shared:WaitForChild("LiveFlags"))
++local SpaRules = require(Shared:WaitForChild("SpaRules"))
+ 
+ local DataService = require(script.Parent:WaitForChild("DataService"))
+ local NetService = require(script.Parent:WaitForChild("NetService"))
+@@ -52,6 +54,9 @@ local function blocked(player: Player, visit: Visit): boolean
+ 	return LikeAskRules.blocked({
+ 		visit = save.visits,
+ 		noVisit = save.likeNoVisit,
++		nos = save.likeNos,
++		saidYes = save.likeYes,
++		inTutorial = (Telemetry.played(player) or save.playSeconds) < SpaRules.TUTORIAL_ENDS_AT,
+ 		likePaid = save.freeRewards.like,
+ 		askedThisVisit = visit.asked,
+ 		lastBadAt = visit.lastBadAt,
+@@ -107,6 +112,9 @@ local function onAnswer(player: Player, raw: unknown)
+ 	local save = DataService.get(player)
+ 	if answer == "no" and save then
+ 		save.likeNoVisit = save.visits
++		save.likeNos += 1
++	elseif answer == "yes" and save then
++		save.likeYes = true
+ 	end
+ 	Telemetry.event(player, "like_ask_answered", 1, { answer :: string, tostring(due) })
+ end
+diff --git a/games/clean-a-cat/src/shared/LikeAskRules.luau b/games/clean-a-cat/src/shared/LikeAskRules.luau
+index 80d1bb5..48b6104 100644
+--- a/games/clean-a-cat/src/shared/LikeAskRules.luau
++++ b/games/clean-a-cat/src/shared/LikeAskRules.luau
+@@ -6,6 +6,8 @@
+ --     helper hired, and (his "maybe", AFTER_PURCHASE) a completed purchase, PURCHASE_DELAY seconds later;
+ --   - one ask a visit; after a "no", none for NO_VISITS visits; never once the like row is paid;
+ --   - never within GUARD_SECONDS of a lost cat or a cancelled purchase.
++-- Review-QA's pressure limits on top (review of Design PR 774): never again after a "yes" or after MAX_NOS "no"s, and
++-- never while the first session's tutorial runs (SpaRules.TUTORIAL_ENDS_AT seconds of play).
+ -- Pure, so tests/specs/LikeAskRules.spec.luau covers it; LikeAskService uses it.
+ 
+ local LikeAskRules = {}
+@@ -18,12 +20,16 @@ LikeAskRules.AFTER_PURCHASE = true -- Derek's "maybe also after a purchase just
+ LikeAskRules.PURCHASE_DELAY = 120 -- seconds from a completed purchase to its ask, so it is never on the purchase screen
+ LikeAskRules.GUARD_SECONDS = 120 -- no ask this long after a lost cat or a cancelled purchase
+ LikeAskRules.NO_VISITS = 3 -- visits with no ask after a "no"
++LikeAskRules.MAX_NOS = 2 -- after this many "no"s the ask never comes again
+ 
+ export type Moment = "special" | "crate" | "stars" | "helper" | "purchase"
+ export type Answer = "yes" | "no" | "closed"
+ export type State = {
+ 	visit: number, -- this visit's number (the save's visits, the first is 1)
+ 	noVisit: number, -- the visit of the last "no", 0 for none
++	nos: number, -- how many times the ask was answered "no"
++	saidYes: boolean, -- the ask was once answered "yes"
++	inTutorial: boolean, -- the first session's tutorial is still running
+ 	likePaid: boolean, -- the gift card's like row is paid
+ 	askedThisVisit: boolean,
+ 	lastBadAt: number, -- when a cat was last lost or a purchase cancelled, -math.huge for never
+@@ -46,7 +52,10 @@ end
+ 
+ -- Whether no ask may come due now, whatever the moment.
+ function LikeAskRules.blocked(state: State): boolean
+-	if state.likePaid or state.askedThisVisit then
++	if state.likePaid or state.askedThisVisit or state.saidYes or state.inTutorial then
++		return true
++	end
++	if state.nos >= LikeAskRules.MAX_NOS then
+ 		return true
+ 	end
+ 	if state.noVisit > 0 and state.visit - state.noVisit <= LikeAskRules.NO_VISITS then
+diff --git a/games/clean-a-cat/src/shared/SaveSchema.luau b/games/clean-a-cat/src/shared/SaveSchema.luau
+index de6cb1d..639423f 100644
+--- a/games/clean-a-cat/src/shared/SaveSchema.luau
++++ b/games/clean-a-cat/src/shared/SaveSchema.luau
+@@ -113,6 +113,8 @@ export type Save = {
+ 	freeRewards: { play: boolean, like: boolean }, -- the gift card's Free Rewards rows already paid (issue 730)
+ 	likeAskedAt: number, -- os.time() the card's like ask was first opened, 0 before (FreeRewardRules; never a like)
+ 	likeNoVisit: number, -- the visit the like ask was last answered "Not now", 0 before (LikeAskRules)
++	likeNos: number, -- how many times the like ask was answered "Not now" (LikeAskRules.MAX_NOS)
++	likeYes: boolean, -- the like ask was once answered "yes": it never comes again
+ 	visiting: boolean, -- others may visit this spa (issue 520)
+ 	jarCoins: number, -- the tip jar's coins waiting (issue 517)
+ 	jarAt: number, -- os.time() the jar was last filled or emptied
+@@ -171,6 +173,8 @@ function SaveSchema.template(now: number): Save
+ 		freeRewards = { play = false, like = false },
+ 		likeAskedAt = 0,
+ 		likeNoVisit = 0,
++		likeNos = 0,
++		likeYes = false,
+ 		visiting = true,
+ 		jarCoins = 0,
+ 		jarAt = 0,
+diff --git a/games/clean-a-cat/tests/specs/LikeAskRules.spec.luau b/games/clean-a-cat/tests/specs/LikeAskRules.spec.luau
+index 45d0fe7..e0da233 100644
+--- a/games/clean-a-cat/tests/specs/LikeAskRules.spec.luau
++++ b/games/clean-a-cat/tests/specs/LikeAskRules.spec.luau
+@@ -8,6 +8,9 @@ return function()
+ 		return {
+ 			visit = fields.visit or 1,
+ 			noVisit = fields.noVisit or 0,
++			nos = fields.nos or 0,
++			saidYes = fields.saidYes == true,
++			inTutorial = fields.inTutorial == true,
+ 			likePaid = fields.likePaid == true,
+ 			askedThisVisit = fields.askedThisVisit == true,
+ 			lastBadAt = fields.lastBadAt or -math.huge,
+@@ -29,6 +32,23 @@ return function()
+ 			end
+ 		)
+ 
++		it(
++			"never asks again after a yes or two nos, and never in the tutorial (Review-QA)",
++			function()
++				expect(LikeAskRules.blocked(state({ visit = 9, saidYes = true }))).to.equal(true)
++				expect(LikeAskRules.blocked(state({ visit = 9, nos = 1, noVisit = 2 }))).to.equal(
++					false
++				)
++				expect(
++					LikeAskRules.blocked(
++						state({ visit = 99, nos = LikeAskRules.MAX_NOS, noVisit = 2 })
++					)
++				).to.equal(true)
++				expect(LikeAskRules.blocked(state({ inTutorial = true }))).to.equal(true)
++				expect(LikeAskRules.blocked(state({}))).to.equal(false)
++			end
++		)
++
+ 		it("takes only the good moments and the three answers", function()
+ 			for _, moment in LikeAskRules.MOMENTS do
+ 				expect(LikeAskRules.cleanMoment(moment)).to.equal(moment)
+diff --git a/games/clean-a-cat/tests/specs/SaveSchema.spec.luau b/games/clean-a-cat/tests/specs/SaveSchema.spec.luau
+index d21dd33..a07ac06 100644
+--- a/games/clean-a-cat/tests/specs/SaveSchema.spec.luau
++++ b/games/clean-a-cat/tests/specs/SaveSchema.spec.luau
+@@ -136,6 +136,8 @@ return function()
+ 			expect(old.freeRewards.like).to.equal(false)
+ 			expect(old.likeAskedAt).to.equal(0)
+ 			expect(old.likeNoVisit).to.equal(0)
++			expect(old.likeNos).to.equal(0)
++			expect(old.likeYes).to.equal(false)
+ 			local paid = SaveSchema.migrate(
+ 				{ version = 1, freeRewards = { like = true }, likeAskedAt = 50 },
+ 				100
+-- 
+2.43.0
+

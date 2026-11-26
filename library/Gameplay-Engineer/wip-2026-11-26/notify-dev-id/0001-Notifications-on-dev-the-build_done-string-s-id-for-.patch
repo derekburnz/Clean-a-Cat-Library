@@ -1,0 +1,39 @@
+From 62af960cdf3dac0b07748437712e21cc7c216f13 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 26 Nov 2026 17:39:18 +0000
+Subject: [PATCH] Notifications on dev: the build_done string's id for
+ Clean-a-Cat-Dev
+
+Made by the notify-key workflow's string action (run 45869055809); the group key is saved as the
+dev experience secret CleanACat_NotifyKey (run 45869350793). Live stays empty until Derek says so.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2up1ifWDJxe6WW4Refrv
+---
+ games/clean-a-cat/src/shared/NotifyRules.luau | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/games/clean-a-cat/src/shared/NotifyRules.luau b/games/clean-a-cat/src/shared/NotifyRules.luau
+index e9fa6f0..c828b66 100644
+--- a/games/clean-a-cat/src/shared/NotifyRules.luau
++++ b/games/clean-a-cat/src/shared/NotifyRules.luau
+@@ -10,11 +10,12 @@ local NotifyRules = {}
+ 
+ NotifyRules.LONG_SECONDS = BuildRules.LONG_SECONDS -- a build this long or longer gets the bell
+ NotifyRules.DAY_SECONDS = 86400
+--- The notification string's asset id per experience (game.GameId): Creator Hub > the game > Engagement >
+--- Notifications > Create a Notification String, then ⋯ > Copy Asset ID. Not secret. "" until the owner makes it;
+--- NotifyService falls back to the ServerStorage attribute NotifyMessageId, then sends nothing.
++-- The notification string's asset id per experience (game.GameId). The notify-key workflow's `string` action makes
++-- the build_done string and prints its id (or Creator Hub > the game > Engagement > Notifications > ⋯ > Copy Asset
++-- ID). Not secret. "" until it is made; NotifyService falls back to the ServerStorage attribute NotifyMessageId,
++-- then sends nothing.
+ NotifyRules.MESSAGE_IDS = table.freeze({
+-	[10778775478] = "", -- Clean-a-Cat-Dev
++	[10778775478] = "c0b0f489-64ff-6c46-817b-cff6ded5c9c5", -- Clean-a-Cat-Dev: build_done, made 2026-11-26
+ 	[10778773655] = "", -- Clean a Cat
+ }) :: { [number]: string }
+ NotifyRules.MAX_WAIT_SECONDS = 30 * 86400 -- a queued message older than this is dropped (MemoryStore keeps 45 days)
+-- 
+2.43.0
+

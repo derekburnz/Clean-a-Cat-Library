@@ -1,0 +1,49 @@
+From b5a04952583e542aa399616165381336106e082e Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 26 Nov 2026 17:30:35 +0000
+Subject: [PATCH] Window cats wear the bow tier in use, as at the tub (Sync's
+ issue 773 finding)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2up1ifWDJxe6WW4Refrv
+---
+ .../src/client/Controllers/WindowController.luau      | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/games/clean-a-cat/src/client/Controllers/WindowController.luau b/games/clean-a-cat/src/client/Controllers/WindowController.luau
+index 06ebc3c..d38dc5f 100644
+--- a/games/clean-a-cat/src/client/Controllers/WindowController.luau
++++ b/games/clean-a-cat/src/client/Controllers/WindowController.luau
+@@ -3,11 +3,13 @@
+ -- window seat at SpotWindow1 to 4, or on four placeholder cushions in the placeholder room. It only draws what the server sends (Residents);
+ -- WindowService owns the residents and the tips. The real window comes with Model-Agent's #17. Behind the
+ -- LiveFlags switch `strays`.
++local Players = game:GetService("Players")
+ local ReplicatedStorage = game:GetService("ReplicatedStorage")
+ local Workspace = game:GetService("Workspace")
+ 
+ local BowFit = require(script.Parent.Parent:WaitForChild("Spa"):WaitForChild("BowFit"))
+ local Shared = ReplicatedStorage:WaitForChild("Shared")
++local BowRules = require(Shared:WaitForChild("BowRules"))
+ local CatRules = require(Shared:WaitForChild("CatRules"))
+ local LiveFlags = require(Shared:WaitForChild("LiveFlags"))
+ local Remotes = require(Shared:WaitForChild("Remotes"))
+@@ -133,7 +135,14 @@ local function onResidents(rawList: unknown)
+ 				end
+ 				cat:SetAttribute("Resident", true)
+ 				if type(bowId) == "string" and table.find(SpaRules.BOWS, bowId) then
+-					BowFit.wear(cat, bowId, scale)
++					-- (switch bowTiers) the tier in use, as at the tub; the plain bow while its model is not in the place
++					local tier = Players.LocalPlayer:GetAttribute(BowRules.ATTRIBUTE)
++					local look = if LiveFlags.isOn(BowRules.FLAG)
++						then BowRules.lookId(bowId, BowRules.clean(tier))
++						else bowId
++					if not (look ~= bowId and BowFit.wear(cat, look, scale)) then
++						BowFit.wear(cat, bowId, scale)
++					end
+ 				end
+ 				cat.Parent = line
+ 			end
+-- 
+2.43.0
+

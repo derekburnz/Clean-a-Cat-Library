@@ -1,0 +1,653 @@
+From df69c97d40e8b8e8623dfcb0d5cef74b12722d83 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 26 Nov 2026 15:35:26 +0000
+Subject: [PATCH 1/2] Like ask after a good moment: the server sets LikeAskDue,
+ the ask queue shows Design's card (switch likeAsk, Derek's q2-likeask)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2up1ifWDJxe6WW4Refrv
+---
+ .../client/Controllers/LikeAskController.luau |  99 +++++++++++
+ .../src/server/Services/LikeAskService.luau   | 157 ++++++++++++++++++
+ .../src/server/Services/PassService.luau      |   3 +
+ .../src/server/Services/PetService.luau       |   2 +
+ .../src/server/Services/PurchaseService.luau  |   3 +
+ .../src/server/Services/SpaService.luau       |   8 +
+ .../src/server/Services/WorkerService.luau    |   2 +
+ games/clean-a-cat/src/shared/AskRules.luau    |   1 +
+ .../clean-a-cat/src/shared/LikeAskRules.luau  |  66 ++++++++
+ games/clean-a-cat/src/shared/LiveFlags.luau   |   2 +
+ games/clean-a-cat/src/shared/Remotes.luau     |   2 +
+ games/clean-a-cat/src/shared/SaveSchema.luau  |   2 +
+ .../tests/specs/LikeAskRules.spec.luau        |  69 ++++++++
+ .../tests/specs/SaveSchema.spec.luau          |   1 +
+ 14 files changed, 417 insertions(+)
+ create mode 100644 games/clean-a-cat/src/client/Controllers/LikeAskController.luau
+ create mode 100644 games/clean-a-cat/src/server/Services/LikeAskService.luau
+ create mode 100644 games/clean-a-cat/src/shared/LikeAskRules.luau
+ create mode 100644 games/clean-a-cat/tests/specs/LikeAskRules.spec.luau
+
+diff --git a/games/clean-a-cat/src/client/Controllers/LikeAskController.luau b/games/clean-a-cat/src/client/Controllers/LikeAskController.luau
+new file mode 100644
+index 0000000..6149834
+--- /dev/null
++++ b/games/clean-a-cat/src/client/Controllers/LikeAskController.luau
+@@ -0,0 +1,99 @@
++--!strict
++-- LikeAskController: the like ask on the client (LikeAskRules, switch likeAsk with askQueue). The server decides when
++-- it is due (the Player attribute LikeAskDue, the moment's name); this puts "like" in the ask queue, so it shows only
++-- when the screen is free, and sends the answer back. Design's card plugs in:
++--
++--   LikeAskController.onShow(show, hide?)   show(moment) puts the card up when its turn comes; hide() takes it down
++--   LikeAskController.answer(kind)          "yes" (Like the game: the card then opens the gift card's like row),
++--                                           "no" (Not now: not asked again for three visits) or "closed" (X or back)
++--
++-- Until a card is plugged in nothing is queued, so the switch shows nothing.
++local Players = game:GetService("Players")
++local ReplicatedStorage = game:GetService("ReplicatedStorage")
++
++local Shared = ReplicatedStorage:WaitForChild("Shared")
++local LikeAskRules = require(Shared:WaitForChild("LikeAskRules"))
++local LiveFlags = require(Shared:WaitForChild("LiveFlags"))
++local Remotes = require(Shared:WaitForChild("Remotes"))
++
++local ID = "like"
++
++local LikeAskController = {}
++
++local player = Players.LocalPlayer
++local ask: any = nil -- AskController
++local showCard: ((moment: string) -> ())? = nil
++local hideCard: (() -> ())? = nil
++local up = false
++
++local function due(): string?
++	local moment = player:GetAttribute(LikeAskRules.ATTRIBUTE)
++	return if type(moment) == "string" then moment else nil
++end
++
++local function sync()
++	local moment = due()
++	if
++		moment == nil
++		or not LiveFlags.isOn(LikeAskRules.FLAG)
++		or showCard == nil
++		or not ask.on()
++	then
++		ask.drop(ID)
++		if up then
++			up = false
++			if hideCard then
++				hideCard()
++			end
++			ask.done(ID, "closed")
++		end
++		return
++	end
++	if up then
++		return
++	end
++	ask.want(ID, function()
++		local now = due()
++		local show = showCard
++		if now == nil or show == nil then
++			ask.skip(ID) -- it went away while it waited
++			return
++		end
++		up = true
++		show(now)
++	end, function()
++		up = false
++		if hideCard then
++			hideCard()
++		end
++	end)
++end
++
++function LikeAskController.onShow(show: (moment: string) -> (), hide: (() -> ())?)
++	showCard = show
++	hideCard = hide
++	sync()
++end
++
++function LikeAskController.answer(kind: string)
++	local answer = LikeAskRules.cleanAnswer(kind)
++	if answer == nil or due() == nil then
++		return
++	end
++	Remotes.event("RequestLikeAnswer"):FireServer(answer)
++	up = false
++	ask.done(ID, answer)
++end
++
++function LikeAskController.Init(controllers: { [string]: any })
++	ask = controllers.AskController
++end
++
++function LikeAskController.Start()
++	player:GetAttributeChangedSignal(LikeAskRules.ATTRIBUTE):Connect(sync)
++	ReplicatedStorage:GetAttributeChangedSignal(LiveFlags.ATTRIBUTE_PREFIX .. LikeAskRules.FLAG)
++		:Connect(sync)
++	sync()
++end
++
++return LikeAskController
+diff --git a/games/clean-a-cat/src/server/Services/LikeAskService.luau b/games/clean-a-cat/src/server/Services/LikeAskService.luau
+new file mode 100644
+index 0000000..e05fe58
+--- /dev/null
++++ b/games/clean-a-cat/src/server/Services/LikeAskService.luau
+@@ -0,0 +1,157 @@
++--!strict
++-- LikeAskService: decides when a player is asked to like the game (LikeAskRules, Derek's q2-likeask rule), behind the
++-- LiveFlags switch likeAsk with askQueue. Other services report moments:
++--   LikeAskService.moment(player, kind)   a good moment ("special", "crate", "stars", "helper", "purchase")
++--   LikeAskService.bad(player)            a lost cat or a cancelled purchase: no ask for two minutes
++-- When the ask is due the Player attribute LikeAskDue holds the moment's name; the client's ask queue shows Design's
++-- card when the screen is free and answers with RequestLikeAnswer. A "no" is saved (likeNoVisit), so the ask waits
++-- three visits; "closed" is no answer. Nothing here pays anything: the like row's coins stay FreeRewardService's.
++local Players = game:GetService("Players")
++local ReplicatedStorage = game:GetService("ReplicatedStorage")
++
++local Shared = ReplicatedStorage:WaitForChild("Shared")
++local AskRules = require(Shared:WaitForChild("AskRules"))
++local LikeAskRules = require(Shared:WaitForChild("LikeAskRules"))
++local LiveFlags = require(Shared:WaitForChild("LiveFlags"))
++
++local DataService = require(script.Parent:WaitForChild("DataService"))
++local NetService = require(script.Parent:WaitForChild("NetService"))
++local Telemetry = require(script.Parent:WaitForChild("Telemetry"))
++
++local CHECK_SECONDS = 1
++
++local LikeAskService = {}
++
++type Visit = {
++	asked: boolean, -- the ask came due this visit
++	lastBadAt: number,
++	pending: { moment: LikeAskRules.Moment, at: number }?, -- a purchase's ask, waiting PURCHASE_DELAY
++}
++
++local visits: { [Player]: Visit } = {}
++
++local function on(): boolean
++	return LiveFlags.isOn(LikeAskRules.FLAG) and LiveFlags.isOn(AskRules.FLAG)
++end
++
++local function visitOf(player: Player): Visit
++	local found = visits[player]
++	if found then
++		return found
++	end
++	local visit: Visit = { asked = false, lastBadAt = -math.huge, pending = nil :: any }
++	visits[player] = visit
++	return visit
++end
++
++local function blocked(player: Player, visit: Visit): boolean
++	local save = DataService.get(player)
++	if save == nil then
++		return true
++	end
++	return LikeAskRules.blocked({
++		visit = save.visits,
++		noVisit = save.likeNoVisit,
++		likePaid = save.freeRewards.like,
++		askedThisVisit = visit.asked,
++		lastBadAt = visit.lastBadAt,
++		now = os.clock(),
++	})
++end
++
++local function makeDue(player: Player, moment: LikeAskRules.Moment)
++	local visit = visitOf(player)
++	visit.asked = true
++	visit.pending = nil
++	player:SetAttribute(LikeAskRules.ATTRIBUTE, moment)
++	Telemetry.event(player, "like_ask_due", 1, { moment :: string })
++end
++
++function LikeAskService.moment(player: Player, kind: LikeAskRules.Moment)
++	if not on() or player.Parent ~= Players then
++		return
++	end
++	local visit = visitOf(player)
++	if blocked(player, visit) or player:GetAttribute(LikeAskRules.ATTRIBUTE) ~= nil then
++		return
++	end
++	local now = os.clock()
++	local at = LikeAskRules.dueAt(kind, now)
++	if at == nil then
++		return
++	elseif at <= now then
++		makeDue(player, kind)
++	elseif visit.pending == nil then
++		visit.pending = { moment = kind, at = at }
++	end
++end
++
++function LikeAskService.bad(player: Player)
++	local visit = visitOf(player)
++	visit.lastBadAt = os.clock()
++	visit.pending = nil -- a purchase's ask is dropped, not put off
++	-- an ask due but not answered yet goes away too; a later good moment may still bring it this visit
++	if player:GetAttribute(LikeAskRules.ATTRIBUTE) ~= nil then
++		player:SetAttribute(LikeAskRules.ATTRIBUTE, nil)
++		visit.asked = false
++	end
++end
++
++local function onAnswer(player: Player, raw: unknown)
++	local answer = LikeAskRules.cleanAnswer(raw)
++	local due = player:GetAttribute(LikeAskRules.ATTRIBUTE)
++	if answer == nil or due == nil then
++		return
++	end
++	player:SetAttribute(LikeAskRules.ATTRIBUTE, nil)
++	local save = DataService.get(player)
++	if answer == "no" and save then
++		save.likeNoVisit = save.visits
++	end
++	Telemetry.event(player, "like_ask_answered", 1, { answer :: string, tostring(due) })
++end
++
++function LikeAskService.Init(_services: { [string]: any }) end
++
++function LikeAskService.Start()
++	NetService.on("RequestLikeAnswer", { perSecond = 1, burst = 2 }, onAnswer)
++	Players.PlayerRemoving:Connect(function(player: Player)
++		visits[player] = nil
++	end)
++	for _, flag in { LikeAskRules.FLAG, AskRules.FLAG } do
++		ReplicatedStorage:GetAttributeChangedSignal(LiveFlags.ATTRIBUTE_PREFIX .. flag)
++			:Connect(function()
++				if on() then
++					return
++				end
++				for _, player in Players:GetPlayers() do
++					player:SetAttribute(LikeAskRules.ATTRIBUTE, nil)
++					local visit = visits[player]
++					if visit then
++						visit.pending = nil
++					end
++				end
++			end)
++	end
++	task.spawn(function()
++		while true do
++			task.wait(CHECK_SECONDS)
++			local now = os.clock()
++			for player, visit in visits do
++				local pending = visit.pending
++				if pending and now >= pending.at then
++					visit.pending = nil
++					if
++						on()
++						and not blocked(player, visit)
++						and player:GetAttribute(LikeAskRules.ATTRIBUTE) == nil
++					then
++						makeDue(player, pending.moment)
++					end
++				end
++			end
++		end
++	end)
++end
++
++return LikeAskService
+diff --git a/games/clean-a-cat/src/server/Services/PassService.luau b/games/clean-a-cat/src/server/Services/PassService.luau
+index aecf61e..480b3a9 100644
+--- a/games/clean-a-cat/src/server/Services/PassService.luau
++++ b/games/clean-a-cat/src/server/Services/PassService.luau
+@@ -27,6 +27,7 @@ local SaveSchema = require(Shared:WaitForChild("SaveSchema"))
+ local Signal = require(Shared:WaitForChild("Signal"))
+ 
+ local DataService = require(script.Parent:WaitForChild("DataService"))
++local LikeAskService = require(script.Parent:WaitForChild("LikeAskService"))
+ local NetService = require(script.Parent:WaitForChild("NetService"))
+ local Telemetry = require(script.Parent:WaitForChild("Telemetry"))
+ 
+@@ -145,6 +146,7 @@ local function onFinished(player: Player, passId: number, bought: boolean)
+ 	end
+ 	if not bought then
+ 		Telemetry.event(player, "purchase_step", 1, { key, "cancelled" })
++		LikeAskService.bad(player)
+ 		return
+ 	end
+ 	-- This signal fires on the server from Roblox itself, so the purchase is real; the save may still be loading.
+@@ -157,6 +159,7 @@ local function onFinished(player: Player, passId: number, bought: boolean)
+ 	end
+ 	give(player, key)
+ 	Telemetry.event(player, "purchase_step", 1, { key, "granted" })
++	LikeAskService.moment(player, "purchase")
+ 	if on() then
+ 		NetService.notice(player, `{Passes.INFO[key].name} is yours. Thank you!`)
+ 	end
+diff --git a/games/clean-a-cat/src/server/Services/PetService.luau b/games/clean-a-cat/src/server/Services/PetService.luau
+index 55d144e..9087b36 100644
+--- a/games/clean-a-cat/src/server/Services/PetService.luau
++++ b/games/clean-a-cat/src/server/Services/PetService.luau
+@@ -18,6 +18,7 @@ local LiveFlags = require(Shared:WaitForChild("LiveFlags"))
+ local Passes = require(Shared:WaitForChild("Passes"))
+ 
+ local DataService = require(script.Parent:WaitForChild("DataService"))
++local LikeAskService = require(script.Parent:WaitForChild("LikeAskService"))
+ local NetService = require(script.Parent:WaitForChild("NetService"))
+ local PassService = require(script.Parent:WaitForChild("PassService"))
+ local StationService = require(script.Parent:WaitForChild("StationService"))
+@@ -125,6 +126,7 @@ local function onOpen(player: Player, rawKind: unknown)
+ 		)}% {where}`
+ 	)
+ 	PetService.show(player)
++	LikeAskService.moment(player, "crate")
+ end
+ 
+ local function onPlace(player: Player, rawId: unknown, rawSlot: unknown)
+diff --git a/games/clean-a-cat/src/server/Services/PurchaseService.luau b/games/clean-a-cat/src/server/Services/PurchaseService.luau
+index fb9cbb2..0e5869c 100644
+--- a/games/clean-a-cat/src/server/Services/PurchaseService.luau
++++ b/games/clean-a-cat/src/server/Services/PurchaseService.luau
+@@ -29,6 +29,7 @@ local SaveSchema = require(Shared:WaitForChild("SaveSchema"))
+ local Signal = require(Shared:WaitForChild("Signal"))
+ 
+ local DataService = require(script.Parent:WaitForChild("DataService"))
++local LikeAskService = require(script.Parent:WaitForChild("LikeAskService"))
+ local Telemetry = require(script.Parent:WaitForChild("Telemetry"))
+ 
+ export type Grant = (player: Player, save: SaveSchema.Save, receipt: { [string]: any }) -> boolean
+@@ -114,6 +115,7 @@ local function processReceipt(receipt: { [string]: any }): Enum.ProductPurchaseD
+ 			table.remove(save.receipts, 1)
+ 		end
+ 		Telemetry.event(player, "purchase_step", 1, { key, "granted" })
++		LikeAskService.moment(player, "purchase") -- (likeAsk) two minutes later, off the purchase screen
+ 	end
+ 	local stored = DataService.saveAndConfirm(player, function(saved)
+ 		local receipts = saved.receipts
+@@ -163,6 +165,7 @@ function PurchaseService.Start()
+ 			end
+ 			if not bought then
+ 				Telemetry.event(player, "purchase_step", 1, { key, "cancelled" })
++				LikeAskService.bad(player)
+ 			end
+ 			PurchaseService.closed:Fire(player, key, bought)
+ 		end
+diff --git a/games/clean-a-cat/src/server/Services/SpaService.luau b/games/clean-a-cat/src/server/Services/SpaService.luau
+index c94522b..4432120 100644
+--- a/games/clean-a-cat/src/server/Services/SpaService.luau
++++ b/games/clean-a-cat/src/server/Services/SpaService.luau
+@@ -50,6 +50,7 @@ local WorkerRules = require(Shared:WaitForChild("WorkerRules"))
+ local DataService = require(script.Parent:WaitForChild("DataService"))
+ local FigureService = require(script.Parent:WaitForChild("FigureService"))
+ local IndexService = require(script.Parent:WaitForChild("IndexService"))
++local LikeAskService = require(script.Parent:WaitForChild("LikeAskService"))
+ local MascotService = require(script.Parent:WaitForChild("MascotService"))
+ local NetService = require(script.Parent:WaitForChild("NetService"))
+ local PassService = require(script.Parent:WaitForChild("PassService"))
+@@ -1013,6 +1014,12 @@ local function payPhoto(player: Player, cat: SpaRules.Cat)
+ 			tostring(save.asks[SpecialRules.FIRST_DONE] ~= true),
+ 		})
+ 	end
++	-- (likeAsk) a good moment: a special visitor's cat finished, or a three star wash (not the tutorial's own)
++	if cat.special then
++		LikeAskService.moment(player, "special")
++	elseif extra and extra.grade == 3 and not cat.tutorial then
++		LikeAskService.moment(player, "stars")
++	end
+ 	-- A special visitor's cat may leave a crate (switch specialVisitors): always the first of a save, then rarely.
+ 	if cat.special and LiveFlags.isOn(SpecialRules.FLAG) then
+ 		local firstDone = save.asks[SpecialRules.FIRST_DONE] == true
+@@ -1170,6 +1177,7 @@ local function customerLeaves(player: Player, place: number)
+ 	if not LiveFlags.isOn(QUIET_FLAG) then
+ 		NetService.notice(player, `{kind} went home`)
+ 	end
++	LikeAskService.bad(player) -- (likeAsk) never within two minutes of a lost cat
+ end
+ 
+ -- Once a second (switch heartBar): bars drain, a customer whose bar is empty leaves (one a second at most), and each
+diff --git a/games/clean-a-cat/src/server/Services/WorkerService.luau b/games/clean-a-cat/src/server/Services/WorkerService.luau
+index eb16563..8ffb175 100644
+--- a/games/clean-a-cat/src/server/Services/WorkerService.luau
++++ b/games/clean-a-cat/src/server/Services/WorkerService.luau
+@@ -21,6 +21,7 @@ local WorkerRules = require(Shared:WaitForChild("WorkerRules"))
+ 
+ local DataService = require(script.Parent:WaitForChild("DataService"))
+ local IndexService = require(script.Parent:WaitForChild("IndexService"))
++local LikeAskService = require(script.Parent:WaitForChild("LikeAskService"))
+ local NetService = require(script.Parent:WaitForChild("NetService"))
+ local PassService = require(script.Parent:WaitForChild("PassService"))
+ local PetService = require(script.Parent:WaitForChild("PetService"))
+@@ -327,6 +328,7 @@ local function onHire(player: Player, rawId: unknown)
+ 		Telemetry.sessionSeconds(player) // 60,
+ 		{ string.lower(id) }
+ 	)
++	LikeAskService.moment(player, "helper")
+ end
+ 
+ local function onMode(player: Player, rawId: unknown, rawMode: unknown)
+diff --git a/games/clean-a-cat/src/shared/AskRules.luau b/games/clean-a-cat/src/shared/AskRules.luau
+index 592c243..70449f5 100644
+--- a/games/clean-a-cat/src/shared/AskRules.luau
++++ b/games/clean-a-cat/src/shared/AskRules.luau
+@@ -23,6 +23,7 @@ AskRules.IDS = table.freeze({
+ 	"checkin", -- the check in card
+ 	"gift", -- the gift stand's ask
+ 	"favourite", -- the favourite ask
++	"like", -- the like ask after a good moment (LikeAskRules, switch likeAsk)
+ 	"bubble", -- Suds's help bubble, except the opening's own (BubbleRules.OPENING)
+ 	"menu_index", -- each new HUD button with its tip
+ 	"menu_quests",
+diff --git a/games/clean-a-cat/src/shared/LikeAskRules.luau b/games/clean-a-cat/src/shared/LikeAskRules.luau
+new file mode 100644
+index 0000000..80d1bb5
+--- /dev/null
++++ b/games/clean-a-cat/src/shared/LikeAskRules.luau
+@@ -0,0 +1,66 @@
++--!strict
++-- LikeAskRules: when a player is asked to like the game (Derek, 2026-11-26, q2-likeask, switch likeAsk with askQueue).
++-- A game cannot read or prompt a like, so the ask is our own small card (Design's), and its "Like the game" opens the
++-- gift card's like row; the card never mentions coins. His rule, as the server applies it:
++--   - only after a good moment (MOMENTS): a special visitor's cat finished, a crate opened, a three star card, a
++--     helper hired, and (his "maybe", AFTER_PURCHASE) a completed purchase, PURCHASE_DELAY seconds later;
++--   - one ask a visit; after a "no", none for NO_VISITS visits; never once the like row is paid;
++--   - never within GUARD_SECONDS of a lost cat or a cancelled purchase.
++-- Pure, so tests/specs/LikeAskRules.spec.luau covers it; LikeAskService uses it.
++
++local LikeAskRules = {}
++
++LikeAskRules.FLAG = "likeAsk"
++LikeAskRules.ATTRIBUTE = "LikeAskDue" -- Player attribute: the moment's name while the ask is due, nil otherwise
++LikeAskRules.MOMENTS =
++	table.freeze({ "special", "crate", "stars", "helper", "purchase" }) :: { string }
++LikeAskRules.AFTER_PURCHASE = true -- Derek's "maybe also after a purchase just a little bit after"
++LikeAskRules.PURCHASE_DELAY = 120 -- seconds from a completed purchase to its ask, so it is never on the purchase screen
++LikeAskRules.GUARD_SECONDS = 120 -- no ask this long after a lost cat or a cancelled purchase
++LikeAskRules.NO_VISITS = 3 -- visits with no ask after a "no"
++
++export type Moment = "special" | "crate" | "stars" | "helper" | "purchase"
++export type Answer = "yes" | "no" | "closed"
++export type State = {
++	visit: number, -- this visit's number (the save's visits, the first is 1)
++	noVisit: number, -- the visit of the last "no", 0 for none
++	likePaid: boolean, -- the gift card's like row is paid
++	askedThisVisit: boolean,
++	lastBadAt: number, -- when a cat was last lost or a purchase cancelled, -math.huge for never
++	now: number,
++}
++
++function LikeAskRules.cleanMoment(raw: unknown): Moment?
++	if type(raw) == "string" and table.find(LikeAskRules.MOMENTS, raw) then
++		return raw :: Moment
++	end
++	return nil
++end
++
++function LikeAskRules.cleanAnswer(raw: unknown): Answer?
++	if raw == "yes" or raw == "no" or raw == "closed" then
++		return raw :: Answer
++	end
++	return nil
++end
++
++-- Whether no ask may come due now, whatever the moment.
++function LikeAskRules.blocked(state: State): boolean
++	if state.likePaid or state.askedThisVisit then
++		return true
++	end
++	if state.noVisit > 0 and state.visit - state.noVisit <= LikeAskRules.NO_VISITS then
++		return true
++	end
++	return state.now - state.lastBadAt < LikeAskRules.GUARD_SECONDS
++end
++
++-- When `moment` at `now` makes the ask due: now, PURCHASE_DELAY later for a purchase, or nil when it never does.
++function LikeAskRules.dueAt(moment: Moment, now: number): number?
++	if moment == "purchase" then
++		return if LikeAskRules.AFTER_PURCHASE then now + LikeAskRules.PURCHASE_DELAY else nil
++	end
++	return now
++end
++
++return table.freeze(LikeAskRules)
+diff --git a/games/clean-a-cat/src/shared/LiveFlags.luau b/games/clean-a-cat/src/shared/LiveFlags.luau
+index 2348f2c..f7c21c6 100644
+--- a/games/clean-a-cat/src/shared/LiveFlags.luau
++++ b/games/clean-a-cat/src/shared/LiveFlags.luau
+@@ -132,6 +132,7 @@ LiveFlags.KEYS = {
+ 	"leaveLines", -- while Roblox's menu is open, two big friendly lines above and below its leave screen, each true for this player now (the tip jar with a helper hired, tomorrow's check in gift) or left out; no guilt or hurry (UI/LeaveLines, LeaveLineRules, issue 726); off by default
+ 	"spawnSide", -- with spawnView on, the player spawns on the same spot turned a quarter to face the door line's side of the room, so the camera behind them starts in open room and not on the back wall's art (SpaLayout.spawnSpot, PlotService, issue 670); off by default
+ 	"freeRewards", -- the gift card's Free Rewards rows: like the game (asked, never checked: Claim 10 s after the ask, 150 coins either way) and 30 minutes of play (one normal crate), each paid once per save by the server, beside the favourite plus group row for Starcoat; needs giftStand and pets on too (FreeRewardRules, FreeRewardService, UI/GiftCard, issue 730); off by default
++	"likeAsk", -- with askQueue: after a good moment (a special visitor's cat finished, a crate opened, a three star card, a helper hired, or two minutes after a completed purchase) the server sets LikeAskDue and Design's small card asks for a like, once a visit, none for three visits after a no, never within two minutes of a lost cat or a cancelled purchase, never once the like row is paid (LikeAskRules, LikeAskService, LikeAskController); off by default
+ 	"helperPopups", -- a helper finishing a cat sends HelperPaid to the owner (a popup over their stand, Design's) instead of the "+N coins: NAME washed CAT" toast, and the per cat toasts that repeat the screen ("+N coins", "+N coins, +S stars", "CAT went home") are left out; one-off toasts stay (WorkerService, SpaService, issue 743); off by default
+ 	"counterLine", -- waiting customers stand at an open counter window by the desk with their cat on the counter in front of them (their carrier empty), and the player takes any cat from its counter place, no walk to the back of the line; another place than the front works as a pick, the front customer's cat going back on the counter; a leaving customer packs their cat back up (CounterRules, SpaService, FigureService, CarryController, issue 746); needs customers and customerCarry; off by default
+ 	"counterCards", -- with counterLine and heartBar: a small card over each cat on the counter, a round chip in its owner's shirt colour and its heart bar, and that cat's mat washed in the same colour, so it is plain whose cat it is; client only, the Take prompt stays the tap (CounterCardRules, UI/CounterCard, CounterCardController, issue 745); off by default
+@@ -241,6 +242,7 @@ LiveFlags.OFF_BY_DEFAULT = {
+ 	buildWindow = true,
+ 	fewerPills = true,
+ 	freeRewards = true,
++	likeAsk = true,
+ 	spawnSide = true,
+ 	respawnCamera = true,
+ 	helperPopups = true,
+diff --git a/games/clean-a-cat/src/shared/Remotes.luau b/games/clean-a-cat/src/shared/Remotes.luau
+index 750e1d3..a84742c 100644
+--- a/games/clean-a-cat/src/shared/Remotes.luau
++++ b/games/clean-a-cat/src/shared/Remotes.luau
+@@ -81,6 +81,8 @@ Remotes.ClientToServer = {
+ 	-- (answer nil) or that was answered: logged as ask_shown / ask_answered, at most 60 a visit (AskReportService)
+ 	"RequestLikeAsk", -- ()  1 a second; switches on, save loaded, never asked and not paid: stamps likeAskedAt once
+ 	-- (server os.time()); FreeLikeReadyAt shows when Claim unlocks. The like itself is never read or needed
++	"RequestLikeAnswer", -- (answer: "yes" | "no" | "closed")  1 a second; likeAsk on and the ask due (LikeAskDue):
++	-- clears it; "no" saves the visit, so it is not asked again for three visits (LikeAskService)
+ 	"RequestFreeReward", -- (key: "like" | "play")  1 a second; switches on, save loaded, that row not paid yet; like:
+ 	-- asked FreeRewardRules.LIKE_WAIT (10) or more seconds ago, pays 150 coins; play: 1800 s of play in total, gives
+ 	-- one normal crate. Each once per save
+diff --git a/games/clean-a-cat/src/shared/SaveSchema.luau b/games/clean-a-cat/src/shared/SaveSchema.luau
+index 09e4d20..de6cb1d 100644
+--- a/games/clean-a-cat/src/shared/SaveSchema.luau
++++ b/games/clean-a-cat/src/shared/SaveSchema.luau
+@@ -112,6 +112,7 @@ export type Save = {
+ 	giftFavourite: boolean, -- the player said they favourited, as the client told it (only for that cosmetic)
+ 	freeRewards: { play: boolean, like: boolean }, -- the gift card's Free Rewards rows already paid (issue 730)
+ 	likeAskedAt: number, -- os.time() the card's like ask was first opened, 0 before (FreeRewardRules; never a like)
++	likeNoVisit: number, -- the visit the like ask was last answered "Not now", 0 before (LikeAskRules)
+ 	visiting: boolean, -- others may visit this spa (issue 520)
+ 	jarCoins: number, -- the tip jar's coins waiting (issue 517)
+ 	jarAt: number, -- os.time() the jar was last filled or emptied
+@@ -169,6 +170,7 @@ function SaveSchema.template(now: number): Save
+ 		giftFavourite = false,
+ 		freeRewards = { play = false, like = false },
+ 		likeAskedAt = 0,
++		likeNoVisit = 0,
+ 		visiting = true,
+ 		jarCoins = 0,
+ 		jarAt = 0,
+diff --git a/games/clean-a-cat/tests/specs/LikeAskRules.spec.luau b/games/clean-a-cat/tests/specs/LikeAskRules.spec.luau
+new file mode 100644
+index 0000000..45d0fe7
+--- /dev/null
++++ b/games/clean-a-cat/tests/specs/LikeAskRules.spec.luau
+@@ -0,0 +1,69 @@
++--!strict
++return function()
++	local LikeAskRules = require(game:GetService("ReplicatedStorage").Shared.LikeAskRules)
++	local LiveFlags = require(game:GetService("ReplicatedStorage").Shared.LiveFlags)
++	local AskRules = require(game:GetService("ReplicatedStorage").Shared.AskRules)
++
++	local function state(fields: { [string]: any }): any
++		return {
++			visit = fields.visit or 1,
++			noVisit = fields.noVisit or 0,
++			likePaid = fields.likePaid == true,
++			askedThisVisit = fields.askedThisVisit == true,
++			lastBadAt = fields.lastBadAt or -math.huge,
++			now = fields.now or 1000,
++		}
++	end
++
++	describe("LikeAskRules", function()
++		it(
++			"ships behind a switch that starts off, in the ask queue after the favourite ask",
++			function()
++				expect(table.find(LiveFlags.KEYS, LikeAskRules.FLAG)).to.be.ok()
++				expect(LiveFlags.OFF_BY_DEFAULT[LikeAskRules.FLAG]).to.equal(true)
++				local like = table.find(AskRules.IDS, "like")
++				expect(like).to.be.ok()
++				expect((like :: number) > (table.find(AskRules.IDS, "favourite") :: number)).to.equal(
++					true
++				)
++			end
++		)
++
++		it("takes only the good moments and the three answers", function()
++			for _, moment in LikeAskRules.MOMENTS do
++				expect(LikeAskRules.cleanMoment(moment)).to.equal(moment)
++			end
++			expect(LikeAskRules.cleanMoment("lost")).to.equal(nil)
++			expect(LikeAskRules.cleanMoment(1)).to.equal(nil)
++			expect(LikeAskRules.cleanAnswer("no")).to.equal("no")
++			expect(LikeAskRules.cleanAnswer("closed")).to.equal("closed")
++			expect(LikeAskRules.cleanAnswer("maybe")).to.equal(nil)
++		end)
++
++		it("asks once a visit, never once the like row is paid", function()
++			expect(LikeAskRules.blocked(state({}))).to.equal(false)
++			expect(LikeAskRules.blocked(state({ askedThisVisit = true }))).to.equal(true)
++			expect(LikeAskRules.blocked(state({ likePaid = true }))).to.equal(true)
++		end)
++
++		it("waits three visits after a no", function()
++			expect(LikeAskRules.blocked(state({ visit = 5, noVisit = 5 }))).to.equal(true)
++			expect(LikeAskRules.blocked(state({ visit = 8, noVisit = 5 }))).to.equal(true)
++			expect(LikeAskRules.blocked(state({ visit = 9, noVisit = 5 }))).to.equal(false)
++		end)
++
++		it("never asks within two minutes of a lost cat or a cancelled purchase", function()
++			expect(LikeAskRules.blocked(state({ lastBadAt = 900, now = 1000 }))).to.equal(true)
++			expect(LikeAskRules.blocked(state({ lastBadAt = 880, now = 1000 }))).to.equal(false)
++		end)
++
++		it("asks at once after a good moment, two minutes after a purchase", function()
++			expect(LikeAskRules.dueAt("special", 50)).to.equal(50)
++			expect(LikeAskRules.dueAt("stars", 50)).to.equal(50)
++			expect(LikeAskRules.dueAt("purchase", 50)).to.equal(
++				if LikeAskRules.AFTER_PURCHASE then 50 + LikeAskRules.PURCHASE_DELAY else nil
++			)
++			expect(LikeAskRules.PURCHASE_DELAY >= 120).to.equal(true)
++		end)
++	end)
++end
+diff --git a/games/clean-a-cat/tests/specs/SaveSchema.spec.luau b/games/clean-a-cat/tests/specs/SaveSchema.spec.luau
+index a640daf..d21dd33 100644
+--- a/games/clean-a-cat/tests/specs/SaveSchema.spec.luau
++++ b/games/clean-a-cat/tests/specs/SaveSchema.spec.luau
+@@ -135,6 +135,7 @@ return function()
+ 			expect(old.freeRewards.play).to.equal(false)
+ 			expect(old.freeRewards.like).to.equal(false)
+ 			expect(old.likeAskedAt).to.equal(0)
++			expect(old.likeNoVisit).to.equal(0)
+ 			local paid = SaveSchema.migrate(
+ 				{ version = 1, freeRewards = { like = true }, likeAskedAt = 50 },
+ 				100
+-- 
+2.43.0
+
