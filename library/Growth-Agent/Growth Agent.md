@@ -51,3 +51,6 @@ A daily read is a chore. A big read is one the owner will act on with money or w
 
 ## 7. Skills
 `roblox-publishing-discovery`, `roblox-release-operations`, `roblox-policy-compliance`, `monetization-policy`, `devlog`.
+
+## 8. Current state
+Start with `handoff.md` in this folder: the state, Derek's decisions, the file list, open items and lessons. Update it instead of adding a diary here.

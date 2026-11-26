@@ -48,3 +48,9 @@ If time: Capybara Cleaning Tycoon, Winter Wonderland Pet Salon Tycoon, Adopt Me!
 | UTC minute | What changed | Who |
 |---|---|---|
 | ____ | ____ | ____ |
+
+### Dev log of switches (not the live benchmark; dev place only)
+| ET time | What changed | Who |
+|---|---|---|
+| 2026-11-25 9:20 PM | passes switch on in dev (PR 614) | Gameplay-Engineer |
+| 2026-11-25 | onboardingFunnel on in dev, off on live (PR 437) | Gameplay-Engineer |

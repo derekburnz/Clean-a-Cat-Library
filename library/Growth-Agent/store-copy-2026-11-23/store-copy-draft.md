@@ -58,3 +58,21 @@ Order: detail page first, then the Home set (1, 2, 3 first), the icon last. Each
 ## Needs
 - Model-Agent for icon and thumbnail art once the cat model exists.
 - Derek's OK on a contact sheet before any upload.
+
+## Round two shape (Derek, 2026-11-24, passed on by Model-Agent)
+One main game icon, plus a list of alternate icons Roblox can show in Home recommendations. Plan round two as one main icon (idea 1, half muddy and half fluffy) and a set of alternates (ideas 2 and 3, plus new subjects). Alternates differ in subject or colour, not just small tweaks, so the test can tell them apart. Waits on the design (issue 106). Derek said the upload runs from his PC; our rule still applies: a contact sheet goes to Derek first and the upload happens after his OK. Log the upload minute for the stats reads.
+
+
+## Update 2026-11-26: description for the agreed design (replaces the first description above)
+Still a draft; nothing goes into Creator Hub until Derek says. Promise check against the agreed first session: a truck drops a box, a muddy kitten, scrub in the close up tub, a recap with stars, customers, workers by about minute 10. Not promised: crates, pets, fusing, quests beyond what the first 10 minutes show are kept to one plain line.
+Title: Clean a Cat
+Description (no emojis, no "free"):
+Scrub muddy cats clean in your own cat spa!
+
+Pick the next dirty cat, wash it by hand, tie its bow and see which coat was hiding under the mud.
+Hire helpers, build your spa and fill your Cat Index.
+Collect pets from crates. The chance of every pet is shown before you open one.
+Play with friends on your own street.
+
+Update: ____ (only after an update is live)
+Re-read the saved text after saving. Keep "cat spa" in the first lines. Chances for the crate are shown in the game, so the page does not list them.

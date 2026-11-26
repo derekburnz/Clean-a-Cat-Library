@@ -47,3 +47,6 @@ A hard call is one that is costly to reverse: the core loop, the economy's pace 
 
 ## 7. Skills
 `gdd-onepager`, `monetization-policy`, `ui-review`, `concept-visuals`, `roblox-gui`, `roblox-ui-genre-studs`, `roblox-policy-compliance`.
+
+## 8. Where things stand (read handoff.md first)
+Design-Agent was remade on 2026-11-26. `handoff.md` beside this file holds the state: Derek's UI calls of that day (2 by 2 HUD grid with a More tray, coin pill, no cat bubbles, two prompt bubbles at most, starter side ad at 199 Robux with the true saving, like row "A gift either way, 150 coins", counter cards with owner chip and tinted mat), the merged PRs, open PR 774 (like ask card, Review-QA PASS, draft), issue 784 (new portrait and staff icon ids to swap in), and the UI file map.

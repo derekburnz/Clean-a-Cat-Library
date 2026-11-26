@@ -27,4 +27,4 @@ Claims: 262 posts, 3.5M views. June to August: 132 posts, 3 over 10K views. Sept
 Keep: all four patterns match reels-study.md rules 1, 3 and 6, so that playbook stands. Our kid safe version of rule 4: ask a small question ("Which bow for this cat?"), never comment-for-a-link bait.
 
 ## Voice rule (Derek, 2026-11-24)
-Use the voice studio repo for voices, not ElevenLabs. Saved in memory and in playbooks/short-video-format.md. I do not yet know the repo's exact name or path; waiting on Derek or the coordinator (story-kit has kokoro_voice.py and revoice.py today).
+Use the voice studio repo for voices, not ElevenLabs. Saved in memory and in playbooks/short-video-format.md. Repo confirmed: github.com/debpalash/voicestudio. Details in playbooks/short-video-format.md.
