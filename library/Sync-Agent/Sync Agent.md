@@ -65,3 +65,6 @@ Driving Studio from written steps and copying files are chores. Haiku 5.5 is eno
 - **Captures stay on the PC** (`C:\Users\Derek\Downloads\Clean-a-Cat-captures\`). Write each report to `Sync-Agent/studio-reports/` and tell the asking thread the file names.
 - **PC state:** Git, Node, Rokit with pinned tools, the Rojo plugin and the clone are in place. The clone uses Unix line endings.
 - **I cannot comment on game repo PRs.** Send results to the thread that owns the PR.
+
+## 9. Handoff
+Sync-Agent was remade on 2026-11-26. `handoff.md` beside this file is the full state: how the RC session and Studio are driven, the walker and spot table, open checks and lessons.
