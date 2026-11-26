@@ -76,3 +76,6 @@ Play with friends on your own street.
 
 Update: ____ (only after an update is live)
 Re-read the saved text after saving. Keep "cat spa" in the first lines. Chances for the crate are shown in the game, so the page does not list them.
+
+## Update 2026-11-26 (Derek's decisions, Growth-Agent)
+Thumbnail order is 2, 1, 3, 5 (half muddy, name and bath, busy spa, stray in the box); 4 and 6 are spares. Icon A is the main and E the only alternate. Final files: Model-Agent/store-art/picked-2026-11-26/. Derek drags them in himself; nothing is uploaded by us. Starter pack is 199 Robux. When the page is saved, re-read the description text. Store page copy stays as the 2026-11-26 description above until Derek says.

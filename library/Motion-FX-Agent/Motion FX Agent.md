@@ -57,9 +57,26 @@ Game slug `clean-a-cat`. I own the feel of cleaning and the spa: foam, the revea
 ### State at the thread reset (2026-11-26 evening ET)
 - **Built and merged (all client only):** Effects modules Arrive, Attention, BrushShine, Carry, CarryShared, CatMotion and CatPose, CounterCrate, Crate (drop, open, reveal, star up, pet wiggle), CustomerLeave, CustomerMotion and CustomerPose (walk, idle, heart mood, carrying arm), StaffPose (worker scrub), FoamDrop, GardenAmbience (petals and clouds), GiftStand (lamp, balloon, beacon), Hop (window hop), OpeningScene, TruckDrop, Sky, TrailLine, VisitorArrival, WashCamera, WorkerBar. Switches I read: scrubEffects, revealEffects, fluffEffects, catMotion, dryEffects, carryShared, customerWalk, washMeter, sudsWash, carryHold; CounterCrate rides Gameplay's counterCrate (it does nothing without CounterSetAt and CounterReadyAt). stinkEffects is deleted; never bring stink wisps back.
 - **Counter crate (issue 757, PR 762, merged 2026-11-26):** Derek's ask, customers walk up with their cat in its crate, set it on the counter, the cat walks out and sits, the crate fades. Server times on the CounterCat: CounterSetAt, CounterReadyAt (2.4 s later), CounterCrateSpot (CFrame for the crate pivot). Steps 0 to 0.5 s set down with the arm reach (local figure attribute CounterReachAt), 0.5 to 0.8 door opens (about the gate pivot's Y, positive is right per Model-Agent), 0.8 to 1.6 cat walks out growing 0.7 to 0.8, 1.6 to 2.4 crate fades while the gate shuts. Carrier shows again when FigureService packs a PackedCat into it. Gameplay switches counterCrate on in dev; Sync runs Review-QA's seven QA steps from the PR 762 review (including 20 minutes with helpers for flat memory).
-- **Sound (issue 529):** all 43 effect cues have group owned ids in `Audio/Cues.luau`. The two spa songs were uploaded to the group 2026-11-26 (upload-asset run 45866470814): SpaA rbxassetid://107621531888888 (approved), SpaB rbxassetid://89957079712346 (was in moderation). PR 775 adds them behind the new switch spaMusic (off by default) through `Audio.allowMusic`; Review-QA's fix is pushed at bf5ce51 and waits on its pass. When it merges, Sync confirms on dev that both songs load (rule 18), then 529 closes.
-- **Parked (issue 779), the washed cat walks out:** on Moments.CatReturned the tub cat hides locally and a local copy hops out and trots to SpaLayout.spot("SpotQueue1", player), fading; switch catWalkOut. Built and gated, not pushed (one branch, PR 775 open). Patch: project files `Motion-FX-Agent/parked/issue779-cat-walk-out.patch`; apply with `git am` after 775 merges, merge main, open the PR, send to Review-QA, then Sync checks it with the switch on. Gameplay agreed: the owner has already left, no SpotExit needed.
+- **Sound (issue 529):** all 43 effect cues have group owned ids in `Audio/Cues.luau`. The two spa songs were uploaded to the group 2026-11-26 (upload-asset run 45866470814): SpaA rbxassetid://107621531888888 (approved), SpaB rbxassetid://89957079712346 (was in moderation). PR 775 (switch spaMusic, off by default, through `Audio.allowMusic`) merged 2026-11-26 3:18 PM ET. Gameplay-Engineer was asked to switch spaMusic on in dev; then Sync confirms on dev that both songs load (rule 18), then 529 closes.
+- **Issue 779, the washed cat walks out:** PR 792 (opened 2026-11-26 3:50 PM ET from the parked patch). On Moments.CatReturned the tub cat hides locally and a local copy hops out and trots to SpaLayout.spot("SpotQueue1", player), fading; switch catWalkOut, off by default. Waits on Review-QA; after merge, Gameplay switches catWalkOut on in dev and Sync checks it.
 - **Open with others:** issues 4, 6 and 7 are done but still open, because closing them via gh api was blocked by the classifier; the coordinator knows.
+
+### Tools I use
+- **GitHub MCP tools** (load through tool search): issues, claims, PRs, reviews, subscribe to PR activity. `gh api` only for search.
+- **Gate tools** pinned in `rokit.toml` (rojo 7.7.1, luau-lsp 1.70.1, selene 0.32.0, stylua 2.1.0). In a cloud box, download the release binaries to the scratchpad and run `check.sh` with `timeout` and `</dev/null`. Selene cannot fetch the Roblox API dump from the cloud box, so CI judges selene.
+- **Spec runner:** `tests/specs/*.spec.luau` for pure Effects modules and preset data.
+- **Upload:** the `upload-asset` workflow (Gameplay-Engineer dispatches it) puts sounds, images and animations under the Creampuff Games group.
+- **Studio:** never myself. Sync-Agent runs checks on Derek's PC with the steps I send; movement only with `_G.qaWalkNamed`.
+- **Video:** `video-tools/` scripts (ffmpeg) to cut real gameplay that Sync records.
+- **Thread messages:** Gameplay-Engineer for switches and hooks, Review-QA-Agent for every review, Sync-Agent for dev checks, the coordinator for blockers.
+
+### Tasks I own
+- Every effect and motion on the client: foam, reveal, fluff, bow pop, cat, customer and staff motion, carry, crates, pets, garden, gift stand, counter crate, cat walk out. Each must work with R6 and R15 avatars.
+- Every sound cue and the music: `Audio/Cues.luau`, AudioController, `docs/audio/clean-a-cat/sound-list.md` and the license log.
+- The effects list `docs/vfx/clean-a-cat/effects-list.md`, kept current with each PR.
+- Phone budgets measured, Reduced Motion respected, no more than three flashes a second.
+- Video cuts for Growth when footage exists.
+- Open now: PR 792 (issue 779) review, spaMusic on in dev then Sync's load check to close 529, issues 4, 6 and 7 to close.
 
 ### Rules from Derek and the team that stay
 - Feel is soft and cosy. No stink wisps. Lilac means special customers; outline ink #45226B.

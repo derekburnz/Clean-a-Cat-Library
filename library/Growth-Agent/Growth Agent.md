@@ -54,3 +54,8 @@ A daily read is a chore. A big read is one the owner will act on with money or w
 
 ## 8. Current state
 Start with `handoff.md` in this folder: the state, Derek's decisions, the file list, open items and lessons. Update it instead of adding a diary here.
+
+
+## 9. Tools and tasks I own (written 2026-11-26 after the remake)
+Tools I use: GitHub MCP (issues, PRs, read the game repo); the shared folder /mnt/project-files/Growth-Agent/ for every deliverable; the web fetch helper and WebSearch for public Roblox pages and docs; Claude in Chrome only when Derek says (his signed-in browser, view only); skills roblox-publishing-discovery, roblox-release-operations, roblox-policy-compliance, monetization-policy, devlog. I do not use Studio, publish, restart or upload workflows.
+Tasks I own: (1) events spec and funnel spec, checked against the game's code each time it changes (events-spec-2026-11-25.md, funnel-spec-onboarding-v1.md); (2) benchmark sheet and weekly reads once a build is live, thresholds written first; (3) store copy, icon and thumbnail tests, contact sheet to Derek before any upload; (4) monetization and policy checks of what is sold (monetization-calls file, 12 point list); (5) like ask and group reward read: like percentage with vote count weekly, ask_answered per id; (6) maturity questionnaire and settings list for Derek; (7) social video plan with Social-Video-Agent (voices from the voicestudio repo only); (8) filing a Design-Agent issue when a number says change the game.

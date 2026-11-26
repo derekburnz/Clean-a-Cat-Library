@@ -89,6 +89,20 @@
     document.body.classList.toggle('short', h / s < 560);
   }
 
+  // Words never render under 14 real px (ui-review). In Roblox this is a UITextSizeConstraint with MinTextSize 14
+  // on every label; here it raises any label whose design size times the scale lands under 14.
+  const MIN_TEXT = 14;
+  function textFloor() {
+    const s = Number(document.body.dataset.scale || 1);
+    document.querySelectorAll('#stage *').forEach((el) => {
+      if (el.closest('[data-rbx]') || el.closest('svg')) return;
+      if (![...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) return;
+      if (el.dataset.fs === undefined) { el.dataset.fs = parseFloat(getComputedStyle(el).fontSize); el.dataset.fsInline = el.style.fontSize; }
+      const want = Math.max(Number(el.dataset.fs), MIN_TEXT / s);
+      el.style.fontSize = want > Number(el.dataset.fs) + 0.01 ? want.toFixed(2) + 'px' : el.dataset.fsInline;
+    });
+  }
+
   function chrome() {
     const stage = document.getElementById('stage');
     stage.insertAdjacentHTML('beforeend',
@@ -108,6 +122,7 @@
     fillIcons(document);
     chrome();
     layout();
+    textFloor();
   });
-  window.addEventListener('resize', layout);
+  window.addEventListener('resize', () => { layout(); textFloor(); });
 })();

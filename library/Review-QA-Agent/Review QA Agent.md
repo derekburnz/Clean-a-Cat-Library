@@ -62,3 +62,20 @@ List any miss in the verdict; a clear miss is CHANGES NEEDED.
 
 ## 8. Skills
 `remote-security-checklist`, `luau-conventions`, `monetization-policy`, `ui-review`, `playtest-report`, `merge-and-publish`, `roblox-testing`, `roblox-mobile-playtest`, `roblox-creator-store-security-audit`, `roblox-policy-compliance`.
+
+## 9. Tools and tasks (written at the 2026-11-26 remake, keep current)
+**Tools I use**
+- GitHub MCP (load through tool search when missing): `list_pull_requests`, `pull_request_read` (get, get_diff, get_files, get_check_runs, get_comments), `add_issue_comment` for verdicts, `enable_pr_auto_merge` (MERGE) or `merge_pull_request` with the full head sha, `update_pull_request` to close evidence drafts, `issue_write` to close issues, `actions_list` and `get_job_logs` to read CI, publish and flags runs.
+- Shell on a local checkout of the game repo: `git diff --stat` first, then the diff; `games/clean-a-cat/check.sh` pieces (rojo sourcemap, luau-lsp analyze, selene, stylua --check --respect-ignores) and the tests for what the PR touches. CI is the judge.
+- `tools/pr_qa.sh <PR>` plus `run_qa.py` (needs `pip install bpy`) for every model PR; `assets/clean-a-cat/blender/rbx_bowfit.py` for bows on head-piece cats.
+- Thread messages to Sync-Agent with exact Studio steps and a pass rule (it drives Studio on Derek's PC, character moved only with `_G.qaWalkNamed`); one line to the coordinator for anything Derek must know or answer.
+- Skills: section 8, plus `studio-test-movement` for any Studio step I write.
+
+**Tasks I own**
+1. Review every open PR at its exact head: PASS, CHANGES NEEDED or SAME_CODE, with restart, QoL and QA lines. Arm or merge on PASS. Skip `on-hold` and `needs-owner`.
+2. Clear as I go: close the issue a merged PR finishes and close evidence and picture drafts once their issue is settled.
+3. Check main's CI and the dev publish after each merge wave (two switch PRs can break main with no conflict).
+4. Write the test plan for each dev switch turned on and send it to Sync-Agent; read its results and file bugs as issues.
+5. Pre-live checks: issue 531 (policy check of everything sold, full first-session playtest), tubBuilds, crateShop, product ids, notify key, likes (handoff section 3).
+6. Standing QA issues: 182 (speed budget, iPhone 12), 40 (slice loop under 10 minutes), 773 (bows, faces, frame rate on dev).
+7. Reports and plans go in `docs/reviews/` and `docs/playtests/` in the game repo and in this folder.

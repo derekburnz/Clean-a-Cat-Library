@@ -34,3 +34,7 @@ store-copy-2026-11-23/store-copy-draft.md (title, description for the agreed des
 - Passes cannot be deleted: create each after the code is merged.
 - The coordinator pushes idle threads: when idle, take the next lane issue, write a check or spec file, and message the other thread directly.
 - Only the shared folder is writable from this thread; the library repo is copied by Sync-Agent. Put a copy of memory notes in Sync-Agent/incoming/.
+
+
+## Update 2026-11-26 evening (new Growth-Agent)
+Read everything above. Events spec now lists the real ask ids and the like ask id gap (see its update section). No unclaimed growth issue is open: 530 waits on Derek's game settings, 531 policy table is done in monetization-calls-2026-11-26.md, 106 is Model-Agent's art. Tools and tasks list is in Growth Agent.md section 9.

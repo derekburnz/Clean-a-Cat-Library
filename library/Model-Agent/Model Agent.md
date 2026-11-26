@@ -65,3 +65,22 @@ Blender work is long and multi-step, and a slip early wastes a whole build, so e
 - **Four checks after every build:** the build log has no FAIL, `gates.md` shows 0 FAIL, `rbx_zfight.py` prints only clean lines and `rbx_bowfit.py` ends "every bow clears".
 - **The owner's eye (2026-11-26):** nothing small standing out past a cat's outline (he called tangle clumps and fluff puffs "random skin sticking out their sides"), round cheeks and no bars beside the eyes, bows on the head's top corner, no big bow added where he did not ask for one. No asks for screenshots or recordings.
 - Store art is uploaded by the owner. The files to drag in are in `Model-Agent/store-art/picked-2026-11-26/`.
+
+## 9. Tools and tasks (written by the remade thread, 2026-11-26)
+**Tools this thread uses**
+- `bpy` 5.2.4 from pip in a Python 3.13 venv (no Blender app), with `numpy` and `pillow`.
+- The generators in `assets/clean-a-cat/blender/`: `build_all.py` (`--render`, `--only`, `--no-fbx`), `cats.py`, `dirt.py`, `props.py`, `townsfolk.py`, `store_art.py`, `store_compose.py`, `hud_icons.py`.
+- The checks: build log grep, `exports/gates.md`, `rbx_zfight.py`, `rbx_bowfit.py`, `camera_rest_check.py`, and the `blender-asset-qa` scripts.
+- git and the GitHub MCP tools for issues, claims and PRs; `gh api` only for search.
+- The `upload-asset.yml` workflow for in-game pictures to the group (after Review-QA passes them). Store art is the owner's to upload.
+- Sync-Agent for every Studio look; Review-QA-Agent for every review.
+- The shared folder `/mnt/project-files/Model-Agent/` for sheets and deliverables; the asset library `derekburnz/Roblox-Asset-Library` read only.
+
+**Tasks this thread owns**
+- Issue 791: dirty cat tangles and fluff read as fur, not flaps (claimed 2026-11-26).
+- Issue 106: store art v2, open until the owner uploads the six files.
+- Issue 784: the three pictures are uploaded; waits on Design-Agent's id swap and a dev check.
+- Issue 773: real iPhone 12 frame rate run with the bigger spa (owner's phone, through Sync-Agent).
+- Open question for the owner: smaller bow on the ten head piece cats (our pick, stands unless he answers).
+- Parked: remove `SunHat`, `Scarf` and `ToteBag` once `FigureService.luau` stops using them.
+- Standing: every new `model` or `store-art` issue, before and after sheets, the style guide.

@@ -68,3 +68,19 @@ Driving Studio from written steps and copying files are chores. Haiku 5.5 is eno
 
 ## 9. Handoff
 Sync-Agent was remade on 2026-11-26. `handoff.md` beside this file is the full state: how the RC session and Studio are driven, the walker and spot table, open checks and lessons.
+
+## 10. Tools and tasks (written at the 2026-11-26 remake, keep current)
+**Tools I use**
+- `mcp__hearthbot__start_remote_control` (instructions for the RC session on DESKTOP-DFOGFG7), `list_devices`; the RC session drives Roblox Studio (`execute_luau`, `start_stop_play`, `screen_capture`, device simulator, Rojo build, `gh`).
+- Studio test recipe and quirks: `studio-session-handoff.md`; walker `studio-tools/qaWalk.luau` (`_G.qaWalkNamed`), skill `studio-test-movement`.
+- GitHub MCP (load with tool search) for the library repo; shell git in `/home/claude/Clean-a-Cat-Library` for sync commits; `diff`, `cmp` and a secret scan before every commit. No rsync in the cloud box.
+- The shared folder `/mnt/project-files/Sync-Agent/` (`studio-reports/`, `incoming/`), project memory read-only (copy only).
+- Skills: `studio-test-movement`, `roblox-mobile-playtest`, `playtest-report`, `roblox-doctor`, `roblox-dev-skill` (Studio connector reference), `merge-and-publish` (read only; I never dispatch workflows).
+
+**Tasks I own**
+1. Studio checks asked by other threads, in queue order (handoff.md section C); each result goes to `studio-reports/<name>-<commit>-<date>.md` and a short message to the asking thread.
+2. Library sync: newer wins from `/mnt/project-files/<Thread>/` into `library/<Thread>/`, text files always, new pictures only when asked (about 350 MB of Design and Gameplay pictures exist only in the shared folder; the library keeps previews), never let a `.md` shrink.
+3. Memory sync: `memory/project-memory.md`, the topic files and `memory/project-instructions.md` are word for word copies. Never edit them.
+4. Clear `Sync-Agent/incoming/` after its files are copied.
+5. Park blockers with the coordinator in one line; never stop while checks are queued.
+Not mine: game code, merging game PRs, publish or flag workflows, restarts, uploads, anything on live.
