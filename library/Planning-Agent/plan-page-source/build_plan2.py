@@ -119,31 +119,19 @@ TODOS = [
     ]),
 ]
 SETUP = [
-    dict(id="s2-passes", t="Make the five game passes",
-         d="Your pick: on the dev game, Clean-a-Cat-Dev, now, and again on the live game on the day you promote. Creator Hub, the game, Monetization, Passes. 2x Coins for 199 Robux, Second Builder for 299, Golden Sponge for 99, Lou the extra helper for 249 and Second pet slot for 249. Paste the five ids in the box, each with its name, and say which game they are from. Pass ids are public, so they are safe to paste. A pass cannot be deleted once it is made, which is why the code was merged first."),
-    dict(id="s2-products", t="Make the eight developer products",
-         d="Same page, under Developer Products. Finish now at 5, 15, 35, 75 and 99 Robux, for a build with 5 minutes or less left, 30 minutes, 2 hours, 8 hours and more than 8 hours. Crate at 49 and 5 Crates at 199. Starter Bundle at 199, your pick of November 26. Paste the eight ids with their names. On the dev game now, and again on the live game when you promote."),
-    dict(id="s2-questionnaire", t="Fill in the maturity questionnaire",
-         d="On the live game's Creator Hub page, before the game opens to players. Growth-Agent wrote the answers from the design. Every answer is no except paid random items, which is yes because of the Robux crate. If it then asks whether the game checks Roblox's policy for each player, that is yes too. The result should be Minimal. If a question does not fit a plain no, write it in the box and we will answer it."),
-    dict(id="s2-serversize", t="Set the server size to six",
-         d="Your pick of November 25. In the game's settings, maximum players, 6. On the dev game and on the live game."),
-    dict(id="s2-private", t="Set private servers to 100 Robux",
-         d="On the live game. Creator Hub, Audience, Access Settings, private servers, Requires Robux, 100. It is a price per month, and Roblox Plus members get it free from Roblox, which is what you asked for. Changing the price later cancels the private servers players already pay for, so it is best set once."),
-    dict(id="s2-groupwall", t="Turn the Creampuff Games group wall off, or set it to moderated",
-         d="The gift stand asks players to join the group, so young players will land on that page. If you would rather leave the wall open, write that in the box."),
-    dict(id="s2-storeart", t="Put the store art in",
-         d="The six files are final and safe to upload. Review-QA passed the last two on the afternoon of November 26. Your picks: icon A as the main icon, icon E as the only alternate for now with the bow where it is, then the thumbnails in your order 2, 1, 3, 5. The files are icon-main-512.png, icon-alternate-e-512.png and the four named thumbnail-order-1 to thumbnail-order-4, which are already in your order. They are in the project's files under Model-Agent, store-art, picked-2026-11-26, and we can attach them in the chat again if you ask. We cannot put files on the store page from here. When they are in, tick this and a check of the page and the order follows."),
-    dict(id="s2-computeruse", t="Allow computer use for Studio on your PC",
-         d="When the card shows in the Claude app on your PC, press Allow. It lets Sync-Agent work Studio's own windows during test runs. We never press Allow for you."),
-    dict(id="s2-devtest", t="Play today's new pieces on the dev game, on your iPhone",
-         d="Ready now. All of it has been on in the dev game since 12:21 PM on November 26: the bigger spa, the counter window where waiting cats sit, the carrier a customer sets on the counter, the cards over the waiting cats, the tidy HUD with the More tray, the Build button, fewer prompt bubbles at once and the coin popup over a helper. One fault we know of: when the line moves up, a carrier can land on the wrong mat. The fix is in review. Play about ten minutes and write in the box what felt wrong or slow. Three answers help the most, and they are the first check of the whole design: did scrubbing feel good on the phone, was the clean cat a nice moment and would you wash a second cat. Then write keep or rethink for the scrub. Nothing here goes to the live game until you say it is good."),
+    dict(id="s2-playnotes", t="Tell us what you found in your playtest",
+         d="At 5:23 PM you wrote: Will playtest now and let you know. Everything built so far is switched on in the dev game. Write what felt wrong or slow in the box here or in the chat, in your own words. No screenshots are needed. Three answers help the most, and they are the first check of the whole design: did scrubbing feel good on the phone, was the clean cat a nice moment and would you wash a second cat. Then write keep or rethink for the scrub. Nothing goes to the live game until you say it is good."),
+    dict(id="s2-maturity", t="Fill in the maturity questionnaire, last",
+         d="You wrote: Will leave this to last. That works. It has one deadline: it must be in before the Robux crate is switched on in the live game, because the crate is a paid random item and Roblox wants that declared. It is on the live game's Creator Hub page. Growth-Agent wrote the answers from the design. Every answer is no except paid random items, which is yes. If it then asks whether the game checks Roblox's policy for each player, that is yes too. The result should be Minimal. If a question does not fit a plain no, write it in the box and we will answer it."),
+    dict(id="s2-promote", t="Say the word when the dev game is good",
+         d="When the dev game feels right, write send it to live in the chat. That day we make the live passes and products, set the server size to six and private servers to 25 Robux, set up the live notifications and publish the build you tested. Feature switches on live stay off until you say which to turn on. Leave this unticked until then."),
 ]
 PARKED = [
-    ("Server size", "Six, your pick. Setting it is in the setup list on this page."),
-    ("Maturity questionnaire", "The answers are written, and filling it in is in the setup list on this page."),
+    ("Server size", "Six, confirmed on November 26. We set it."),
+    ("Maturity questionnaire", "The answers are written. Yours to fill in, last, before the Robux crate goes on in the live game."),
     ("100 plays from engaged players", "Your ads for this come when the game is ready for public testers."),
-    ("Notification text and key", "Done on the dev game on November 26 with the group key you already have. The live game is the question at the top of this page. Players under 13 cannot get notifications."),
-    ("Store art, second version", "Drawn on November 26, and drawn again that day with the new faces. Thumbnails 2, 1, 3, 5, icon A as the main one and E as the alternate. The newest files are in the chat."),
+    ("Notification text and key", "Done on the dev game on November 26 with the group key you already have. The live game is set up on the day you promote. Players under 13 cannot get notifications."),
+    ("Store art, second version", "Drawn on November 26, and drawn again that day with the new faces. Thumbnails 2, 1, 3, 5, icon A as the main one and E as the alternate. The six files are final. We are uploading them ourselves, as you asked on November 26."),
     ("Sound uploads", "One batch after the game is picked."),
     ("Plus or Premium", "Only if Roblox asks for it when we apply for Kids and Select."),
     ("Private repos", "At release."),
@@ -153,12 +141,12 @@ PARKED = [
 YES = "Yes, go with it"
 ELSE = "Something else"
 QUESTIONS = [
-    ("New on November 26, in the afternoon", "Model-Agent and Gameplay-Engineer", "Two questions. If you leave one, our pick stands.", [
-        dict(id="headbows", t="Bows on the ten special cats with a head piece: make them smaller", new=True,
+    ("New on November 26, in the afternoon", "Model-Agent and Gameplay-Engineer", "Two questions. You answered both by 5:20 PM that evening.", [
+        dict(id="headbows", t="Bows on the ten special cats with a head piece: make them smaller",
              d="In the game a clean cat wears a bow, in the bow tier the player has reached. Ten of the special visitors' cats also wear a head piece, such as Bathtile's bath cap, Stardust's star crown and Djinn's turban. On those cats the bow cannot sit on the corner of the head, so it stands at the side of the head at full size. You saw that look today when a big blue bow showed up on the pink cat in thumbnail 3, and you had it taken off. That was the game's own bow at the game's size. The picture shows how three of these cats wear the top bow in the game now. Our pick is to make the bow smaller on those ten cats, so it sits neatly beside the head piece and the head piece stays the star. The second option gives those ten cats no bow at all. Their head piece already marks them as special, but the player's bow tier then shows on every cat except the rarest ones. The third leaves them as they are. The store pictures are not touched by this, because no special cat wears a bow in them.",
              imgs=[("art2/headpiece-bows.jpg", "Three special cats from the front, each with a large pink and gold bow standing at the side of the head: a blue cat in a pink bath cap with a rubber duck, a dark blue cat with a star crown and a red cat with a turban.", "Bathtile, Stardust and Djinn with the top bow, as the game shows them now")], wide=True,
              opts=["Yes, a smaller bow on the ten cats with a head piece", "No bow on cats with a head piece", "Leave the bows as they are", ELSE]),
-        dict(id="notifylive", t="Notifications on the live game: set up on the day you promote", new=True,
+        dict(id="notifylive", t="Notifications on the live game: set up on the day you promote",
              d="Notifications are set up on the dev game, and you did not have to click anything. Our workflow on GitHub made the message, build_done, and saved the group key you already have as the dev game's secret, CleanACat_NotifyKey. The keys went from GitHub's secrets straight to Roblox and were never shown in the chat. So the notification step is gone from your setup list. The live game needs the same two things, and anything on live waits for your word. Our pick follows your dev first rule and your answer on passes and products: we run the same workflow on the live game on the day you promote, with the rest of the live set. The second option does it now, so one thing less is left for that day. Either way nothing a player can see changes, and no notification goes out until the feature is switched on in the live game and the game has 100 visits.",
              opts=["Yes, set up live notifications on the day I promote", "Set them up on the live game now", "I will make the live message and secret by hand", ELSE]),
     ]),
@@ -450,9 +438,14 @@ SAVED = [
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
 ]
 TODAY = [
-    ("Fresh threads, November 26", "You are deleting every thread and making them again for fresh memory and file limits. This page, its link and its saved answers stay. Every answer, note and setup step is also saved in the project notes and in the library, so a new Planning-Agent keeps this page up without the old chat."),
+    ("Your answers, November 26 evening", "The ten special cats with a head piece get a much smaller bow, moved from the side of the head to the top right corner like every other cat. Model-Agent has it and will show you a before and after. Notifications on the live game are set up on the day you promote. Six players a server is confirmed. The questionnaire is yours and comes last. You are playtesting the dev game and will tell us what you find."),
+    ("Passes, products and store art are ours now, November 26", "You said we can make the game passes and developer products with the keys or through Claude in Chrome, and upload the store art the same way. So you make nothing by hand. Gameplay-Engineer has the job: the five passes and eight products on the dev game, with the group key first. Roblox has pages for doing this with a key, and we are checking that your key is allowed to. If it is not, we will name the one box to tick or use your signed in Chrome for that job only. We never type a password or a code. The store art was tried through Chrome this morning and Chrome could not pick a file from our side, so we are trying other ways. If none works we will say so here, and dragging the six files in stays a one minute job."),
+    ("Private servers at 25 Robux, November 26", "You wrote 50 or 25, since being alone in a server has no real benefit, and free with Roblox Plus. We picked 25, the lower of your two, and that is a judgment, so say 50 if you prefer it. Roblox gives paid private servers to Plus members free by itself, so one price does both. It is set once, on the day you promote, because changing it later cancels the private servers players already pay for. The design file says 25 now."),
+    ("The group wall step is gone, November 26", "You wrote that you did not know what the wall was. That step was ours and it was out of date. The wall was the public message board on a group's page, and from what we can find Roblox retired walls at the end of March 2026. So there is nothing to turn off. Joining the group for a good reward is in the game as you want it: the gift stand gives one pet for a favourite and joining Creampuff Games."),
+    ("A new link for this page, November 26", "The first page was deleted together with the old threads at 3:43 PM. It was put back from the saved copy at a new link at 3:52 PM with all 155 saved answers, and you have answered on the new one since. The old link no longer opens."),
+    ("Fresh threads, November 26", "You deleted every thread and made them again for fresh memory and file limits. Every answer, note and setup step is also saved in the project notes and in the library, so the new Planning-Agent keeps this page up without the old chat."),
     ("Your answers, November 26 afternoon", "The bow on icon E stays where it is, in front of the ear and tilted on the corner. The like ask may follow a finished purchase by two minutes, never on the buy screen, with its own off switch. On top of your rule, it never comes back after a yes or after two nos, and never shows during the tutorial. RbxSync is skipped and no licence is bought. You said you will restart Model-Agent yourself."),
-    ("Notifications, November 26", "Done on the dev game at 12:40 PM by our GitHub workflow: the message build_done exists and the group key is saved as the game's secret. The live game waits on the second question at the top of this page."),
+    ("Notifications, November 26", "Done on the dev game at 12:40 PM by our GitHub workflow: the message build_done exists and the group key is saved as the game's secret. The live game is set up on the day you promote, your pick of that evening."),
     ("Store art, November 26", "All six files are final and passed by Review-QA: the main icon, the alternate icon E and the four thumbnails in your order. The bits at the cats' sides are off every cat and the blue bow is off the pink cat."),
     ("Later on November 26", "Four small questions are at the top of this page: the bow on icon E, the like ask after a purchase, RbxSync and the Model-Agent thread. Your seven answers of the morning are in the design file. The notification clicks are in the setup list. On in the dev game now: the tidy HUD, the Build button, fewer prompt bubbles and the helper coin popup. The bigger spa, the counter window and the carrier on the counter are in review."),
     ("Your answers, November 26", "The starter pack goes down to 199 Robux, a true saving of 63%. Helpers have no XP and their levels stay bought with coins. The like row reads A gift either way, 150 coins, with the 10 second wait. A like ask comes after a good moment such as a special visitor's cat finished, once a visit, and maybe a little after a purchase. Icon A is the main icon with E as the only alternate for now, once the orange at its sides is fixed. You make the passes and products on the dev game first. Notifications use the group key you already have."),
@@ -482,7 +475,7 @@ TODAY = [
     ("From your to-do list", "No friends as customers. The notification ask comes 1 to 2 minutes in. Suds explains in a bubble along the bottom. Plain Clean a Cat with no [NEW] tag. Washed cats fill an index. Crates are hard to earn and worth it, and the free one on day 2 is a good one. The kitten's eyes stay open while you carry him. A pet for you and one for each worker is the working plan and may change."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Still open", "The two new questions at the top of this page and the setup list, which is yours."),
+    ("Still open", "No question. Three things on the setup list: your playtest notes, the questionnaire and the word to go live."),
     ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
@@ -617,7 +610,9 @@ NQ = n
 NT = sum(len(i) for _, i in TODOS) + len(SETUP)
 NG = len(GAMES)
 saved_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in SAVED + DECIDED)
-today_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in TODAY)
+N_TONIGHT = 5
+tonight_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in TODAY[:N_TONIGHT])
+today_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in TODAY[N_TONIGHT:])
 
 OLD_FIELDS = [("sel", "pet", "pet", PET_OPTS), ("txt", "fun", "first fun at (s)", ""), ("sel", "wash", "washing", WASH_OPTS), ("sel", "wait", "waits", WAIT_OPTS)]
 def jf(fields):
@@ -674,12 +669,12 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 
 <div class="wrap">
   <div class="intro">
-    <p class="eyebrow">Clean a Cat, updated November 26, 3:25 PM</p>
+    <p class="eyebrow">Clean a Cat, updated November 26, 5:40 PM</p>
     <h1>What is left for you</h1>
-    <p class="lede">Two new questions are at the top, each with our pick first. You answered the four from this morning at 3:14 PM and they are saved. The <a href="#setup">setup list</a> is shorter: notifications are done on the dev game, the six store art files are final and safe to upload, and the playtest of today's pieces is ready. You are making the threads again with fresh memory. This page and every answer on it stay, and all of it is also saved in the project notes and the library. Every earlier answer is under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
+    <p class="lede">Nothing is left to answer. All 78 questions have your pick, and your notes from this evening are saved and passed to the builders. What you decided tonight is in <a href="#saved">its own list</a> just below. This page has a new link since the threads were remade, and every answer came across. The <a href="#setup">setup list</a> is down to three things only you can do: your playtest notes, the questionnaire and the word to go live. Every earlier answer is under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
     <ol class="steps">
-      <li>Answer the two new questions. If you leave one, our pick stands.</li>
-      <li>Tick the setup steps as you do them. The shop buttons stay hidden until the passes and products exist.</li>
+      <li>Play the dev game and write what felt wrong or slow, here or in the chat.</li>
+      <li>If you disagree with something we picked tonight, such as 25 Robux for private servers, say so and we change it.</li>
       <li>To change an answer, open <a href="#answered">Answered already</a> and tap another option or add words.</li>
     </ol>
   </div>
@@ -695,16 +690,24 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
       <h2>Left to answer</h2>
       <p>The first option is always our pick. Tap it to agree or choose another. Every question has a box for your own words. A question you answer stays where it is until you open the page again, so you can still add to it.</p>
     </header>
-    <p class="alldone" id="alldone" hidden><strong>Nothing is left to answer.</strong> The setup list is below.</p>
+    <p class="alldone" id="alldone" hidden><strong>Nothing is left to answer.</strong> What you decided this evening and the setup list are below.</p>
     __QUESTIONS__
     <div class="row"><button type="button" class="ghost" id="acceptall">Take our pick for everything I have not answered</button></div>
     <p class="gapnote"><strong>What nobody can tell us.</strong> No source gives a proven number for any hook, for how long a wait can be or for the right job length. We find out after launch by running two versions behind switches and reading Roblox's own numbers.</p>
   </section>
 
+  <section id="saved">
+    <header>
+      <h2>What you decided this evening</h2>
+      <p>Read from this page at 5:25 PM on November 26. Each one went to the builder who owns it. Nothing to do here unless one reads wrong to you.</p>
+    </header>
+    <dl class="decided">__TONIGHT__</dl>
+  </section>
+
   <section id="setup">
     <header>
       <h2>Setup only you can do</h2>
-      <p>These are settings on your own Roblox pages and your PC, and one playtest at the end. The notification step is gone from this list: it is done on the dev game and you have nothing to click for it there. We cannot press these for you. Tick each one when it is done. The box under each is for ids or a note.</p>
+      <p>Three things are left that only you can do. The list was nine steps this afternoon. Six left it this evening: you handed us the passes, the products and the store art, you confirmed six players and gave a new private server price, which we set for you, computer use is allowed, and the group wall step is gone because Roblox no longer has group walls. Tick each one when it is really done. The box under each is for a note.</p>
     </header>
     <ul class="todos">__SETUP__</ul>
   </section>
@@ -729,7 +732,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
   <details class="more" id="reference">
     <summary>What is decided and what the playtests told us (nothing to do here)</summary>
     <section id="today">
-      <header><h2>Decided on November 24 and 25</h2></header>
+      <header><h2>Decided from November 24 to 26</h2></header>
       <dl class="decided">__TODAY__</dl>
     </section>
     <section id="playtests">
@@ -972,7 +975,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 '''
 page = (PAGE.replace("__CSS__", CSS + EXTRA_CSS).replace("__PROMPTS__", prompts_html).replace("__EXTRA__", extra_html)
         .replace("__THEMES__", themes_html).replace("__GAMES__", games_html).replace("__OPT__", opt_html).replace("__DONE__", done_html)
-        .replace("__DONETODO__", done_todo_html).replace("__SETUP__", setup_html).replace("__NNEW__", "Seven").replace("__TODAY__", today_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
+        .replace("__DONETODO__", done_todo_html).replace("__SETUP__", setup_html).replace("__NNEW__", "Seven").replace("__TODAY__", today_html).replace("__TONIGHT__", tonight_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
         .replace("__SAVED__", saved_html).replace("__NQ__", str(NQ)).replace("__NT__", str(NT)).replace("__NG__", str(NG))
         .replace("__DATA__", json.dumps(DATA)))
 open(OUT_HTML, "w", encoding="utf-8").write(page)

@@ -208,3 +208,20 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - RbxSync (q2-rbxsync, pick 0, skip): "If its working well than its fine, no buying license so we can skip"
 - Model-Agent's thread (q2-modelthread, pick 0): "I will manually restart model agent."
 - In the chat, 3:15 PM ET: "Save all info from plan artifact and update it with any questions needed, get all threads to update their library folders/md skills files with whats needed for them I am going to delete all threads and remake them to have fresh context and image limits per thread reset. Let me know when all threads are ready to be deleted and remade"
+
+
+## Plan page answers, 2026-11-26 5:17 to 5:23 PM ET (his words verbatim, read 5:25 PM ET from the new page link)
+
+- Bows on the ten special cats with a head piece (q2-headbows, pick 0, a smaller bow): "Those bows are wayyyy too big and should be on top right corner not on side"
+- Notifications on the live game (q2-notifylive, pick 0): set up on the day he promotes, by our workflow. No words.
+- Setup, make the five game passes (c-s2-passes, ticked): "You can do gamepasses I have seen it done with keys or use claude in chrome"
+- Setup, make the eight developer products (c-s2-products, ticked): "You can do dev productsI have seen it done with keys or use claude in chrome"
+- Setup, maturity questionnaire (c-s2-questionnaire, ticked): "Will leave this to last"
+- Setup, server size six (c-s2-serversize, ticked): "6 is fine"
+- Setup, private servers at 100 Robux (c-s2-private, ticked): "Honestly 50, or 25 since there is no real benefit to being alone in your own server, give it free with robux plus"
+- Setup, group wall off or moderated (c-s2-groupwall, ticked): "I don't know what you mean by wall but joining group for a good reward should be a thing."
+- Setup, put the store art in (c-s2-storeart, ticked): "You should be able to do this with keys or use claude in chrome"
+- Setup, computer use for Studio (c-s2-computeruse, ticked): "Allowed"
+- Setup, play today's pieces on the dev game (c-s2-devtest, ticked): "Will playtest now and let you know"
+- Done tick (c-done2): ticked 5:23 PM ET.
+- In the chat, 5:23 PM ET: "All plan questions answered/done so go through that and update with anything new needed"

@@ -718,3 +718,21 @@ Hired helper was somewhere in the 30sec-60sec range, didn't see any way of getti
 - `q-thumbs` (2026-11-23 10:07 PM ET): {"pick": "3"}
 - `q-upload` (2026-11-23 10:07 PM ET): {"pick": "2"}
 - `q-visit` (2026-11-23 10:07 PM ET): {"pick": "2"}
+
+
+## Added 2026-11-26 5:25 PM ET: his evening answers (docs changed or new since the 3:16 PM ET read)
+
+- `q2-headbows` (5:17 PM ET): {"pick": "0", "note": "Those bows are wayyyy too big and should be on top right corner not on side"}
+- `q2-notifylive` (5:20 PM ET): {"pick": "0"}
+- `c-s2-passes` (5:20 PM ET): {"done": true, "note": "You can do gamepasses I have seen it done with keys or use claude in chrome"}
+- `c-s2-products` (5:20 PM ET): {"done": true, "note": "You can do dev productsI have seen it done with keys or use claude in chrome"}
+- `c-s2-questionnaire` (5:20 PM ET): {"done": true, "note": "Will leave this to last"}
+- `c-s2-serversize` (5:20 PM ET): {"done": true, "note": "6 is fine"}
+- `c-s2-private` (5:22 PM ET): {"done": true, "note": "Honestly 50, or 25 since there is no real benefit to being alone in your own server, give it free with robux plus"}
+- `c-s2-groupwall` (5:22 PM ET): {"done": true, "note": "I don't know what you mean by wall but joining group for a good reward should be a thing."}
+- `c-s2-storeart` (5:23 PM ET): {"done": true, "note": "You should be able to do this with keys or use claude in chrome"}
+- `c-s2-computeruse` (5:23 PM ET): {"done": true, "note": "Allowed"}
+- `c-s2-devtest` (5:23 PM ET): {"done": true, "note": "Will playtest now and let you know"}
+- `c-done2` (5:23 PM ET): {"done": true}
+
+All 78 questions have a pick. Exact copy of all 165 docs: `plan-page-backups/answers-2026-11-26-1725ET-full.json`. What each setup note means is in `open-questions-2026-11-26.md`.

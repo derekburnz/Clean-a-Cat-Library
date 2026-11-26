@@ -64,7 +64,7 @@ Rules for the whole session: one ask at a time and at least a minute apart, noth
 - The tip jar has filled from the workers, up to a cap.
 - A couple of daily quests reset each day. A couple of weekly quests give a crate when all are done.
 - Empty slots in the Cat Index and a different visitor cat each day.
-- Players of 13 and over who said yes get a notification when the jar is full.
+- Players of 13 and over who said yes get one notification when their long build finishes while they are away (at most one a day, Roblox's limit).
 
 **Social**
 - Six spas stand side by side on one street, with six players in a server.
@@ -86,7 +86,7 @@ Rules for the whole session: one ask at a time and at least a minute apart, noth
 | Crate | Developer product, random | 49, or 5 for 199 | The chance of every pet shows as a percentage before buying. PolicyService is read per player and the Robux crate is hidden where paid random items are restricted. The same crate can be earned. |
 | Finish now on any build | Developer product | 5, 15, 35, 75 or 99 by time left | The price is on the button, no pop up, waiting is always free |
 | Starter pack | Developer product, fixed | 199 | Golden Sponge, second pet slot and 2x Coins, worth 547, so the ad shows a true saving of 63% (the owner lowered it from 299 on 2026-11-26). A real countdown of 72 hours from first join, kept on the server, then gone for good. |
-| Private server | Roblox setting | 100 a month | The owner sets Requires Robux at 100 on the game's page. Roblox Plus subscribers get paid private servers at no cost as a platform benefit, so no second price is needed. Changing the price later cancels every active private server. |
+| Private server | Roblox setting | 25 a month | Requires Robux is set at 25 on the game's page, once, on the day the owner promotes the game. He lowered it from 100 on 2026-11-26 and gave 50 or 25; 25 is our pick. Roblox Plus subscribers get paid private servers at no cost as a platform benefit, so no second price is needed. Changing the price later cancels every active private server. |
 
 Rules that hold everywhere: no Robux product gives coins. Fusing pets is free with a fixed result. Nothing is ever sold to keep or bring back a cat that is leaving, and no price shows when a cat is about to leave. A no is final for that visit.
 
@@ -129,10 +129,12 @@ The game is playtest worthy when a new player can run the whole first session on
 
 **Open questions for the owner** (none blocks the build; each has the version we build unless he says otherwise)
 1. The free pet. Settled for now: the favourite and the group are checked. Growth-Agent found no page showing how other games check a like, and a game cannot read one.
-2. Private servers. He wants them free with Roblox Plus or 100 Robux. Checked by Growth-Agent on 2026-11-25: one price of 100 Robux does both, since Plus subscribers get paid private servers free. It is a monthly fee, not a one time purchase. Recommended: 100.
+2. Private servers. Answered 2026-11-26: "Honestly 50, or 25 since there is no real benefit to being alone in your own server, give it free with robux plus". We set 25 a month. Checked by Growth-Agent on 2026-11-25: one price does both, since Plus subscribers get paid private servers free. It is a monthly fee, not a one time purchase.
 3. Workers and bows. Recommended, from his note: workers tie no bow, so the bow bonus belongs to cats washed by hand.
 4. The like ask at minute 7. Answered 2026-11-26: keep it, after a good moment, with the rules in the first session section.
 
 Answered on 2026-11-26 as well: workers have no XP and their levels stay bought with coins. Passes and products are made on the dev game first and again on the live game at promotion, since the two are separate games on Roblox. Notifications reuse the group key the owner already has, saved by him as the game's secret. The store icon is A with E as the only alternate for now.
+
+Answered on the evening of 2026-11-26: the team makes the passes and products itself, with the group key first and the owner's signed in browser as the fallback he offered, so he no longer makes them by hand. Notifications on the live game are set up on the day he promotes. The ten special cats that wear a head piece get a smaller bow on the top right corner of the head, not at the side. Server size six is confirmed.
 
 **Decision line:** `2026-11-25: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in 3 to 10 steps, reveal its coat for the Cat Index, hire workers and collect pets from crates. Why: it is the owner's own playstyle pick after nine playtests, joined to the one thing lasting games share, which is something to collect.`
