@@ -98,3 +98,39 @@ Every answer in one readable file: plan-page-answers-2026-11-26.md. Exact restor
 The coordinator gave him the same three options in the chat, so his answer may come there and not on the page. Not answered at 3:23 PM ET. Two questions are open: headbows and notifylive.
 
 Also in v53: the store art step says the six files in Model-Agent/store-art/picked-2026-11-26/ are final and safe to upload (icon-main-512.png, icon-alternate-e-512.png, thumbnail-order-1 to 4), and the setup intro says the notification step is done on dev and no longer his.
+
+
+## Derek's answers of the evening, 2026-11-26 5:17 to 5:23 PM ET (read 5:25 PM ET; page v54 at the new link)
+
+Derek in the chat, 5:23 PM ET: "All plan questions answered/done so go through that and update with anything new needed". All 78 questions now have a pick. Backup: plan-page-backups/answers-2026-11-26-1725ET-full.json (165 docs).
+
+| id | His pick | His words | Same as our pick? | Passed to |
+|---|---|---|---|---|
+| headbows | 0: a smaller bow on the ten cats with a head piece | "Those bows are wayyyy too big and should be on top right corner not on side" | Yes, with a change: the bow also moves from the side of the head to the top right corner | Model-Agent |
+| notifylive | 0: set up live notifications on the day he promotes | (none) | Yes | Gameplay-Engineer |
+
+Setup steps. He ticked all nine, but a tick here does not always mean the step is done on Roblox. What each note means (the reading is ours):
+
+| id | His words | What it means | Passed to |
+|---|---|---|---|
+| s2-passes | "You can do gamepasses I have seen it done with keys or use claude in chrome" | Not made yet. We make the five passes ourselves: Open Cloud with the group key first, his signed in Chrome if the key cannot. This replaces his morning pick that he makes the dev set | Gameplay-Engineer |
+| s2-products | "You can do dev productsI have seen it done with keys or use claude in chrome" | Not made yet. Same as the passes, for the eight products | Gameplay-Engineer |
+| s2-questionnaire | "Will leave this to last" | Not done. Stays his, last. It must be in before the Robux crate goes on in the live game | Growth-Agent (answers are written), Review-QA (before live check) |
+| s2-serversize | "6 is fine" | Six confirmed. Read as a confirmation, not as proof the setting is changed, so we set it | Gameplay-Engineer |
+| s2-private | "Honestly 50, or 25 since there is no real benefit to being alone in your own server, give it free with robux plus" | Price changes from 100 to 50 or 25, his either. Our pick 25, a judgment (his own reason points to the lower one). Free with Roblox Plus comes from Roblox by itself once a price is set (Growth-Agent's check of 2026-11-25) | Growth-Agent (price), Gameplay-Engineer (setting), the design (issue and pull request) |
+| s2-groupwall | "I don't know what you mean by wall but joining group for a good reward should be a thing." | The step was unclear and out of date. A web search on 2026-11-26 found Roblox retired community walls at the end of March 2026 in favour of forums the owner turns on, so there is nothing to turn off. Step removed. The group reward he wants exists: the gift stand gives one pet for favourite plus group | Nobody. Growth-Agent told for the record |
+| s2-storeart | "You should be able to do this with keys or use claude in chrome" | Not uploaded yet. We try again ourselves. On the morning of 2026-11-26 Chrome could not pick a file from our side, so the owning thread tries the key and other routes and says plainly if none works | Coordinator to route (Growth-Agent owns the store page, Model-Agent the files) |
+| s2-computeruse | "Allowed" | Done | Sync-Agent |
+| s2-devtest | "Will playtest now and let you know" | In progress. His notes come in the chat | Coordinator, Review-QA |
+
+Sources for the wall: search result titles "roblox community walls retired end of march" (piunikaweb.com, 2026-04-01) and "Forums Are Now Live for All Community Owners" (devforum.roblox.com). Open Cloud has reference pages for game passes and developer products (create.roblox.com/docs/cloud/reference/features/game-passes and developer-products), so making them with a key is a real route; whether the group key has those permissions is for Gameplay-Engineer to check.
+
+## Page v55, 2026-11-26 5:40 PM ET
+
+No question is open and none was added: nothing from today's work needs a choice from him. Checked: the three needs-owner issues (530, 106, 29), the memory topics other threads changed today and the open issues list.
+
+- New visible section "What you decided this evening" (five entries): his answers, passes, products and store art are ours now, private servers at 25 Robux (our pick of his 50 or 25, he can say 50), the group wall step is gone, the new link.
+- Setup list is three steps, with new ids so they start unticked: s2-playnotes (his dev playtest notes and the three scrub questions of issue 29), s2-maturity (questionnaire, last, before the Robux crate goes on live), s2-promote (write "send it to live"; that day we make the live passes and products, set six players and 25 Robux, set up live notifications and publish the tested build).
+- Removed from his list: s2-passes, s2-products, s2-storeart (ours now), s2-serversize, s2-private (we set them), s2-computeruse (done), s2-groupwall (out of date).
+- Design: issue 846, pull request 848 (private server 25, who makes passes and products, head piece bows, live notifications, six players). Claude Doc edited to match, rev 23.
+- Passed on at 5:35 PM ET: Model-Agent (head piece bows), Gameplay-Engineer (live notifications, passes and products, server size, private server price), Growth-Agent (private server price, questionnaire, store art, wall), coordinator (store art route, review of 848).
