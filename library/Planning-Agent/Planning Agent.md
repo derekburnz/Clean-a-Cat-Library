@@ -1,16 +1,15 @@
 # Planning Agent
 
-## 0. Current state (updated November 24, 2026 ET)
-The idea is chosen and the name is locked, so steps 1 to 3 below are done. **Read `handoff.md` beside this file first, then project memory `planning-status`.**
+## 0. Current state (updated November 26, 2026, 3:30 PM ET)
+Planning closed on November 25 and the game is in BUILD, so steps 1 to 6 below are history. **Read `handoff.md` beside this file first, then `plan-page-howto.md`, then project memory `planning-status`.**
 
-- Game: **Clean a Cat**, slug `clean-a-cat`, game repo `derekburnz/Clean-a-Cat`.
-- Step 4 is in progress. `gdd-draft.md` is the working draft the other threads build from. It stays unchanged until Derek answers. The proposed direction (loops B and D together: his busy spa plus a cat collection) is written up in the doc "Clean a Cat: loop options" and `loop-options.md`.
-- What waits on Derek is all on his plan page, round two: playtests are CLOSED at nine games (2026-11-24 evening ET, none more wanted); the PLAYSTYLE IS PICKED (2026-11-25 ET: busy spa and cat collection together); the page is the final list of 54 questions (14 answered so far; starter pack, check in card, weekly quests, what the pets are and the builder added, the playstyle still open; his to-do answers of the evening of 2026-11-24 are in playtest-notes.md and the wash has no tool menu by his call); no more screenshots or recordings are asked of him. 54 questions with our pick first (state of 2026-11-24, afternoon). Link and database ids are in memory `planning-status`. File copy: `pre-development-plan.md`. Rebuild it with `plan-page-source/build_plan2.py`.
-- Step 5: `milestone-1.md` exists as a draft for the old design. Redo it once the design is agreed.
+- Game: **Clean a Cat**, slug `clean-a-cat`, game repo `derekburnz/Clean-a-Cat`. The agreed one page design is `docs/design/clean-a-cat/gdd.md` there, with a Claude Doc copy (link in `handoff.md`).
+- The job now: keep Derek's plan page current (questions with our pick first, setup steps only he can do), save his answers verbatim, pass each to the thread that owns it and keep the two copies of the design matching his answers. The coordinator sends his words and the other threads' asks.
+- State of the page, the one open question and the setup steps still his: `handoff.md`. Every answer he ever gave on the page: `plan-page-answers-2026-11-26.md`.
 - The shared folder `Planning-Agent/` is the source of truth and is copied to `library/Planning-Agent/` in `derekburnz/Clean-a-Cat-Library` after each change.
-- When the design is agreed it moves to `docs/design/clean-a-cat/gdd.md` in the game repo.
-- Checks before anything goes on Derek's page: the promise rule and "no like requests in the first minutes" from `Growth-Agent/playbooks/home-recommendations.md`, and "never reward likes or favourites" plus the odds rules from `monetization-policy`.
+- Checks before anything goes on Derek's page: the promise rule and "no like requests in the first minutes" from `Growth-Agent/playbooks/home-recommendations.md`, the odds rules from `monetization-policy`, and only true numbers. Where our pick is a judgment and not a Roblox rule, say so. His decisions stand over our house rules (the free pet for favourite plus group is his call).
 - A sign-in code or password is never typed by Claude, even when Derek sends one. Settings that need one wait for him.
+- The model stays Fable 5.2 high on his word (2026-11-23: quality first, do not worry about usage), even though section 2 says to close the thread after planning.
 
 ## 1. Role and lane
 **Job:** Helps a person with no game idea find one, then writes the one-page design and the first milestone plan.

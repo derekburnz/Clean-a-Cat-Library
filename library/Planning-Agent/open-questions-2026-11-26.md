@@ -61,3 +61,40 @@ Setup list changes in v50 (ten steps now):
 Design PR 759 merged 10:31 AM ET (issue 758 closed).
 
 Page v51, 10:44 AM ET: check of the three needs-owner issues. 530 (server size, private servers, passes and products, questionnaire) and 106 (store art v2: his picks, the files and the bow) were already covered by setup steps and q2-iconebow. 29 (owner playtest of the scrub) was only on a ticked to-do, so its three questions and keep or rethink were added to s2-devtest.
+
+## Derek's answers to the second round, 2026-11-26 3:13 to 3:14 PM ET (read 3:16 PM ET)
+
+| id | His pick | His words | Same as our pick? | Passed to |
+|---|---|---|---|---|
+| iconebow | 0: keep the bow where it is | "its fine infront of ear but tilted on corner." | Yes | Model-Agent |
+| purchaseask | 0: two minutes after a finished purchase, own off switch | (none) | Yes | Gameplay-Engineer |
+| rbxsync | 0: skip RbxSync, keep our walker | "If its working well than its fine, no buying license so we can skip" | Yes | Sync-Agent |
+| modelthread | 0: keep the thread | "I will manually restart model agent." | Yes, and then at 3:15 PM ET he said in the chat he will delete and remake every thread | Coordinator |
+
+Setup: c-s2-computeruse ticked 10:14 AM ET. c-s2-passes was touched at 3:14 PM ET and reads not done, with no ids. Nothing else ticked.
+
+## Third round, page v52, 2026-11-26 3:20 PM ET
+
+Derek 3:15 PM ET in the chat: "Save all info from plan artifact and update it with any questions needed, get all threads to update their library folders/md skills files with whats needed for them I am going to delete all threads and remake them to have fresh context and image limits per thread reset. Let me know when all threads are ready to be deleted and remade"
+
+One new question, not answered yet:
+
+| id | Question | Our pick (option 0) | Other options | Owner of the answer |
+|---|---|---|---|---|
+| notifylive | When to set up notifications on the LIVE game (message string and the secret) | On the day he promotes, with the rest of the live set, by our workflow | Now; he does it by hand | Gameplay-Engineer |
+
+Why it is asked: notifications were set up on dev at 12:40 PM ET by the GitHub workflow (string build_done made, group key saved as secret CleanACat_NotifyKey), and anything on live waits for his word.
+
+Setup list in v52 (nine steps): s2-passes, s2-products, s2-questionnaire, s2-serversize, s2-private, s2-groupwall, s2-storeart (use the newest set in the chat; the bow stays), s2-computeruse (ticked), s2-devtest (ready now: everything on in dev since 12:21 PM ET; asks issue 29's three scrub questions and keep or rethink). s2-notify was removed because dev is done.
+
+Every answer in one readable file: plan-page-answers-2026-11-26.md. Exact restore copy: plan-page-backups/answers-2026-11-26-1516ET-full.json.
+
+## Page v53, 2026-11-26 3:23 PM ET: one more question, from the coordinator
+
+| id | Question | Our pick (option 0) | Other options | Owner of the answer |
+|---|---|---|---|---|
+| headbows | Bows on the ten special cats that wear a head piece. In the game the bow stands at the side of the head at full size (he had a big blue bow taken off the pink cat in thumbnail 3: "remove the giant blue bow that appeared on pink cats head") | A smaller bow on those ten | No bow on cats with a head piece; leave as they are | Model-Agent |
+
+The coordinator gave him the same three options in the chat, so his answer may come there and not on the page. Not answered at 3:23 PM ET. Two questions are open: headbows and notifylive.
+
+Also in v53: the store art step says the six files in Model-Agent/store-art/picked-2026-11-26/ are final and safe to upload (icon-main-512.png, icon-alternate-e-512.png, thumbnail-order-1 to 4), and the setup intro says the notification step is done on dev and no longer his.

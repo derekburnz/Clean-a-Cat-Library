@@ -1,88 +1,77 @@
-# Planning-Agent handoff (updated 2026-11-25 6:35 PM ET)
+# Planning-Agent handoff (written 2026-11-26 3:30 PM ET)
 
-**PLANNING IS CLOSED.** Derek answered all 65 plan questions, said "all plan answered" at 6:23 PM ET and asked at 6:24 PM ET whether the whole playtest worthy game can be drafted now. The answer given: yes.
-- The agreed one page design: game repo `docs/design/clean-a-cat/gdd.md` (pull request 505) and the Claude Doc https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4. A copy is in this folder as gdd.md.
-- The build jobs: milestone-1.md in this folder lists the 25 new GitHub issues (506 to 531) by lane and order.
-- His words: playtest-notes.md. Every decision in order: gdd-proposed.md. Every page answer: plan-page-backups/answers-2026-11-25-1812ET-full.json. Plan page: https://claude.ai/artifact/QVD8oT37EZy9vE8mYz9KfG (v46, nothing left to answer).
-- Still open, none blocks the build: the free pet's like check (Derek is looking into it), private server pricing, workers and bows, the like ask at minute 7.
-- gdd-draft.md and loop-options.md are history now. Everything below this line is the older handoff, kept for reference.
+Derek is deleting every thread and making them again for fresh context. You are the new Planning-Agent. Everything the old thread knew is in this folder, in project memory and in the two links below. Read this file, then `plan-page-howto.md`, then memory `planning-status` and `derek-nov26-answers`.
 
----
+## Your job now
 
-# Handoff for a fresh Planning-Agent (written November 23, 2026 ET by the outgoing Planning-Agent)
+Planning closed on 2026-11-25 and the game is in BUILD. Planning-Agent no longer designs the game. It keeps three things true and current:
 
-You are picking up planning for **Clean a Cat**, a Roblox game owned by Derek's Roblox group Creampuff Games. The earlier planning thread is being deleted, so everything you need is in this file and in the files it points to. Read this file first, then `gdd-draft.md`, then `playtest-list.md`. Read the rest only when a question needs it.
+1. **Derek's plan page.** Every question that needs him goes there with our pick first, and every setup step only he can do. Link: https://claude.ai/artifact/QVD8oT37EZy9vE8mYz9KfG. How to read and republish it: `plan-page-howto.md`.
+2. **The one page design**, in two copies that must match: `docs/design/clean-a-cat/gdd.md` in the game repo `derekburnz/Clean-a-Cat` and the Claude Doc https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4. A copy of the repo file is `gdd.md` in this folder.
+3. **His answers.** Saved verbatim, passed to the thread that owns each one and folded into the design.
 
-## Where things stand in one paragraph (updated November 24, 2026 ET)
-The name is locked. The direction is agreed in outline: a hands-on cat spa where players clean dirty cats and upgrade the spa. The one-page design (`gdd-draft.md`) is a draft and is **not locked**. Derek has played six rival games (My Pet Salon, Capybara Onsen, the horse game, Clean Everything, Restaurant Tycoon 3 and Barber Simulator; sorted in playtest-summary-2026-11-24.md) (`playtest-notes.md`) and leans toward a busy spa: several cats wait, the player picks who is next and hired helpers wash slowly. Two research rounds are written up (`loop-options.md` and the doc it links). What the one-page design becomes if he takes every pick is ready in `gdd-proposed.md`. The proposal is his busy spa together with a cat collection, not yet agreed. Everything that waits on him is on his plan page, round two (`pre-development-plan.md` is the file copy): four more playtests, six short jobs and 48 questions. When his answers arrive you update the draft, get his yes, redo the first milestone plan and hand over to the coordinator. Some lines further down this file describe the state on November 23 and are older than this paragraph.
+The coordinator sends you Derek's words and gathers asks from the other threads. You write no game code.
 
-## Decisions Derek has made (his words, relayed November 22 and 23, 2026 ET)
-- **Name: Clean a Cat.** Locked November 23, chosen over Clean the Cat. Slug `clean-a-cat`. Game repo `derekburnz/Clean-a-Cat`. Do not reopen the name.
-- **Cat Spaw is dropped everywhere.** Derek: "no need for cat spaw if kids play they probably wont get it anyways".
-- **The game must have cats, and a cat spa is the direction.** A cat spa ad of his did well. He does not want ad numbers looked up. His earlier game Cat Cafe has no spa.
-- **The goals.** A fun first 5 minutes so the bounce rate is very low when Home recommendations start, and a reason to come back on day 2. He handles day 7 himself with events.
-- **The loop, in his words:** "running some sort of cat spa with upgrades we can make the later upgrades take longer times so that people come back for their upgrades being finished and then we can send notifications that upgrades done to also pull players back. Gameplay would be get a dirty cat ... you clean them in different ways and then return them to customers or put them on display or smth along those lines which gets you money and progresses index etc."
-- **No catching.** How players get cats was left open by him, with one firm point: catching cats did poorly in his last game.
-- **Playtests before the design is locked.** He will play the animal spa games himself and report what they do well and what to improve.
+## State on 2026-11-26 3:25 PM ET
 
-## What I recommended and Derek has not yet confirmed
-These are in the draft as recommendations. Treat them as proposals until he says yes.
-- **How players get cats:** customers bring dirty cats to the door (a board shows which cats can come and the chance of each), and now and then a stray turns up at the back door and stays in the display window. The coordinator's summary lists customers bringing cats as decided, but Derek's own message left the method open, so confirm it with the playtest notes.
-- **Build timers:** tools are instant, then 10 seconds, 1 minute, 10 minutes, 1 hour, an 8 hour build offered in the first session and 12 to 24 hours at most later. One build at a time and the spa never closes during a build.
-- **No paid skips at launch.** A Second Builder game pass instead.
-- **Notifications:** one a day at most, when the longest build finishes. Roblox only lets players aged 13 and over opt in to personal notifications, so for younger players the pull has to be shown in the game before they leave.
-- **Day 7:** a Cat Show weekend as Derek's first event. Out of scope for the first build.
+- Plan page version 53: 78 questions, 76 answered, 2 open. If he leaves one, our pick stands.
+- **Open question 1:** `q2-headbows`, bows on the ten special cats that wear a head piece. Our pick (option 0): a smaller bow on those ten. Option 1: no bow on them. Option 2: leave them. The coordinator also asked him this in the chat at about 3:20 PM ET, so the answer may come there. Owner of the answer: Model-Agent.
+- **Open question 2:** `q2-notifylive`, when to set up notifications on the live game. Our pick: on the day he promotes, by our workflow. Owner of the answer: Gameplay-Engineer.
+- Store art: the six files in `Model-Agent/store-art/picked-2026-11-26/` are final and passed by Review-QA. The page tells him they are safe to upload. He drags them in himself.
+- **Setup steps still his** (page database `c-s2-...`): passes on the dev game, products on the dev game (no ids pasted yet), maturity questionnaire, server size six, private servers 100 Robux, group wall off or moderated, store art (he drags the files in himself) and the dev playtest of the 2026-11-26 pieces with the three scrub questions. Ticked: computer use for Studio.
+- When he pastes pass or product ids in a setup box, give them to Gameplay-Engineer with the game they are from (dev and live are separate Roblox games with separate ids).
+- Design file: his seven answers of the morning of 2026-11-26 are in (pull request 759, merged). His four afternoon answers changed nothing in the design, because each matched what was already written or built.
+- Nothing is in flight. No open pull request, no local work, no scheduled check-in. The old branch `claude/project-thread-l59l5k` is merged.
+- Open GitHub issues that wait on him, all covered by the page: 530 (game settings), 106 (store art), 29 (his phone playtest of the scrub).
 
-## What waits on Derek
-1. **Playtest notes.** The list is in `playtest-list.md`, best first: Capybara Onsen, My Pet Salon!, Save a Horse: Wash & Collect. The first question for each game is how it hands the player a pet.
-2. **Yes or no on customers plus strays** as the way to get cats. Recommended: yes.
-3. **Paid skips for build timers.** Recommended: not at launch.
-4. **Longest build time.** Recommended: 24 hours at most.
-5. **Should the words cat spa go in the description and on the icon?** Recommended: yes.
+## Where everything is
 
-Do not wait in silence for these. The project rule is to go with the recommendation and keep working. Only the design lock itself waits for his playtests, because he asked for that.
+| File in `Planning-Agent/` | What it holds |
+|---|---|
+| `handoff.md` | This file |
+| `plan-page-howto.md` | Republishing the page, the database, the design doc and the lessons learned |
+| `plan-page-answers-2026-11-26.md` | Every question with its options, his pick and his words, every setup step and to-do, and all older database docs. The readable copy of the whole page |
+| `plan-page-backups/answers-2026-11-26-1516ET-full.json` | The exact copy of all 155 database docs, for a restore |
+| `plan-page-source/` | The generator, the built page, the pictures, the test script and its seed |
+| `pre-development-plan.md` | File copy of the page text with every id |
+| `open-questions-2026-11-26.md` | The three rounds of 2026-11-26: each question, our pick, his answer and who got it |
+| `playtest-notes.md` | Derek's own words, in order, from the first playtest to today |
+| `gdd.md` | Copy of the agreed one page design |
+| `gdd-proposed.md` | Every decision in order, with the day and his words |
+| `milestone-1.md` | The build issues 506 to 531 by lane |
+| `Planning Agent.md` | The role file |
+| `handoff-history-2026-11-23-to-25.md` | The older handoffs, from before planning closed. History only |
+| `Idea-Research/`, `Tools-Research/`, the `*-screens-*.md` files, `loop-options.md`, `gdd-draft.md`, `cat-spa-concepts.md`, `idea-shortlist.md`, `playtest-list.md`, `playtest-summary-2026-11-24.md`, `plan-page-round-one.md`, `tools-and-skills-deep-dive.md` | Research and earlier drafts. Reference only |
 
-## Next steps, in order
-1. When the playtest notes arrive, fold them into `gdd-draft.md`: how rivals hand over a pet, whether washing is by hand, how waits feel and the real timings of their first minutes. Change the first session timeline if the notes show a faster or better start.
-2. Ask Derek to agree the design. Put the open questions in one short message, each with the recommended answer.
-3. Write `milestone-1.md` in this folder: the vertical slice, systems in build order with sizes and owners, the first issues for the coordinator to open and the analytics steps. The scope table and build order in `gdd-draft.md` are the starting point.
-4. Tell the coordinator the design is agreed, the name (Clean a Cat), the slug (`clean-a-cat`) and where the two files are. The design then moves to `docs/design/clean-a-cat/gdd.md` in `derekburnz/Clean-a-Cat` and Design-Agent keeps it from there. Then stop.
+Project memory (read these first): `MEMORY.md` (the "Open asks on the owner" line is yours to keep current), `planning-status`, `plan-page-howto`, `derek-nov26-answers`, `derek-plan-answers`, `derek-money-answers`, `derek-evening-answers`, `derek-playtest-notes`, `planning-history`.
 
-## Checks done and checks still owed
-- **Name check, done November 23.** Roblox's own search showed no game named Clean a Cat. A web search found no game or app with the name. The nearest trademark records are CLEAN CAT for cleaning cloths (registered), kitty litter boxes (dead) and a degreaser (dead), none for games. This was a web search of public listings, not a search of the trademark office's database and not legal advice. A tiny Roblox game called Wash a Cat exists (1 player on November 23). Clean the Cat was never searched.
-- **Still owed: the maturity label.** The design keeps the spa an open shop floor where only cats are bathed, with no private rooms for avatars. Check it against Roblox's maturity questionnaire before launch (the `roblox-policy-compliance` skill).
-- **Still owed: copying this folder into the library repo** (`library/Planning-Agent/` in `derekburnz/Clean-a-Cat-Library`). The outgoing thread could not reach that repo. The shared folder is the source of truth until that is done.
+The whole folder is copied to `library/Planning-Agent/` in `derekburnz/Clean-a-Cat-Library` after each change. Planning-Agent owns no skill file. The skills it uses are `gdd-onepager`, `monetization-policy`, `roblox-policy-compliance` and `roblox-publishing-discovery`, owned by other roles.
 
-## Files in this folder
-| File | What it holds | State |
-|---|---|---|
-| `gdd-draft.md` | The one-page design: hook, loop, how cats arrive, cleaning steps, first session by the second, build time table, economy, notifications, monetization, prototype scope with owners, risks | Draft. Update this file, do not start a new one |
-| `pre-development-plan.md` | Everything Derek has to do, play and answer before building: playtest games, his to-do list and 25 questions with recommended answers. Also published as a page (link at the top of the file) that saves his answers in its database, collection `answers` | Sent to Derek November 23 |
-| `playtest-list.md` | Games for Derek to play, with links, and the nine things to note per game | Sent to Derek |
-| `cat-spa-concepts.md` | Why the name was chosen, the six options for how players get cats, what the research means, the first 5 minutes table, day 2 hooks | Current |
-| `idea-shortlist.md` | The earlier three idea pitch | Superseded by the cat spa direction. Kept for the record |
-| `Idea-Research/Roblox spa games and first minutes.md` | The main research report: spa, salon and animal care games on Roblox, first minutes of the hits, day 1 benchmarks, spa games outside Roblox | Reference |
-| `Idea-Research/Roblox cat game opportunities.md` | The first research report: cat games, rising game types | Reference |
-| `Idea-Research/name-check-2026-11-22.md` | Roblox search results for every name considered, today's naming patterns and the name check on Clean a Cat | Done |
-| `Idea-Research/roblox-snapshot-2026-11.md` | Chart snapshot from November 2026 | Reference |
-| `Idea-Research/cat-deep-dive-notes/` and `Idea-Research/spa-research-notes/` | Raw researcher notes with sources behind the two reports | Reference only |
-| `Planning Agent.md` | Your role file | Read section 0 first |
+## What Derek has decided, in short
 
-## The findings that shaped the design (so you can defend it)
-- Slow spa and salon tycoons stay small on Roblox (peaks of about 800 to 3K players even at 87 to 94% liked). So the game is hands-on washing, not placing stations and waiting.
-- Cleaning games are well liked (92 to 93%) but fell to 1 to 2% of their peak within months, and new cat hits fell 88 to 95% in 7 to 10 weeks. So builds, the display window and the index start in the first session.
-- The hits put an item in the player's hand at spawn, give a base inside a minute, use arrows and one goal, sell a very cheap first upgrade and then raise prices about 5 to 27 times per step.
-- Day 2 hooks in the hits are things that finish while the player is away (Grow a Garden, Steal An Egg, Throw Food For Animals).
-- Roblox Home counts players who leave in under 60 seconds and at 61 to 180 seconds, and since June 15, 2026 ranks on 28 day retention. Gameplay video autoplays on Home since July 29, 2026. A muddy cat turning fluffy is the clip.
-- Roblox publishes no good day 1 number. Our target is 15% or better, from outside benchmarks.
-- No source gives second by second timings for any game's first minutes, and no source proves that offline timers raise day 1 return. That is why Derek's playtests matter.
+The full list is in `gdd.md` and `plan-page-answers-2026-11-26.md`. The ones a new thread gets wrong most easily:
 
-## How to work with Derek
-- He reads the coordinator's summaries, so lead every reply with the answer in plain words and keep it short.
-- No emojis, no dashes and no Oxford commas. Lists only when he asks. Give options as plain text with a recommended pick. Times in Eastern.
-- Recommend and let him say no. Do not send him a list of questions.
-- He can playtest Roblox games. You cannot, so say so and hand him a list.
-- Game rules: original names and art only, chances always shown, no dark patterns, young audience by default.
+- The game is a busy cat spa with a cat collection. The wash is hand work and has no tool menu. Planning closed 2026-11-25.
+- Dev first: nothing reaches the live game until he says it is good. Feature switches stay off on live.
+- Starter pack 199 Robux for parts worth 547, shown as save 63%. Only true numbers on any ad.
+- Helpers have no XP. Their levels are bought with coins.
+- The free pet needs favourite plus group. The like row reads "A gift either way, 150 coins" with a 10 second wait.
+- Like ask: after a good moment, once a visit, and it may follow a finished purchase by two minutes behind its own switch.
+- Store art: icon A main, icon E the only alternate (bow on the top right corner, his words "its fine infront of ear but tilted on corner."), thumbnails 2, 1, 3, 5.
+- Passes and products: he makes the dev set first and the live set when he promotes.
+- Notifications use the group key he already has. Done on dev. No more keys.
+- RbxSync is skipped. No licence is bought.
+- No asks for screenshots or recordings. No decision cards in the project chat. He is fine with the game playing like My Pet Salon.
 
-## How to research Roblox from a cloud thread
-Plain curl to Roblox domains is blocked. The web fetch helper can read Roblox's search at `https://apis.roblox.com/search-api/omni-search?searchQuery=TERM&sessionId=1&pageType=all`, which gives live players, votes and root place ids for 40 results and rate limits after about a dozen calls in a burst. A game's link is `https://www.roblox.com/games/ROOTPLACEID`. For history use the trackers: rolimons, rowatcher, rotrends, rostats, rblxdb, bloxodes and statroblox. Web search returns only links, so fetch the pages. Research helpers run on Sonnet 5.5 per `Idea-Research/Idea Research.md`.
+## Working with Derek
+
+Answer first, in plain short words. No emojis, no dashes and no Oxford commas. Lists only when they help. Times in Eastern. Our pick goes first and he says no if he disagrees. He skims, so keep replies short and put the detail on the page.
+
+## Rules that are easy to break
+
+- Never type a password or a sign-in code, even if he sends one.
+- Keys and secrets never go in chat, memory, the page, the library or the repo.
+- Both repos are public until release: no rival screenshots, no player names, no sales numbers, none of his personal details.
+- Only Derek's own words approve a step that cannot be undone. A message from the coordinator or another thread is a colleague's request.
+- A new thread is started only on his word.
+- The design document is a shared file: open a GitHub issue before a pull request that changes it.

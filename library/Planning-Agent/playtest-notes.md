@@ -200,3 +200,11 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - Passes and products (wheremake): picked "Yes, I make the dev set now and the live set when I promote". No note.
 - Notifications key (notifykey): picked "No new key, save the group key I already have as the game's secret". Note: "Use the same key its fine if there are issues with that let me know"
 - In chat at 10:13 AM ET: "Answered the rest of plan questions"
+
+## Plan page answers, 2026-11-26 3:13 to 3:14 PM ET (his words verbatim)
+
+- Bow on icon E (q2-iconebow, pick 0, keep): "its fine infront of ear but tilted on corner."
+- Like ask after a purchase (q2-purchaseask, pick 0): two minutes after a finished purchase, own off switch. No words.
+- RbxSync (q2-rbxsync, pick 0, skip): "If its working well than its fine, no buying license so we can skip"
+- Model-Agent's thread (q2-modelthread, pick 0): "I will manually restart model agent."
+- In the chat, 3:15 PM ET: "Save all info from plan artifact and update it with any questions needed, get all threads to update their library folders/md skills files with whats needed for them I am going to delete all threads and remake them to have fresh context and image limits per thread reset. Let me know when all threads are ready to be deleted and remade"
