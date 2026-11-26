@@ -1,0 +1,7 @@
+# Run on main 63ff1f6 (#372, #374, #375), 2026-11-24
+Local unsaved build, never saved or published. R6, fresh save, desktop. No separate brushing switch on main.
+1. Box off rear edge (#372): PASS. Spans edge 14 frames (3.93 to 4.14 s). Largest one-frame drop while crossing 0.010 (limit 0.05). Floor top 2.48 to 2.55 (rocks in pothole). Spin forwards, -359 deg about Z for +X motion (was backwards). Small hover: after fully clearing the edge it hangs level 2 frames (4.159, 4.176 s, bottom 2.50, up to 0.32 past the edge), then drops 0.031, 0.045, then free fall.
+2. R6 carry (#375): FAIL. Tail vs right arm: standing (330 frames) 0.183 studs inside, walking (97 frames) 0.216 inside (before #375: 0.17 / 0.24). Head vs left forearm: standing 0.500 inside, walking 0.495 inside. Aim 0 or more.
+3. Brushing (#374), Suds 3 strokes: lightening PASS, no puffs PASS (Fluff parts 0 throughout). Coat average: dry 137,120,125; wet 95,84,87; stroke1 109,96,100; stroke2 124,110,114; stroke3 137,121,125 (about +14 per channel per stroke). Each stroke flashes about 0.3 s: peaks 150,141,141 / 160,150,149 / 171,161,160. Top-to-bottom direction not confirmable (average logger). Final sparkle not confirmed: no new ParticleEmitter/Beam/sparkle instance appeared. Only smooth unbroken drags count as strokes (tooling note).
+4. Pick a bow: no fix on main; latest wash-view commits are 186c9fe (Walk button), c1650f6 (reset mid-wash). Not re-run.
+Console: nothing new. Pictures on PC: Downloads\Clean-a-Cat-captures\brush-carry-2026-11-24\ (two Suds mid-brush frames).

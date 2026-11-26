@@ -1,0 +1,7 @@
+# Garden gate barrier check, main bccd28f (PR 734), 2026-11-26
+Same local place brought up to bccd28f by loading its Garden model (two Gate_Barrier slabs) plus the client and shared files changed since 064885b. Seeded save with Garden built, iPhone 13 frame, same switches. Draft PR 735 has 3 pictures and notes.
+1. Sideways into each open gate leaf: FAIL on the phone. Each slab is 3.3 studs tall (top y 3.77). Humanoid.AutoJumpEnabled is on on the phone and jump height is 7.2. Walking into a leaf at z 3.0, 3.6 or 4.1 makes the character auto-jump over the slab and land behind the leaf (x 2.3 to 2.9 left, 11.3 to 11.7 right). At z 1.9 and 2.4 it stopped. With auto-jump off every walk stopped at the slab, from inside and outside. So the slab works as a wall but is too low for a jumping player; a taller slab (around 8 studs, invisible) would fix it. Pictures 01 (mid-hop) and 02 (behind the left leaf).
+2. In and out of the gate: PASS. Through the middle, at x 5.6 and 8.4, two diagonal walks; also carrying a customer's cat, twice in and out, still holding it (took the cat with E).
+3. Pets and workers: PASS. Pet beside me stayed 2.7 studs away, never held back. Jo and Sam stay at their pads by the tubs. Garden pet Scrubby sits still, 0.7 studs past the end of the right slab.
+4. Camera by the gate frame: 35%, unchanged and known (same at the right frame). Slab never stops the camera (CanQuery off).
+Console: known lines only. Play stopped, nothing saved or published.

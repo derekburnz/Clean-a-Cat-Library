@@ -1,0 +1,102 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=block" rel="stylesheet">
+<style>
+:root { --ink:#45226b; --soft:#6c4f86; --cream:#fff6ea; --mint:#7fe0b4; --gold:#ffd84d; }
+* { box-sizing:border-box; margin:0; }
+body { background:#fdf1e3; font-family:Nunito,sans-serif; color:var(--ink); padding:36px 40px 44px; width:1720px; }
+h1 { font-family:'Fredoka One'; font-weight:400; font-size:40px; }
+.sub { font-size:19px; font-weight:800; color:var(--soft); margin:6px 0 26px; }
+h2 { font-family:'Fredoka One'; font-weight:400; font-size:26px; margin:26px 0 4px; display:flex; gap:12px; align-items:center; }
+h2 .tag { font-size:15px; background:var(--gold); border:3px solid var(--ink); border-radius:12px; padding:2px 10px; }
+h2 .tag.alt { background:#e2c6ff; }
+.note { font-size:16px; font-weight:800; color:var(--soft); margin-bottom:12px; }
+.row { display:grid; grid-template-columns:repeat(3, 528px); gap:22px; }
+.row.four { grid-template-columns:repeat(4, 391px); gap:18px; }
+.cell { }
+.fr { position:relative; width:100%; aspect-ratio:16/9; border:4px solid var(--ink); border-radius:18px; overflow:hidden; background-size:cover; background-position:center; box-shadow:0 5px 0 var(--ink); }
+.cap { margin-top:12px; font-size:17px; font-weight:800; line-height:1.3; }
+.cap b { font-family:'Fredoka One'; font-weight:400; font-size:19px; margin-right:6px; }
+.cap .t { display:inline-block; font-family:'Fredoka One'; font-size:15px; background:#fff; border:3px solid var(--ink); border-radius:10px; padding:0 7px; margin-right:8px; }
+.ol { font-family:'Fredoka One'; color:#fff; -webkit-text-stroke:6px var(--ink); paint-order:stroke fill; text-shadow:0 3px 0 var(--ink); }
+/* overlays (sizes in % of the frame so they scale with each column) */
+.dim { position:absolute; inset:0; background:radial-gradient(circle at var(--x) var(--y), transparent 0 var(--r), rgba(36,16,56,.6) calc(var(--r) + 14px)); }
+.arrow { position:absolute; transform:translate(-50%,-100%); display:flex; flex-direction:column; align-items:center; gap:2px; }
+.arrow svg { width:58px; }
+.arrow .w { font-size:30px; }
+.four .arrow svg { width:40px; } .four .arrow .w { font-size:23px; -webkit-text-stroke-width:5px; }
+.say { position:absolute; transform:translate(-50%,-100%); background:#fff; border:3px solid var(--ink); border-radius:16px; padding:3px 12px; font-family:'Fredoka One'; font-size:20px; box-shadow:0 3px 0 var(--ink); }
+.say::after { content:""; position:absolute; left:50%; bottom:-10px; width:14px; height:14px; background:#fff; border-right:3px solid var(--ink); border-bottom:3px solid var(--ink); transform:translateX(-50%) rotate(45deg); }
+.tip { position:absolute; top:3%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:21px; -webkit-text-stroke-width:5px; }
+.card { position:absolute; left:3%; top:54%; transform:translateY(-50%); width:40%; background:var(--cream); border:3px solid var(--ink); border-radius:14px; box-shadow:0 4px 0 var(--ink); padding:22px 9px 9px; text-align:center; }
+.card .pf { position:absolute; left:50%; top:-26px; transform:translateX(-50%); width:52px; height:52px; border-radius:50%; border:3px solid var(--ink); background:#d9f6ea; overflow:hidden; }
+.card .pf img { width:100%; height:100%; object-fit:cover; }
+.card .h { font-family:'Fredoka One'; font-size:19px; }
+.card .stars { font-size:17px; color:#ffb400; -webkit-text-stroke:1.5px var(--ink); letter-spacing:2px; }
+.card .l { font-size:11.5px; font-weight:900; color:var(--soft); margin:1px 0 6px; }
+.btn { display:inline-block; font-family:'Fredoka One'; font-size:13px; color:#fff; -webkit-text-stroke:3px var(--ink); paint-order:stroke fill; background:#38c98a; border:3px solid var(--ink); border-radius:10px; padding:3px 10px; box-shadow:0 3px 0 var(--ink); }
+.bub { position:absolute; left:50%; bottom:5%; transform:translateX(-50%); width:80%; background:var(--cream); border:3px solid var(--ink); border-radius:14px; box-shadow:0 4px 0 var(--ink); display:flex; align-items:center; gap:7px; padding:7px 8px 7px 50px; }
+.bub .pf { position:absolute; left:-4px; top:-20px; width:52px; height:52px; border-radius:50%; border:3px solid var(--ink); background:#d9f6ea; overflow:hidden; }
+.bub .pf img { width:100%; height:100%; object-fit:cover; }
+.bub .tx { flex:1; text-align:left; }
+.bub .h { font-family:'Fredoka One'; font-size:14px; line-height:1.1; }
+.bub .l { font-size:10.5px; font-weight:900; color:var(--soft); }
+.bub .x { position:absolute; right:-7px; top:-9px; width:19px; height:19px; border-radius:50%; background:#ff6b6b; border:2.5px solid var(--ink); color:#fff; font:400 11px 'Fredoka One'; display:grid; place-items:center; }
+.arrow.up { transform:translate(-50%,0); flex-direction:column-reverse; }
+.arrow.up svg { transform:rotate(180deg); }
+.ticks { position:absolute; left:3%; top:22%; background:var(--cream); border:3px solid var(--ink); border-radius:12px; box-shadow:0 3px 0 var(--ink); padding:6px 10px; display:flex; flex-direction:column; gap:4px; font-family:'Fredoka One'; font-size:15px; }
+.ticks .r { display:flex; align-items:center; gap:7px; }
+.ticks .r .b { width:16px; height:16px; border-radius:5px; border:2.5px solid var(--ink); background:#fff; }
+.ticks .r.now { color:#8f5a00; } .ticks .r.now .b { background:#ffd84d; }
+.card { width:34% !important; left:2% !important; }
+.foot { margin-top:30px; font-size:16px; font-weight:800; color:var(--soft); line-height:1.5; }
+.foot b { color:var(--ink); }
+</style></head><body>
+<h1>Clean a Cat: the opening, storyboard</h1>
+<div class="sub">Draft for Derek, 24 Nov, third version: the truck shot you picked, the carry from your clip and the close-up wash view. Pictures are stand-in poses from our models; the words and pointers on top are the planned screens. All of it sits behind off switches.</div>
+
+<h2><span class="tag">1</span>The truck: a quick intro shot <span class="tag alt">your pick: A</span></h2>
+<div class="note">The camera takes about 3.7 seconds for the truck and the box, then snaps back behind you. No skip button, because it is over before one would help.</div>
+<div class="row">
+  <div class="cell"><div class="fr" style="background-image:url(a1-truck-jolt.png)"></div>
+    <div class="cap"><span class="t">0:01</span><b>Bump!</b>The truck hits the bump, jolts and the back door swings open.</div></div>
+  <div class="cell"><div class="fr" style="background-image:url(a2-box-bounce.png)"></div>
+    <div class="cap"><span class="t">0:02</span><b>Thud.</b>A plain brown box flies out, lands by you and bounces once. The truck drives on.</div></div>
+  <div class="cell"><div class="fr" style="background-image:url(b-box-landed.png)">
+      <div class="dim" style="--x:35%;--y:67%;--r:15%"></div>
+      <div class="arrow" style="left:35%;top:47%"><span class="w ol">Open!</span><svg viewBox="-30 -56 60 60"><path d="M-12 -52h24v26h12L0 0-24 -26h12z" fill="#ffd84d" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></svg></div></div>
+    <div class="cap"><span class="t">0:04</span><b>Your camera.</b>The box wiggles and meows. The screen dims round it, and you tap it.</div></div>
+</div>
+
+<h2><span class="tag">2</span>Pick him up and carry him in</h2>
+<div class="row">
+  <div class="cell"><div class="fr" style="background-image:url(c-stray-peeks.png)">
+      <div class="dim" style="--x:50%;--y:42%;--r:14%"></div>
+      <div class="say" style="left:28%;top:34%">Meow?</div>
+      <div class="arrow" style="left:50%;top:35%"><span class="w ol">Pick him up!</span><svg viewBox="-30 -56 60 60"><path d="M-12 -52h24v26h12L0 0-24 -26h12z" fill="#ffd84d" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></svg></div></div>
+    <div class="cap"><span class="t">0:05</span><b>A muddy kitten!</b>No name and no collar yet. You tap him to lift him out.</div></div>
+  <div class="cell"><div class="fr" style="background-image:url(c2-carry.png)">
+      <div class="tip ol">Take him inside</div></div>
+    <div class="cap"><span class="t">0:07</span><b>In your arms.</b>He lies across your arms with his head at your shoulder, purring (the hold from your clip). Green arrows lead to the tub, and you tap <b style="font-size:17px">Wash him</b> there.</div></div>
+  <div class="cell"><div class="fr" style="background-image:url(d-scrub.png)">
+      <div class="tip ol">Scrub the mud</div>
+      <div class="ticks"><div class="r now"><span class="b"></span>Scrub</div><div class="r"><span class="b"></span>Brush</div></div>
+      <div class="arrow up" style="left:52%;top:52%"><span class="w ol">Scrub!</span><svg viewBox="-30 -56 60 60"><path d="M-12 -52h24v26h12L0 0-24 -26h12z" fill="#ffd84d" stroke="#45226b" stroke-width="4" stroke-linejoin="round"/></svg></div></div>
+    <div class="cap"><span class="t">0:12</span><b>The wash view.</b>The camera eases in close. Each step is taught here, one at a time: scrub the mud, then brush him.</div></div>
+</div>
+
+<h2><span class="tag">3</span>He becomes Suds</h2>
+<div class="row">
+  <div class="cell"><div class="fr" style="background-image:url(e-suds-clean.png)">
+      <div class="card"><span class="pf"><img src="portrait_Suds_ink.png" alt=""></span>
+        <div class="h">Meet Suds!</div><div class="stars">★★★</div><div class="l">He's your spa cat now!</div><span class="btn">Open the spa!</span></div></div>
+    <div class="cap"><span class="t">0:35</span><b>Clean!</b>He shakes off, the collar and bell pop on, and the card at the side names him. Always 3 stars.</div></div>
+  <div class="cell"><div class="fr" style="background-image:url(f-suds-home.png)">
+      <div class="bub"><span class="pf"><img src="portrait_Suds_ink.png" alt=""></span>
+        <div class="tx"><div class="h">Let's open the spa!</div><div class="l">A customer is on the way.</div></div><span class="btn">OK!</span><span class="x">x</span></div></div>
+    <div class="cap"><span class="t">0:40</span><b>Home.</b>The camera eases back out. Suds hops onto his bed by the door and from now on points out new things in a little bubble.</div></div>
+</div>
+
+<div class="foot"><b>What you play:</b> tap the box, tap him, carry him in, then the wash in the close view. The first customer arrives at about 1:00, as before.<br>
+<b>Rules kept:</b> you tap every step, nothing opens by itself, Suds never points at anything sold for Robux, and each part has its own off switch.</div>
+</body></html>

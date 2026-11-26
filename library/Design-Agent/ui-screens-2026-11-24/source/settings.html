@@ -20,7 +20,7 @@
 .set { display: grid; grid-template-columns: 44px 1fr auto; column-gap: 14px; align-items: center; min-height: 74px; padding: 0 4px; border-top: 3px solid var(--line); }
 .set:first-child { border-top: 0; }
 .set > .ic { width: 40px; height: 40px; justify-self: center; }
-.set .lab { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.set .lab { display: flex; flex-direction: column; gap: 4px; min-width: 0; margin-right: 10px; }
 .set .l { font-family: var(--font-head); font-size: 24px; line-height: 1; white-space: nowrap; }
 .set .d { font-weight: 800; font-size: 18px; line-height: 1.1; color: var(--ink-soft); white-space: nowrap; }
 
@@ -102,13 +102,13 @@ body.short .sw .knob .ic { width: 20px; height: 20px; }
         <div class="set tog" data-tap role="switch" aria-checked="false" aria-label="Less screen shake">
           <!-- a screen with wobble lines, drawn here in the kit's style: 64 x 64, ink outline 4 -->
           <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#45226b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none"><rect x="17" y="12" width="30" height="40" rx="7" fill="#8fd3fe"/><path d="M9 20q-6 12 0 24M55 20q6 12 0 24"/><path d="M25 22l6 8" stroke="#fff"/></g></svg>
-          <span class="lab"><span class="l">Less screen shake</span><span class="d">Softer bumps and wobbles</span></span>
+          <span class="lab"><span class="l">Less screen shake</span><span class="d">Softer bumps</span></span>
           <span class="sw"><span class="w">Off</span><span class="knob"></span></span>
         </div>
 
         <div class="set tog" data-tap role="switch" aria-checked="false" aria-label="Less sparkle">
           <i data-ic="sparkle"></i>
-          <span class="lab"><span class="l">Less sparkle</span><span class="d">Fewer flashes and bubbles</span></span>
+          <span class="lab"><span class="l">Less sparkle</span><span class="d">Fewer flashes</span></span>
           <span class="sw"><span class="w">Off</span><span class="knob"></span></span>
         </div>
 

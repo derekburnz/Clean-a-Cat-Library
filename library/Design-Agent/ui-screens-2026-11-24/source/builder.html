@@ -37,7 +37,7 @@
 .now { position: relative; display: grid; grid-template-columns: 116px 1fr auto; column-gap: 14px; align-items: center; padding: 12px 14px 12px 12px; }
 .now .tile { width: 116px; height: 116px; background: linear-gradient(#fde7cb, #ffeed0); display: grid; place-items: center; }
 .now .tile svg.art { width: 92px; height: 92px; }
-.now .tile img.bath { position: absolute; left: -22%; top: -50%; width: 165%; height: 165%; max-width: none; object-fit: fill; }
+.now .tile img.bath { object-fit: contain; transform: scale(1.15); }
 .now .info { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
 .now .k { font-weight: 800; font-size: 18px; line-height: 1; color: var(--ink-soft); }
 .now .name { font-family: var(--font-head); font-size: 28px; line-height: 1; white-space: nowrap; }
@@ -137,12 +137,12 @@ body.short .after .btn .ic { font-size: 24px; }
         <!-- slot 1: stations, built by the kitten -->
         <div class="panel card">
           <div class="phead">
-            <div class="av"><img src="img/NPC_BuilderKitten.png" alt=""></div>
+            <div class="av"><img src="img/icon_NPC_BuilderKitten_ink.png" alt=""></div>
             <div class="tx"><div class="t">Stations</div><div class="d"><span class="long">The builder kitten builds </span>one at a time</div></div>
           </div>
 
           <div class="now well only-busy">
-            <div class="tile"><img class="bath" src="img/Station_BubbleBath.png" alt=""></div>
+            <div class="tile"><img class="bath" src="img/icon_Station_BubbleBath_ink.png" alt=""></div>
             <div class="info">
               <span class="k">Building now</span>
               <span class="name">Bubble Bath</span>
@@ -151,7 +151,7 @@ body.short .after .btn .ic { font-size: 24px; }
             </div>
           </div>
           <div class="after wait only-busy">
-            <div class="pic"><img src="img/Station_Pawdicure.png" alt=""></div>
+            <div class="pic"><img src="img/icon_Station_Pawdicure_ink.png" alt=""></div>
             <div><div class="name">Pawdicure</div><div class="sub"><i data-ic="coin"></i><span class="num">900</span></div></div>
             <button class="btn off" data-tap aria-label="Build Pawdicure for 900 coins. The kitten is busy"><span class="lbl">Kitten busy</span></button>
           </div>
@@ -159,7 +159,7 @@ body.short .after .btn .ic { font-size: 24px; }
           <div class="now well done only-ready">
             <span class="mark">Ready!</span>
             <i data-ic="sparkle" class="spark a"></i><i data-ic="sparkle" class="spark b"></i>
-            <div class="tile"><img class="bath" src="img/Station_BubbleBath.png" alt=""></div>
+            <div class="tile"><img class="bath" src="img/icon_Station_BubbleBath_ink.png" alt=""></div>
             <div class="info">
               <span class="k good">The kitten is done!</span>
               <span class="name">Bubble Bath</span>
@@ -167,7 +167,7 @@ body.short .after .btn .ic { font-size: 24px; }
             </div>
           </div>
           <div class="after only-ready">
-            <div class="pic"><img src="img/Station_Pawdicure.png" alt=""></div>
+            <div class="pic"><img src="img/icon_Station_Pawdicure_ink.png" alt=""></div>
             <div><div class="name">Pawdicure</div><div class="sub"><i data-ic="clock"></i><span>Takes 20 min</span></div></div>
             <button class="btn green" data-tap aria-label="Build Pawdicure for 900 coins"><span class="lbl price"><i data-ic="coin"></i>900</span></button>
           </div>

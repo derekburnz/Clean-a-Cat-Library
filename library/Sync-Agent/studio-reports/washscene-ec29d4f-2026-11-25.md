@@ -1,0 +1,9 @@
+# Wash scene tune and carry fixes, main ec29d4f (#413 161ec50 plus #414), 2026-11-25
+Local unsaved place, iPhone 13 frame, single client, same switches as the 542efbc pass. Pictures: draft PR #415.
+1. Reset while carrying: PASS. 10 s after the reset the cat is back in the arms, 1.2 studs from the new root, not at the origin. Gone for 0.3 s during the respawn.
+2. Tub empty once the next customer's cat is at the door: PASS. Clean Suds left the tub when "Take cat" appeared; so did the first customer's cat before the second "Take cat".
+3. "Wash next" during the carry: PASS (none from "Take cat" until the cat lands). Between customers two "Wash next" prompts still show about 13 s, from just after the photo until "Take cat" (the queue pick).
+4. Fill (was 0.64): 0.54 at the tub (Suds and customer), 0.56 at Pick a bow, 0.61 at the Bubble Bath, 0.59 at the Pawdicure. Step dots vs ears: clear at the tub (14 px gap); OVERLAP at the Bubble Bath (33x8 px) and the Pawdicure (29x8 px).
+5. Bows: PASS, all on screen: BowPink 166,184; BowMint 190,241; BowSky 209,286. Each ray hits the bow.
+Rest: claws at the Pawdicure PASS (nothing between camera and either claw; station behind them). Bubble Bath and Pawdicure shots still look from the tub's front direction while the cat faces sideways, so you see his side and back. No camera clip: camera y 7.6 to 7.7, nothing within 0.5 studs at any station, camera-to-cat ray hits his head first at every station. With autoTool no bottom bar or turn buttons, so nothing covers the paws. Carry hop into the tub takes 0.45 s, then about 40 ms (2 frames) with no cat in the arms or tub before the new one appears.
+Blur: Effects/Tier gives "low" to every touch-only device and WashCamera makes no blur on "low", so no phone or tablet preset will ever show the blur at any graphics level. On desktop (simulator off, keyboard, quality level 10) the blur is made: FarIntensity 0.5, focus radius 3 (picture 5 in the PR).

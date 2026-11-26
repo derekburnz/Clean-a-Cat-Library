@@ -1,0 +1,17 @@
+---
+name: store-art
+description: Clean a Cat store icon and thumbnails: the look Derek picked, where the files are, his thumbnail order of 2026-11-26 and what still waits on him
+metadata:
+  type: project
+  modified: 2026-11-26T15:19:41.468Z
+---
+
+- Look (Derek 2026-11-23 ET): chunky CLEAN A CAT title on a teal bubble backdrop, no mud; he wanted "the towel and stuff from the original ad picture in tub ... just blown up" (his Cat Cafe ad's bathtub). No stink wisps.
+- Derek 2026-11-25 on the first icon and thumbnail: "use it for now will draft more later to pick from"; yes to a half dirty, half clean second thumbnail (issue 500). Finals of those in Model-Agent/store-art/final/.
+- Second set 2026-11-26 (issue 106, PRs 721 and 724), all passed by Review-QA: Model-Agent/store-art/set-2/ with the pick sheet store-art-set-2-pick-sheet.png. Icons A (in use, Muffin in the bath), B Prism, C Sherbet, D Phoenix, E half muddy, F stray in the box. Thumbnails 1 name and bath, 2 half muddy, 3 busy spa, 4 five special cats, 5 stray in the box, 6 special cat bath close up.
+- Derek 2026-11-26 7:33 AM ET, his words: "ranking thumbnail 2,1,3,5 the rest are decent to but those are my order". So the thumbnail order is 2, 1, 3, 5; 4 and 6 are spares.
+- Icons (Derek 2026-11-26 9:50 AM ET): "Just use A as main and E as alt for now but fix the sides of E having orange sticking out the side of the model". A main, E the only alternate; B, C, D and F are spares. FIXED the same day (PR 761): the orange was the cat's tufts (tangles on the muddy half, fluff on the clean half), now off in icon E and thumbnail 2, which share their renders. Keep tufts off close store art crops. Files for Derek to drag in: icon-main-512.png, icon-alternate-e-512.png and the four ordered thumbnails in Model-Agent/store-art/picked-2026-11-26/.
+- Derek 2026-11-26 9:10 AM ET: "can use claude in chrome for upload". Chrome was signed in under Creampuff Games and the place's Icon and Thumbnails pages open (Creator Hub, the place's Configure menu), but the Chrome tools can only upload a screenshot, not a file, and Roblox's page blocks fetching a file from outside. So nothing was uploaded: Derek was given the five files (Model-Agent/store-art/picked-2026-11-26/, icon-main-512.png plus the four ordered thumbnails) to drag in himself. Check the page once he says they are in.
+- 2026-11-26 afternoon ET, Derek on thumbnail 3: "the cats still have the random skin sticking out their sides" and, on a bow Model-Agent had added, "remove the giant blue bow that appeared on pink cats head". Tangle clumps and fluff puffs are off ALL store art now (`TUFTS = False` in store_art.py, PR 790 merged); no bow on the busy spa cats. Thumbnails 3 and 4 were rendered again 3:16 PM ET and passed by Review-QA; icons and thumbnails 1 and 2 did not change. Derek on the plan page 3:13 PM ET: icon E's bow is "fine infront of ear but tilted on corner", no change. The six files in picked-2026-11-26 are final; a copy is in the library under library/Model-Agent/store-art/. Do not add extras to a picture he did not ask for.
+
+**How to apply:** build with store_art.py then store_compose.py in assets/clean-a-cat/blender (see its README). See [[art-and-models]].
