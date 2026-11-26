@@ -51,6 +51,7 @@ Driving Studio from written steps and copying files are chores. Haiku 5.5 is eno
 - **The app can add a little metadata to pictures and videos,** so a file that differs by a few kilobytes may be the same file. Do not re-commit media for that.
 - **Thread ids die with a project.** Never store them in the library; use the thread list.
 - **A sync that snapshots and force-pushes** wipes other threads' files. Always pull, add and push.
+- **Studio test runs get stuck on walls when the character is moved badly,** not because of the map. Move it only with the `qaWalk.luau` helper (`_G.qaWalkNamed("Tub")`; skill `studio-test-movement`, helper in `library/Sync-Agent/studio-tools/`). Never use `character_navigation` (it says Success without arriving), held keys, `Humanoid:Move`, or a straight `MoveTo` across the room. Report each walk as reached, method and seconds. Wall tests need a moving jump too.
 
 ## 7. Skills
 `roblox-doctor` (checks the PC's toolchain and connectors), `roblox-mobile-playtest`, `playtest-report`, `roblox-dev-skill` (its Studio connector reference).

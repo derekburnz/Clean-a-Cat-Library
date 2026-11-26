@@ -18,7 +18,7 @@ When available, invoke `rbx-device-simulator-lua` before device-specific UI chec
 1. Confirm Studio state with `get_studio_state`.
 2. Start play mode with `start_stop_play`.
 3. Use device simulation when relevant.
-4. Exercise controls with `user_mouse_input`, `user_keyboard_input`, and direct character movement through `character_navigation`.
+4. Exercise controls with `user_mouse_input` and `user_keyboard_input`. Move the character only with the helper in the `studio-test-movement` skill (`_G.qaWalkNamed`). Do not use `character_navigation`: it answers "Success" even when the character never arrived, and runs get stuck on walls.
 5. Capture evidence with `screen_capture`.
 6. Check `get_console_output`.
 

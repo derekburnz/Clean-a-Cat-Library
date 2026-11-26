@@ -23,7 +23,7 @@ The QA agent reads the export (CSV) and writes the report.
 ## 2. Automated smoke test (Studio tools, run before every human playtest)
 Write the steps from the design's core loop. The shape is always the same:
 1. Start play, confirm no errors in the console output within 10 s.
-2. Do the core action once (walk there, interact) and confirm the reward shows on the HUD with a screen capture.
+2. Do the core action once (walk there with the `studio-test-movement` helper, interact) and confirm the reward shows on the HUD with a screen capture.
 3. Spend the reward (open the shop, buy the cheapest thing) and confirm it applies and the balance drops.
 4. Do the second loop step (the thing the reward unlocks).
 5. Stop play, start again and confirm progress persisted. A local Studio place may not save data at all; if so, mark this step "needs a published test server" rather than pass.
@@ -35,6 +35,7 @@ Rules for every Studio test:
 - Never join live servers to test. Live players are not test subjects, and a tester's actions pollute the stats.
 - Studio cannot fake touch or a real gamepad. Check phone-only and gamepad paths with the device emulator, by reading the code, or by asking the owner to try on a real device.
 - Never say a test passed until its result is in.
+- Move the character only as the `studio-test-movement` skill says (path helper, never `character_navigation`, never held keys). Report every walk as reached, method and seconds. Wall and slab tests include a moving jump (A or D plus Space) as well as walking.
 
 ## 3. Report format (docs/playtests/YYYY-MM-DD.md)
 ```markdown
