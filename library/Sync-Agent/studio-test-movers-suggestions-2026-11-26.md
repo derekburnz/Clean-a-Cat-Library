@@ -9,3 +9,13 @@ Facts read from the pages (Haiku web read, 2026-11-26; "not stated" means the pa
 6. Roblox PathfindingService itself (https://create.roblox.com/docs/characters/pathfinding). Free and in the engine, and what our own helper should use (agent radius, height, CanJump, waypoint timeouts). SimplePath (https://devforum.roblox.com/t/1196762) wraps it with blocked and stuck events; a module, not a skill.
 Not read (page failed): cynisca roblox-mcp test automation on lobehub.
 Recommendation: build our own small walkTo helper on PathfindingService with a stuck check and a named-spot table (the Studio session is building and testing it now), and optionally try RbxSync's bot_move on one run to compare. Do not install anything until Derek says.
+
+## Update 2026-11-26 (after Derek said we may try RbxSync): vetted, NOT installed
+The Studio session read the source before installing anything and recommends skipping it:
+- devmarissa/rbxsync now redirects to Smokestack-Games/rbxsync (37 stars, source 1.4.0, last push 25 Jul 2026; newest release v1.3.0, 18 Jan 2026, ships a Windows .exe, an .rbxm plugin and a .vsix). The project's own site commit mentions "$60 pricing": a paid product.
+- Licence is proprietary, "evaluation and authorized use only", unauthorised use "strictly prohibited". Using it on our game without a licence looks like a breach.
+- By design it runs arbitrary code: the plugin runs code from its local server with loadstring plus setfenv, loads any asset id with InsertService:LoadAsset, and the bot server script turns on ServerScriptService.LoadStringEnabled in the place.
+- An old obfuscate.toml hex-encoded loadstring, getfenv, setfenv, InsertService, LoadAsset and HttpService "while evading simple string detection"; an internal note says it was to bypass Creator Store static analysis. The current source removed it, but the downloadable v1.3.0 .rbxm predates that and the prebuilt binary cannot be checked against the source.
+- Needs Allow HTTP Requests, sends all console output to its local server (127.0.0.1:44755), checks api.github.com for updates; no telemetry seen but a Discord crate was not audited. Unsigned .exe, Smart App Control would probably block it; the plugin would load in every Studio window (including dev or live) because plugins install per user.
+- It would only add bot_move, bot_observe and bot_wait_for. Our qaWalk already reached 114 of 114 walks, and observe/wait can be done in Luau over our own Studio MCP.
+Decision: skip. Not installed, nothing put on the PC.
