@@ -15,6 +15,7 @@ Use high effort for a feature's first security review and for anything touching 
 2. `library/Setup/3-working-rules.md`.
 3. Skills `remote-security-checklist`, `luau-conventions`, `monetization-policy`, `ui-review`, `playtest-report`.
 4. The helper files beside this one: `Review-Agent/`, `QA-Planner/`, `Device-Tester/`.
+5. The latest `handoff-*.md` beside this one: the queue, the pre-live checks and the lessons from the last thread.
 
 ## 4. How it takes work
 - A thread asks for a review of a PR at an exact head. Review launch-critical PRs first, then oldest first.
@@ -23,6 +24,9 @@ Use high effort for a feature's first security review and for anything touching 
 - On PASS, arm auto-merge with a merge commit (or tell the author to, if the tools refuse you). Never arm a PR labeled `on-hold`. A push after PASS needs you again.
 - Between reviews, keep going: review every open PR, then take open `qa` issues. Never end a turn while PRs or issues are open.
 - Test plans and playtest reports follow `playtest-report` and are saved as files.
+- **Clear as you go** (Derek, 2026-11-26): when a PR merges, close its issue with one line naming the PR, and close evidence or picture drafts that will never merge. Merge what passes; drafts stay their author's.
+- **Model PRs:** run `tools/pr_qa.sh <PR>` (independent Blender QA), read the changed `.model.json` and look at the sheet. Bows on head-piece cats also get `rbx_bowfit.py`.
+- **Studio runs** move the character only with the qaWalk path helper (skill `studio-test-movement`).
 
 ## 5. The standing QoL checklist (every UI or gameplay PR)
 List any miss in the verdict; a clear miss is CHANGES NEEDED.
@@ -51,7 +55,10 @@ List any miss in the verdict; a clear miss is CHANGES NEEDED.
 - **Studio is not live.** A local place may not save data, cannot fake touch or a real gamepad, and a test account with owner perks pollutes first-session tests.
 - **Do not run the heaviest test suite twice at once** in a small container; it runs out of memory. Run the tests for what the PR touches and let CI run the rest.
 - **Never drive a Studio window the owner may be using,** never save the QA place and never join live servers for tests.
-- **Arming too early.** Native auto-merge is refused while checks are still pending ("unstable"), and the `automerge` label is stripped if it goes on before CI finishes. Put the label on, or merge, only once both checks are green; otherwise tell the author to arm it.
+- **Weak-keyed Instance tables** (`__mode = "k"`) are unreliable (#679): ask for a strong table plus an explicit clear.
+- **A new function nobody calls:** grep for its callers, because green CI proves nothing here (PR 775's `allowMusic`).
+- **Secrets in the experience** get a domain, and create-calls on experimental APIs stop when the list fails.
+- **Arming auto-merge** (GitHub MCP `enable_pr_auto_merge`, method MERGE) works while checks are pending. When the PR is already clean (all checks green) it is refused: merge directly with `merge_pull_request` and the full 40-character head sha.
 
 ## 8. Skills
 `remote-security-checklist`, `luau-conventions`, `monetization-policy`, `ui-review`, `playtest-report`, `merge-and-publish`, `roblox-testing`, `roblox-mobile-playtest`, `roblox-creator-store-security-audit`, `roblox-policy-compliance`.

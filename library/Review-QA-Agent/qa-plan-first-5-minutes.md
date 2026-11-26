@@ -86,3 +86,21 @@ Every draft model or screen from Model-Agent or Design-Agent gets this pass on t
 ### Open visual checks for the first human playtest (2026-11-24)
 - Dirty cat read: show a new player a dirty Cotton at the tub at the default phone camera and ask "what is wrong with this cat?" with no prompt. It passes on "dirty" or "muddy". The emulator check passed for #155, but without the wisps a pale cat can still read as markings at 38 px.
 - Scrub feel (#149): count the strokes needed to clear a cat. One swipe clearing most of the mud is too fast.
+
+## Full street frame check (2026-11-24, #40)
+- Sync-Agent ran it on main 9996bee in the dev place: 6 plots full (5 stand-ins from streetLoadTest), 5,471 BaseParts, worst spot about 102 draw calls and 166k triangles.
+- A06 profile at Level 1: 60 fps at the cap, no dips. iPhone 14 profile: 240 fps at the cap, but also at Level 1, because Studio's graphics setting is manual on that PC. No new console errors.
+- Verdict: relative PASS. The emulator fps is the PC's, not a phone's. Still open: a real low-end phone run (Derek), and the run at automatic quality, which needs Studio's graphics set to Automatic on the PC.
+- Watch item: the door line is the heaviest part of a plot (about 563 of 980 parts). If the real phone run dips, cut there first, for example with clean or simpler cats in the door line at a distance.
+- Found on the way: the player spawns against plot 1's wall, so the first view is a blur. This is a first-minute problem and needs its own issue.
+- Code side of the speed budget (#182): Gameplay-Engineer's phone-lag code check is at /mnt/project-files/Gameplay-Engineer/phone-lag-code-check-2026-11-24.md. It found no leaks, bounded per-frame hooks, three particle write-every-time spots (sent to Motion-FX), and that persistent plots (about 980 parts each) are the biggest memory lever.
+- Studio skills baseline (#178): the worst view is about 186k triangles and 106 draw calls, with a CPU frame of 4.2 ms average on the PC. The thresholds are in the playtest-report skill.
+- First frame for a second player (#188, PR #197): every plot now has its own spawn. Sync-Agent's slot-change test passed except the first respawn right after a slot change, where the camera carries over from the old plot. That's a test-only path. A real join starts with a fresh camera, but that is unproven because Studio's MCP can't run two clients. Check it in the first human playtest with two phones: the second player's first frame shows their own cat's face.
+
+## Added 2026-11-24 15:45 UTC: game HUD checks for the owner's phone run (#182)
+- The HUD from #221 (gameHud) was captured at four presets in #228 (docs/playtests/2026-11-24-hud/). Every preset passes.
+- On the owner's iPhone 12, with gameHud on and mid-scrub, check that nothing greys out the Menu or the lower left. In the emulator's iPhone step 1 shot a grey see-through band covered it, and it was gone at step 4. It is probably the emulator's touch overlay, but it needs a real phone to confirm.
+- On the owner's iPhone 12, check that the 36 pt coin picture and the 39 pt tray pictures read at arm's length.
+
+## Test movement (added 2026-11-26)
+Every Studio run moves the character only with the `studio-test-movement` helper (`_G.qaWalkNamed("<Spot>")`). Never use `character_navigation`, held W/A/S/D, or a straight `MoveTo`. Report each walk as reached, method and seconds. Wall, door and slab checks also include a moving jump (A or D plus Space), on both R15 and R6.
