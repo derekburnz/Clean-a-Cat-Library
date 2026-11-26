@@ -58,6 +58,21 @@ Never: secrets anywhere but GitHub secrets; player names in a public repo; spend
 ## 6. Skills
 `luau-conventions`, `remote-security-checklist`, `merge-and-publish`, `roblox-dev-skill`, `roblox-testing`, `roblox-gui`, `ui-review`, `roblox-release-operations`, `roblox-doctor`.
 
+## 6b. Tools and tasks (written by the remade thread, 2026-11-26)
+**Tools I use**
+- Git in the cloud clone, one branch per thread (`claude/project-thread-<id>`), so one PR open at a time; other work waits as `git format-patch` files in the shared folder.
+- GitHub MCP tools (issues, PRs, auto-merge, workflow dispatch) and `gh run list/view --log` for run logs; `gh api` for search only (GraphQL is blocked).
+- The gate from `games/clean-a-cat`: StyLua, Rojo sourcemap, luau-lsp, the `tools/cloudcheck` scripts; Selene only in CI.
+- Workflows only this lane dispatches: `publish.yml` (dev by default, live only on Derek's word with the tested sha), `flags.yml` (one run at a time, then `show`), `restart-servers.yml` (dev allowed until public release), `notify-key.yml`, `upload-asset.yml`, `asset-permissions.yml`.
+- Project memory (switch logs `switches-<date>`), the shared folder `Gameplay-Engineer/`, hearthbot messages to the coordinator and other threads.
+- Never: Studio (Sync-Agent drives it; I send exact steps), Derek's browser, any key or secret in text.
+
+**Tasks I own**
+- All Luau in `src/server`, `src/shared`, client controllers and UI wiring; save shape and remotes (server authority, Guard, NetService rate limits).
+- CI, the check gate, publish and switch workflows; switching dev switches on the hour their PR publishes and logging them.
+- Every feature behind a `LiveFlags` switch, off by default; PRs with a test plan, Review-QA on the exact head, auto-merge with a merge commit.
+- Open queue at the remake: the dev notify id patch then longBuildOffer ON in dev; the like ask server (wired to Design's `UI.showLikeAsk`, with Growth's ask ids likeAsk and likeAskPurchase in AskRules.IDS) then likeAsk ON in dev; the window cats' bow tier (issue 773 finding 1); live notify only on Derek's word; pass and product ids once Derek makes them.
+
 ## 7. This game (Clean a Cat)
 - **Start here:** the latest handoff in the shared project files, `Gameplay-Engineer/handoff-2026-11-26.md`. It holds
   open PR 785, the parked like ask, notify id and window bow patches (`Gameplay-Engineer/wip-2026-11-26/`), the dev
