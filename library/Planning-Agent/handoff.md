@@ -1,4 +1,4 @@
-# Planning-Agent handoff (written 2026-11-26 3:30 PM ET, updated 5:45 PM ET)
+# Planning-Agent handoff (written 2026-11-26 3:30 PM ET, updated 5:36 PM ET)
 
 Derek is deleting every thread and making them again for fresh context. You are the new Planning-Agent. Everything the old thread knew is in this folder, in project memory and in the two links below. Read this file, then `plan-page-howto.md`, then memory `planning-status` and `derek-nov26-answers`.
 
@@ -12,14 +12,14 @@ Planning closed on 2026-11-25 and the game is in BUILD. Planning-Agent no longer
 
 The coordinator sends you Derek's words and gathers asks from the other threads. You write no game code.
 
-## State on 2026-11-26 5:45 PM ET
+## State on 2026-11-26 5:36 PM ET
 
-- **Plan page version 55. All 78 questions answered, none open.** Derek answered the last two and wrote a note on every setup step at 5:17 to 5:23 PM ET, then said in chat "All plan questions answered/done so go through that and update with anything new needed". His words and what each note means: `open-questions-2026-11-26.md` (last sections) and memory `derek-nov26-setup-answers`.
-- What he decided: the ten head piece cats get a smaller bow on the top right corner (Model-Agent). Live notifications on promotion day (Gameplay-Engineer). We make the passes and products ourselves, group key first, his signed in Chrome as the fallback (Gameplay-Engineer). We upload the store art ourselves if any route works (coordinator routes it). Private servers 50 or 25, our pick 25 (Growth-Agent may say 50). Server size six confirmed. Questionnaire stays his, last. The group wall step was removed: Roblox retired walls in March 2026.
-- Three setup steps are left on the page, with new ids so they start unticked: `s2-playnotes` (his dev playtest notes; he was playing at 5:23 PM ET), `s2-maturity` (the questionnaire, before the Robux crate goes on live) and `s2-promote` (his word to go live). The old ticked docs `c-s2-...` stay in the database.
-- Design: issue 846 and pull request 848 in the game repo (private server 25 and the evening answers), waiting on Review-QA and auto-merge when this was written. The Claude Doc already matches (rev 23).
+- **Plan page version 56. All 78 questions answered, none open.** Derek answered the last two and wrote a note on every setup step at 5:17 to 5:23 PM ET, then said in chat "All plan questions answered/done so go through that and update with anything new needed". His words and what each note means: `open-questions-2026-11-26.md` (last sections) and memory `derek-nov26-setup-answers`.
+- What he decided: the ten head piece cats get a smaller bow on the top right corner (Model-Agent). Live notifications on promotion day (Gameplay-Engineer). We make the passes and products ourselves, group key first, his signed in Chrome as the fallback (Gameplay-Engineer). We upload the main icon and the four thumbnails with the key (issues 850 and 851, workflow PR 852); the alternate icon E has no key route, so adding it is his. Private servers 50 or 25, our pick 25 (Growth-Agent may say 50). Server size six confirmed. Questionnaire stays his, last. The group wall step was removed: Roblox retired walls in March 2026.
+- Four setup steps are left on the page, with new ids so they start unticked: `s2-playnotes` (his dev playtest notes; he was playing at 5:23 PM ET), `s2-icone` (add icon E as the alternate icon by hand in Creator Hub), `s2-maturity` (the questionnaire, before the Robux crate goes on live) and `s2-promote` (his word to go live). The old ticked docs `c-s2-...` stay in the database.
+- Design: issue 846 and pull request 848 in the game repo (private server 25 and the evening answers), passed by Review-QA and merged 2026-11-26 5:34 PM ET. The Claude Doc matches (rev 23).
 - Backup of all 165 docs: `plan-page-backups/answers-2026-11-26-1725ET-full.json`. Take a new one after his next answers.
-- Page test for version 55: `node shot10.js $PWD/clean-a-cat-launch-plan.html $PWD/seed-1126d.json` (`shot9.js` fits version 54 and older).
+- Page test from version 55 on: `node shot10.js $PWD/clean-a-cat-launch-plan.html $PWD/seed-1126d.json` (`shot9.js` fits version 54 and older).
 
 The lines below are the state before his evening answers and are kept for the record.
 
@@ -27,7 +27,7 @@ The lines below are the state before his evening answers and are kept for the re
 - Plan page version 54 (the same content as version 53, at the new link): 78 questions, 76 answered, 2 open. If he leaves one, our pick stands.
 - **Open question 1:** `q2-headbows`, bows on the ten special cats that wear a head piece. Our pick (option 0): a smaller bow on those ten. Option 1: no bow on them. Option 2: leave them. The coordinator also asked him this in the chat at about 3:20 PM ET, so the answer may come there. Owner of the answer: Model-Agent.
 - **Open question 2:** `q2-notifylive`, when to set up notifications on the live game. Our pick: on the day he promotes, by our workflow. Owner of the answer: Gameplay-Engineer.
-- Store art: the six files in `Model-Agent/store-art/picked-2026-11-26/` are final and passed by Review-QA. The page tells him they are safe to upload. He drags them in himself.
+- Store art: the six files in `Model-Agent/store-art/picked-2026-11-26/` are final and passed by Review-QA. Since 5:33 PM ET the key uploads the main icon and the four thumbnails (issues 850 and 851, store-setup workflow PR 852); only the alternate icon E is his to add by hand.
 - **Setup steps still his** (page database `c-s2-...`): passes on the dev game, products on the dev game (no ids pasted yet), maturity questionnaire, server size six, private servers 100 Robux, group wall off or moderated, store art (he drags the files in himself) and the dev playtest of the 2026-11-26 pieces with the three scrub questions. Ticked: computer use for Studio.
 - When he pastes pass or product ids in a setup box, give them to Gameplay-Engineer with the game they are from (dev and live are separate Roblox games with separate ids).
 - Design file: his seven answers of the morning of 2026-11-26 are in (pull request 759, merged). His four afternoon answers changed nothing in the design, because each matched what was already written or built.
