@@ -21,3 +21,15 @@ catWalkOut PASS but plays at the photo payout, not at Next cat: hop 2.4 studs, t
 Tangles go per stroke but sometimes two at once. Inky stays side-on after scrubTurn through bow and photo. Muffin tail angles out, Rosette fan tail wider than body, nothing pokes through the tub. No fluff puffs on any cat because hideFluff hides them by design since 2026-11-24, which conflicts with 791.
 ### Quirk
 The iphone_13 simulator adds a mirrored second touch on every click; drags were run on the desktop frame. No script errors anywhere. 34 pictures stay on the PC in Clean-a-Cat-captures\qa-cf33eb4-2026-11-26.
+
+## Rerun on main bd424b5 (has PR 854, 855, 882), 2026-11-26 evening
+- Issue 872 counter Take prompts: fixed in effect. Prompts appear within about 0.5 s of each cat's CounterReadyAt (run 1: first prompt 5.10 s after join, all 3 by 7.62 s; run 2: 4.75, 7.27, 7.77 s). Only the 1 s rule fails because crates walk in at the join. Run 1 showed the old SpotQueue1 Take prompt for 0.4 s, run 2 never. A join to an already seated line needs two players: not testable solo.
+- Newcomer cards (PR 854): PASS, 7 of 7 had a card in their first frame, none lost one.
+- Issue 894 carry R15 and R6: PASS. R15 cat held at (0,0.73,-1.17) from root, steady within 0.1 stud, minor clip with hands, lower arms and hair accessory; R6 at (0,1.01,-1.21), overlaps both arms. Walks: counter 3.6 s, tub 1.0 and 1.1 s, 0 stuck; E at tub places it.
+- NEW FAIL: in the bigger spa the tools board is at (-6,-12.6), 9.6 studs from counter place 1, and its Bubble Soap row uses E like the counter Take prompt: one E took the cat and bought Bubble Soap (60000 to 59973 coins) on both runs.
+- Plan step 1 fresh save opening: PASS (truck 0.31 s after join, box lands, E opens it, "1/3 Pick him up", big spa placed, no errors).
+- Build start PASS (VIP Room from the Build window away from the board, 60003 to 45003, "Ready in 11h 59m"). Finish now NOT TESTABLE locally (GameId 0, no Finish now prompt): needs dev.
+- Starter text PASS: pack 199, passes 99+249+199 = 547, true saving 63.62 percent, shows "SAVE 63%", struck 547, "199 Robux".
+- Reduced Motion walk-out PASS: copy stays at the tub and fades over 0.63 s, gone at 0.74 s, no hop.
+- Six customers PASS on PC: BenchSize 6, 238.9 fps (cap 240), worst 7.3 ms, 166 draw calls, 230k triangles on the iphone_13 frame.
+- Seen: the bow sits on the head's top right edge and sticks out past it.
