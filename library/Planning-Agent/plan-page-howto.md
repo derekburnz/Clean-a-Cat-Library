@@ -6,7 +6,7 @@ Written 2026-11-26 3:25 PM ET. Everything needed to keep Derek's plan page and t
 
 | What | Link | State on 2026-11-26 3:25 PM ET |
 |---|---|---|
-| Plan page, "Clean a Cat Launch Plan" | https://claude.ai/artifact/QVD8oT37EZy9vE8mYz9KfG | Version 53. 78 questions, 76 answered, 2 open (`q2-headbows`, `q2-notifylive`). Nine setup steps, one ticked |
+| Plan page, "Clean a Cat Launch Plan" | https://claude.ai/artifact/5pnvLdb5Abhxv1ZRtPJR6H | Version 54 (same content as 53, new link since 2026-11-26 3:52 PM ET). 78 questions, 76 answered, 2 open (`q2-headbows`, `q2-notifylive`). Nine setup steps, one ticked |
 | One page design, Claude Doc | https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4 | Rev 19. Same text as `docs/design/clean-a-cat/gdd.md` in the game repo (last change PR 759) |
 
 Derek reads the plan page on his phone. He asked for it: questions go on the page with our pick first, never as decision cards in the project chat.
@@ -52,6 +52,18 @@ Tool: `ArtifactData` (deferred, load it with ToolSearch), `url` the page link, c
 ## Editing the one page design doc
 
 Claude Docs tools (`mcp__Claude_Docs__*`). Doc id `6943de1e-b6b2-4c48-9355-1d496dc5e127`, body node `dad95f8f-a3a1`. An edit is `update` with `ref {"object":"node","id":"dad95f8f-a3a1"}`, `engine "prose"`, `container {"kind":"project","id":"<doc id>"}` and `payload.ops` such as `{"op":"replace","target":{"kind":"find","text":"old words"},"with":{"as":"text","from":{"kind":"inline","content":"new words"}}}`. Whole block replaces need `ifHash` and `ifRev`. Read first with `{"kind":"search","pattern":"..."}` or `{"kind":"view","sinceRev":N}`. Load the docs skill or guide before the first call.
+
+## If the page is ever gone (it happened on 2026-11-26)
+
+Derek deleted every thread on 2026-11-26 and the plan page went with them (a page belongs to the thread that published it; the Claude Doc of the design survived). The read said "artifact not found" and the project's artifact list was empty. What put it back, in about ten minutes:
+
+1. Copy `plan-page-source/` to the scratchpad, build and test as above. The build matched the saved html byte for byte.
+2. Publish with the Artifact tool and no `url`, with `capabilities` `{"db": {}, "user": {}}`, `root` the source folder and every `art2/` picture in `files`. Load the `artifact-capabilities` skill first. This makes a new link.
+3. Restore the answers: write each doc of the newest `plan-page-backups/*-full.json` to its own small file, then `ArtifactData` `batch` with `{op: "set", collection: "answers", doc_id, file_path}` entries, 50 at a time. Keep each doc's own `at` so later "changed since" reads still work.
+4. Read the whole collection back with `list` and `out_dir` and compare it with the backup. On 2026-11-26 all 155 matched.
+5. Change the link in `handoff.md`, this file, memory (`planning-status`, `plan-page-howto`) and tell the coordinator, who gives Derek the new link.
+
+So: take a full backup after every round of answers (`list` with `out_dir`, then one json under `plan-page-backups/`). Anything he saves after the last backup is lost if the page goes. Before a thread remake, ask the coordinator to tell Derek the page will need a new link.
 
 ## Lessons learned
 
