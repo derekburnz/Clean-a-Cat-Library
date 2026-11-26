@@ -86,6 +86,11 @@ Game slug `clean-a-cat`. I own the feel of cleaning and the spa: foam, the revea
 - Review-QA arms auto-merge after its PASS; I never merge. PRs start as drafts, then ready, then subscribe.
 
 ### Lessons (2026-11-26)
+- Only one branch name is allowed per thread (claude/project-thread-<id>), so PRs go one after another on it: build the next one in the working tree, then merge main in after the last one merges. `git checkout -B <branch> origin/main` sets the upstream to main: always push with `git push -u origin <branch>`, or the push silently goes nowhere.
+- UI pieces that need specs keep their pure maths in Effects (Effects/Pop for grows), because a spec cannot load UI/Kit.
+- One object holds only one UIScale: the More tray already has HudScale, so a Motion.popIn there needs a holder frame.
+- No UI click sounds: every HUD tap already opens something, so UiSounds gathers requests for 0.03 s and plays one (open beats close).
+- Polish pass 2026-11-26 shipped behind dev-on switches: uiSounds (804), claimFx (806), helperPopFx (807), counterCardFx (808), springUi tuning (811).
 - Hide figures and props with each part's own Transparency (saved and restored), not LocalTransparencyModifier: CustomerWalkController writes LTM on every part at walk start and finish.
 - A table keyed by Instances that only clears on show() leaks when the model is destroyed while hidden. Sweep keys that are no longer IsDescendantOf(game) whenever an entry is removed (Review-QA on 762).
 - Never scan Workspace:GetDescendants() per event on phones. Collect the attachments you need in the DescendantAdded watcher you already have.
