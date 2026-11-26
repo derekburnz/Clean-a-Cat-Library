@@ -6,7 +6,7 @@ Written 2026-11-26 3:25 PM ET. Everything needed to keep Derek's plan page and t
 
 | What | Link | State on 2026-11-26 3:25 PM ET |
 |---|---|---|
-| Plan page, "Clean a Cat Launch Plan" | https://claude.ai/artifact/5pnvLdb5Abhxv1ZRtPJR6H | Version 56 (2026-11-26 5:35 PM ET; new link since 3:52 PM ET). 78 questions, all answered. Four setup steps left: `s2-playnotes`, `s2-icone`, `s2-maturity`, `s2-promote` |
+| Plan page, "Clean a Cat Launch Plan" | https://claude.ai/artifact/5pnvLdb5Abhxv1ZRtPJR6H | Version 57 (2026-11-26 6:11 PM ET; new link since 3:52 PM ET). 78 questions, all answered. Setup list empty since v57 (he answered `s2-playnotes`, `s2-icone`, `s2-maturity`, `s2-promote`); the page lists his playtest notes as jobs (NOTES) and how we read the four (LEFT) |
 | One page design, Claude Doc | https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4 | Rev 23. Same text as `docs/design/clean-a-cat/gdd.md` in the game repo (last change PR 848, issue 846) |
 
 Derek reads the plan page on his phone. He asked for it: questions go on the page with our pick first, never as decision cards in the project chat.

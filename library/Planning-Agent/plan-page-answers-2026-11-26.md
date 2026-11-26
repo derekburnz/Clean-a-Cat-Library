@@ -736,3 +736,13 @@ Hired helper was somewhere in the 30sec-60sec range, didn't see any way of getti
 - `c-done2` (5:23 PM ET): {"done": true}
 
 All 78 questions have a pick. Exact copy of all 165 docs: `plan-page-backups/answers-2026-11-26-1725ET-full.json`. What each setup note means is in `open-questions-2026-11-26.md`.
+
+
+## Changed 5:47 and 6:04 PM ET (read 6:06 PM ET, 169 docs)
+
+- `c-s2-icone` (5:47 PM ET): {"done": true, "note": "you can do that"}
+- `c-s2-playnotes` (6:04 PM ET): {"done": true, "note": "Gone through some starting changes/issues more will come later"}
+- `c-s2-maturity` (6:04 PM ET): {"done": true, "note": "Lets leave for now dont worry about it yet"}
+- `c-s2-promote` (6:04 PM ET): {"done": true, "note": "Will do no need to put this on a todolist"}
+
+Exact copy of all 169 docs: `plan-page-backups/answers-2026-11-26-1806ET-full.json`.

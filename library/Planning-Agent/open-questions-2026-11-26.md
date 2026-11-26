@@ -141,3 +141,24 @@ From Gameplay-Engineer and Growth-Agent through the coordinator, 5:33 PM ET: the
 
 - The "ours now" entry says exactly that.
 - New setup step s2-icone: add icon E as the alternate icon by hand in Creator Hub (file icon-alternate-e-512.png in Model-Agent/store-art/picked-2026-11-26/). Four steps now: s2-playnotes, s2-icone, s2-maturity, s2-promote.
+
+
+## His notes on the four setup steps, 5:47 and 6:04 PM ET (read 6:06 PM ET)
+
+Derek in the chat, 6:04 PM ET: "Plan answered". He ticked all four. A tick is not proof a step is done; the reading is ours.
+
+| id | His words | What it means | Passed to |
+|---|---|---|---|
+| s2-icone | "you can do that" | Not added yet. Ours now. No key can set an alternate icon, so the route is his signed in Chrome, which he named for store art at 5:20 PM ET. If that fails too we say exactly what failed | Growth-Agent, coordinator to route |
+| s2-playnotes | "Gone through some starting changes/issues more will come later" | His first notes came in the chat from 5:45 to 6:04 PM ET and are issues 856 to 877. More will come. Not a to-do for him | Review-QA (the decisions check) |
+| s2-maturity | "Lets leave for now dont worry about it yet" | Still his, later. Do not remind him until the Robux crate is about to go on in the live game, where it is a must | Growth-Agent, Review-QA |
+| s2-promote | "Will do no need to put this on a todolist" | Off the page. He says the word in his own time | Nobody |
+
+Same turn, his other chat message at 6:04 PM ET asked that his earlier decisions (the bigger spa, everything answered in the plan) are being worked through. The check list for Review-QA is `decisions-check-2026-11-26.md` (70 decisions, 11 flags), also in Review-QA-Agent/.
+
+## Page v57, 2026-11-26 6:11 PM ET
+
+- SETUP is empty. The setup section is now "Nothing is waiting on you" with four rows (list LEFT): his words on each step and our reading.
+- New first section "Your playtest notes and where each one is" (id notes, list NOTES): eleven notes from the chat, 5:45 to 6:04 PM ET, each with its state. Built and merged: starter card (issue 857, PR 858), wash pace (865, PR 866), 3 star wash (868, PR 870), guide line (861, PR 867). In review: wash on its own screen (856, PR 864), cat walks out on its legs (875, PR 876). Being built: gift crate (859), photo moment (862), like wait pop up (869), old door line and floating cats (871, 874), pop ups only as guides (877).
+- Tonight's list has a new first entry for the four setup notes (N_TONIGHT 6).
+- Test: shot11.js (no setup inputs any more). Database read before publish: no change since 6:04 PM ET.
