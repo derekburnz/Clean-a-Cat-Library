@@ -64,7 +64,7 @@ Game slug `clean-a-cat`. I own the feel of cleaning and the spa: foam, the revea
 ### Tools I use
 - **GitHub MCP tools** (load through tool search): issues, claims, PRs, reviews, subscribe to PR activity. `gh api` only for search.
 - **Gate tools** pinned in `rokit.toml` (rojo 7.7.1, luau-lsp 1.70.1, selene 0.32.0, stylua 2.1.0). In a cloud box, download the release binaries to the scratchpad and run `check.sh` with `timeout` and `</dev/null`. Selene cannot fetch the Roblox API dump from the cloud box, so CI judges selene.
-- **Spec runner:** `tests/specs/*.spec.luau` for pure Effects modules and preset data.
+- **CI's own checks, run locally before every push:** in `games/clean-a-cat/tools/cloudcheck`, `npm ci`, then `node analyze.mjs --tests` (the strict type check, stricter than check.sh's luau-lsp) and `node run-tests.mjs` (the specs in `tests/specs/`). `Instance:Clone()` types as Instance there: cast through `any` before a nil check.
 - **Upload:** the `upload-asset` workflow (Gameplay-Engineer dispatches it) puts sounds, images and animations under the Creampuff Games group.
 - **Studio:** never myself. Sync-Agent runs checks on Derek's PC with the steps I send; movement only with `_G.qaWalkNamed`.
 - **Video:** `video-tools/` scripts (ffmpeg) to cut real gameplay that Sync records.
