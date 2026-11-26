@@ -143,7 +143,7 @@ SETUP = [
     dict(id="s2-computeruse", t="Allow computer use for Studio on your PC",
          d="When the card shows in the Claude app on your PC, press Allow. It lets Sync-Agent work Studio's own windows during test runs. We never press Allow for you."),
     dict(id="s2-devtest", t="Play today's new pieces on the dev game, on your iPhone",
-         d="Not ready yet. We say in the chat when everything is on, so leave this until then. On in the dev game now: the tidy HUD with the More tray, the Build button, fewer prompt bubbles at once and the coin popup over a helper. Still in review today: the bigger spa, the counter window where waiting cats sit and the carrier a customer sets on the counter. When all of it is on, play about ten minutes and write in the box what felt wrong or slow. Nothing here goes to the live game until you say it is good."),
+         d="Not ready yet. We say in the chat when everything is on, so leave this until then. On in the dev game now: the tidy HUD with the More tray, the Build button, fewer prompt bubbles at once and the coin popup over a helper. Still in review today: the bigger spa, the counter window where waiting cats sit and the carrier a customer sets on the counter. When all of it is on, play about ten minutes and write in the box what felt wrong or slow. Three answers help the most, and they are the first check of the whole design: did scrubbing feel good on the phone, was the clean cat a nice moment and would you wash a second cat. Then write keep or rethink for the scrub. Nothing here goes to the live game until you say it is good."),
 ]
 PARKED = [
     ("Server size", "Six, your pick. Setting it is in the setup list on this page."),

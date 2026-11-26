@@ -59,3 +59,5 @@ Setup list changes in v50 (ten steps now):
 - Ticked so far: s2-computeruse (10:14 AM ET). No ids pasted.
 
 Design PR 759 merged 10:31 AM ET (issue 758 closed).
+
+Page v51, 10:44 AM ET: check of the three needs-owner issues. 530 (server size, private servers, passes and products, questionnaire) and 106 (store art v2: his picks, the files and the bow) were already covered by setup steps and q2-iconebow. 29 (owner playtest of the scrub) was only on a ticked to-do, so its three questions and keep or rethink were added to s2-devtest.
