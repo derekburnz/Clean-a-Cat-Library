@@ -79,3 +79,5 @@ List any miss in the verdict; a clear miss is CHANGES NEEDED.
 5. Pre-live checks: issue 531 (policy check of everything sold, full first-session playtest), tubBuilds, crateShop, product ids, notify key, likes (handoff section 3).
 6. Standing QA issues: 182 (speed budget, iPhone 12), 40 (slice loop under 10 minutes), 773 (bows, faces, frame rate on dev).
 7. Reports and plans go in `docs/reviews/` and `docs/playtests/` in the game repo and in this folder.
+
+**Before every push:** run `bash games/clean-a-cat/tools/prepush.sh` (game repo, PR 906) and push only on "Pre-push check passed". Why: red check runs email Derek, and the red runs of 2026-11-26 came from pushes that skipped a local step or were tested against an old main. Merge latest main in first.

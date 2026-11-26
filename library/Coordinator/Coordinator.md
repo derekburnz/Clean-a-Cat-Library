@@ -80,3 +80,5 @@ Only with the owner's own words. Use the exact name from the roster and the brie
 
 ## 10. Skills
 None of the game repo's skills are yours to run, but know what exists so you can route: `merge-and-publish` (how merges, publishes and switches work), `gdd-onepager` (what a spec looks like), `playtest-report` (what a QA result looks like).
+
+**Before every push:** run `bash games/clean-a-cat/tools/prepush.sh` (game repo, PR 906) and push only on "Pre-push check passed". Why: red check runs email Derek, and the red runs of 2026-11-26 came from pushes that skipped a local step or were tested against an old main. Merge latest main in first.

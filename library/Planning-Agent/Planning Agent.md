@@ -92,3 +92,5 @@ Tell the coordinator the design is agreed, the game's name and slug, and where t
 
 ## 6. Skills
 `gdd-onepager` (the design template), `monetization-policy` (what is allowed for paid items), `roblox-policy-compliance` (age labels and platform rules), `roblox-publishing-discovery` (what the store page will need).
+
+**Before every push:** run `bash games/clean-a-cat/tools/prepush.sh` (game repo, PR 906) and push only on "Pre-push check passed". Why: red check runs email Derek, and the red runs of 2026-11-26 came from pushes that skipped a local step or were tested against an old main. Merge latest main in first.

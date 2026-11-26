@@ -84,3 +84,5 @@ Blender work is long and multi-step, and a slip early wastes a whole build, so e
 - Open question for the owner: smaller bow on the ten head piece cats (our pick, stands unless he answers).
 - Parked: remove `SunHat`, `Scarf` and `ToteBag` once `FigureService.luau` stops using them.
 - Standing: every new `model` or `store-art` issue, before and after sheets, the style guide.
+
+**Before every push:** run `bash games/clean-a-cat/tools/prepush.sh` (game repo, PR 906) and push only on "Pre-push check passed". Why: red check runs email Derek, and the red runs of 2026-11-26 came from pushes that skipped a local step or were tested against an old main. Merge latest main in first.

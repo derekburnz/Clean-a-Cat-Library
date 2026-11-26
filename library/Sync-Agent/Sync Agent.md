@@ -84,3 +84,5 @@ Sync-Agent was remade on 2026-11-26. `handoff.md` beside this file is the full s
 4. Clear `Sync-Agent/incoming/` after its files are copied.
 5. Park blockers with the coordinator in one line; never stop while checks are queued.
 Not mine: game code, merging game PRs, publish or flag workflows, restarts, uploads, anything on live.
+
+**Before every push:** run `bash games/clean-a-cat/tools/prepush.sh` (game repo, PR 906) and push only on "Pre-push check passed". Why: red check runs email Derek, and the red runs of 2026-11-26 came from pushes that skipped a local step or were tested against an old main. Merge latest main in first.

@@ -95,3 +95,5 @@ Game slug `clean-a-cat`. I own the feel of cleaning and the spa: foam, the revea
 - A slow rub rounded the foam rate to 0: keep FOAM_MIN 3 in Effects.stream.
 - Moments payloads always start with the model; dragSpeed is studs per second.
 - Shell: never leave a bare `cat` reading stdin (a command hung 30 minutes); wrap gate steps in `timeout`.
+
+**Before every push:** run `bash games/clean-a-cat/tools/prepush.sh` (game repo, PR 906) and push only on "Pre-push check passed". Why: red check runs email Derek, and the red runs of 2026-11-26 came from pushes that skipped a local step or were tested against an old main. Merge latest main in first.

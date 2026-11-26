@@ -28,6 +28,7 @@ What still waits for the owner even under rule 2: spending money, anything on th
 - **Issues first.** Work comes from GitHub issues. Before taking one: check it has no `claim` label, search open PRs for its number (an unclaimed issue can still have an armed PR), then add `claim` and comment who took it.
 - **One feature per branch and PR,** with a test plan in the description. Start from the latest main and merge main in again before the final checks. Never force-push; merge main in to fix conflicts.
 - **Open a claim issue** (the Claim work form) for work that needs more than one PR or touches shared files: the design document, the save service and shared modules in `src/shared/` once the game creates them (for example a `Config` or `Remotes` module). Close it when its last PR merges.
+- **Before every push:** run `bash games/clean-a-cat/tools/prepush.sh` and push only on "Pre-push check passed" (red check runs email Derek).
 - **The gate.** Run `games/<game-slug>/check.sh` where you can (rojo sourcemap, luau-lsp, selene, stylua). CI runs it on every PR and CI is the judge.
 - **Review.** Review-QA-Agent checks every PR at its exact head. No thread signs off its own work. A push after a pass needs the reviewer again (a push that only merges main in is "same code").
 - **Merge.** After a pass, GitHub auto-merge is turned on with a merge commit. Report the merge in one line.
