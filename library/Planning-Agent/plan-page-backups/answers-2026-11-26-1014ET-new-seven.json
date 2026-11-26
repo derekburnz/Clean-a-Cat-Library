@@ -1,0 +1,37 @@
+{
+ "about": "Clean a Cat Launch Plan page database, collection answers: the seven q2 documents Derek wrote on 2026-11-26 between 14:47 and 14:51 UTC (9:47 to 9:51 AM ET), verbatim, read 15:14 UTC. No other document changed since the 2026-11-25 full snapshot. Setup steps (c-s2-...) and c-done2 were not ticked. Restore with ArtifactData set on each id.",
+ "q2": {
+  "q2-packvalue": {
+   "at": "2026-11-26T14:47:50.231Z",
+   "pick": "2"
+  },
+  "q2-helperxp": {
+   "at": "2026-11-26T14:47:59.199Z",
+   "pick": "0"
+  },
+  "q2-likeline": {
+   "at": "2026-11-26T14:48:46.734Z",
+   "note": "you choose rest just do the 10 second thing",
+   "pick": "0"
+  },
+  "q2-likeask": {
+   "at": "2026-11-26T14:49:28.575Z",
+   "note": "Good moment like rare customer cat finished. Maybe also after a purchase just a little bit after.",
+   "pick": "0"
+  },
+  "q2-icons2": {
+   "at": "2026-11-26T14:50:30.059Z",
+   "note": "Just use A as main and E as alt for now but fix the sides of E having orange sticking out the side of the model",
+   "pick": "3"
+  },
+  "q2-wheremake": {
+   "at": "2026-11-26T14:50:35.120Z",
+   "pick": "0"
+  },
+  "q2-notifykey": {
+   "at": "2026-11-26T14:51:14.326Z",
+   "note": "Use the same key its fine if there are issues with that let me know",
+   "pick": "1"
+  }
+ }
+}

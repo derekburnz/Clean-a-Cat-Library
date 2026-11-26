@@ -120,9 +120,9 @@ TODOS = [
 ]
 SETUP = [
     dict(id="s2-passes", t="Make the five game passes",
-         d="On the game you pick in the passes and products question above. Creator Hub, the game, Monetization, Passes. 2x Coins for 199 Robux, Second Builder for 299, Golden Sponge for 99, Lou the extra helper for 249 and Second pet slot for 249. Paste the five ids in the box, each with its name. Pass ids are public, so they are safe to paste. A pass cannot be deleted once it is made, which is why the code was merged first."),
+         d="Your pick: on the dev game, Clean-a-Cat-Dev, now, and again on the live game on the day you promote. Creator Hub, the game, Monetization, Passes. 2x Coins for 199 Robux, Second Builder for 299, Golden Sponge for 99, Lou the extra helper for 249 and Second pet slot for 249. Paste the five ids in the box, each with its name. Pass ids are public, so they are safe to paste. A pass cannot be deleted once it is made, which is why the code was merged first."),
     dict(id="s2-products", t="Make the eight developer products",
-         d="Same page, under Developer Products. Finish now at 5, 15, 35, 75 and 99 Robux, for a build with 5 minutes or less left, 30 minutes, 2 hours, 8 hours and more than 8 hours. Crate at 49 and 5 Crates at 199. Starter Bundle at 299, or the price from the starter pack question. Paste the eight ids with their names."),
+         d="Same page, under Developer Products. Finish now at 5, 15, 35, 75 and 99 Robux, for a build with 5 minutes or less left, 30 minutes, 2 hours, 8 hours and more than 8 hours. Crate at 49 and 5 Crates at 199. Starter Bundle at 199, your pick of November 26. Paste the eight ids with their names. On the dev game now, and again on the live game when you promote."),
     dict(id="s2-questionnaire", t="Fill in the maturity questionnaire",
          d="On the live game's Creator Hub page, before the game opens to players. Growth-Agent wrote the answers from the design. Every answer is no except paid random items, which is yes because of the Robux crate. If it then asks whether the game checks Roblox's policy for each player, that is yes too. The result should be Minimal. If a question does not fit a plain no, write it in the box and we will answer it."),
     dict(id="s2-serversize", t="Set the server size to six",
@@ -132,7 +132,9 @@ SETUP = [
     dict(id="s2-groupwall", t="Turn the Creampuff Games group wall off, or set it to moderated",
          d="The gift stand asks players to join the group, so young players will land on that page. If you would rather leave the wall open, write that in the box."),
     dict(id="s2-storeart", t="Put the store art in",
-         d="Model-Agent attached the files in the chat. The main icon and the alternates from your icon answer above, then the thumbnails in your order 2, 1, 3, 5. We cannot put files on the store page from here. When they are in, tick this and Model-Agent checks the page and the order."),
+         d="Your pick: icon A as the main icon and icon E as the only alternate for now. Model-Agent is fixing the orange at the sides of E first and will attach the new file in the chat, so wait for that one. Then the thumbnails in your order 2, 1, 3, 5. We cannot put files on the store page from here. When they are in, tick this and Model-Agent checks the page and the order."),
+    dict(id="s2-notify", t="Make the notification message and save your key as the game's secret",
+         d="Your pick: no new key, the group key you already have. Gameplay-Engineer sends the exact message text and the clicks in the chat, and tells you if that key cannot send notifications. The key goes straight from Roblox into the game's secrets. Never paste it on this page or in the chat."),
     dict(id="s2-computeruse", t="Allow computer use for Studio on your PC",
          d="When the card shows in the Claude app on your PC, press Allow. It lets Sync-Agent work Studio's own windows during test runs. We never press Allow for you."),
 ]
@@ -140,8 +142,8 @@ PARKED = [
     ("Server size", "Six, your pick. Setting it is in the setup list on this page."),
     ("Maturity questionnaire", "The answers are written, and filling it in is in the setup list on this page."),
     ("100 plays from engaged players", "Your ads for this come when the game is ready for public testers."),
-    ("Notification text and key", "Now a question at the top of this page. Players under 13 cannot get notifications."),
-    ("Store art, second version", "Drawn on November 26. Your thumbnail order is saved and the icons are a question at the top of this page."),
+    ("Notification text and key", "Answered on November 26: the group key you already have. The step is in the setup list. Players under 13 cannot get notifications."),
+    ("Store art, second version", "Drawn on November 26. Thumbnails 2, 1, 3, 5, icon A as the main one and E as the alternate once it is fixed."),
     ("Sound uploads", "One batch after the game is picked."),
     ("Plus or Premium", "Only if Roblox asks for it when we apply for Kids and Select."),
     ("Private repos", "At release."),
@@ -423,6 +425,7 @@ SAVED = [
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
 ]
 TODAY = [
+    ("Your answers, November 26", "The starter pack goes down to 199 Robux, a true saving of 63%. Helpers have no XP and their levels stay bought with coins. The like row reads A gift either way, 150 coins, with the 10 second wait. A like ask comes after a good moment such as a special visitor's cat finished, once a visit, and maybe a little after a purchase. Icon A is the main icon with E as the only alternate for now, once the orange at its sides is fixed. You make the passes and products on the dev game first. Notifications use the group key you already have."),
     ("The build, November 26", "The whole game is being drafted in the dev place from your plan. From your notes this morning: the phone HUD is tidied into a small grid with a More tray and gets a Build button, the coin popups for every cat go and a small popup shows over the helper, fewer white prompt bubbles show at once, two lines show around Roblox's leave screen, and waiting customers will stand at a counter window in a bigger spa. You said yes to one comparison run of the RbxSync test tools. Thumbnails go in your order 2, 1, 3, 5."),
     ("Planning closed, November 25", "You said all plan answered and asked for the whole playtest worthy game to be drafted. Server size is six, with private servers at 100 Robux or free with Roblox Plus. The customer cat names are the draft ones, and Cat Cafe names and designs can be used for rare customers. Bows follow your own words."),
     ("The free pet, November 25", "You said to prompt for the like, check and then give the pet. Roblox lets a game check a favourite and the group but not a like. So the gift stand asks for the like, checks the favourite and the group, then gives the pet."),
@@ -449,7 +452,7 @@ TODAY = [
     ("From your to-do list", "No friends as customers. The notification ask comes 1 to 2 minutes in. Suds explains in a bubble along the bottom. Plain Clean a Cat with no [NEW] tag. Washed cats fill an index. Crates are hard to earn and worth it, and the free one on day 2 is a good one. The kitten's eyes stay open while you carry him. A pet for you and one for each worker is the working plan and may change."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Still open", "The new questions at the top of this page, from November 26. Private servers can be set to 100 Robux a month, and Roblox Plus members get them free."),
+    ("Still open", "No questions. The setup list on this page is what is left, and it is yours."),
     ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
@@ -630,12 +633,12 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 <div class="wrap">
   <div class="intro">
     <p class="eyebrow">Clean a Cat, updated November 26</p>
-    <h1>What is left to answer</h1>
-    <p class="lede">The game is being built in the dev place from your plan. __NNEW__ new questions came up on November 26, from your notes on the HUD, the starter pack ad and the Free gifts card and from what the builders need next. Each has our pick first. Under them is a short list of <a href="#setup">setup steps only you can do</a>. Your 65 earlier answers are saved under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
+    <h1>What is left for you</h1>
+    <p class="lede">You answered all seven new questions on November 26 and the builders have your picks. What is left is the <a href="#setup">setup list</a>, which only you can do. Every answer is saved under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
     <ol class="steps">
-      <li>Answer the new questions. If you leave one, our pick stands.</li>
-      <li>Tick the setup steps as you do them. They can wait for a quiet moment, but the shop buttons stay hidden until the passes and products exist.</li>
-      <li>Tick done at the bottom, or say done in the chat.</li>
+      <li>No question is left to answer.</li>
+      <li>Tick the setup steps as you do them. The shop buttons stay hidden until the passes and products exist.</li>
+      <li>To change an answer, open <a href="#answered">Answered already</a> and tap another option or add words.</li>
     </ol>
   </div>
 
@@ -650,7 +653,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
       <h2>Left to answer</h2>
       <p>The first option is always our pick. Tap it to agree or choose another. Every question has a box for your own words. A question you answer stays where it is until you open the page again, so you can still add to it.</p>
     </header>
-    <p class="alldone" id="alldone" hidden><strong>Nothing is left to answer.</strong> Tick done below or say done in the chat.</p>
+    <p class="alldone" id="alldone" hidden><strong>Nothing is left to answer.</strong> The setup list is below.</p>
     __QUESTIONS__
     <div class="row"><button type="button" class="ghost" id="acceptall">Take our pick for everything I have not answered</button></div>
     <p class="gapnote"><strong>What nobody can tell us.</strong> No source gives a proven number for any hook, for how long a wait can be or for the right job length. We find out after launch by running two versions behind switches and reading Roblox's own numbers.</p>

@@ -24,11 +24,11 @@ Built from Derek's 65 plan page answers, his chat decisions of 2026-11-22 to 202
 | 3:45 | The check in card: what waits on each of the next seven days played. |
 | 4:00 | The first special visitor walks in. Only the player can wash their cat, and this first one drops a crate at about 5:00. |
 | 6:00 | The Quests button arrives with a tip. |
-| 7:00 | The gift stand lights up and Suds makes the like, favourite and group ask once. |
+| 7:00 | The gift stand lights up and Suds makes the like, favourite and group ask once, after a good moment (see the rules below). |
 | About 10:00 | The first worker can be hired, station included. |
 | About 15:00 | The first long build is offered. |
 
-Rules for the whole session: one ask at a time and at least a minute apart, nothing during a wash or a recap, and menu buttons arrive one by one with a tip. The starter pack button appears after the tutorial and stays still until the second visit. A player who skipped the stand gets one favourite ask on the second visit or after 10 cats. Every first session change ships behind its own switch (rule 16).
+Rules for the whole session: one ask at a time and at least a minute apart, nothing during a wash or a recap, and menu buttons arrive one by one with a tip. The starter pack button appears after the tutorial and stays still until the second visit. A player who skipped the stand gets one favourite ask on the second visit or after 10 cats. A like ask only follows a good moment: a special visitor's cat finished, a crate opened, a three star card or a worker hired. There is one like ask a visit, none within two minutes of a lost cat or a cancelled purchase, and after a no the game waits three visits. The owner also allows an ask a little after a completed purchase (2026-11-26, his "maybe"): at least two minutes later, never on the purchase screen, behind its own switch. Every first session change ships behind its own switch (rule 16).
 
 **The wash:** always done by hand; no timer ever stands in for it.
 - View: placing the cat in the tub opens a close up wash screen. The right tool is in the player's hand for each step. There is no tool menu.
@@ -71,7 +71,7 @@ Rules for the whole session: one ask at a time and at least a minute apart, noth
 - Other players can walk into a spa. This is on from the start and a setting turns it off. A visitor can look and walk around but can never wash, pick, take or block anything.
 - Players see each other carry cats and see the clean coats.
 - Each friend in the server adds a small bonus, shown on screen.
-- The free pet: a gift stand stands in the spa from the start with the pet sitting on it. Its card asks for a like and a favourite together and to join the game's Roblox group. Roblox lets a game check the favourite and the group but not the like, so those two are checked and the pet is then given. No pretend check is shown for the like. The owner is still looking into this.
+- The free pet: a gift stand stands in the spa from the start with the pet sitting on it. Its card asks for a like and a favourite together and to join the game's Roblox group. Roblox lets a game check the favourite and the group but not the like, so those two are checked and the pet is then given. No pretend check is shown for the like. The same card holds the Free gifts rows (owner, 2026-11-26): like the game, a 10 second wait and then 150 coins, with the line "A gift either way, 150 coins" because the coins are paid whether the player liked or not, and a free crate for 30 minutes of play.
 - Not in: trading, stealing, fighting and friends as customers. The only typed text is a worker's name, and it is filtered.
 
 **Monetization** (follows `monetization-policy`; prices are starting values the owner said to tune later; only the crate is random)
@@ -85,7 +85,7 @@ Rules for the whole session: one ask at a time and at least a minute apart, noth
 | Second pet slot | Game pass | 249 | For the player and every worker |
 | Crate | Developer product, random | 49, or 5 for 199 | The chance of every pet shows as a percentage before buying. PolicyService is read per player and the Robux crate is hidden where paid random items are restricted. The same crate can be earned. |
 | Finish now on any build | Developer product | 5, 15, 35, 75 or 99 by time left | The price is on the button, no pop up, waiting is always free |
-| Starter pack | Developer product, fixed | 299 | Golden Sponge, second pet slot and 2x Coins, worth 547. A real countdown of 72 hours from first join, kept on the server, then gone for good. |
+| Starter pack | Developer product, fixed | 199 | Golden Sponge, second pet slot and 2x Coins, worth 547, so the ad shows a true saving of 63% (the owner lowered it from 299 on 2026-11-26). A real countdown of 72 hours from first join, kept on the server, then gone for good. |
 | Private server | Roblox setting | 100 a month | The owner sets Requires Robux at 100 on the game's page. Roblox Plus subscribers get paid private servers at no cost as a platform benefit, so no second price is needed. Changing the price later cancels every active private server. |
 
 Rules that hold everywhere: no Robux product gives coins. Fusing pets is free with a fixed result. Nothing is ever sold to keep or bring back a cat that is leaving, and no price shows when a cat is about to leave. A no is final for that visit.
@@ -128,9 +128,11 @@ The game is playtest worthy when a new player can run the whole first session on
 **Out of scope for now:** trading, stealing, fighting, catching cats, friends as customers, coins for Robux, paid luck, a tool menu, stink wisps, Suds as a pet or a washer, a board of future like goals, the Grand Reopening and the Cat Show weekend. The last two are kept for later. Strays kept in a display window are replaced by pets from crates.
 
 **Open questions for the owner** (none blocks the build; each has the version we build unless he says otherwise)
-1. The free pet. He is looking into how other games check a like. Recommended: like and favourite asked together, with the favourite and the group checked.
+1. The free pet. Settled for now: the favourite and the group are checked. Growth-Agent found no page showing how other games check a like, and a game cannot read one.
 2. Private servers. He wants them free with Roblox Plus or 100 Robux. Checked by Growth-Agent on 2026-11-25: one price of 100 Robux does both, since Plus subscribers get paid private servers free. It is a monthly fee, not a one time purchase. Recommended: 100.
 3. Workers and bows. Recommended, from his note: workers tie no bow, so the bow bonus belongs to cats washed by hand.
-4. The like ask at minute 7. Recommended: keep it there, since the special visitor's wash and crate sit at minute 5.
+4. The like ask at minute 7. Answered 2026-11-26: keep it, after a good moment, with the rules in the first session section.
+
+Answered on 2026-11-26 as well: workers have no XP and their levels stay bought with coins. Passes and products are made on the dev game first and again on the live game at promotion, since the two are separate games on Roblox. Notifications reuse the group key the owner already has, saved by him as the game's secret. The store icon is A with E as the only alternate for now.
 
 **Decision line:** `2026-11-25: Build Clean a Cat as a busy cat spa with a cat collection: pick the next cat from a bench, wash it by hand in 3 to 10 steps, reveal its coat for the Cat Index, hire workers and collect pets from crates. Why: it is the owner's own playstyle pick after nine playtests, joined to the one thing lasting games share, which is something to collect.`

@@ -190,3 +190,13 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 ## For other threads
 - Store art (Model-Agent and Growth-Agent, later): Derek liked a half dirty and half clean picture split by a thin line.
 - Screens (Design-Agent, when unpaused): he liked clean pop-ups, a step counter such as "step 1 of 3", flowing arrows on the ground with a bobbing arrow at the goal, and a recap card with stars, coins and experience.
+
+## Plan page, 2026-11-26 9:47 to 9:51 AM ET: seven new answers (Derek's words verbatim)
+- Starter pack ad (packvalue): picked "Lower the pack to 199 Robux, a true SAVE 63%". No note.
+- Helper XP (helperxp): picked "Yes, keep levels bought with coins and show coins only". No note.
+- Like row wording (likeline): picked "Yes, the line reads: A gift either way, 150 coins". Note: "you choose rest just do the 10 second thing"
+- Like ask (likeask): picked "Yes, after a good moment, once a visit, never after a purchase or a lost cat". Note: "Good moment like rare customer cat finished. Maybe also after a purchase just a little bit after."
+- Store icons (icons2): picked "Something else". Note: "Just use A as main and E as alt for now but fix the sides of E having orange sticking out the side of the model"
+- Passes and products (wheremake): picked "Yes, I make the dev set now and the live set when I promote". No note.
+- Notifications key (notifykey): picked "No new key, save the group key I already have as the game's secret". Note: "Use the same key its fine if there are issues with that let me know"
+- In chat at 10:13 AM ET: "Answered the rest of plan questions"

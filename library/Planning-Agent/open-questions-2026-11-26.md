@@ -17,3 +17,23 @@ Answers save in the page database, collection `answers`: questions as `q2-<id>` 
 Setup steps (ids `s2-...`): passes, products, questionnaire, serversize, private, groupwall, storeart, computeruse.
 
 Left off on purpose: the RbxSync comparison run (Derek said yes at 9:23 AM ET). The free pet gate (favourite plus group) stands as decided.
+
+## Derek's answers, 2026-11-26 9:47 to 9:51 AM ET (read from the page 10:14 AM ET; he wrote "Answered the rest of plan questions" at 10:13 AM ET)
+
+| id | His pick | His words | Same as our pick? | Passed to |
+|---|---|---|---|---|
+| packvalue | 2: lower the pack to 199 Robux, a true SAVE 63% | (none) | No | Design-Agent, Gameplay-Engineer, Growth-Agent, Review-QA |
+| helperxp | 0: keep levels bought with coins, popup shows coins only | (none) | Yes | Design-Agent, Gameplay-Engineer |
+| likeline | 0: "A gift either way, 150 coins" | "you choose rest just do the 10 second thing" | Yes | Design-Agent, Review-QA (issue 748) |
+| likeask | 0: after a good moment, once a visit | "Good moment like rare customer cat finished. Maybe also after a purchase just a little bit after." | Yes, with a change: an ask a little after a purchase is allowed | Gameplay-Engineer, Design-Agent, Growth-Agent, Review-QA |
+| icons2 | 3: something else | "Just use A as main and E as alt for now but fix the sides of E having orange sticking out the side of the model" | No | Model-Agent |
+| wheremake | 0: he makes the dev set now and the live set at promotion | (none) | Yes | Gameplay-Engineer, Growth-Agent |
+| notifykey | 1: no new key, save the group key as the game's secret | "Use the same key its fine if there are issues with that let me know" | No | Gameplay-Engineer |
+
+How we read the two notes that need reading (ours, not his words):
+- likeask: a special visitor's cat finished is the first good moment. A completed purchase may also lead to a like ask, at least two minutes later, never on the purchase screen, and it sits behind its own constant or switch because he wrote "maybe". Our earlier "never after a purchase" was a judgment, not a sourced Roblox rule.
+- icons2: only E is an alternate for now; B, C, D and F are spares. Model-Agent fixes the orange at the sides of E before it is used and checks thumbnail 2 for the same fault.
+
+Numbers: pack parts 99 + 249 + 199 = 547. At 199 the saving is 348 Robux, 63.6%, shown as 63 (rounded down).
+
+Setup steps: none ticked yet, no ids pasted.
