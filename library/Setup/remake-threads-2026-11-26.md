@@ -18,7 +18,7 @@ Things a remade thread must know that are easy to miss:
 - Dev first: nothing goes live without Derek's confirmation. Feature switches stay OFF on live.
 - Picture PRs (Studio screenshots) stay drafts, no assignee, never merged.
 - Only Sync-Agent drives Studio. Test movement only with `_G.qaWalkNamed` (skill `studio-test-movement`).
-- Memory topic files and the instructions copy in `memory/` are word for word copies: never edit them by hand, only Sync-Agent copies. `memory/project-instructions.md` was last copied 2026-11-23; the current project instructions text was not available to Sync-Agent on 2026-11-26, so the coordinator should re-drop it in `Sync-Agent/incoming/` if it changed.
+- Memory topic files and the instructions copy in `memory/` are word for word copies: never edit them by hand, only Sync-Agent copies. `memory/project-instructions.md` was refreshed from the project settings on 2026-11-26.
 - GitHub MCP tools and some others come and go between turns; load them again through tool search when missing.
 - The shared folder `/mnt/project-files/<Thread>/` mirrors `library/<Thread>/`; Sync-Agent copies newer wins, never shrinking a `.md`.
 - Thread ids die with the project: never store them.
