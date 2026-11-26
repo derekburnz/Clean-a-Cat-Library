@@ -1,4 +1,4 @@
-# Planning-Agent handoff (written 2026-11-26 3:30 PM ET, updated 5:45 PM ET)
+# Planning-Agent handoff (written 2026-11-26 3:30 PM ET, updated 5:36 PM ET)
 
 Derek is deleting every thread and making them again for fresh context. You are the new Planning-Agent. Everything the old thread knew is in this folder, in project memory and in the two links below. Read this file, then `plan-page-howto.md`, then memory `planning-status` and `derek-nov26-answers`.
 
@@ -12,14 +12,14 @@ Planning closed on 2026-11-25 and the game is in BUILD. Planning-Agent no longer
 
 The coordinator sends you Derek's words and gathers asks from the other threads. You write no game code.
 
-## State on 2026-11-26 5:45 PM ET
+## State on 2026-11-26 5:36 PM ET
 
-- **Plan page version 55. All 78 questions answered, none open.** Derek answered the last two and wrote a note on every setup step at 5:17 to 5:23 PM ET, then said in chat "All plan questions answered/done so go through that and update with anything new needed". His words and what each note means: `open-questions-2026-11-26.md` (last sections) and memory `derek-nov26-setup-answers`.
-- What he decided: the ten head piece cats get a smaller bow on the top right corner (Model-Agent). Live notifications on promotion day (Gameplay-Engineer). We make the passes and products ourselves, group key first, his signed in Chrome as the fallback (Gameplay-Engineer). We upload the store art ourselves if any route works (coordinator routes it). Private servers 50 or 25, our pick 25 (Growth-Agent may say 50). Server size six confirmed. Questionnaire stays his, last. The group wall step was removed: Roblox retired walls in March 2026.
-- Three setup steps are left on the page, with new ids so they start unticked: `s2-playnotes` (his dev playtest notes; he was playing at 5:23 PM ET), `s2-maturity` (the questionnaire, before the Robux crate goes on live) and `s2-promote` (his word to go live). The old ticked docs `c-s2-...` stay in the database.
+- **Plan page version 56. All 78 questions answered, none open.** Derek answered the last two and wrote a note on every setup step at 5:17 to 5:23 PM ET, then said in chat "All plan questions answered/done so go through that and update with anything new needed". His words and what each note means: `open-questions-2026-11-26.md` (last sections) and memory `derek-nov26-setup-answers`.
+- What he decided: the ten head piece cats get a smaller bow on the top right corner (Model-Agent). Live notifications on promotion day (Gameplay-Engineer). We make the passes and products ourselves, group key first, his signed in Chrome as the fallback (Gameplay-Engineer). We upload the main icon and the four thumbnails with the key (issues 850 and 851, workflow PR 852); the alternate icon E has no key route, so adding it is his. Private servers 50 or 25, our pick 25 (Growth-Agent may say 50). Server size six confirmed. Questionnaire stays his, last. The group wall step was removed: Roblox retired walls in March 2026.
+- Four setup steps are left on the page, with new ids so they start unticked: `s2-playnotes` (his dev playtest notes; he was playing at 5:23 PM ET), `s2-icone` (add icon E as the alternate icon by hand in Creator Hub), `s2-maturity` (the questionnaire, before the Robux crate goes on live) and `s2-promote` (his word to go live). The old ticked docs `c-s2-...` stay in the database.
 - Design: issue 846 and pull request 848 in the game repo (private server 25 and the evening answers), waiting on Review-QA and auto-merge when this was written. The Claude Doc already matches (rev 23).
 - Backup of all 165 docs: `plan-page-backups/answers-2026-11-26-1725ET-full.json`. Take a new one after his next answers.
-- Page test for version 55: `node shot10.js $PWD/clean-a-cat-launch-plan.html $PWD/seed-1126d.json` (`shot9.js` fits version 54 and older).
+- Page test from version 55 on: `node shot10.js $PWD/clean-a-cat-launch-plan.html $PWD/seed-1126d.json` (`shot9.js` fits version 54 and older).
 
 The lines below are the state before his evening answers and are kept for the record.
 

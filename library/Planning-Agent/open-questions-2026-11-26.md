@@ -134,3 +134,10 @@ No question is open and none was added: nothing from today's work needs a choice
 - Removed from his list: s2-passes, s2-products, s2-storeart (ours now), s2-serversize, s2-private (we set them), s2-computeruse (done), s2-groupwall (out of date).
 - Design: issue 846, pull request 848 (private server 25, who makes passes and products, head piece bows, live notifications, six players). Claude Doc edited to match, rev 23.
 - Passed on at 5:35 PM ET: Model-Agent (head piece bows), Gameplay-Engineer (live notifications, passes and products, server size, private server price), Growth-Agent (private server price, questionnaire, store art, wall), coordinator (store art route, review of 848).
+
+## Page v56, 2026-11-26 5:35 PM ET (v55 went out at 5:32 PM ET; the 5:40 and 5:45 PM stamps above were ahead of the clock)
+
+From Gameplay-Engineer and Growth-Agent through the coordinator, 5:33 PM ET: the existing keys can make the dev passes and products, set the server size and upload the main icon and four thumbnails (issues 850 and 851, workflow pull request 852 in review). No Open Cloud route exists for the alternate icon. Private server price is 25, set on promotion day.
+
+- The "ours now" entry says exactly that.
+- New setup step s2-icone: add icon E as the alternate icon by hand in Creator Hub (file icon-alternate-e-512.png in Model-Agent/store-art/picked-2026-11-26/). Four steps now: s2-playnotes, s2-icone, s2-maturity, s2-promote.
