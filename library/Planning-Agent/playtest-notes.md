@@ -225,3 +225,13 @@ Planning-Agent's reading: small prompt pills are the fix for the big black butto
 - Setup, play today's pieces on the dev game (c-s2-devtest, ticked): "Will playtest now and let you know"
 - Done tick (c-done2): ticked 5:23 PM ET.
 - In the chat, 5:23 PM ET: "All plan questions answered/done so go through that and update with anything new needed"
+
+
+## Plan page setup notes, 2026-11-26 5:47 and 6:04 PM ET (his words verbatim, read 6:06 PM ET)
+
+- Setup, add icon E as the alternate icon (c-s2-icone, ticked 5:47 PM ET): "you can do that"
+- Setup, tell us what you found in your playtest (c-s2-playnotes, ticked 6:04 PM ET): "Gone through some starting changes/issues more will come later"
+- Setup, the maturity questionnaire, last (c-s2-maturity, ticked 6:04 PM ET): "Lets leave for now dont worry about it yet"
+- Setup, say the word when the dev game is good (c-s2-promote, ticked 6:04 PM ET): "Will do no need to put this on a todolist"
+- In the chat, 6:04 PM ET: "Plan answered"
+- In the chat, 6:04 PM ET: "looks like lots of prs failing/having issues look into that and make sure the old updates that were done to things like spa size/answered in the plan are getting worked through"

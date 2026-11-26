@@ -118,22 +118,13 @@ TODOS = [
              d="Your rule from November 24: everything goes to the dev place first and nothing reaches the live game until you say it is good. You ticked this on November 24. Each time a new draft is up we say so in chat. Three answers help the most: did scrubbing feel good, was the clean kitten a nice moment and would you wash a second cat."),
     ]),
 ]
-SETUP = [
-    dict(id="s2-playnotes", t="Tell us what you found in your playtest",
-         d="At 5:23 PM you wrote: Will playtest now and let you know. Everything built so far is switched on in the dev game. Write what felt wrong or slow in the box here or in the chat, in your own words. No screenshots are needed. Three answers help the most, and they are the first check of the whole design: did scrubbing feel good on the phone, was the clean cat a nice moment and would you wash a second cat. Then write keep or rethink for the scrub. Nothing goes to the live game until you say it is good."),
-    dict(id="s2-icone", t="Add icon E as the alternate icon",
-         d="The one store art job a key cannot do. We upload the main icon and the four thumbnails ourselves. An alternate icon can only be added by hand in Creator Hub, on the live game's page where the main icon is set. The file is icon-alternate-e-512.png, in the project's files under Model-Agent, store-art, picked-2026-11-26. Say the word in the chat and we attach it there for you. It can wait until the day you promote. Tick this when it is in and we check the page."),
-    dict(id="s2-maturity", t="Fill in the maturity questionnaire, last",
-         d="You wrote: Will leave this to last. That works. It has one deadline: it must be in before the Robux crate is switched on in the live game, because the crate is a paid random item and Roblox wants that declared. It is on the live game's Creator Hub page. Growth-Agent wrote the answers from the design. Every answer is no except paid random items, which is yes. If it then asks whether the game checks Roblox's policy for each player, that is yes too. The result should be Minimal. If a question does not fit a plain no, write it in the box and we will answer it."),
-    dict(id="s2-promote", t="Say the word when the dev game is good",
-         d="When the dev game feels right, write send it to live in the chat. That day we make the live passes and products, set the server size to six and private servers to 25 Robux, set up the live notifications and publish the build you tested. Feature switches on live stay off until you say which to turn on. Leave this unticked until then."),
-]
+SETUP = []
 PARKED = [
     ("Server size", "Six, confirmed on November 26. We set it."),
-    ("Maturity questionnaire", "The answers are written. Yours to fill in, last, before the Robux crate goes on in the live game."),
+    ("Maturity questionnaire", "The answers are written. Left alone for now, as you said on November 26. It must be in before the Robux crate goes on in the live game, and we bring it up then."),
     ("100 plays from engaged players", "Your ads for this come when the game is ready for public testers."),
     ("Notification text and key", "Done on the dev game on November 26 with the group key you already have. The live game is set up on the day you promote. Players under 13 cannot get notifications."),
-    ("Store art, second version", "Drawn on November 26, and drawn again that day with the new faces. Thumbnails 2, 1, 3, 5, icon A as the main one and E as the alternate. The six files are final. We upload the main icon and the four thumbnails with the key. Icon E as the alternate is yours to add, on the setup list."),
+    ("Store art, second version", "Drawn on November 26, and drawn again that day with the new faces. Thumbnails 2, 1, 3, 5, icon A as the main one and E as the alternate. The six files are final. We upload the main icon and the four thumbnails with the key. Icon E as the alternate is ours to add too, as you said on November 26."),
     ("Sound uploads", "One batch after the game is picked."),
     ("Plus or Premium", "Only if Roblox asks for it when we apply for Kids and Select."),
     ("Private repos", "At release."),
@@ -440,6 +431,7 @@ SAVED = [
     ("The first 25 questions", "You left them all parked. The questions on this page replace them."),
 ]
 TODAY = [
+    ("Your setup notes, November 26, 6:04 PM", "All four are read. Icon E as the alternate icon is ours to add, as you said. The questionnaire is left alone until the Robux crate is about to go on in the live game. The word to go live is off this page. Your playtest notes are in the list above, and more can come any time."),
     ("Your answers, November 26 evening", "The ten special cats with a head piece get a much smaller bow, moved from the side of the head to the top right corner like every other cat. Model-Agent has it and will show you a before and after. Notifications on the live game are set up on the day you promote. Six players a server is confirmed. The questionnaire is yours and comes last. You are playtesting the dev game and will tell us what you find."),
     ("Passes, products and store art are ours now, November 26", "You said we can make the game passes and developer products with the keys or through Claude in Chrome, and upload the store art the same way. Gameplay-Engineer and Growth-Agent checked: the keys you already gave can make the dev passes and products, set the server size and upload the main icon and the four thumbnails. That work is in review now, so you make none of it by hand. One piece is left that no key can do: adding icon E as the alternate icon. Roblox has no key route for alternate icons, so that one is on your setup list below. We never type a password or a code."),
     ("Private servers at 25 Robux, November 26", "You wrote 50 or 25, since being alone in a server has no real benefit, and free with Roblox Plus. We picked 25, the lower of your two, and that is a judgment, so say 50 if you prefer it. Roblox gives paid private servers to Plus members free by itself, so one price does both. It is set once, on the day you promote, because changing it later cancels the private servers players already pay for. The design file says 25 now."),
@@ -477,7 +469,7 @@ TODAY = [
     ("From your to-do list", "No friends as customers. The notification ask comes 1 to 2 minutes in. Suds explains in a bubble along the bottom. Plain Clean a Cat with no [NEW] tag. Washed cats fill an index. Crates are hard to earn and worth it, and the free one on day 2 is a good one. The kitten's eyes stay open while you carry him. A pet for you and one for each worker is the working plan and may change."),
     ("Dev first", "Everything is uploaded to the dev place first. Nothing goes to the live game until you confirm it is good, and the feature switches stay off on live."),
     ("Playing like My Pet Salon", "Fine by you. We stop steering away from it and aim to do each part better."),
-    ("Still open", "No question. Four things on the setup list: your playtest notes, icon E as the alternate, the questionnaire and the word to go live."),
+    ("Still open", "No question and no setup step. Your playtest notes are being worked through, and more can come any time."),
     ("Jobs you finished", "The rule on the main branch, saves for Studio in the dev copy, the loop write-up, the 14 draft screens, your test devices (an iPhone 12 and an iPad from about 2020), two minutes of our scrub and the example of how the kitten is held."),
 ]
 DECIDED = [
@@ -612,7 +604,28 @@ NQ = n
 NT = sum(len(i) for _, i in TODOS) + len(SETUP)
 NG = len(GAMES)
 saved_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in SAVED + DECIDED)
-N_TONIGHT = 5
+N_TONIGHT = 6
+NOTES = [
+    ("The starter pack card ran off the screen", "Fixed and merged. The card now shrinks to fit the room it has."),
+    ("Brushing went way too fast", "Built and merged. Each wash step is set to take about 4 to 5 seconds. We time it on the iPhone 12 next."),
+    ("A 3 star wash should give +3 stars", "Built and merged. A customer now gives the wash's stars, with extra for rarer cats."),
+    ("A line back to the box, and a line that stands out from the floor", "Built and merged. The guide line is gold with a dark outline, and it points back to the box when a new player walks away from it."),
+    ("No Walk or Buy during the wash, and the wash on its own screen", "In review. A bubbly wipe across the screen, a clean backdrop and none of the regular HUD. Gameplay-Engineer built it."),
+    ("The washed cat should walk, not bounce while sitting", "In review. It walks out on its legs with a trot. We kept the cat walking out by itself so the loop stays quick."),
+    ("The group reward as a crate to open", "Being built. One gift crate you open yourself, with the chances shown before you open it. Design-Agent wrote how it works."),
+    ("A better photo moment", "Being built. A red light blinks faster and faster, a gentle flash goes off, then the photo slides out the back."),
+    ("A pop up for the 10 second like wait, with a how to picture", "Being built. One point from us: the game cannot read a like, so the pop up says the gift unlocks in 10 seconds either way. It does not say it is checking."),
+    ("The dev game still showed the old door line, with floating cats and customer parts off the body", "Being fixed. The bigger spa and the counter window are switched on in the dev game. Your Studio test had no switches on, which is why it showed the old door line, and Studio now has them too. We are checking a fresh join on the dev game itself. The floating cats and carriers are with Gameplay-Engineer, the customers' arm and hat with Model-Agent."),
+    ("Pop ups only when they guide the next thing to do", "Being built by Design-Agent. Cards that only announce are cut. Guide cards come with the arrow line. The notification ask waits until the player has built something. A new crate gets the arrow line and a tip from Suds."),
+]
+notes_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in NOTES)
+LEFT = [
+    ("Your playtest notes", "You wrote: Gone through some starting changes/issues more will come later. Send more in the chat whenever you have them."),
+    ("Icon E as the alternate icon", "You wrote: you can do that. So it is ours. No key can set an alternate icon, so the route left is your signed in Chrome, which you offered for the store art. We never type a password or a code, and we tell you plainly if it does not work."),
+    ("The maturity questionnaire", "You wrote: Lets leave for now dont worry about it yet. Left alone. It has one deadline: before the Robux crate is switched on in the live game. We bring it up then and not before."),
+    ("The word to go live", "You wrote: Will do no need to put this on a todolist. It is off the list. Nothing goes to the live game until you say so."),
+]
+left_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in LEFT)
 tonight_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in TODAY[:N_TONIGHT])
 today_html = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in TODAY[N_TONIGHT:])
 
@@ -671,12 +684,13 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 
 <div class="wrap">
   <div class="intro">
-    <p class="eyebrow">Clean a Cat, updated November 26, 5:35 PM</p>
+    <p class="eyebrow">Clean a Cat, updated November 26, 6:10 PM</p>
     <h1>What is left for you</h1>
-    <p class="lede">Nothing is left to answer. All 78 questions have your pick, and your notes from this evening are saved and passed to the builders. What you decided tonight is in <a href="#saved">its own list</a> just below. This page has a new link since the threads were remade, and every answer came across. The <a href="#setup">setup list</a> is down to four things only you can do: your playtest notes, one alternate icon, the questionnaire and the word to go live. Every earlier answer is under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
+    <p class="lede">Nothing is waiting on you. All 78 questions have your pick and your four setup notes are read. The playtest notes you sent this evening are with the builders, and where each one stands is in <a href="#notes">the first list</a> below. We are also checking every earlier decision against the dev game, the bigger spa and the counter window first, so nothing you decided gets lost. Every earlier answer is under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
     <ol class="steps">
-      <li>Play the dev game and write what felt wrong or slow, here or in the chat.</li>
-      <li>If you disagree with something we picked tonight, such as 25 Robux for private servers, say so and we change it.</li>
+      <li>Send more playtest notes in the chat whenever you have them, in your own words.</li>
+      <li>If a note of yours is missing from the first list, or one reads wrong, say so.</li>
+      <li>If you disagree with something we picked, such as 25 Robux for private servers, say so and we change it.</li>
       <li>To change an answer, open <a href="#answered">Answered already</a> and tap another option or add words.</li>
     </ol>
   </div>
@@ -692,26 +706,34 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
       <h2>Left to answer</h2>
       <p>The first option is always our pick. Tap it to agree or choose another. Every question has a box for your own words. A question you answer stays where it is until you open the page again, so you can still add to it.</p>
     </header>
-    <p class="alldone" id="alldone" hidden><strong>Nothing is left to answer.</strong> What you decided this evening and the setup list are below.</p>
+    <p class="alldone" id="alldone" hidden><strong>Nothing is left to answer.</strong> Your playtest notes and what you decided this evening are below.</p>
     __QUESTIONS__
     <div class="row"><button type="button" class="ghost" id="acceptall">Take our pick for everything I have not answered</button></div>
     <p class="gapnote"><strong>What nobody can tell us.</strong> No source gives a proven number for any hook, for how long a wait can be or for the right job length. We find out after launch by running two versions behind switches and reading Roblox's own numbers.</p>
   </section>
 
+  <section id="notes">
+    <header>
+      <h2>Your playtest notes and where each one is</h2>
+      <p>You sent these in the chat from 5:45 to 6:04 PM on November 26. Each one is a job with a builder. Built and merged means it is in the game's code and reaches the dev game behind its own switch, and we tell you in the chat when it is on there. Review-QA is checking that every note you sent has a job.</p>
+    </header>
+    <dl class="decided">__NOTES__</dl>
+  </section>
+
   <section id="saved">
     <header>
       <h2>What you decided this evening</h2>
-      <p>Read from this page at 5:25 PM on November 26. Each one went to the builder who owns it. Nothing to do here unless one reads wrong to you.</p>
+      <p>Read from this page at 5:25 PM and 6:06 PM on November 26. Each one went to the builder who owns it. Nothing to do here unless one reads wrong to you.</p>
     </header>
     <dl class="decided">__TONIGHT__</dl>
   </section>
 
   <section id="setup">
     <header>
-      <h2>Setup only you can do</h2>
-      <p>Four things are left that only you can do. The list was nine steps this afternoon. Six left it this evening: you handed us the passes, the products and most of the store art, you confirmed six players and gave a new private server price, which we set for you, computer use is allowed, and the group wall step is gone because Roblox no longer has group walls. Tick each one when it is really done. The box under each is for a note.</p>
+      <h2>Nothing is waiting on you</h2>
+      <p>The setup list is empty. You answered the last four steps at 5:47 PM and 6:04 PM, and this is how we read each one.</p>
     </header>
-    <ul class="todos">__SETUP__</ul>
+    <dl class="decided">__LEFT__</dl>
   </section>
 
   <section id="send">
@@ -977,7 +999,7 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 '''
 page = (PAGE.replace("__CSS__", CSS + EXTRA_CSS).replace("__PROMPTS__", prompts_html).replace("__EXTRA__", extra_html)
         .replace("__THEMES__", themes_html).replace("__GAMES__", games_html).replace("__OPT__", opt_html).replace("__DONE__", done_html)
-        .replace("__DONETODO__", done_todo_html).replace("__SETUP__", setup_html).replace("__NNEW__", "Seven").replace("__TODAY__", today_html).replace("__TONIGHT__", tonight_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
+        .replace("__DONETODO__", done_todo_html).replace("__SETUP__", setup_html).replace("__NNEW__", "Seven").replace("__TODAY__", today_html).replace("__TONIGHT__", tonight_html).replace("__NOTES__", notes_html).replace("__LEFT__", left_html).replace("__TODOS__", todos_html).replace("__PARKED__", parked_html).replace("__QUESTIONS__", q_html)
         .replace("__SAVED__", saved_html).replace("__NQ__", str(NQ)).replace("__NT__", str(NT)).replace("__NG__", str(NG))
         .replace("__DATA__", json.dumps(DATA)))
 open(OUT_HTML, "w", encoding="utf-8").write(page)
