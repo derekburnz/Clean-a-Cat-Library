@@ -38,7 +38,7 @@ Numbers: pack parts 99 + 249 + 199 = 547. At 199 the saving is 348 Robux, 63.6%,
 
 Setup steps: none ticked yet, no ids pasted.
 
-## Second round, page v50, 2026-11-26 10:41 AM ET
+## Second round, page v50, 2026-11-26 10:36 AM ET
 
 Derek asked at 10:30 AM ET: "update plan artifact with anything else needed". Gathered from the threads, memory and the needs-owner issues. Four questions, each with our pick first. None answered yet.
 
@@ -55,7 +55,7 @@ Setup list changes in v50 (ten steps now):
 - s2-passes: say which game the ids are from (ids are per game).
 - s2-storeart: files are in the main chat; icon E and thumbnail 2 are the new ones (orange gone, bow top right); wait for new files only if he picks another bow.
 - s2-notify: now Gameplay-Engineer's exact steps of 10:30 AM ET. Check the group key has User Notification Write (user.user-notification:write) for both games with Restrict IP addresses off; save secret CleanACat_NotifyKey with domain apis.roblox.com; create notification string build_done with the text "Your {buildName} is ready! Come back and show it off."; copy the asset id and paste it. Both games. Roblox sends only to 13 and over who opted in, at most once a day, once a game has 100 visits.
-- s2-devtest (new, last): play today's pieces on the dev game on his iPhone once we say all are on. On in dev at 10:41 AM ET: hudTidy, fewerPills, helperPopups, buildWindow. In review: bigSpa (PR 763), counterLine, counterCrate (PR 762 and Gameplay's server PR).
+- s2-devtest (new, last): play today's pieces on the dev game on his iPhone once we say all are on. On in dev at 10:36 AM ET: hudTidy, fewerPills, helperPopups, buildWindow. In review: bigSpa (PR 763), counterLine, counterCrate (PR 762 and Gameplay's server PR).
 - Ticked so far: s2-computeruse (10:14 AM ET). No ids pasted.
 
 Design PR 759 merged 10:31 AM ET (issue 758 closed).
