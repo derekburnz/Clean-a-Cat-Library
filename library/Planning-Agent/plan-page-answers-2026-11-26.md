@@ -1,6 +1,6 @@
 # Every answer on the plan page, read 2026-11-26 3:16 PM ET (page v53)
 
-Page: https://claude.ai/artifact/QVD8oT37EZy9vE8mYz9KfG. Database collection `answers`. This file is the readable copy; the exact copy for a restore is `plan-page-backups/answers-2026-11-26-1516ET-full.json`. Option 0 is always our pick. His words are verbatim, typos included. The database was checked again at 3:23 PM ET and nothing had changed.
+Page: https://claude.ai/artifact/5pnvLdb5Abhxv1ZRtPJR6H (new link since 2026-11-26 3:52 PM ET; the first page, ending QVD8oT37EZy9vE8mYz9KfG, was deleted with the old threads and restored from the backup). Database collection `answers`. This file is the readable copy; the exact copy for a restore is `plan-page-backups/answers-2026-11-26-1516ET-full.json`. Option 0 is always our pick. His words are verbatim, typos included. The database was checked again at 3:23 PM ET and nothing had changed.
 
 ## Questions (`q2-<id>`)
 

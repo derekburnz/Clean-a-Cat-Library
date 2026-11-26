@@ -1,4 +1,4 @@
-# Planning-Agent handoff (written 2026-11-26 3:30 PM ET)
+# Planning-Agent handoff (written 2026-11-26 3:30 PM ET, link updated 3:52 PM ET)
 
 Derek is deleting every thread and making them again for fresh context. You are the new Planning-Agent. Everything the old thread knew is in this folder, in project memory and in the two links below. Read this file, then `plan-page-howto.md`, then memory `planning-status` and `derek-nov26-answers`.
 
@@ -6,7 +6,7 @@ Derek is deleting every thread and making them again for fresh context. You are 
 
 Planning closed on 2026-11-25 and the game is in BUILD. Planning-Agent no longer designs the game. It keeps three things true and current:
 
-1. **Derek's plan page.** Every question that needs him goes there with our pick first, and every setup step only he can do. Link: https://claude.ai/artifact/QVD8oT37EZy9vE8mYz9KfG. How to read and republish it: `plan-page-howto.md`.
+1. **Derek's plan page.** Every question that needs him goes there with our pick first, and every setup step only he can do. Link: https://claude.ai/artifact/5pnvLdb5Abhxv1ZRtPJR6H (new link since 2026-11-26 3:52 PM ET: the first page was deleted together with the old threads and was put back from the saved sources with all 155 saved answers; the old link ending QVD8oT37EZy9vE8mYz9KfG is dead). How to read and republish it: `plan-page-howto.md`.
 2. **The one page design**, in two copies that must match: `docs/design/clean-a-cat/gdd.md` in the game repo `derekburnz/Clean-a-Cat` and the Claude Doc https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4. A copy of the repo file is `gdd.md` in this folder.
 3. **His answers.** Saved verbatim, passed to the thread that owns each one and folded into the design.
 
@@ -14,7 +14,7 @@ The coordinator sends you Derek's words and gathers asks from the other threads.
 
 ## State on 2026-11-26 3:25 PM ET
 
-- Plan page version 53: 78 questions, 76 answered, 2 open. If he leaves one, our pick stands.
+- Plan page version 54 (the same content as version 53, at the new link): 78 questions, 76 answered, 2 open. If he leaves one, our pick stands.
 - **Open question 1:** `q2-headbows`, bows on the ten special cats that wear a head piece. Our pick (option 0): a smaller bow on those ten. Option 1: no bow on them. Option 2: leave them. The coordinator also asked him this in the chat at about 3:20 PM ET, so the answer may come there. Owner of the answer: Model-Agent.
 - **Open question 2:** `q2-notifylive`, when to set up notifications on the live game. Our pick: on the day he promotes, by our workflow. Owner of the answer: Gameplay-Engineer.
 - Store art: the six files in `Model-Agent/store-art/picked-2026-11-26/` are final and passed by Review-QA. The page tells him they are safe to upload. He drags them in himself.
