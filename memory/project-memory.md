@@ -69,3 +69,6 @@ Standing rules live in the project instructions. This file holds only current fa
 
 - [customers-and-carriers](customers-and-carriers.md): Derek's 2026-11-25 asks to rework the customers (look and walk in) and the cat carrier, what was chosen and who does what.
 - [review-qa-working-notes](review-qa-working-notes.md): how Review-QA-Agent works here: verdict format, merge duty, visual QA rubric, where its files live.
+
+- [crate-pets-883](crate-pets-883.md): the eight crate pets remade for issue 883 (2026-11-27): names, PR, portrait ids, rename and old model removal order.
+- [promo-no-fur-clumps](promo-no-fur-clumps.md): Derek's rule that the dirty cats' fur clumps and puffs stay out of ads, thumbnails, icons, videos and social images.
