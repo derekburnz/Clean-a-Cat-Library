@@ -23,7 +23,9 @@ Continues [[switches-2026-11-26]] (that file is full).
 - outdoorWalk (Gameplay PR 946: 24 studs a second outside the spa after 2:45 of play) ON in dev and studio 7:22 PM ET (runs 45915673426, 45915722088).
 - helperFetch (Gameplay PR 952: helpers walk to the counter and carry the cat) ON in dev and studio 7:31 PM ET (runs 45916144464, 45916184134).
 - humanBuilder (Gameplay PR 955: the human builder in overalls by the build board; Motion-FX PR 957 hammers him) ON in dev and studio 7:28 PM ET (runs 45916613112, 45916645091).
-- giftCrate (Gameplay PR 958, merged) stays OFF in dev until giftFlow (PR 960) merges, per Review-QA: the open and chances buttons come with 960. Then turn on giftCrate, then giftFlow, one run at a time.
 - giftCrate and giftFlow (Gameplay PRs 958, 960) ON in dev and studio 7:31 PM ET together (runs 45917142719, 45917192911). PR 963 opens the gift crate window after the claim.
 - STOP 7:55 PM ET (coordinator): a dev flags run 45919525551 failed with Open Cloud 403 "User is moderated". No flags, uploads, store-setup or publish retries until Derek reports. wideStreet (PR 974, issue 887) waits for that.
 - Key check 8:05 PM ET (run 45919971979, one introspect per key): BOTH OWNER_KEY and ROBLOX_GROUP_KEY return 401 "API Key or last generated user has been moderated." Likely Derek's Roblox account (it generated both). Waits on Derek.
+- 10 PM ET: account suspended (see MEMORY ROBLOX HOLD). wideStreet still waiting to go on in dev and studio.
+- 10:23 PM ET: new ROBLOX_GROUP_KEY clean (run 45933868988; OWNER_KEY still moderated). Hand icons 76096338201947, 135826908608436, 121275029069381 Active, group owned; Open Cloud archive refused 400 (Image not archivable, run 45933968278), so Derek archives by hand. Publish hold still on.
+- 11:00 PM ET 2026-11-26: hold lifted (PR 982); dev publishes green (version 290). wideStreet ON dev and studio (runs 45937568103, 45937596525; show 45937642452). Dev restart refused by the session's permission layer: parked for Derek. Notify key reinstalled on dev with the new group key (run 45937994617).

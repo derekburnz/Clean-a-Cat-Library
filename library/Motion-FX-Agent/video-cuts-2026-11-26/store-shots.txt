@@ -1,0 +1,10 @@
+# A1 hook: scrub already going on the grey cat, mud coming off
+26-a1a2-scrub-smudge-close        0.3  2.0
+# A2 more scrubbing, foam builds (ends before the pop words at 6.2 s)
+26-a1a2-scrub-smudge-close        2.3  3.7
+# A4 brush (no rinse step in this build)
+26-a4-brush-smudge-close          0.5  2.5
+# A4 the bow just on the head (after the bow choices leave the screen)
+26-a4a5-bow-drag-and-orbit-smudge-close 4.2 2.3
+# A5 slow orbit round the clean cat (starts after the jump cut at about 7.2 s)
+orbit-wide                        7.4  3.8

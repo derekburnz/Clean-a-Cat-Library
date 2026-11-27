@@ -173,3 +173,111 @@ One run on main e0bfa9e or newer, iPhone frame plus one desktop/iPad frame:
 - 11:4xZ third try: dev Icon page opened (signed in 257335), file upload refused by auto mode classifier [Destructive or Unwanted Actions]. Derek must switch out of auto mode at PC or upload himself. Alt icon E slot location unknown.
 - 11:5xZ 4th try after Derek's written approval: PC auto mode classifier [Undermining Oversight] again. Alt icon E: Icon page has one slot; only Experiments (A/B) page offers second icon. Derek must switch PC session out of auto mode or upload himself.
 - 11:58Z dev icon A uploaded (InReview TN3); dev thumbnails need Derek (Windows file picker); live untouched; dev media API shows 0 thumbnails.
+- e0ffc75 (PR 1020, 1019 pass name): PASS. Sent to Review-QA. Next RC: PR 1023 counterSlim.
+- 44b11d1 (PR 1023 counterSlim): PASS by properties, 1.00 stud gaps. Sent to Review-QA.
+- 1f2895a (PR 1025, 1021 noVisitBoard): PASS incl. rollback. Sent to Review-QA.
+- 1022 counterSlim on iphone_13 1f2895a: FAIL size (spawn 17-22 px wide 3-4 px tall; door line overlaps 16-21 px). 1021 door picture done. Next RC: PR 1026.
+- b92db46 (PR 1026, 1024 rewardPop): PASS; notes: dim misses top 58 px inset, hint card and starter ad draw over dim. Sent to Design.
+- Design 12:21Z: issue 1040 check on DEV GAME (fresh server): SpaPlotBig 48x32, tub 1.3x, wash stands 1.35x, counter window; wide shot. Sent to RC.
+- 1040 bigger spa: all four pieces present on b92db46 (= dev sha, bigSpa true in dev); local place, not dev server. Sent to Design.
+- 6f4569d: 1039 reward layer PASS (Design); 1043 menuOnly prompts PASS but GAP no Helpers entry before first hire (Gameplay).
+- 3bd8932 (PR 1044, 1037 resetSave): server PASS; rejoin/save/rank/receipts need dev game; no UI button yet. Sent to Gameplay.
+- Gameplay 12:31Z: PR 1046 fixes Helpers gap; recheck when on main. 1037 dev checks wait for Settings row and resetSave on in dev (Gameplay pings).
+- 79d7c5b (PR 1046): button shows at 300 PASS; FAIL no Hire button in HelpersWindow (row.hire unread). Sent to Gameplay.
+- Gameplay 12:38Z: Hire button is Design's PR; recheck hire once it merges (menuOnly off in dev until then). PR 1047 coin ladder/launch sale needs a dev pass later.
+- 9a1a3f8 (PR 1047): smoke PASS; full ladder/sale pass waits for Gameplay setup (needs dev prices).
+- 5873817: 1035 petSingles PASS; 1052 assets only. Sent to Review-QA.
+- eafb264 (PR 1053, 1041 expansionDoor): logic PASS, FAIL missing BackDoorLocked/Open models (walk-through). Sent to Gameplay and Model-Agent. Next RC: PR 1054.
+- Gameplay 12:54Z: expansionDoor off until Model-Agent's door models land; then rerun Garden + old-save checks. Queued to RC.
+- Model-Agent 12:55Z: door models in PR 1057; when merged check both plots (blocks doorway, clear of stray box and Sam stand; open clear, door flat yard side). Queued to RC.
+- URGENT 69b9548 (PR 1054, 1034): all pictures swapped for emoji stand-ins (PreloadAsync string form always fails). No switch, on dev. Sent to Design and Review-QA; revert or preload label.
+- Design 12:58Z: PR 1060 fixes 1054; recheck icons/coins/portrait when on main. Queued high priority to RC.
+- Review-QA 12:59Z: revert PR 1059 armed (check pictures back after); check PR 1060 from PR head before arming (real icons + bad id stand-in). Queued to RC.
+- 12:59Z: hold 1060 check until Design rebuilds it on the revert; 1059 check proceeds.
+- cbdcdb6: hire from Helpers PASS (1056); locked back door PASS (1057, 3.43 to Sam stand); unlock not fired (window open? Studio crashed), rerunning. Sent to Gameplay and Model.
+- Design 13:03Z: PR 1060 rebuilt on a7da269; test head now (icons stay pictures, bad id stand-in). Sent high priority to RC.
+- Gameplay 13:04Z: menuOnly ON in dev+studio. Unlock retest: close windows; if fails print distance to SpotGardenDoor. Sent to RC.
+- a7da269 (revert 1059): PASS pictures back (105 vs 0). Testing PR 1060 head 880d0cb2.
+- PR 1060 head 880d0cb2: PASS (real icons 105, bad id stand-in only on that icon). Sent to Review-QA and Design.
+- a7da269: 1041 unlock PASS (windows closed), 1057 open look PASS, 1056 reset confirm PASS. Garden behind door + old save untested; second plot not checkable solo.
+- PR 1060 merged as 41da07f, tree identical to tested head; PASS stands.
+- Model 13:08Z: issue 1062 right arm out at counter: read CarryArmOut, CarrierHidden, Carrier transparency per figure; pictures behind+side. Later 1063 tape no pink + VipDoorFill. Sent to RC.
+- 13:09Z Derek: only use C:\Users\Derek\Downloads\games\Clean-a-Cat on PC from now on. RC told; no deletes or moves; asked for folder state.
+- 1062 on 41da07f: arm out by CarryArmOut even with CarrierHidden; CustomerMotion.armIn not applied. Sent to Model, Motion-FX, Gameplay.
+- 13:1xZ folder check: games\Clean-a-Cat is the game clone with library clone and captures inside; store art path updated; ~46 temp worktrees left for Derek's cleanup call.
+- Motion-FX 13:12Z: PR 1064 fixes 1062; run its 4-point test plan when merged. Queued to RC.
+- Review-QA 13:12Z: PR 1064 armed; add check walking carriers past 60 studs keep arm out. Queued to RC.
+- Derek plan page: icon E 'A now, test E after launch'. Memory updated.
+- 13:16Z Derek 'delete them': RC removing temp scratchpad qa worktrees and .rbxl test places (check unpushed first); nothing else.
+- 13:2xZ cleanup blocked by PC auto mode [Destructive or Unwanted Actions]; dry run: 41 worktrees clean, ~10 GB. Derek told options.
+- Review-QA 13:19Z: closed old QA picture PRs 936,947,954,956,981,990,1001,1002,1007,1014 (branches kept). Keep using 1012.
+- f701af9 (PR 1064, 1062): FAIL arms still at CarryArmOut with CarrierHidden; walking far PASS. Sent to Motion-FX and Review-QA. Next RC: 1061, 1067.
+- 13:2xZ cleanup DONE: 41 worktrees removed + prune, 282 test places deleted, 10.2 GB freed. Told Derek.
+- Motion-FX 13:21Z: confirm 1064 sample side; redo from client (ArmR, CarrierHidden, CarryArmOut, LegL swing) plus server side-by-side. Sent RC high priority.
+- Gameplay 13:23Z: 1063 noVipRoom on 61dff0a: one door, VipDoorFill, VIP gone from board/build, tape no pink, refund notice once. Queued to RC.
+- 1062 probes f701af9 client: flag true, 0 logs, manual arm change persists, no leg swing => CustomerMotion not running/attaching. Sent to Motion-FX. Next RC: 1063 on 61dff0a.
+- 1062 frame probe 61dff0a: PreRender 120/2s, Heartbeat 480; bodies move, legs and arm not posed. Sent to Motion-FX.
+- 61dff0a 1063 noVipRoom: PASS (fill, VIP gone, no pink, +15000); notice text not seen, once-only needs dev. Sent to Gameplay. Next RC: 1074, 1075.
+- Design 13:28Z: windowClear (1075/1038) badge in title band, HUD hides; 1065 round slider ends; iphone_13 + tablet. Queued to RC.
+- Motion-FX 13:29Z: PR 1078 debug branch claude/project-thread-vamibm: read CustomerMotionState x2 and MotionRig per customer on client. Sent RC high priority.
+- 1078 debug f190d71: CustomerMotionState on rigs=16 steps ~60/s; MotionRig 'no joints' on all counter customers; lead: attach() joints loop. Sent to Motion-FX.
+- Motion-FX 13:32Z: 1062 cause = isCustomer matched joint models; fix on claude/project-thread-vamibm after 1078 merges; verify MotionRig rig..., ArmR 0, legs swing. Queued to RC.
+- e0ebe2f: windowClear 1038 PASS iphone_13+iPad; 1065 round fills PASS. Sent to Design.
+- Gameplay 13:33Z: issue 1080 read ProductPrice_StarterPack, PassPrice_GoldenSponge, PurchaseService warnings (local only; dev needs Derek). Sent to RC.
+- 1080 local e0ebe2f: GameId 0, no price attrs, no PurchaseService logs (expected); dev game read needed. Sent to Gameplay.
+- Motion-FX 13:34Z: PR 1082 (3f41199) fixes 1062; verify MotionRig, ArmR 0, walk arm out, LegL swing, leave. Sent RC high priority.
+- PR 1082 3f41199: 1062 PASS (rigs attach, ArmR 0, walk arm out, legs swing); leave/far/budget pending. Sent Motion-FX + Review-QA.
+- e058a276 (1082): 1062 checks 1-4 PASS; PackedCat leave FAIL (clone keeps turned-in arm). Sent Motion-FX + Review-QA.
+- Review-QA 13:43Z: 1062 closed; leave arm is issue 1086 (Motion-FX). Recheck when fix lands.
+- Design 13:44Z: starter card 1069/1080 check (plum, no bob, price, no clock, prompt, i window). Queued to RC (local; dev not reachable).
+- Motion-FX 13:47Z: PR 1089 (f1f5fd1) fixes 1086 leave arm; check walk-off ArmR = CarryArmOut, legs swing, counter unchanged. Queued to RC.
+- 29e9249 starter card 1069/1080: PASS; note HERO 'Sponge' draws emoji not ShopGoldenSponge art. Sent to Design. Next: PR 1089.
+- PR 1089 f1f5fd1: 1086 PASS (4 leaves at CarryArmOut). Sent Motion-FX + Review-QA.
+- Design 13:54Z: menuContrast2 (1029, PR 1088, ffa59f4) phone check of 10 windows. Queued to RC.
+- 52dfced menuContrast2 1029: body text PASS 10 windows; flags: white button labels low contrast (1.55-2.7), Takes chip gradient, Build check 2.68, Settings no cards, Shop empty. Sent to Design.
+- Growth 14:14Z: issue 1066 store-page-uploads copied to library main debdd00; RC copying to C:\Users\Derek\Downloads\games\Clean-a-Cat\store-page-uploads. Re-copy GATE-STATUS when Growth updates.
+- 1066 folder on PC done (18 files). Told Growth.
+- Review-QA 14:43Z: Cat Hotel 1049/1050/1051 on 1f4f9c1 (garden looks at VIP site, hotel at back door builds/collects, pets in garden, console). Queued to RC.
+- Review-QA 14:52Z: issue 1027 shortText check 8 windows. Queued to RC.
+- 1f4f9c1 Cat Hotel 1049/1050/1051: PASS both plots. Sent to Review-QA. Next: 1027 shortText.
+- 2026-11-27 ~10:00 AM ET: 1027 shortText PASS (main 009c407, iphone_13, all 8 windows; Uncommon pill 89/88 and Check in title 84/79 slightly wide; starter shows save 71% vs memory 66%). Pictures PR 1012 branch e0c39493. Sent to Review-QA.
+- 2026-11-27 10:15 AM ET: Review-QA asked (a) exact spots of the Uncommon pill 89/88 and Check in 84/79 for Design-Agent, (b) PR 1114 menuContrast3 check once merged. Both queued on the PC (local place, switch on).
+- 2026-11-27 10:25 AM ET: Sent Design-Agent the exact spots: Uncommon pill = Crate odds list Pet3/Pet4 (Ooze, Glitch) 89x19 in 88x18; Check in = Checkin Band.Title 84x24 in 79x23. 1114 check waits for merge.
+- 2026-11-27 ~10:50 AM ET: 1114 menuContrast3 PASS (main 59e74dc local, iphone_13): outline 12.4, vs button 5.15/3.34/3.01; taps OK; ticks 4.80; gold 6.64/4.76; Gift buttons read from properties only. Pictures 1012 branch 855fa224. Sent to Review-QA.
+- 2026-11-27 10:25 AM ET: Queued on PC: 1114 retap and reopen check plus Gift retry; then 1116 (issue 1110) Helpers picture 97491083681037 and the two fits, after merge.
+- 2026-11-27 ~11:00 AM ET: 1114 retap PASS (Helpers level up, Build buy, Gift all 4 buttons, reopen; 0 double text or lost outline). Pictures 1012 branch e833ae82. Sent to Review-QA. 1116 waits for merge.
+- 2026-11-27 ~11:20 AM ET: 1116 (1110) PASS on main 1a5ebf1: Helpers icon 97491083681037 loads on button and badge; Uncommon 89 in 89.25 (height 19 in 18 still, draws fine); Check in title fits. Pictures 1012 branch 6dec8638. Sent to Review-QA.
+- 2026-11-27 10:42 AM ET: Queued 1118 ButtonInk toggle check (TextTransparency 1/0, SignalBehavior) on PC after merge.
+- 2026-11-27 10:45 AM ET: Queued 1111 groupVerify gift stand check (local, never really join a group; membership simulated in the place only).
+- 2026-11-27 ~11:10 AM ET: 1111 groupVerify mostly PASS (main 8729c8a, inGroup stubbed locally, no group joined); FAIL 6b: Starcoat-owned save gets no board so cannot claim 150 coins in UI (server OK). Sent to Review-QA and Gameplay. SignalBehavior Default (probe looked Immediate, unconfirmed). Pictures 1012 branch 845e74b3.
+- 2026-11-27 ~11:30 AM ET: 1118 ButtonInk on main f27874d: toggles PASS (no flicker or double text); FAIL set TextTransparency 1 does not hide outlined words (no-op write, own value already 1). SignalBehavior Default, behaved Immediate. Pictures 1012 branch 57987d61. Sent to Review-QA.
+- 2026-11-27 10:55 AM ET: Queued 1120 (1111 fix + TestInGroup hook) recheck of 6b on PC after merge.
+- 2026-11-27 11:04 AM ET: 1120 recheck now waits for PR 1123 too (board words 'For 150 coins' / 'Yours already. Join for 150 coins'); playtime step check added.
+- 2026-11-27 ~11:20 AM ET: 1120 PASS on main 6360b8c (pre-1123; TestInGroup hook; 6b board shows, +150 only, playtime row stays; copy still 'For 150 coins and the Starcoat'). Pictures 1012 branch 9d0a4f4d. Rerun after 1123 pending.
+- 2026-11-27 11:05 AM ET: Queued 1119 starterFloat (PR 1121) check on iPhone 13, iPad and small phone; no purchase completed, prompt cancelled.
+- 2026-11-27 11:11 AM ET: Queue on PC: 6b board words (1123 merged), then 1119 starterFloat, then 1124 ButtonInk 0.999 rerun of 1118 after merge.
+- 2026-11-27 ~11:35 AM ET: 1119 starterFloat mostly PASS (main 139a6a2, 3 devices); ISSUE A SAVE tag covers STARTER PACK words; ISSUE B lower half of price tap fails (press scale top-left anchor); iphone_7 card touches jump (0 gap). True saving 697 vs 199 = 71.4%. Pictures 1012 branch 77048822. Sent to Review-QA.
+- 2026-11-27 ~11:45 AM ET: 1123 6b board words PASS on main f27b5c4 ('For 150 coins', 'Yours already. Join for 150 coins'; +150 only). Pictures 1012 branch 244a27a1. Sent to Review-QA; 1111 can close.
+- 2026-11-27 11:18 AM ET: Queued 1125 recheck (SAVE tag under words, full-ad taps, Midas dip, iphone_7 gap) on PC after merge; 1124 rerun still queued.
+- 2026-11-27 ~12:00 PM ET: 1124 FAIL on main 463866d: first Set 1 swallowed (float32 0.999 != 0.999, pending counter leaks). Fix: tolerance or 1023/1024. No double text. Pictures 1012 branch 8eb461ff. Sent to Review-QA.
+- 2026-11-27 11:24 AM ET: Queue: 1125 starterFloat recheck now (merged), then 1129 ButtonInk float32 fix hide check after merge.
+- 2026-11-27 ~12:15 PM ET: 1125 PASS on main 16cc5c1 (tag under words, all taps fire, Midas dips, iphone_7 gap 5.2 px); note Suds tip X over price on iphone_7. Pictures 1012 branch ca34419b. Sent to Review-QA.
+- 2026-11-27 ~12:30 PM ET: 1129 ButtonInk tolerance PASS on main 3e4c12b (first Set 1 hides on fresh and redrawn buttons; 0 double text). Pictures 1012 branch 938c1c27. Sent to Review-QA. Queue empty.
+- 2026-11-27 11:33 AM ET: Queued 1122 dev buy prompt pictures (dev place in Studio play test, cancel each, never buy or save).
+- 2026-11-27 11:40 AM ET: 1122 held: PC needs Derek's own OK to open dev in Studio; decision card posted to Derek. Review-QA told.
+- 2026-11-27 11:42 AM ET: Queued 1130 (ad hides under Suds tip on iphone_7) local check after merge. 1122 still waits for Derek's card (coordinator withdrew its call).
+- 2026-11-27 ~12:50 PM ET: 1130 on main 31ebf1a: PASS iphone_7 and iPad; FAIL brief on iphone_13 (ad also hides; 'short' flag, use 'tiny'). Pictures 1012 branch 7725615c. Sent to Review-QA.
+- 2026-11-27 11:50 AM ET: Queued 1131 local picture check (Build 11+2+3 bows, Shop 2x/3x, Starter = Shop ids).
+- 2026-11-27 ~1:00 PM ET: 1131 PASS on main 734d1d7 (18 ids unique, all preload Success; 2x/3x apart; starter ids = Shop). Pictures 1012 branch 878748a1. Sent to Review-QA. 1122 dev still on Derek's card.
+- 2026-11-27 12:41 PM ET: Derek's own words in project chat ('2. you test I will test later') approve the 1122 dev Studio prompt check. Sent to PC; card closed with option 1.
+- 2026-11-27 1:07 PM ET: Queued 1134 star coin load check (108922632736355, retry if blank). 1122 waits for Derek's words in thread.
+- 2026-11-27 ~1:20 PM ET: 1134 star coin PASS on main f6e2370 (Success, IsLoaded, star coin shows). Pictures 1012 branch 9ef654db. Sent to Review-QA.
+- 2026-11-27 1:35 PM ET: Queued 1136 helper wash tools check for Motion-FX (branch vamibm 71c68bc).
+- 2026-11-27 ~2:00 PM ET: 1136 helper tools at 71c68bc: works; shampoo and shower holds look off, brush patch moves small; water ends in fur; cleanup clean; no perf cost. Pictures 1012 branch ff5dee71. Sent to Motion-FX.
+- 2026-11-27 1:45 PM ET: Queued 1136 recheck at 559f490 (shampoo tip, shower way round, water end, brush spread).
+- 2026-11-27 ~2:15 PM ET: 1136 recheck 559f490: shower, water, brush sideways PASS; shampoo still level (aim at box centre; aim at top); brush along-cat still 0.14. Pictures 1012 branch aeb22247. Sent to Motion-FX.
+- 2026-11-27 1:52 PM ET: Queued 1136 last recheck at 694e2fc (shampoo tilt, brush along spread).
+- 2026-11-27 ~2:30 PM ET: 1136 at 694e2fc: shampoo tipped ~20-30 deg (hits tail, not back); brush along 0.21 studs. Pictures 1012 branch d01a6077. Sent to Motion-FX.
+- 2026-11-27 1:59 PM ET: Queued 1136 final (9aac077) local check from main after merge: shampoo on back, all four steps.
+- 2026-11-27 ~2:30 PM ET: 1136 final on main f34d690: 4 steps PASS; shampoo still hits tail (hand below back; raise hand or aim high with less tip). Pictures 1012 branch 411ff0da. pr1136 worktree removed by PC. Sent to Motion-FX.
+- 2026-11-27 ~2:25 PM ET: Derek's 2:14 PM no-price starter ad = my local place qf34d690 (no prices set, Pass_Lou only); dark bar = Hero.Shadow bgT 0.72. Pictures 1012 branch d9519b7d. Sent to Design; told Derek.

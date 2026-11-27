@@ -1,6 +1,6 @@
 ---
 name: ui-icons
-description: HUD icon style (Derek 2026-11-24), upload rules, and the 2026-11-27 no hand gestures rule after the key was moderated.
+description: HUD icon style (Derek 2026-11-24), upload rules, and the 2026-11-27 image gate after Derek's account was suspended over a thumbs up icon.
 metadata:
   type: project
   modified: 2026-11-24T17:38:00.000Z
@@ -37,3 +37,9 @@ Wired 2026-11-24 ET (game PR 280): all 25 group ids are in Icons.IMAGES. Sponge,
 Draft screens (Derek 2026-11-24 2:14 PM ET): "look good"; the pictures and HUD icons inside them need swapping to the current set plus a little polish, but that waits until the game questions are decided. Do it when next touching those screens.
 
 No hand gestures (2026-11-27 ET): Open Cloud started answering "User is moderated" for the group key at 7:55 PM ET, minutes after Model-Agent uploaded the like how-to icons (#869), which included a thumbs up and a fist with one finger raised. That they caused it is a guess. Rule: draw no hand gestures for any uploaded picture. The like loop now uses HeartOutline, the existing Heart, TapDot and RingPuff (game PR 976, not uploaded). All uploads stay paused until Derek says his account is clear.
+
+Image gate (2026-11-27, after Roblox named ThumbsUpFilled 135826908608436 "Sexual Content" and suspended Derek for 7 days, appealed): every image passes Review-QA before any upload. It fails on hands, fingers or thumbs, any long rounded shape that could be misread (stub, tube, upright capsule) and skin tone blobs, checked at 48 px, 24 px and as a black silhouette. Model-Agent's audit of all 157 uploaded or queued images, with what to replace and remove, is in the shared files at Model-Agent/image-gate-audit.md. Only Derek can archive an Image (Creator Dashboard). See [[moderation-hold-2026-11-26]]. Review-QA's calls on the audit (2026-11-27): an image Roblox already reviewed and let stand stays (re-uploading is the risk), so Mud, Tangles, the MEDIUM list and the 80 dirt portraits stay as they are; Pet Glitch and Pet Clover get redrawn before their upload, and store thumbnail 3 is re-rendered (staff arms at their sides, no pole) before the live page. Upload in batches of at most four, a few minutes apart, each image first sent to Review-QA at 48 px, 24 px and as a silhouette.
+
+Helpers button (Derek 2026-11-27 11:06 and 11:15 AM ET, issue 1110): "make a better helper icon", then of the thin apron (`Staff`) "this icon sucks remake it". The apron idea is dropped for good. Replacement: `CleanACat_Icon_Hud_HelpersTeam.png` (two helpers side by side, chunky; PR 1112, image gate passed; uploaded to the group as 97491083681037, Design wires it). Lesson: no thin straps or small details on a HUD button; one chunky subject as heavy as Shop and Build.
+
+HUD coin (2026-11-27): star on the face in place of the money sign, Derek's OK ("star is fine"); id 108922632736355. Detail in [[buy-pictures-1122]].

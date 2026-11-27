@@ -1,0 +1,255 @@
+From afdb2cc3dbc8eb9c71eb69fdd365c7c3b2d86e6a Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 27 Nov 2026 01:06:55 +0000
+Subject: [PATCH] Add the gift crate, the pet crate wrapped as a present (#859)
+
+CleanACat_Prop_GiftCrate: pink frame, cream slats, a gold ribbon down both sides and across the lid, and a
+gold bow where the pet crate has ears. Same size, pivot, lid hinge, Attachments (PetSeat, Burst, Odds),
+attributes (LidOpenDegrees, CatScale) and Atomic streaming as the pet crate. The pet crate is unchanged.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2up1ahn23P9Rf5xanBXQ
+---
+ assets/clean-a-cat/blender/crates.py     | 94 +++++++++++++++++-------
+ assets/clean-a-cat/exports/gates.md      |  5 +-
+ assets/clean-a-cat/exports/manifest.json | 45 ++++++++++++
+ 3 files changed, 114 insertions(+), 30 deletions(-)
+
+diff --git a/assets/clean-a-cat/blender/crates.py b/assets/clean-a-cat/blender/crates.py
+index eac5dd47..74a9bf62 100644
+--- a/assets/clean-a-cat/blender/crates.py
++++ b/assets/clean-a-cat/blender/crates.py
+@@ -21,7 +21,7 @@ as a prize in the game's own colours.
+ 
+ import math
+ 
+-from mathutils import Matrix
++from mathutils import Matrix, Vector
+ 
+ import rbx_export
+ from common import Builder
+@@ -44,6 +44,8 @@ EAR_X, EAR_Y = 0.7, -1.25            # where an ear stands on the lid, from the
+ CAT_SCALE = 1.25                     # a sitting cat this size has its whole head over the rim and still fits inside
+ 
+ FRAME, SLAT, DARK, GOLD = "pastel_lilac", "wood_light", "fur_latte", "gold_mid"
++GIFT_NAME = "CleanACat_Prop_GiftCrate"
++GIFT_FRAME, GIFT_SLAT, RIBBON = "spa_bubblegum", "spa_cream", "gold_mid"    # the gift stand's own pink and gold
+ 
+ rbx_export.MODEL_PROPS["_PetCrate"] = {"ModelStreamingMode": "Atomic"}     # the lid and the seat arrive with the crate
+ 
+@@ -55,25 +57,47 @@ def _paw(b, y, z, sw, k=1.0):
+         b.box((x * k, y, z + dz * k), (0.065 * k, 0.03, 0.065 * k), sw, bevel=False)
+ 
+ 
+-def _lid():
+-    """The lid, built from the hinge line (the origin): it reaches forward along -y and lies a hair over the rim."""
++def _gift_bow(b, x, y, z):
++    """A big gold gift bow on the lid at (x, y, z): two puffed loops leaned out, a knot and two tails lying on the lid."""
++    for sx in (-1, 1):
++        tilt = Matrix.Rotation(math.radians(-24 * sx), 3, "Y") @ Matrix.Rotation(math.radians(90), 3, "X")
++        c = Vector((x + sx * 0.36, y, z + 0.26))
++        b.cyl(c, 0.34, 0.24, RIBBON, segments=14, rot=tilt, scale=(1, 0.72, 1))          # a loop, seen end on
++        for fy in (-1, 1):                                                              # and its opening, both faces
++            b.cyl(c + Vector((0, fy * 0.122, 0)), 0.2, 0.01, "gold_dark", segments=14, bevel=False, rot=tilt,
++                  scale=(1, 0.6, 1))
++        b.box((x + sx * 0.22, y - 0.3, z + 0.02), (0.16, 0.5, 0.05), RIBBON,
++              rot=(math.radians(26 * sx), "Z"))                                         # a tail lying on the lid
++    b.box((x, y, z + 0.18), (0.26, 0.26, 0.3), "gold_dark")                             # the knot
++
++
++def _lid(gift=False):
++    """The lid, built from the hinge line (the origin): it reaches forward along -y and lies a hair over the rim. The
++    gift crate's lid has a gold ribbon cross and a bow where the ears are."""
+     b = Builder()
++    frame = GIFT_FRAME if gift else FRAME
+     ln = D + LID_OVER
+-    b.box_base((0, -ln / 2, 0.004), (W + 2 * LID_OVER, ln, LID_T), FRAME)
++    b.box_base((0, -ln / 2, 0.004), (W + 2 * LID_OVER, ln, LID_T), frame)
+     b.box_base((0, -D / 2, LID_T), (W - 0.5, D - 0.5, 0.07), "spa_cream")                 # a raised cream panel
+-    for sx in (1, -1):                                                                  # the ears, tipped out a little
+-        tilt = Matrix.Rotation(math.radians(-10 * sx), 3, "Y")
+-        b.pyramid((sx * EAR_X, EAR_Y, LID_T + 0.02), EAR[0], EAR[1], FRAME, rot=tilt)
+-        b.pyramid((sx * EAR_X, EAR_Y - 0.17, LID_T + 0.03), EAR[0] * 0.56, EAR[1] * 0.62, "spa_bubblegum", rot=tilt)
++    if gift:                                                                            # the ribbon cross and the bow
++        b.box_base((0, -ln / 2, 0.012), (0.34, ln + 0.03, LID_T + 0.088), RIBBON, bevel=False)
++        b.box_base((0, -D / 2, 0.016), (W + 2 * LID_OVER + 0.03, 0.34, LID_T + 0.088), RIBBON, bevel=False)
++        _gift_bow(b, 0, -D / 2, LID_T + 0.1)
++    else:
++        for sx in (1, -1):                                                              # the ears, tipped out a little
++            tilt = Matrix.Rotation(math.radians(-10 * sx), 3, "Y")
++            b.pyramid((sx * EAR_X, EAR_Y, LID_T + 0.02), EAR[0], EAR[1], FRAME, rot=tilt)
++            b.pyramid((sx * EAR_X, EAR_Y - 0.17, LID_T + 0.03), EAR[0] * 0.56, EAR[1] * 0.62, "spa_bubblegum", rot=tilt)
+     # the latch: a lilac tongue down the front with a gold paw medallion on it
+     y = -D - 0.02 - 0.04
+-    b.box((0, y, -0.13), (0.8, 0.08, 0.56), FRAME)
++    b.box((0, y, -0.13), (0.8, 0.08, 0.56), frame)
+     b.cyl((0, y - 0.05, -0.14), 0.31, 0.05, GOLD, segments=12, rot=(math.radians(90), "X"), bevel=False)
+     _paw(b, y - 0.085, -0.15, "gold_dark", 1.35)
+     return b
+ 
+ 
+-def build_pet_crate(mat):
++def build_pet_crate(mat, gift=False):
++    name, frame_sw, slat_sw = (GIFT_NAME, GIFT_FRAME, GIFT_SLAT) if gift else (NAME, FRAME, SLAT)
+     b = Builder()
+     b.box_base((0, 0, 0.012), (W - 0.1, D - 0.1, 0.088), DARK, bevel=False)              # the floor
+     b.box_base((0, 0, 0.1), (W - 2 * WALL - 0.24, D - 2 * WALL - 0.24, SEAT - 0.1), "spa_bubblegum")   # the cushion
+@@ -84,42 +108,56 @@ def build_pet_crate(mat):
+         b.box_base((0, y, 0.02), (W - 0.08, WALL, H - 0.03), DARK, bevel=False)
+         for i in range(SLATS):
+             z = RAIL_LO + GAP + i * (slat_h + GAP)
+-            b.box_base((0, sy * (D / 2 - 0.04), z), (W - 2 * POST + 0.04, 0.06, slat_h), SLAT, bevel=False)
+-        b.box_base((0, sy * (D / 2 - 0.04), 0.006), (W - 2 * POST + 0.02, 0.07, RAIL_LO - 0.006), FRAME, bevel=False)
+-        b.box_base((0, sy * (D / 2 - 0.04), H - RAIL_HI), (W - 2 * POST + 0.02, 0.07, RAIL_HI), FRAME, bevel=False)
++            b.box_base((0, sy * (D / 2 - 0.04), z), (W - 2 * POST + 0.04, 0.06, slat_h), slat_sw, bevel=False)
++        b.box_base((0, sy * (D / 2 - 0.04), 0.006), (W - 2 * POST + 0.02, 0.07, RAIL_LO - 0.006), frame_sw, bevel=False)
++        b.box_base((0, sy * (D / 2 - 0.04), H - RAIL_HI), (W - 2 * POST + 0.02, 0.07, RAIL_HI), frame_sw, bevel=False)
+     for sx in (1, -1):                                                                  # the two sides
+         x = sx * (W / 2 - 0.03 - WALL / 2)
+         b.box_base((x, 0, 0.03), (WALL, D - 0.06 - 2 * WALL - 0.004, H - 0.05), DARK, bevel=False)
+         for i in range(SLATS):
+             z = RAIL_LO + GAP + i * (slat_h + GAP)
+-            b.box_base((sx * (W / 2 - 0.04), 0, z), (0.06, D - 2 * POST + 0.04, slat_h), SLAT, bevel=False)
+-        b.box_base((sx * (W / 2 - 0.04), 0, 0.006), (0.07, D - 2 * POST + 0.02, RAIL_LO - 0.006), FRAME, bevel=False)
+-        b.box_base((sx * (W / 2 - 0.04), 0, H - RAIL_HI), (0.07, D - 2 * POST + 0.02, RAIL_HI), FRAME, bevel=False)
+-        # a cream grip over the middle slat
++            b.box_base((sx * (W / 2 - 0.04), 0, z), (0.06, D - 2 * POST + 0.04, slat_h), slat_sw, bevel=False)
++        b.box_base((sx * (W / 2 - 0.04), 0, 0.006), (0.07, D - 2 * POST + 0.02, RAIL_LO - 0.006), frame_sw, bevel=False)
++        b.box_base((sx * (W / 2 - 0.04), 0, H - RAIL_HI), (0.07, D - 2 * POST + 0.02, RAIL_HI), frame_sw, bevel=False)
+         zc = RAIL_LO + GAP + slat_h + GAP + slat_h / 2
+-        b.box((sx * (W / 2 + 0.02), 0, zc), (0.08, 0.7, 0.14), "spa_cream")
++        if gift:                                        # the gift ribbon runs down each side, under the lid's band
++            b.box_base((sx * (W / 2 + 0.005), 0, 0.01), (0.1, 0.34, H - 0.047), RIBBON, bevel=False)
++        else:                                           # a cream grip over the middle slat
++            b.box((sx * (W / 2 + 0.02), 0, zc), (0.08, 0.7, 0.14), "spa_cream")
+         for sx2 in (1, -1):                                                             # the four corner posts
+-            b.box_base((sx * (W / 2 - POST / 2), sx2 * (D / 2 - POST / 2), 0), (POST, POST, H - 0.006), FRAME)
++            b.box_base((sx * (W / 2 - POST / 2), sx2 * (D / 2 - POST / 2), 0), (POST, POST, H - 0.006), frame_sw)
+     for sx in (1, -1):                                                                  # two gold hinges at the back
+         b.cyl((sx * 0.62, D / 2 + 0.035, H - 0.02), 0.07, 0.34, GOLD, segments=8, rot=(math.radians(90), "Y"),
+               bevel=False)
+-    main = _tris(b.finalize(NAME, mat))
++    main = _tris(b.finalize(name, mat))
+ 
+-    lid = _tris(_lid().finalize(NAME + "_Lid_Swing", mat, location=(0, D / 2, H)))
++    lid = _tris(_lid(gift).finalize(name + "_Lid_Swing", mat, location=(0, D / 2, H)))
+ 
+     s = Builder()                                                                       # the front plate
+     zc = RAIL_LO + GAP + slat_h + GAP + slat_h / 2
+     s.box((0, -D / 2 + 0.005, zc - 0.12), (1.2, 0.05, 0.46), "spa_cream", bevel=False)
+-    screen = s.finalize(NAME + "_Screen", mat, bevel=0)
++    screen = s.finalize(name + "_Screen", mat, bevel=0)
+     return [main, lid, screen]
+ 
+ 
+-def pet_crate_rbx_extras():
+-    return {"attachments": [(NAME, "PetSeat", Matrix.Translation((0.0, 0.0, SEAT))),
+-                            (NAME, "Burst", Matrix.Translation((0.0, 0.0, H + 0.3))),
+-                            (NAME, "Odds", Matrix.Translation((0.0, -D / 2, H + 1.6)))],
++def pet_crate_rbx_extras(name=NAME):
++    return {"attachments": [(name, "PetSeat", Matrix.Translation((0.0, 0.0, SEAT))),
++                            (name, "Burst", Matrix.Translation((0.0, 0.0, H + 0.3))),
++                            (name, "Odds", Matrix.Translation((0.0, -D / 2, H + 1.6)))],
+             "attributes": {"LidOpenDegrees": {"Float64": LID_OPEN}, "CatScale": {"Float64": CAT_SCALE}}}
+ 
+ 
+-ASSETS = {NAME: (build_pet_crate, 900)}
+-EXTRAS = {NAME: pet_crate_rbx_extras}
++# -- the gift crate (#859) -----------------------------------------------------------------------------------------------
++# Derek, 2026-11-26: "for the group reward maybe make it a crate to open so that people can pull something from it".
++# `CleanACat_Prop_GiftCrate` is the pet crate wrapped as a present: the gift stand's pink frame with cream slats, a gold
++# ribbon down both sides and in a cross over the lid, and a gold bow on the lid where the pet crate has its ears. The
++# same size, pivot, lid hinge, Attachments and attributes as the pet crate, so the game opens it the same way.
++rbx_export.MODEL_PROPS["_GiftCrate"] = {"ModelStreamingMode": "Atomic"}
++
++
++def build_gift_crate(mat):
++    return build_pet_crate(mat, gift=True)
++
++
++ASSETS = {NAME: (build_pet_crate, 900), GIFT_NAME: (build_gift_crate, 1600)}
++EXTRAS = {NAME: pet_crate_rbx_extras, GIFT_NAME: lambda: pet_crate_rbx_extras(GIFT_NAME)}
+diff --git a/assets/clean-a-cat/exports/gates.md b/assets/clean-a-cat/exports/gates.md
+index b054cfc2..4a3c238d 100644
+--- a/assets/clean-a-cat/exports/gates.md
++++ b/assets/clean-a-cat/exports/gates.md
+@@ -1,10 +1,10 @@
+ # Asset gates
+ 
+-Generated by `build_all.py` (no build time, so parallel model PRs don't conflict on this line). 226 assets: 226 PASS (152 with warnings), 0 FAIL. FAIL checks: budget, transforms, material, uv, naming, qa, WARN checks: pivot, centered, qa_warn. Fix a FAIL in the generator module and rebuild; a WARN needs a look at the asset's preview in `docs/concepts/clean-a-cat/previews/` (build with --render).
++Generated by `build_all.py` (no build time, so parallel model PRs don't conflict on this line). 227 assets: 227 PASS (152 with warnings), 0 FAIL. FAIL checks: budget, transforms, material, uv, naming, qa, WARN checks: pivot, centered, qa_warn. Fix a FAIL in the generator module and rebuild; a WARN needs a look at the asset's preview in `docs/concepts/clean-a-cat/previews/` (build with --render).
+ 
+ `qa` is the `blender-asset-qa` skill's `qa_check.py` (roblox profile, UVs off) run on every asset's meshes: n-gons, flipped faces, open geometry, faces in one plane and floating parts fail the build. The warnings it gives that we accept, each with its reason and the number of assets that have it:
+ 
+-- **back to back** (117 assets): A model is boxes that touch, and each box becomes one Roblox Part, so the faces where two boxes meet stay. They are never seen.
++- **back to back** (118 assets): A model is boxes that touch, and each box becomes one Roblox Part, so the faces where two boxes meet stay. They are never seen.
+ - **shared corners** (68 assets): Boxes that touch share corner positions. Welding them joins two boxes into one mesh island and flips faces, which is the n-gon and winding failure #160 fixed.
+ - **pivot off the floor** (88 assets): Held tools, hats, bows and wall props pivot where they are held or hung, not on the floor, and a few floor pieces sink a hair into it so no face lies in the floor's plane. The pivot gate lists each one.
+ - **enclosed parts** (10 assets): Pieces that sit inside an invisible barrier box or behind glass: shelf items inside a station's barrier, the tip jar's screen. Meant.
+@@ -191,6 +191,7 @@ Generated by `build_all.py` (no build time, so parallel model PRs don't conflict
+ | CleanACat_Prop_FoamPuff | PASS | 460 / 600 | 1.1 x 0.58 x 0.83 |  | pivot, centered |
+ | CleanACat_Prop_FoamPuff2 | PASS | 460 / 600 | 1.35 x 0.5 x 0.72 |  | pivot, centered |
+ | CleanACat_Prop_FoamPuff3 | PASS | 460 / 600 | 0.94 x 0.52 x 1.07 |  | pivot, centered |
++| CleanACat_Prop_GiftCrate | PASS | 1492 / 1600 | 2.55 x 2.27 x 2.37 |  |  |
+ | CleanACat_Prop_GiftStand | PASS | 1948 / 2100 | 3.73 x 2.78 x 7.65 |  | centered |
+ | CleanACat_Prop_Hammer | PASS | 96 / 100 | 0.21 x 0.78 x 0.65 |  | pivot, centered |
+ | CleanACat_Prop_HardHat | PASS | 152 / 160 | 1.07 x 1.23 x 0.63 |  | pivot, centered |
+diff --git a/assets/clean-a-cat/exports/manifest.json b/assets/clean-a-cat/exports/manifest.json
+index 77a45b17..8d9e89c7 100644
+--- a/assets/clean-a-cat/exports/manifest.json
++++ b/assets/clean-a-cat/exports/manifest.json
+@@ -20946,6 +20946,51 @@
+   },
+   "preview": "docs/concepts/clean-a-cat/previews/CleanACat_Prop_FoamPuff3.png"
+  },
++ {
++  "name": "CleanACat_Prop_GiftCrate",
++  "category": "Prop",
++  "module": "crates",
++  "objects": [
++   "CleanACat_Prop_GiftCrate",
++   "CleanACat_Prop_GiftCrate_Lid_Swing",
++   "CleanACat_Prop_GiftCrate_Screen"
++  ],
++  "triangles": 1492,
++  "budget": 1600,
++  "parts": 55,
++  "size_studs": {
++   "x": 2.55,
++   "y": 2.27,
++   "z": 2.37
++  },
++  "size_roblox": [
++   2.55,
++   2.37,
++   2.27
++  ],
++  "pivot": "base center (floor contact)",
++  "front": "-Z in Roblox, the LookVector (Blender -Y)",
++  "gates": {
++   "pass": true,
++   "failed": [],
++   "warnings": [],
++   "qa_accepted": {
++    "back to back": 2
++   },
++   "checks": {
++    "budget": "1492/1600 tris",
++    "transforms": "scale 1, rotation 0",
++    "material": "one material (CleanACat_Palette)",
++    "uv": "912 faces on swatch centers",
++    "naming": "CleanACat_<Category>_<Name>",
++    "pivot": "floor at z=0.00 (want 0)",
++    "centered": "footprint center x=0.00 y=-0.03",
++    "qa": "blender-asset-qa clean",
++    "qa_warn": "no qa warning outside the accepted kinds"
++   }
++  },
++  "preview": "docs/concepts/clean-a-cat/previews/CleanACat_Prop_GiftCrate.png"
++ },
+  {
+   "name": "CleanACat_Prop_GiftStand",
+   "category": "Prop",
+-- 
+2.43.0
+

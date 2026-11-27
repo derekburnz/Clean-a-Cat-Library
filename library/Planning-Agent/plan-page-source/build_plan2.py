@@ -134,6 +134,49 @@ PARKED = [
 YES = "Yes, go with it"
 ELSE = "Something else"
 QUESTIONS = [
+    ("New on November 27, the last round", "Design-Agent with every team", "Everything any of us still wanted to ask you, in one go. Each has our pick first.", [
+        dict(id="salend", t="The launch sale ends 7 days after launch, then back to regular prices",
+             d="Everything is 50% off with the regular price struck through, as you asked. For that to stay honest, the struck price has to be a real regular price, so the sale needs an end. Our pick is 7 days after the public launch, then the regular prices. A shorter sale catches fewer players. A sale that never ends turns the struck price into a fake one, which young players and Roblox both frown on.",
+             opts=["Yes, 7 days after launch", "3 days after launch", "14 days after launch", "Keep it until I say", ELSE]),
+        dict(id="coinprices", t="2x and 3x Coins cost 50 and 100 Robux, shown at 25 and 50 during the launch sale",
+             d="You asked for 2x and 3x Coins as the cheap entry at 25 and 50 Robux. Our pick makes 50 and 100 the regular prices, so during the launch sale the cards show 25 and 50 with the real price struck through, the same as everything else. When the sale ends they go back to 50 and 100. The other way keeps 25 and 50 as the regular prices with no sale on these two, since half of 25 rounds to 12.",
+             opts=["Yes, 50 and 100 regular, 25 and 50 in the sale", "25 and 50 always, no sale on these two", ELSE]),
+        dict(id="resetbtn", t="The reset account button stays for you and the dev game only",
+             d="Settings now has a reset button so you can wipe your save and replay from the tutorial. Our pick keeps it for you and the dev game only. A player who taps it by mistake loses everything, and young players do tap things. If you want players to have it too, it would ask twice and make them type RESET.",
+             opts=["Yes, me and dev only", "Players get it too, with a double check", ELSE]),
+        dict(id="louname", t="The third helper keeps the name Lou",
+             d="The pass is now called Extra Worker everywhere players see it, as you asked. The helper the pass brings is still called Lou in the Helpers window, and players can rename helpers anyway. Our pick keeps Lou.",
+             opts=["Yes, keep Lou", "Give the helper a new name", ELSE]),
+        dict(id="likecoins", t="The 150 like coins become a thank you that does not depend on the like",
+             d="The gift card asks for a like and then gives 150 coins. The coins already come whether or not the player likes, but it still reads as coins for a like. Roblox has no clear rule, and some developers say it can count as buying ratings. Our pick keeps the same 150 coins as a thank you gift on the card, with the like ask beside it and no link between them. The player gets the same, and the risk goes away.",
+             opts=["Yes, a thank you that is not tied to the like", "Keep it as it is", "Remove the coins", ELSE]),
+        dict(id="favcrate", t="The gift crate comes for joining the group only, not for a favourite",
+             d="Today the free gift crate needs a favourite and a group join. Rewarding a group join is a common, accepted pattern. Rewarding a favourite is the same worry as likes. Our pick keeps the crate for the group join only.",
+             opts=["Yes, group join only", "Keep favourite and group join", ELSE]),
+        dict(id="starterclock", t="The starter pack keeps its 72 hours, with no ticking clock on screen",
+             d="The starter pack is for a player's first 72 hours, and the HUD shows the time left in days, hours and minutes. It is real and calm, but a clock is still time pressure on young players. Our pick keeps the same 72 hour offer and shows \"New player offer\" with no clock. The other choices are keeping the clock, or no time limit at all.",
+             opts=["Yes, same offer, no clock shown", "Keep the clock", "No time limit", ELSE]),
+        dict(id="hotelnums", t="The cat hotel starts with these numbers, tuned after you play",
+             d="The hotel draft (picture in the thread) unlocks at the back door for 1,500 coins (50 on dev for testing). Two rooms are open at first, and rooms 3 and 4 cost 3,000 and 8,000 coins. A stay of 1, 4 or 8 hours pays 60, 200 or 360 coins, more for rarer guests. Each guest leaves a gift when it checks out, with the chances shown. On an 8 hour stay that is bonus coins 65%, a bow 23% or a crate 12%. There is no Robux inside the hotel. Guests are normal cats, never special visitors. The Garden moves to a side yard. Our pick is to start with these numbers and tune them after you play it on dev.",
+             opts=["Yes, start with these", ELSE]),
+        dict(id="helperart", t="Helper pictures: smooth busts now, the helpers' game models to match after launch",
+             d="Model-Agent redrew Jo, Sam and Lou for their pictures as smooth, rounded busts instead of the blocky game models, as you asked. The game models are still the old ones, so the picture and the person in the spa look a little different. Our pick uses the smooth pictures now and remakes the game models to match after launch. You can also have it done now, or go back to blocky.",
+             opts=["Yes, pictures now, models after launch", "Remake the game models now too", "Go back to blocky pictures", ELSE]),
+        dict(id="shopwords", t="Shop pictures keep their words, like 2x and 3x, inside the picture",
+             d="The new shop pictures have their big words baked in (\"2x\", \"3x\", \"+1\"), so they read at a glance. The other way is plain pictures with the shop drawing the words, which only matters if the game is ever translated. Our pick keeps the words in the picture.",
+             opts=["Yes, words in the picture", "Plain pictures, the shop draws the words", ELSE]),
+        dict(id="gamelinks", t="The game page links to the Creampuff Games group only, at first",
+             d="Roblox lets the game page show links, such as the group and social accounts. Our pick shows the group link only at first. It is where players join for the gift crate, and social links can come once there is something to post. Links to social sites also have their own age rules on Roblox, so fewer is simpler for young players.",
+             opts=["Yes, group link only for now", "Add social links too (tell us which)", ELSE]),
+        dict(id="iconE", t="Icon E waits for an A/B test once the game has players",
+             d="Roblox's icon page holds one icon only. A second one exists only as an A/B test on the game's Experiments page, which needs players to tell anything. Our pick keeps icon A alone until launch, then tests A against E.",
+             opts=["Yes, A now, test E after launch", "Make E the main icon", "Drop E", ELSE]),
+    ]),
+    ("New on November 27, in the morning", "Design-Agent", "One question, from your note about the back door. The VIP Lounge is off the list, as you said: special visitors already come in at the front.", [
+        dict(id="expansion2", t="Behind the back door: a cat hotel that earns while you are away",
+             d="The taped off back door with its coin unlock is being built now, so any of these can go behind it, and nothing inside is built until you pick. One thing to know first: the back door is where the Garden's locked gate stands today (the 25,000 coin build that makes the tip jar hold 12 hours and fill faster). Whatever you pick takes the back door, and the Garden moves to a side yard so the two never clash. Our pick is the cat hotel. Inside are four small rooms with beds and a front desk. While you play, a cat now and then asks to stay, and you pick a stay of 1, 4 or 8 hours (a longer stay pays more). You wash it once at check in, then it sleeps in its room. When its time is up it checks out and pays you, even while you are offline, and on your next visit it leaves a little thank you gift at the desk (coins, a bow, and now and then a crate, with the chances shown as always). Why this one: picking a stay before you log off and coming back to collect is the strongest day 2 return reason we know of, and it is different from the tip jar, which fills by itself with nothing to choose. More rooms can be bought later, which gives a long goal. Second is your own idea, a worker wing with big tubs where helpers wash two cats at once. It makes the spa earn faster but gives no reason to come back the next day. Third is a new idea, a kitten nursery: a basket of kittens arrives, you feed them once each visit, and in about three days each one grows up and joins you as a pet or helps out. It is cute and gives a reason to return each day, but it is a bigger build and overlaps a little with pets from crates. We would start the unlock at a test price on dev and tune it after you play.",
+             opts=["Yes, the cat hotel that earns while you are away", "A worker wing with big tubs that wash two cats at once", "A kitten nursery where kittens grow up over a few days", ELSE]),
+    ]),
     ("New on November 26, in the afternoon", "Model-Agent and Gameplay-Engineer", "Two questions. You answered both by 5:20 PM that evening.", [
         dict(id="headbows", t="Bows on the ten special cats with a head piece: make them smaller",
              d="In the game a clean cat wears a bow, in the bow tier the player has reached. Ten of the special visitors' cats also wear a head piece, such as Bathtile's bath cap, Stardust's star crown and Djinn's turban. On those cats the bow cannot sit on the corner of the head, so it stands at the side of the head at full size. You saw that look today when a big blue bow showed up on the pink cat in thumbnail 3, and you had it taken off. That was the game's own bow at the game's size. The picture shows how three of these cats wear the top bow in the game now. Our pick is to make the bow smaller on those ten cats, so it sits neatly beside the head piece and the head piece stays the star. The second option gives those ten cats no bow at all. Their head piece already marks them as special, but the player's bow tier then shows on every cat except the rarest ones. The third leaves them as they are. The store pictures are not touched by this, because no special cat wears a bow in them.",
@@ -684,9 +727,9 @@ PAGE = r'''<title>Clean a Cat Launch Plan</title>
 
 <div class="wrap">
   <div class="intro">
-    <p class="eyebrow">Clean a Cat, updated November 26, 6:10 PM</p>
+    <p class="eyebrow">Clean a Cat, updated November 27, 7:50 AM</p>
     <h1>What is left for you</h1>
-    <p class="lede">Nothing is waiting on you. All 78 questions have your pick and your four setup notes are read. The playtest notes you sent this evening are with the builders, and where each one stands is in <a href="#notes">the first list</a> below. We are also checking every earlier decision against the dev game, the bigger spa and the counter window first, so nothing you decided gets lost. Every earlier answer is under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
+    <p class="lede">Twelve new questions are at the top: everything any of us still wanted to ask you, in one round, each with our pick first. Your cat hotel pick is in and drafted. One thing on your to-do list: the four dev thumbnails you said you would upload yourself. Every earlier answer is under <a href="#answered">Answered already</a>, and the one page design is <a href="https://claude.ai/artifact/DzvEnLeFKMnrALQf2BnwB4">here</a>.</p>
     <ol class="steps">
       <li>Send more playtest notes in the chat whenever you have them, in your own words.</li>
       <li>If a note of yours is missing from the first list, or one reads wrong, say so.</li>

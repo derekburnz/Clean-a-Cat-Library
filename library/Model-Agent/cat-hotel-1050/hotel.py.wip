@@ -1,0 +1,363 @@
+"""The Cat Hotel (issue #1050, Derek's pick for what is behind the back door, 2026-11-27) and the guest's suitcase.
+
+Design-Agent's spec (#1042): before logging off the player puts a guest cat to bed; it pays while they are away.
+The room stands on the yard site behind the back door (the Garden's old site; the Garden moves to the side yard),
+at the plot's SpotGardenDoor: pivot at the middle of the back door's opening on the floor, front -Y in Blender (-Z
+in Roblox) into the spa room, the yard behind (+Y). It goes with CleanACat_Area_BackDoorOpen (backdoor.py), which
+brings the butter frame and the open door leaf; this model has neither.
+
+  CleanACat_Area_Hotel     the finished room, 17.6 studs wide and 11.9 deep, built like the VIP Room (solid walls
+                           0.4 thick, a floor to stand on, a pitched roof, the lining on the spa wall's back as its
+                           own solid `_WallArt`, so the camera behaves as it does there). Sky blue lower walls,
+                           cream above, a butter rail, a sky tile roof. Inside:
+                             - a butter front desk on the right of the way in, with a bell, a guest book and a key
+                               board on the wall behind it; a welcome mat in front where a guest waits
+                             - four rooms in a row along the back wall, each an open alcove between low partitions
+                               with a round cat bed and a pillow in the room's own colour (pink, sky, mint, butter)
+                               and an arch over its front with a plate of one to four pips
+                             - a round rug, two potted plants, two wall lamps and a pendant lamp (`_Bulbs`)
+      ..._Room3Lock_Decor, ..._Room4Lock_Decor   rooms 3 and 4 before they are built: a soft pink rope on two butter
+                           posts across the alcove and an "opening soon" plate with a little hammer. Each is its
+                           own object, so the game removes one when its room is built. Not solid.
+      ..._Room3Build_Decor, ..._Room4Build_Decor   shown with the lock while that room's timed build runs (Derek,
+                           2026-11-27: the hotel unlock and rooms 3 and 4 are timed builds like the others): a
+                           short stepladder, a paint pot and two planks in the alcove. Hidden otherwise. Not solid.
+      ..._Decor            rug, plants, beds' pillows, the desk's things. Not solid.
+  Attachments in the room's first part: `SpotHotelEnter` (just inside the door), `SpotHotelDesk` (on the mat, where
+  a guest waits, turned to face the way in), `SpotHotelBell` (the bell's top, for a tap target or a bubble),
+  `SpotHotelRoom1` to `4` (the top of each bed, turned to face the room) and `SpotHotelSign1` to `4` (over each
+  arch, for the room's bubble). Attributes `FloorUp`, `Rooms` 4, `GuestScale` (a walking cat at this scale fits a
+  bed).
+
+  CleanACat_Prop_Suitcase  the guest's little suitcase: a rounded bubblegum case with cream straps, butter corners,
+                           a handle and a paw sticker. Pivot on the floor under its middle; `Grip` at the handle.
+                           About 1.0 wide, 0.4 deep and 0.9 tall with the handle: it stands beside a waiting cat.
+
+  CleanACat_Area_HotelDoorBuilding  the back door while the hotel's own timed build runs, between
+                           CleanACat_Area_BackDoorLocked and CleanACat_Area_BackDoorOpen: the same closed door and
+                           frame with the tape taken down, a stepladder, planks, pots, the cone and a butter plate with a hammer on the door. Same pivot, `_Barrier`
+                           and `PromptAnchor` as the locked look; attributes `Expansion`, `Locked`, `Building`.
+
+No rules here: prices, stays and which rooms are open are the game's.
+"""
+
+import math
+
+from mathutils import Matrix, Vector
+
+import backdoor
+from common import Builder
+from stations import _tris
+
+NAME, CASE = "CleanACat_Area_Hotel", "CleanACat_Prop_Suitcase"
+DOOR_W, DOOR_H = 6.0, 9.0         # the back door's opening (plot.BACK_DOOR, plot.DOOR_H)
+WALL_T = 1.0                      # the spa's back wall runs from y -0.5 to 0.5 here
+RX = 8.8                          # the side walls' outer faces (the Garden's site was 9.0: clear of the VIP site)
+RY0, RY1 = WALL_T / 2, 12.4       # from the spa wall's back face to the back wall's outer face
+RWT = 0.4                         # wall thickness: thick enough to collide
+WALL_SINK = 0.03
+EAVES, RISE = 12.6, 2.2
+BAND = 4.6                        # the sky lower wall
+FLOOR_UP = 0.08                   # the floor over the spa's: above the yard's grass (0.04)
+SINK = 0.02
+LOW, HIGH, RAIL, ROOF, FLOOR = "spa_sky", "spa_cream", "pastel_butter", "tile_sky", "wood_light"
+ROOMS = ("spa_bubblegum", "pastel_sky", "spa_mint", "pastel_butter")     # each room's own colour
+ROOM_X = (-6.24, -2.08, 2.08, 6.24)                                      # the alcoves' middles
+ROOM_W = 4.16
+ROOM_Y0 = 8.3                     # the alcoves' front; they run back to the back wall's inner face
+BED_Y = 10.25
+BED_TOP = FLOOR_UP + 0.62
+PART_H = 3.4                      # the partitions between rooms
+ARCH_Z = 5.2                      # the arch beam over each alcove's front
+DESK = (5.6, 3.3)                 # the desk's middle; it faces the way in (-X)
+MAT_AT = (3.4, 3.3)               # where a guest waits
+GUEST_SCALE = 1.0
+_RZ = lambda deg: Matrix.Rotation(math.radians(deg), 3, "Z")      # noqa: E731
+_STAND = Matrix.Rotation(math.pi / 2, 3, "X")
+
+
+def _window(b, at, turn, w=2.0, h=2.4):
+    """An arched window on a wall face (vip._window in butter): no hole, one goes on each face."""
+    R = _RZ(turn)
+
+    def p(dx, dy, dz):
+        v = R @ Vector((dx, dy, dz))
+        return (at[0] + v.x, at[1] + v.y, at[2] + v.z)
+
+    def slab(front, back):
+        return -(front - back) / 2, front + back
+
+    y, d = slab(0.08, 0.05)
+    b.box(p(0, y, 0), (w + 0.4, d, h + 0.2), RAIL, bevel=False, rot=R)
+    y, d = slab(0.092, 0.07)
+    b.cyl(p(0, y, h / 2), w / 2 + 0.2, d, RAIL, segments=10, bevel=False, rot=R @ _STAND)
+    y, d = slab(0.12, 0.09)
+    b.box(p(0, y, 0), (w, d, h), "spa_sky" if False else "offwhite", bevel=False, rot=R)
+    y, d = slab(0.132, 0.11)
+    b.cyl(p(0, y, h / 2), w / 2, d, "offwhite", bevel=False, segments=10, rot=R @ _STAND)
+
+
+def _shell(b, art):
+    """Floor, walls in two bands, gables and the roof into `b`; the lining on the spa wall's back into `art`."""
+    x0, x1, y0, y1, t = -RX, RX, RY0, RY1, RWT
+    ym = (y0 + y1) / 2
+    b.box_base((0, ym, FLOOR_UP - 0.4), (x1 - x0 - 0.02, y1 - y0 - 0.02, 0.4), FLOOR, bevel=False)          # the floor
+    b.box_base((0, 0, -SINK), (DOOR_W - 0.1, WALL_T + 0.3, 0.05 + SINK), RAIL, bevel=False)                # a threshold
+    for sx in (1, -1):
+        x = sx * (RX - t / 2)
+        b.box_base((x, ym, -SINK), (t, y1 - y0, BAND + SINK), LOW, bevel=False)
+        b.box_base((x, ym, BAND), (t - 0.01, y1 - y0 - 0.01, EAVES - BAND), HIGH, bevel=False)
+        b.box((sx * (RX - t - 0.05 + WALL_SINK / 2), ym, BAND + 0.1), (0.1 + WALL_SINK, y1 - y0 - 2 * t - 0.02, 0.24),
+              RAIL, bevel=False)
+    xin = RX - t
+    b.box_base((0, y1 - t / 2, -SINK + 0.004), (2 * xin, t, BAND + SINK - 0.004), LOW, bevel=False)
+    b.box_base((0, y1 - t / 2, BAND + 0.002), (2 * xin, t - 0.01, EAVES - BAND - 0.002), HIGH, bevel=False)
+    b.box((0, y1 - t - 0.05 + WALL_SINK / 2, BAND + 0.1), (2 * xin - 0.24, 0.1 + WALL_SINK, 0.24), RAIL, bevel=False)
+    ws = WALL_SINK
+
+    def lining(x, z, w, h, front, swatch, k=0, to=art):
+        back = ws + 0.004 * k
+        to.box_base((x, y0 + (front - back) / 2, z), (w, front + back, h), swatch, bevel=False)
+
+    for sx in (1, -1):
+        xa, xb = DOOR_W / 2 + 0.52, xin              # clear of the door's butter frame (backdoor.py)
+        lining(sx * (xa + xb) / 2, FLOOR_UP, xb - xa, BAND - FLOOR_UP, 0.12, LOW)
+        lining(sx * (xa + xb) / 2, BAND + 0.002, xb - xa, EAVES - BAND - 0.002, 0.115, HIGH, k=1)
+        lining(sx * (xa + xb) / 2, BAND - 0.02, xb - xa - 0.3, 0.24, 0.22, RAIL, k=2, to=b)
+    lining(0, DOOR_H + 0.62, DOOR_W + 1.04, EAVES - DOOR_H - 0.62, 0.11, HIGH, k=3)
+    b.box_base((0, y0 + t / 2 + 0.13, 12.0), (2 * xin, t, EAVES - 12.0), HIGH, bevel=False)
+    tri = [(-RX, -RISE / 3), (RX, -RISE / 3), (0.0, 2 * RISE / 3)]
+    for y in (y0 + t / 2 + 0.13, y1 - t / 2):
+        b.prism((0, y, EAVES + RISE / 3), tri, t - 0.02, HIGH, rot=_STAND)
+    half, over = RX, 0.7
+    ang = math.atan2(RISE, half)
+    ln = math.hypot(RISE, half) + over
+    for sx in (1, -1):
+        rot = Matrix.Rotation(sx * ang, 3, "Y")
+        mid = (half - over * math.cos(ang) / 2 + 0.3) / 2 + 0.2
+        b.box((sx * mid, ym + 0.15, EAVES + RISE / 2 + 0.18 - 0.2 * math.sin(ang) + 0.01 * (sx > 0)),
+              (ln, y1 - y0 + 1.0 - 0.03 * (sx > 0), 0.3), ROOF, bevel=False, rot=rot)
+    b.box((0, ym + 0.15, EAVES + RISE + 0.3), (0.7, y1 - y0 + 1.2, 0.3), RAIL, bevel=False)
+    for sx in (1, -1):                               # a window in each side wall, a pane on both faces
+        _window(b, (sx * RX, 5.0, 8.4), 90 * sx)
+        _window(b, (sx * (RX - t), 5.0, 8.4), -90 * sx)
+
+
+def _rooms(b, d):
+    """Four alcoves along the back wall: partitions, an arch with the room's pips, a round bed and a pillow."""
+    yin = RY1 - RWT
+    for k in range(5):                               # five partitions make four rooms; the end ones sit on the walls
+        x = -RX + RWT + 0.14 + k * (2 * (RX - RWT) - 0.28) / 4
+        b.box_base((x, (ROOM_Y0 + yin) / 2 + 0.01 * k, FLOOR_UP - 0.02), (0.28, yin - ROOM_Y0 - 0.02 * k, PART_H + 0.002 * k),
+                   HIGH, bevel=False)
+        b.box_base((x, ROOM_Y0 + 0.01, FLOOR_UP - 0.03 - 0.003 * k), (0.42, 0.42, ARCH_Z + 0.3), RAIL, bevel=False)   # a post
+    for i, (x, col) in enumerate(zip(ROOM_X, ROOMS)):
+        b.box((x, ROOM_Y0 + 0.01, ARCH_Z + 0.004 * i), (ROOM_W - 0.44, 0.3, 0.5), col, bevel=False)                 # the arch beam
+        b.box((x, ROOM_Y0 - 0.17, ARCH_Z + 0.05), (1.5, 0.08, 0.9), "offwhite", bevel=False)                       # the door plate
+        n = i + 1
+        for j in range(n):                                                                                        # its pips
+            d.cyl((x + (j - (n - 1) / 2) * 0.3, ROOM_Y0 - 0.23, ARCH_Z + 0.05), 0.1, 0.05, "nose_bubblegum", segments=8,
+                  bevel=False, rot=_STAND)
+        b.box_base((x, yin - 0.06 - 0.002 * i, FLOOR_UP), (ROOM_W - 0.6, 0.1, PART_H - 0.3), col, bevel=False)      # back panel
+        # the bed: a round base in the room's colour, a cream cushion, a rolled rim behind and a pillow
+        b.cyl_base((x, BED_Y, FLOOR_UP - 0.01), 1.4, 0.45, col, segments=14)
+        b.cyl_base((x, BED_Y, FLOOR_UP + 0.4), 1.18, BED_TOP - FLOOR_UP - 0.4, "offwhite", segments=14, bevel=False)
+        for a in range(-60, 61, 30):                                                                              # the rim
+            r = math.radians(90 + a)
+            d.sphere((x + 1.18 * math.cos(r), BED_Y + 1.18 * math.sin(r), FLOOR_UP + 0.62), 0.36, col, segments=8, rings=5)
+        d.box((x + 0.55, BED_Y + 0.55, BED_TOP + 0.12), (0.8, 0.5, 0.26), HIGH, rot=_RZ(-25))                      # pillow
+        d.box_base((x, ROOM_Y0 + 1.0, FLOOR_UP - 0.004 * (i + 1)), (2.2, 1.1, 0.04 + 0.004 * (i + 1)), col, bevel=False)   # bedside mat
+
+
+def _desk(b, d):
+    """The front desk on the right of the way in, facing it: a butter counter, a bell, a guest book, keys behind."""
+    x, y = DESK
+    b.box_base((x, y, FLOOR_UP - 0.02), (1.5, 4.2, 2.5), RAIL)
+    b.box_base((x - 0.05, y, FLOOR_UP + 2.46), (1.9, 4.6, 0.24), HIGH)                         # the counter top
+    b.box((x - 0.78, y, FLOOR_UP + 1.3), (0.08, 3.4, 1.5), LOW, bevel=False)                   # a sky front panel
+    d.cyl((x - 0.84, y, FLOOR_UP + 1.35), 0.5, 0.06, "nose_bubblegum", segments=10, bevel=False,
+          rot=Matrix.Rotation(math.pi / 2, 3, "Y"))                                            # a pink paw pad on it
+    for dy, dz in ((-0.34, 0.5), (0.0, 0.62), (0.34, 0.5)):
+        d.cyl((x - 0.85, y + dy, FLOOR_UP + 1.35 + dz), 0.17, 0.07, "nose_bubblegum", segments=8, bevel=False,
+              rot=Matrix.Rotation(math.pi / 2, 3, "Y"))
+    top = FLOOR_UP + 2.7
+    # the bell: a base, a dome and a button
+    bx, by = x - 0.3, y - 1.1
+    d.cyl_base((bx, by, top), 0.42, 0.08, "metal", segments=10, bevel=False)
+    d.sphere((bx, by, top + 0.08), 0.36, RAIL, segments=10, rings=6, scale=(1, 1, 0.8))
+    d.cyl_base((bx, by, top + 0.34), 0.08, 0.12, "nose_bubblegum", segments=6, bevel=False)
+    # the guest book, open, and a pen pot
+    d.box_base((x - 0.25, y + 0.5, top), (0.8, 1.1, 0.07), "spa_mint", bevel=False, rot=_RZ(8))
+    d.box_base((x - 0.25, y + 0.5, top + 0.06), (0.7, 0.98, 0.04), "offwhite", bevel=False, rot=_RZ(8))
+    d.cyl_base((x + 0.2, y + 1.6, top), 0.2, 0.34, "spa_bubblegum", segments=8)
+    # the key board on the side wall behind the desk: a cream board with four coloured key tags
+    wx = RX - RWT
+    b.box((wx - 0.06 + WALL_SINK / 2, y, 6.4), (0.12 + WALL_SINK, 3.2, 1.6), HIGH, bevel=False)
+    for i, col in enumerate(ROOMS):
+        ky = y - 1.05 + 0.7 * i
+        d.box((wx - 0.16, ky, 6.75), (0.08, 0.12, 0.12), "metal", bevel=False)
+        d.box((wx - 0.165, ky, 6.3), (0.09, 0.34, 0.5), col, bevel=False)
+    # the welcome mat where a guest waits
+    mx, my = MAT_AT
+    d.box_base((mx, my, FLOOR_UP - 0.01), (2.0, 2.6, 0.05), "spa_bubblegum", bevel=False)
+    d.box_base((mx, my, FLOOR_UP - 0.012), (1.6, 2.2, 0.065), HIGH, bevel=False)
+
+
+def _decor(d):
+    """A round rug, two potted plants and two wall lamps' shades."""
+    d.cyl_base((-2.6, 4.6, FLOOR_UP - 0.01), 2.9, 0.05, "spa_mint", segments=16, bevel=False)
+    d.cyl_base((-2.6, 4.6, FLOOR_UP - 0.012), 2.4, 0.066, HIGH, segments=16, bevel=False)
+    d.cyl_base((-2.6, 4.6, FLOOR_UP - 0.014), 1.2, 0.08, "spa_bubblegum", segments=12, bevel=False)
+    for px, py in ((-7.5, 1.7), (7.55, 7.0 - 6.0)):
+        d.cyl_base((px, py, FLOOR_UP - 0.01), 0.55, 0.9, "terracotta", segments=8, radius2=0.7)
+        d.sphere((px, py, FLOOR_UP + 1.7), 0.85, "leaf_green", segments=8, rings=5)
+        d.sphere((px + 0.3, py - 0.2, FLOOR_UP + 2.5), 0.6, "leaf_dark", segments=8, rings=5)
+        d.sphere((px - 0.35, py + 0.15, FLOOR_UP + 2.3), 0.5, "leaf_green", segments=8, rings=5)
+
+
+def _lamps(name, mat):
+    """A pendant over the rug and a wall lamp each side of the rooms; the warm parts are `_Bulbs`, lit at night."""
+    b, g = Builder(), Builder()
+    px, py = -2.6, 4.6
+    b.cyl_base((px, py, 9.6), 0.06, EAVES + RISE * (1 - abs(px) / RX) - 9.6, "metal", segments=6, bevel=False)
+    b.cyl_base((px, py, 8.9), 1.1, 0.7, RAIL, segments=10, radius2=0.4, bevel=False)
+    g.sphere((px, py, 8.85), 0.5, "lamp_warm", segments=8, rings=5)
+    for sx in (1, -1):
+        x = sx * (RX - RWT)
+        b.box((x - sx * (0.1 - WALL_SINK / 2), 7.6, 6.9), (0.2 + WALL_SINK, 0.5, 0.5), RAIL, bevel=False)
+        g.sphere((x - sx * 0.42, 7.6, 6.9), 0.36, "lamp_warm", segments=8, rings=5)
+    return [_tris(b.finalize(name + "_Lamp_Decor", mat)), _tris(g.finalize(name + "_Bulbs", mat))]
+
+
+def _lock(i, mat):
+    """Room i (3 or 4) before it is built: a soft rope on two posts across the alcove and an opening soon plate."""
+    x = ROOM_X[i - 1]
+    y = ROOM_Y0 - 0.75
+    b = Builder()
+    for sx in (1, -1):
+        px = x + sx * 1.55
+        b.cyl_base((px, y, FLOOR_UP - 0.01), 0.3, 0.12, RAIL, segments=8, bevel=False)
+        b.cyl_base((px, y, FLOOR_UP + 0.1), 0.1, 2.2, RAIL, segments=6, bevel=False)
+        b.sphere((px, y, FLOOR_UP + 2.42), 0.2, RAIL, segments=8, rings=5)
+    for k in range(7):                               # the rope sags between the posts
+        t = (k + 0.5) / 7 - 0.5
+        z = FLOOR_UP + 2.05 - 0.55 * (1 - (2 * t) ** 2)
+        slope = math.atan2(0.55 * 8 * t / 3.1, 1.0)
+        b.box((x + t * 3.1, y, z), (3.1 / 7 + 0.08, 0.16 - 0.02 * (k % 2), 0.16 - 0.02 * (k % 2)), "spa_bubblegum", bevel=False,
+              rot=Matrix.Rotation(-slope, 3, "Y"))
+    # the plate hangs from the rope's middle: cream on a butter back, a little hammer on it
+    pz = FLOOR_UP + 1.0
+    b.box((x, y - 0.025, pz), (1.5, 0.1, 0.9), RAIL, bevel=False)
+    b.box((x, y - 0.08, pz), (1.3, 0.06, 0.7), "offwhite", bevel=False)
+    b.box((x - 0.05, y - 0.13, pz - 0.04), (0.1, 0.05, 0.46), "wood_light", bevel=False, rot=Matrix.Rotation(0.6, 3, "Y"))
+    b.box((x + 0.12, y - 0.135, pz + 0.14), (0.4, 0.07, 0.2), "spa_bubblegum", bevel=False, rot=Matrix.Rotation(0.6, 3, "Y"))
+    return _tris(b.finalize(f"{NAME}_Room{i}Lock_Decor", mat))
+
+
+def _ladder(b, x, y, z, h=2.6, turn=0.0):
+    """A short stepladder standing open: two butter frames meeting at the top, three wooden steps on the front."""
+    R = _RZ(turn)
+
+    def p(dx, dy, dz):
+        v = R @ Vector((dx, dy, 0.0))
+        return (x + v.x, y + v.y, z + dz)
+
+    lean = 0.26
+    for sy in (1, -1):
+        tilt = R @ Matrix.Rotation(sy * lean, 3, "X")
+        for sx in (1, -1):
+            b.box(p(sx * 0.5, sy * (h / 2) * math.sin(lean), h / 2), (0.14, 0.14, h / math.cos(lean)), RAIL,
+                  bevel=False, rot=tilt)
+    for k in range(3):
+        zz = h * (0.25 + 0.25 * k)
+        b.box(p(0, -(h - zz) * math.tan(lean) - 0.02, zz), (1.0, 0.34, 0.1), "wood_light", bevel=False, rot=R)
+    b.box(p(0, 0, h + 0.03), (1.24, 0.5, 0.12), "wood_light", bevel=False, rot=R)
+
+
+def _build_site(i, mat):
+    """Room i (3 or 4) while its build runs: a stepladder, a paint pot and two planks inside the alcove."""
+    x = ROOM_X[i - 1]
+    b = Builder()
+    _ladder(b, x - 0.9, ROOM_Y0 + 1.1, FLOOR_UP - 0.006, turn=20)
+    backdoor._pot(b, x + 1.2, ROOM_Y0 + 0.9, FLOOR_UP + 0.036, ROOMS[i - 1], i)
+    for k, dx in enumerate((0.5, 1.0)):
+        b.box((x + dx, ROOM_Y0 + 1.9 + 0.3 * k, FLOOR_UP + 0.12 + 0.13 * k), (0.5, 3.0, 0.12),
+              "wood_light" if k else "caramel_wood", rot=_RZ(12 - 20 * k))
+    return _tris(b.finalize(f"{NAME}_Room{i}Build_Decor", mat))
+
+
+DOOR_BUILD = "CleanACat_Area_HotelDoorBuilding"
+
+
+def build_door_building(mat):
+    b, d = Builder(), Builder()
+    backdoor._frame(b)
+    backdoor._door(b, (-DOOR_W / 2 + 0.04, 0.0), 0)
+    backdoor._planks(d)
+    backdoor._pot(d, 0.1, -2.3, -SINK, backdoor.POTS[0], 0)
+    backdoor._pot(d, 0.95, -2.55, -SINK + 0.002, backdoor.POTS[2], 2)
+    backdoor._cone(d, 2.2, -2.5)
+    _ladder(d, -1.7, -1.55, -SINK, h=4.8, turn=0)
+    # a butter plate with a hammer on the door, where the warning sign hung
+    y = -backdoor.LEAF_T / 2 - 0.1
+    d.box((0.2, y, 6.4), (2.3, 0.1, 1.5), RAIL, bevel=False)
+    d.box((0.2, y - 0.06, 6.4), (2.0, 0.06, 1.2), "offwhite", bevel=False)
+    d.box((0.1, y - 0.11, 6.35), (0.16, 0.05, 0.8), "wood_light", bevel=False, rot=Matrix.Rotation(0.6, 3, "Y"))
+    d.box((0.4, y - 0.125, 6.66), (0.7, 0.07, 0.32), backdoor.SIGNAL, bevel=False, rot=Matrix.Rotation(0.6, 3, "Y"))
+    return [_tris(b.finalize(DOOR_BUILD, mat)), _tris(d.finalize(DOOR_BUILD + "_Decor", mat)),
+            backdoor._barrier(DOOR_BUILD, mat)]
+
+
+def door_building_rbx_extras():
+    return {"attachments": [(DOOR_BUILD, "PromptAnchor", Matrix.Translation((0.0, -3.1, 3.0)))],
+            "attributes": {"Expansion": "BackDoor", "Locked": {"Bool": True}, "Building": {"Bool": True}}}
+
+
+def build_hotel(mat):
+    b, a, d = Builder(), Builder(), Builder()
+    _shell(b, a)
+    _rooms(b, d)
+    _desk(b, d)
+    _decor(d)
+    main = _tris(b.finalize(NAME, mat))
+    art = _tris(a.finalize(NAME + "_WallArt", mat))
+    decor = _tris(d.finalize(NAME + "_Decor", mat))
+    return [main, art, decor] + _lamps(NAME, mat) + [_lock(3, mat), _lock(4, mat), _build_site(3, mat), _build_site(4, mat)]
+
+
+def hotel_rbx_extras():
+    def at(x, y, z=FLOOR_UP, turn=0.0):
+        return Matrix.Translation((x, y, z)) @ Matrix.Rotation(math.radians(turn), 4, "Z")
+    atts = [(NAME, "SpotHotelEnter", at(0.0, RY0 + 1.6)),
+            (NAME, "SpotHotelDesk", at(MAT_AT[0], MAT_AT[1], FLOOR_UP + 0.05, 90.0)),
+            (NAME, "SpotHotelBell", at(DESK[0] - 0.3, DESK[1] - 1.1, FLOOR_UP + 3.2))]
+    for i, x in enumerate(ROOM_X):
+        atts.append((NAME, f"SpotHotelRoom{i + 1}", at(x, BED_Y, BED_TOP)))
+        atts.append((NAME, f"SpotHotelSign{i + 1}", at(x, ROOM_Y0 - 0.3, ARCH_Z + 1.1)))
+    return {"attachments": atts,
+            "attributes": {"FloorUp": {"Float64": FLOOR_UP}, "Rooms": len(ROOM_X),
+                           "GuestScale": {"Float64": GUEST_SCALE}}}
+
+
+def build_suitcase(mat):
+    b = Builder()
+    w, dp, h = 1.0, 0.4, 0.7
+    b.box_base((0, 0, 0.06), (w, dp, h), "spa_bubblegum")
+    for sx in (1, -1):
+        b.box_base((sx * 0.26, 0, 0.055), (0.12, dp + 0.04, h + 0.01), "spa_cream", bevel=False)          # straps
+        b.cyl_base((sx * 0.34, 0, 0), 0.07, 0.07, "metal", segments=6, bevel=False)                      # feet
+        for z in (0.09, h + 0.03 - 0.08):
+            b.box((sx * (w / 2 - 0.06), 0, z + 0.04), (0.16, dp + 0.05, 0.16), "pastel_butter", bevel=False)   # corners
+        b.box_base((sx * 0.15, 0, h + 0.05), (0.06, 0.08, 0.14), "pastel_butter", bevel=False)            # handle posts
+    b.box((0, 0, h + 0.2), (0.4, 0.1, 0.07), "pastel_butter", bevel=False)                               # the handle
+    b.cyl((0, -dp / 2 - 0.02, 0.4), 0.13, 0.03, "offwhite", segments=8, bevel=False, rot=_STAND)        # a paw sticker
+    b.cyl((0, -dp / 2 - 0.035, 0.38), 0.06, 0.03, "nose_bubblegum", segments=6, bevel=False, rot=_STAND)
+    return [_tris(b.finalize(CASE, mat))]
+
+
+def suitcase_rbx_extras():
+    return {"attachments": [(CASE, "Grip", Matrix.Translation((0.0, 0.0, 0.9)))]}
+
+
+ASSETS = {NAME: (build_hotel, 5500), CASE: (build_suitcase, 300), DOOR_BUILD: (build_door_building, 2600)}
+EXTRAS = {NAME: hotel_rbx_extras, CASE: suitcase_rbx_extras, DOOR_BUILD: door_building_rbx_extras}

@@ -21,5 +21,7 @@ Review-QA-Agent's standing way of working (checked against its role file library
 
 - 2026-11-26 remake: tools and tasks list is section 9 of the role file (library PR 5). Policy check of everything sold written (docs/reviews/2026-11-26-policy-check.md, PR 797): PASS on code, nothing sells until Derek's ids. Cat portraits PR 798: clean and Dirty1 KEEP; Dirty2 to Dirty4 held until issue 791 removes the side flaps (imageFor falls back to clean).
 
+- Image upload gate (since 2026-11-26, after Derek's 7 day suspension over the ThumbsUpFilled icon, see [[moderation-hold-2026-11-26]]): Review-QA passes every image before any upload. FAIL any image with hands, fingers or thumbs, any long rounded shape that could be misread (a stub, a tube, a capsule standing up), or skin tone blobs. Look at it at 48 px and 24 px and as a black silhouette. Also no text, logos, weapons or body parts. When in doubt, it is a FAIL. Upload in small batches.
+
 **Why:** Derek asked on 2026-11-24 that every thread follows its role file and skills and saves the key points.
 **How to apply:** a new Review-QA thread starts from this note plus the role file. See [[planning-status]] and [[art-and-models]].

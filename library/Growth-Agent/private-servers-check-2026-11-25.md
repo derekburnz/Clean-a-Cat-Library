@@ -25,3 +25,11 @@ Derek's wish is how Roblox already works. Set private servers to Requires Robux 
 6. Players under 13 who cannot join private servers should not be told they are missing anything; no prompts in the game about private servers.
 
 Settings Derek changes himself: Access Settings > Requires Robux = on, 100; max players per server = 6 (his earlier answer).
+
+## Update 2026-11-26 evening: Derek now says 25 (or 50)
+Derek (plan page, 2026-11-26 5:20 PM ET): "Honestly 50, or 25 since there is no real benefit to being alone in your own server, give it free with robux plus". Planning-Agent is writing 25 a month into the design. Re-read of the two Creator Hub pages (private-servers, roblox-plus):
+- OFFICIAL: no minimum or maximum price is stated, so 25 is not ruled out, but the pages also do not confirm it is allowed. The Access Settings field in the Creator Dashboard is the only proof; Derek sees it when he types the number. Plus page examples use 50, 60, 70, 100 and 200.
+- OFFICIAL: the Plus free access does not depend on the price ("Subscribers get access to paid private servers at no cost").
+- OFFICIAL: changing the price cancels every active private server subscription, with a message to each player. So pick once.
+- OFFICIAL: the Plus payout depends on the price: 70 percent of the server price, up to 100 Robux per Plus subscriber who spends 60 minutes in their own paid private server in 30 days. At 25 that is about 17 Robux, at 50 about 35, at 100 the 70 percent share is 70. JUDGMENT: this is the cost of the lower price, small next to Derek's reason, so his 25 stands; say it once and do not reopen it.
+- Group wall: Roblox retired community walls (Planning-Agent, 2026-11-26), so the wall lines in like-group-rewards-check, monetization-calls and owner-settings-list are void. Moderation of the group's forums, if he turns them on, is his.

@@ -1,0 +1,15 @@
+diff --git a/games/clean-a-cat/src/server/Services/FigureService.luau b/games/clean-a-cat/src/server/Services/FigureService.luau
+index 467501aa..4ba887de 100644
+--- a/games/clean-a-cat/src/server/Services/FigureService.luau
++++ b/games/clean-a-cat/src/server/Services/FigureService.luau
+@@ -405,6 +405,10 @@ local function townsfolkFor(
+ 		return nil
+ 	end
+ 	local figure = base:Clone() :: Model
++	-- Each customer reaches a device whole, with their carrier and their cat on the counter (issue 871): devices move
++	-- the figure and seat the cat themselves, so a part streamed in later would land at the server's spot instead,
++	-- split off from the rest (Sync-Agent on 844315b: most of a counter cat's parts left by the spa door).
++	figure.ModelStreamingMode = Enum.ModelStreamingMode.Atomic
+ 	figure:PivotTo(spot)
+ 	setAll(figure, true)
+ 	local grip = figure:FindFirstChild("Grip", true)

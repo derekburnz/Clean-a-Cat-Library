@@ -1,0 +1,63 @@
+diff --git a/assets/clean-a-cat/blender/loaf.py b/assets/clean-a-cat/blender/loaf.py
+index f5c7e06b..6f67ad60 100644
+--- a/assets/clean-a-cat/blender/loaf.py
++++ b/assets/clean-a-cat/blender/loaf.py
+@@ -43,7 +43,8 @@ import common
+ import dirt
+ from common import PRIMS, Builder, scale_mesh
+ 
+-NAMES = ("Suds",)                  # the cats that have a loaf so far
++NAMES = (*cats.EXTRA_CATS, *cats.ROSTER, *cats.SPECIAL_CATS)   # every cat that is carried (#1138: "always has that
++                                   # proper holding cat loafing like it is for suds", helpers too)
+ LEG_PIECES = cats.LEGS["walk"]
+ HEAD_FAMILY = ("_Head",) + tuple("_" + p for p in cats.HEAD_PIECES)
+ PAW = (0.26, 0.46, 0.17)           # one front paw, unscaled: its width, its length and its height. Tucked under
+@@ -113,10 +114,17 @@ def build_loaf(name, mat, dirty, suffix="_Loaf"):
+     drop = cats.loaf_drop(spec)
+     legs = tuple("_" + p for p in LEG_PIECES)
+     out = []
++    for ob in objs:                                    # a special cat's built-in pieces (props.py) say what they ride
++        if ob.get("rides"):
++            nest.setdefault(ob.name[len(base):], "_" + ob["rides"])
++    levels = {}                                        # a customer's cat keeps its dirt level in the arms (#1138)
+     for ob in objs:                                    # the legs go, and with them what rode them; no fluff, no claws
+         suffix = ob.name[len(base):]
++        if dirty and dirt.level_of(ob.name, "walk"):
++            levels[ob.name] = dirt.level_of(ob.name, "walk")
+         gone = legs + ("_Tail", "_Collar")             # A's tail stands up and its bell hangs where the head now lies
+         if suffix in gone or nest.get(suffix) in gone or suffix.startswith(("_Fluff", "_Claw")):
++            levels.pop(ob.name, None)
+             nest.pop(suffix, None)
+             bpy.data.objects.remove(ob, do_unlink=True)
+             continue
+@@ -175,10 +183,13 @@ def build_loaf(name, mat, dirty, suffix="_Loaf"):
+         _turn(mud, at, up)
+         out.append(mud)
+         nest["_Mud99"] = "_Tail"
++        levels[mud.name] = 2                           # the tail tip is muddy from level 2 up
+     for kind in ("_Mud", "_Tangle"):                   # number what is left 01, 02, ... with no gaps
+         left = sorted((ob for ob in out if ob.name[len(base):].startswith(kind)), key=lambda ob: ob.name)
+         for i, ob in enumerate(left, start=1):
+             old, new = ob.name[len(base):], f"{kind}{i:02d}"
++            if base + old in levels:
++                levels[base + new + "!"] = levels.pop(base + old)
+             if old != new:
+                 ob.name = base + new
+                 if old in nest:
+@@ -196,6 +207,9 @@ def build_loaf(name, mat, dirty, suffix="_Loaf"):
+     attributes = {"Loaf": True, "CarryScale": {"Float64": cats.LOAF_CARRY_SCALE}}
+     if dirty:
+         attributes["Dirty"] = True
++        if name not in cats.EXTRA_CATS:                # Suds is always the muddiest; a customer's cat is trimmed to its
++            attributes["DirtLevels"] = dirt.LEVELS     # level by DirtRules, piece by piece, as on its other bodies
++            dirt.MODEL_ATTRS[base] = {n[len(base):-1]: {"DirtLevel": lv} for n, lv in levels.items() if n.endswith("!")}
+     return out, nest, attributes
+ 
+ 
+@@ -231,4 +245,5 @@ for _n in cats.ROSTER:
+     ASSETS[f"CleanACat_Cat_{_n}{cats.SLEEP_SUFFIX}"] = (lambda mat, n=_n: build_sleep(n, mat), 1500)
+ for _n in NAMES:
+     ASSETS[f"CleanACat_Cat_{_n}_Loaf"] = (lambda mat, n=_n: build_loaf(n, mat, False), 1500)
+-    ASSETS[f"CleanACat_Cat_{_n}_Dirty_Loaf"] = (lambda mat, n=_n: build_loaf(n, mat, True), 2600)
++    ASSETS[f"CleanACat_Cat_{_n}_Dirty_Loaf"] = (lambda mat, n=_n: build_loaf(n, mat, True),
++                                                2600 + (1100 if _n in cats.SPECIAL_CATS else 0))

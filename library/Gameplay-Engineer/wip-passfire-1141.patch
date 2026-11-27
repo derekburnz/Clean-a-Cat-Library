@@ -1,0 +1,68 @@
+From 9b53c80c568a4198a54baa93713bb23fbcde69b9 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 27 Nov 2026 19:24:00 +0000
+Subject: [PATCH] Starter pack: passes it gives fire PassService.changed, so
+ the pet slot follows at once (issue 1141)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2uoyEQb3K9CiHm4sfUxd
+---
+ games/clean-a-cat/src/server/Services/PassService.luau | 10 ++++++----
+ .../src/server/Services/StarterService.luau            |  4 +++-
+ 2 files changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/games/clean-a-cat/src/server/Services/PassService.luau b/games/clean-a-cat/src/server/Services/PassService.luau
+index 0741dc7e..6fccfef3 100644
+--- a/games/clean-a-cat/src/server/Services/PassService.luau
++++ b/games/clean-a-cat/src/server/Services/PassService.luau
+@@ -74,8 +74,8 @@ end
+ 
+ -- Marks `key` owned for `player` (in the save when it is loaded) and tells every feature when it is new. Also
+ -- PassService.grant, for a pass given by another purchase (the starter pack, issue 519).
+-local function give(player: Player, key: string)
+-	local had = PassService.owns(player, key)
++local function give(player: Player, key: string, isNew: boolean?)
++	local had = isNew ~= true and PassService.owns(player, key)
+ 	local now = ownedNow[player]
+ 	if now == nil then
+ 		now = {}
+@@ -92,9 +92,11 @@ local function give(player: Player, key: string)
+ 	end
+ end
+ 
+-function PassService.grant(player: Player, key: string)
++-- `isNew`: the caller wrote the pass into the save itself just before (the starter pack's receipt, so it saves with
++-- the purchase), so it counts as new and every feature hears of it (issue 1141).
++function PassService.grant(player: Player, key: string, isNew: boolean?)
+ 	assert(Passes.IDS[key] ~= nil, `PassService.grant: {key} is not in shared/Passes`)
+-	give(player, key)
++	give(player, key, isNew)
+ end
+ 
+ -- Asks Roblox about every created pass the save does not hold yet. Yields.
+diff --git a/games/clean-a-cat/src/server/Services/StarterService.luau b/games/clean-a-cat/src/server/Services/StarterService.luau
+index 0e5fc3b2..4806baa6 100644
+--- a/games/clean-a-cat/src/server/Services/StarterService.luau
++++ b/games/clean-a-cat/src/server/Services/StarterService.luau
+@@ -140,7 +140,9 @@ end
+ -- pack's contents at the moment of the grant.
+ local function grant(player: Player, save: SaveSchema.Save, _receipt: { [string]: any }): boolean
+ 	local contents = StarterRules.contents(LiveFlags.isOn)
++	local fresh: { [string]: boolean } = {}
+ 	for _, key in contents do
++		fresh[key] = not PassService.owns(player, key)
+ 		save.passes[key] = true
+ 	end
+ 	local pet = givePet(save)
+@@ -151,7 +153,7 @@ local function grant(player: Player, save: SaveSchema.Save, _receipt: { [string]
+ 	)
+ 	task.defer(function()
+ 		for _, key in contents do
+-			PassService.grant(player, key)
++			PassService.grant(player, key, fresh[key]) -- new ones fire PassService.changed (the pet slot follows)
+ 		end
+ 		show(player)
+ 		if pet then
+-- 
+2.43.0
+

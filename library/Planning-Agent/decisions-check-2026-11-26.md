@@ -135,3 +135,17 @@ The coordinator counted about twenty notes in the chat. These are the issues I c
 ## 7. Not a build job, listed so nobody re-asks
 
 RbxSync skipped. No new keys. Passes and prices are ours to tune. Playing like My Pet Salon is fine. No screenshots or recordings asked of him. Questionnaire: his, and at 6:04 PM ET he wrote "Lets leave for now dont worry about it yet"; it still must be in before crateShop goes on live. The word to go live: "Will do no need to put this on a todolist".
+
+## Review-QA's first results (6:11 PM ET, from its note)
+
+- F2 full recap after every cat: new issue 890.
+- F3 human builder: new issue 891.
+- F4 "cat spa" in the store description: new issue 892.
+- F5 alternate icon E: noted on issue 851.
+- F6 promotion day list: new issue 893.
+- F7 built: BowFit reads BowScale.
+- F8 fine: the dev product is named Spa Starter Pack.
+- F9 covered by issue 877.
+- F10 R6 carry check: new issue 894.
+- F11 first event: stays unfiled until the game is near done.
+- Also new: issue 881, Finish now edges.

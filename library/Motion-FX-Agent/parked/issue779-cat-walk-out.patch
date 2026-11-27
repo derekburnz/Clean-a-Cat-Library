@@ -1,0 +1,344 @@
+From 1d79e028f9d854f56fd9fe5e0311fadf79782ebb Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 26 Nov 2026 17:35:02 +0000
+Subject: [PATCH] Washed cat walks out: hop out of the tub and trot out on
+ CatReturned (#779)
+
+Behind catWalkOut (off by default). On CatReturned the tub cat is hidden
+locally; a local copy hops out with a puff, trots to SpotQueue1 and fades.
+Reduced Motion fades it in place.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2up3EvwqR1QHeWJ5fQ6R
+---
+ .../client/Controllers/EffectsController.luau |  20 ++
+ .../src/client/Effects/CatWalkOut.luau        | 200 ++++++++++++++++++
+ games/clean-a-cat/src/shared/LiveFlags.luau   |   2 +
+ .../tests/specs/CatWalkOut.spec.luau          |  36 ++++
+ 4 files changed, 258 insertions(+)
+ create mode 100644 games/clean-a-cat/src/client/Effects/CatWalkOut.luau
+ create mode 100644 games/clean-a-cat/tests/specs/CatWalkOut.spec.luau
+
+diff --git a/games/clean-a-cat/src/client/Controllers/EffectsController.luau b/games/clean-a-cat/src/client/Controllers/EffectsController.luau
+index 6843d2a..29fb9a3 100644
+--- a/games/clean-a-cat/src/client/Controllers/EffectsController.luau
++++ b/games/clean-a-cat/src/client/Controllers/EffectsController.luau
+@@ -5,6 +5,7 @@
+ -- default, because they change the first session. Dryer air is behind `dryEffects`. There is no stink smoke
+ -- (Derek, 2026-11-25: mud on the coat shows a dirty cat). The opening truck and box scene (Effects/OpeningScene) is
+ -- started by Controllers/OpeningController.
++local Players = game:GetService("Players")
+ local ReplicatedStorage = game:GetService("ReplicatedStorage")
+ local RunService = game:GetService("RunService")
+ 
+@@ -12,6 +13,7 @@ local BrushShine = require(script.Parent.Parent:WaitForChild("Effects"):WaitForC
+ local CarryShared =
+ 	require(script.Parent.Parent:WaitForChild("Effects"):WaitForChild("CarryShared"))
+ local CatMotion = require(script.Parent.Parent:WaitForChild("Effects"):WaitForChild("CatMotion"))
++local CatWalkOut = require(script.Parent.Parent:WaitForChild("Effects"):WaitForChild("CatWalkOut"))
+ local CounterCrate =
+ 	require(script.Parent.Parent:WaitForChild("Effects"):WaitForChild("CounterCrate"))
+ local Crate = require(script.Parent.Parent:WaitForChild("Effects"):WaitForChild("Crate"))
+@@ -33,6 +35,7 @@ local WorkerBar = require(script.Parent.Parent:WaitForChild("Effects"):WaitForCh
+ local SCRUB_FLAG = "scrubEffects"
+ local REVEAL_FLAG = "revealEffects"
+ local FLUFF_FLAG = "fluffEffects"
++local WALK_OUT_FLAG = "catWalkOut"
+ local MOTION_FLAG = "catMotion"
+ local DRY_FLAG = "dryEffects"
+ local SHARED_CARRY_FLAG = "carryShared"
+@@ -160,6 +163,23 @@ function EffectsController.Start()
+ 			end
+ 		end)
+ 	end
++	-- A customer's washed cat goes home: it hops out of the tub and trots to the front of the line, fading as it
++	-- goes out (switch catWalkOut; Sync's issue 773 run found nothing carried it out).
++	if Moments.CatReturned then
++		local SpaLayout = require(shared:WaitForChild("SpaLayout")) :: any
++		Moments.CatReturned:Connect(function(cat: Model)
++			if
++				LiveFlags.OFF_BY_DEFAULT[WALK_OUT_FLAG] == true
++				and LiveFlags.isOn(WALK_OUT_FLAG)
++				and cat:IsDescendantOf(workspace)
++			then
++				local ok, way = pcall(SpaLayout.spot, "SpotQueue1", Players.LocalPlayer)
++				if ok and typeof(way) == "CFrame" then
++					CatWalkOut.play(cat, way)
++				end
++			end
++		end)
++	end
+ 	Moments.ScrubStop:Connect(function()
+ 		Effects.stopStream(foamPreset)
+ 	end)
+diff --git a/games/clean-a-cat/src/client/Effects/CatWalkOut.luau b/games/clean-a-cat/src/client/Effects/CatWalkOut.luau
+new file mode 100644
+index 0000000..5766821
+--- /dev/null
++++ b/games/clean-a-cat/src/client/Effects/CatWalkOut.luau
+@@ -0,0 +1,200 @@
++--!strict
++-- CatWalkOut: a customer's washed cat goes home on its own paws (Sync's issue 773 run: the cat was just removed from
++-- the tub about 6 s after Next cat, and Moments.CatReturned had no listener). On CatReturned the cat in the tub is
++-- hidden on this device and a local copy plays:
++--
++--   hop     a happy hop out of the tub onto the floor, HOP_OUT studs towards the way out, with a soft puff on landing
++--   walk    a trot to the front of the line (SpaLayout's SpotQueue1, the entrance side on both plots; Gameplay:
++--           the owner has left the counter by then), facing the way it goes, with a small bob in each step
++--   fade    it fades away over the last FADE seconds of the walk, as if out of the door
++--   comfort Reduced Motion: no hop or walk; the cat fades where it is
++--
++-- Client only and cosmetic. The real cat stays hidden (by each part's own Transparency, put back exactly) until the
++-- server removes it; if it is somehow still there after KEEP_HIDDEN seconds it shows again.
++--
++-- API
++--   CatWalkOut.play(cat, to)                     plays it towards the CFrame `to` (its position; the floor height)
++--   CatWalkOut.at(t, walkSeconds) -> (hop, walk, fade)   pure: each step's share (0 to 1) at `t` seconds
++--   CatWalkOut.walkSeconds(distance) -> number   pure: the trot's length for `distance` studs
++local RunService = game:GetService("RunService")
++local Workspace = game:GetService("Workspace")
++
++local Effects = require(script.Parent)
++
++local CatWalkOut = {}
++
++CatWalkOut.HOP_SECONDS = 0.5
++CatWalkOut.HOP_HEIGHT = 1.1
++CatWalkOut.HOP_OUT = 2.4 -- studs from the tub towards the way out
++CatWalkOut.SPEED = 4.5 -- studs a second
++CatWalkOut.MIN_WALK = 1.2
++CatWalkOut.MAX_WALK = 4
++CatWalkOut.FADE = 0.7
++CatWalkOut.BOB = 0.12
++CatWalkOut.STEP_HZ = 3.2
++CatWalkOut.KEEP_HIDDEN = 15
++
++function CatWalkOut.walkSeconds(distance: number): number
++	return math.clamp(distance / CatWalkOut.SPEED, CatWalkOut.MIN_WALK, CatWalkOut.MAX_WALK)
++end
++
++function CatWalkOut.at(t: number, walkSeconds: number): (number, number, number)
++	local hop = math.clamp(t / CatWalkOut.HOP_SECONDS, 0, 1)
++	local walkT = t - CatWalkOut.HOP_SECONDS
++	local walk = if walkSeconds > 0 then math.clamp(walkT / walkSeconds, 0, 1) else 1
++	local fadeFrom = math.max(walkSeconds - CatWalkOut.FADE, 0)
++	local fade = math.clamp((walkT - fadeFrom) / CatWalkOut.FADE, 0, 1)
++	return hop, walk, fade
++end
++
++local function smooth(u: number): number
++	return u * u * (3 - 2 * u)
++end
++
++local saved: { [Instance]: number } = {}
++
++local function hide(root: Instance)
++	for _, d in root:GetDescendants() do
++		if d:IsA("BasePart") or d:IsA("Decal") then
++			if saved[d] == nil then
++				saved[d] = (d :: any).Transparency
++			end
++			(d :: any).Transparency = 1
++		end
++	end
++end
++
++local function show(root: Instance)
++	for _, d in root:GetDescendants() do
++		local was = saved[d]
++		if was ~= nil then
++			saved[d] = nil
++			(d :: any).Transparency = was
++		end
++	end
++end
++
++local function forget()
++	for d in saved do
++		if not d:IsDescendantOf(game) then
++			saved[d] = nil
++		end
++	end
++end
++
++local function fade(root: Instance, seen: number)
++	for _, d in root:GetDescendants() do
++		if d:IsA("BasePart") or d:IsA("Decal") then
++			(d :: any).LocalTransparencyModifier = seen
++		end
++	end
++end
++
++local FOLDER_NAME = "CleanACat_Fx_CatWalkOut"
++local function folder(): Folder
++	local found = Workspace:FindFirstChild(FOLDER_NAME)
++	if found and found:IsA("Folder") then
++		return found :: Folder
++	end
++	local made = Instance.new("Folder")
++	made.Name = FOLDER_NAME
++	made.Parent = Workspace
++	return made
++end
++
++local playing: { [Model]: boolean } = {}
++
++function CatWalkOut.play(cat: Model, to: CFrame)
++	if playing[cat] or cat.Parent == nil then
++		return
++	end
++	playing[cat] = true
++	local still = Effects.reducedMotion()
++	local copy = cat:Clone() :: Model
++	for _, d in copy:GetDescendants() do
++		if d:IsA("BasePart") then
++			local p = d :: BasePart
++			p.Anchored = true
++			p.CanCollide = false
++			p.CanQuery = false
++			p.CanTouch = false
++		elseif
++			d:IsA("ProximityPrompt")
++			or d:IsA("Script")
++			or d:IsA("LocalScript")
++			or d:IsA("BillboardGui")
++			or d:IsA("ParticleEmitter")
++		then
++			d:Destroy()
++		end
++	end
++	fade(copy, 0)
++	copy.Name = "CleanACat_Fx_CatGoingHome"
++	copy.Parent = folder()
++	hide(cat)
++
++	local start = cat:GetPivot()
++	local box, size = cat:GetBoundingBox()
++	local lift = start.Position.Y - (box.Position.Y - size.Y / 2) -- pivot over the cat's feet
++	local floorY = to.Position.Y + lift
++	local flat = Vector3.new(to.Position.X - start.Position.X, 0, to.Position.Z - start.Position.Z)
++	local away = if flat.Magnitude > 0.01 then flat.Unit else start.LookVector
++	local landAt = Vector3.new(start.Position.X, floorY, start.Position.Z)
++		+ away * math.min(CatWalkOut.HOP_OUT, flat.Magnitude)
++	local endAt = Vector3.new(to.Position.X, floorY, to.Position.Z)
++	local facing = CFrame.lookAt(Vector3.zero, Vector3.new(away.X, 0, away.Z)).Rotation
++	local walkSeconds = CatWalkOut.walkSeconds((endAt - landAt).Magnitude)
++	local began = os.clock()
++	local landed = false
++
++	local connection: RBXScriptConnection? = nil
++	local function finish()
++		if connection then
++			connection:Disconnect()
++			connection = nil
++		end
++		copy:Destroy()
++		task.delay(CatWalkOut.KEEP_HIDDEN, function()
++			playing[cat] = nil
++			if cat.Parent then
++				show(cat)
++			end
++			forget()
++		end)
++	end
++	connection = RunService.RenderStepped:Connect(function()
++		local t = os.clock() - began
++		if still then
++			local u = math.clamp(t / CatWalkOut.FADE, 0, 1)
++			fade(copy, u)
++			if u >= 1 then
++				finish()
++			end
++			return
++		end
++		local hop, walk, seen = CatWalkOut.at(t, walkSeconds)
++		local cf: CFrame
++		if hop < 1 then
++			local u = smooth(hop)
++			local turn = start.Rotation:Lerp(facing, u)
++			local at = start.Position:Lerp(landAt, u)
++				+ Vector3.new(0, CatWalkOut.HOP_HEIGHT * 4 * hop * (1 - hop), 0)
++			cf = CFrame.new(at) * turn
++		else
++			if not landed then
++				landed = true
++				Effects.burst("roadDust", landAt - Vector3.new(0, lift - 0.1, 0))
++			end
++			local walked = t - CatWalkOut.HOP_SECONDS
++			local bob = CatWalkOut.BOB * math.abs(math.sin(math.pi * CatWalkOut.STEP_HZ * walked))
++			cf = CFrame.new(landAt:Lerp(endAt, walk) + Vector3.new(0, bob, 0)) * facing
++		end
++		copy:PivotTo(cf)
++		fade(copy, seen)
++		if walk >= 1 and seen >= 1 then
++			finish()
++		end
++	end)
++end
++
++return CatWalkOut
+diff --git a/games/clean-a-cat/src/shared/LiveFlags.luau b/games/clean-a-cat/src/shared/LiveFlags.luau
+index 2348f2c..ac3897a 100644
+--- a/games/clean-a-cat/src/shared/LiveFlags.luau
++++ b/games/clean-a-cat/src/shared/LiveFlags.luau
+@@ -138,6 +138,7 @@ LiveFlags.KEYS = {
+ 	"bigSpa", -- Model-Agent's bigger spa: a roomier building (stations, helpers and doors moved back and out, the residents' seat left of the entrance) with the open counter window by the desk, on a wider street (56 studs a plot) with its own backdrop; read when the street is placed, so it takes effect on the next server start (SpaLayout.BIG_SPOTS, PlotService, BackdropController, issue 746); a missing big asset keeps the small spa; off by default
+ 	"counterCrate", -- with counterLine: a new customer walks up with their cat in its crate and sets it on the counter; the server times it (CounterSetAt when they arrive, CounterReadyAt 2.4 s later) and the cat can be taken only once it sits, while Motion-FX's Effects walk it out of the crate and fade the crate (CounterRules, FigureService, SpaService, CarryController); off by default
+ 	"respawnCamera", -- for 2 s after a respawn, while the player stands still and has not moved the camera, a camera looking more than 30 degrees from the new character's facing is made Scriptable for one frame behind the character, then Custom again, so Roblox's camera module drops its stale last transform and carries on from there (on a respawn the module's own turn is lost and the camera keeps its old yaw) (RespawnCameraController, issue 670); off by default
++	"catWalkOut", -- a customer's washed cat hops out of the tub and trots out, fading (Effects/CatWalkOut, CatReturned); off by default
+ }
+ 
+ LiveFlags.OFF_BY_DEFAULT = {
+@@ -248,6 +249,7 @@ LiveFlags.OFF_BY_DEFAULT = {
+ 	counterCards = true,
+ 	bigSpa = true,
+ 	counterCrate = true,
++	catWalkOut = true,
+ } :: { [string]: boolean }
+ 
+ -- What a stored value means for a key. `stored` is whatever the DataStore returned (nil when missing).
+diff --git a/games/clean-a-cat/tests/specs/CatWalkOut.spec.luau b/games/clean-a-cat/tests/specs/CatWalkOut.spec.luau
+new file mode 100644
+index 0000000..0d3d326
+--- /dev/null
++++ b/games/clean-a-cat/tests/specs/CatWalkOut.spec.luau
+@@ -0,0 +1,36 @@
++--!strict
++return function()
++	local Client =
++		game:GetService("StarterPlayer"):WaitForChild("StarterPlayerScripts"):WaitForChild("Client")
++	local CatWalkOut = require(Client:WaitForChild("Effects"):WaitForChild("CatWalkOut")) :: any
++
++	describe("CatWalkOut.at", function()
++		it("hops, then walks, and has faded out by the end of the walk", function()
++			local w = 2
++			local hop, walk, fade = CatWalkOut.at(0, w)
++			expect(hop + walk + fade).to.equal(0)
++			hop, walk, fade = CatWalkOut.at(CatWalkOut.HOP_SECONDS, w)
++			expect(hop).to.equal(1)
++			expect(walk).to.equal(0)
++			expect(fade).to.equal(0)
++			hop, walk, fade = CatWalkOut.at(CatWalkOut.HOP_SECONDS + w, w)
++			expect(walk).to.equal(1)
++			expect(fade).to.equal(1)
++			local _, _, mid = CatWalkOut.at(CatWalkOut.HOP_SECONDS + w - CatWalkOut.FADE / 2, w)
++			expect(mid > 0 and mid < 1).to.equal(true)
++		end)
++		it("only fades in the last part of the walk", function()
++			local _, _, early = CatWalkOut.at(CatWalkOut.HOP_SECONDS + 0.5, 3)
++			expect(early).to.equal(0)
++		end)
++	end)
++
++	describe("CatWalkOut.walkSeconds", function()
++		it("trots at its speed within the limits", function()
++			expect(CatWalkOut.walkSeconds(0)).to.equal(CatWalkOut.MIN_WALK)
++			expect(CatWalkOut.walkSeconds(1000)).to.equal(CatWalkOut.MAX_WALK)
++			local d = CatWalkOut.SPEED * 2
++			expect(math.abs(CatWalkOut.walkSeconds(d) - 2) < 1e-9).to.equal(true)
++		end)
++	end)
++end
+-- 
+2.43.0
+

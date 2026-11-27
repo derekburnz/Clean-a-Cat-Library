@@ -31,7 +31,7 @@ Code keys: FinishTier1 to FinishTier5 (merged), StarterPack (PR 615 in review), 
 - Maturity questionnaire: copy answers from maturity-questionnaire-answers-2026-11-25.md.
 - Icon and thumbnails: first test set as agreed; second half dirty and half clean thumbnail is #500; every upload waits for Derek's OK on a contact sheet.
 - Description: first line what you do, "cat spa" in it, no "free", update line only after an update is live (store-copy-2026-11-23/).
-- Group wall for Creampuff Games: off or moderated, because the gift stand asks players to join the group.
+- (Removed 2026-11-26: Roblox retired group walls; nothing to switch off. See private-servers-check update.)
 - Create the group and game links before launch; no secrets in any text.
 
 ## Which game (Derek, 2026-11-26)

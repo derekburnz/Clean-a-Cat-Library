@@ -1,0 +1,400 @@
+From 23520c6f2ed41c40a288a01536b02a95bcd521d8 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 27 Nov 2026 01:48:04 +0000
+Subject: [PATCH] Hide the map edge with a ring of far hills and mountains
+ (#885)
+
+The backdrop's ground was a rectangle whose edge showed when the camera
+zoomed out or tilted up. The ground is now an ellipse ringed by far hills,
+with lavender mountains (the sky's haze colour) behind them, tall enough to
+hide the edge at the 40 stud zoom cap and with it off. The open ground gets
+fields with crop rows and hedges, copses and up to three ponds. Works for
+Backdrop, BackdropBig and BackdropWide; nothing collides or casts shadows.
+
+Backdrop 21496 tris, 696 parts; Big 21244 / 698; Wide 23232 / 767. All PASS,
+z-fight 0. Sheet: docs/concepts/clean-a-cat/2026-11-27-map-edge-885.jpg
+
+Part of #885
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2up1ahn23P9Rf5xanBXQ
+---
+ assets/clean-a-cat/blender/backdrop.py   | 103 +++++++++++++++++++--
+ assets/clean-a-cat/exports/gates.md      |  18 ++--
+ assets/clean-a-cat/exports/manifest.json | 109 +++++++++++++++++------
+ 3 files changed, 187 insertions(+), 43 deletions(-)
+
+diff --git a/assets/clean-a-cat/blender/backdrop.py b/assets/clean-a-cat/blender/backdrop.py
+index 626a4d2b..0bd6c2ee 100644
+--- a/assets/clean-a-cat/blender/backdrop.py
++++ b/assets/clean-a-cat/blender/backdrop.py
+@@ -35,7 +35,14 @@ N = "CleanACat_Area_Backdrop"
+ GROUND_Z = -0.08                   # the plate's top: under the street's ground (top -0.03)
+ REACH = 170.0                      # how far the road carries on past each end of the street
+ FAR_RGB = (166, 204, 150)          # the far hills: the grass, paler
++PEAK_RGB = (184, 188, 226)         # the mountains past the rim: lavender blue, the sky's haze colour (Effects/Sky)
+ rbx_export.LOOKS[N + "_HillsFar"] = ([round(v / 255, 4) for v in FAR_RGB], "SmoothPlastic")
++rbx_export.LOOKS[N + "_Peaks"] = ([round(v / 255, 4) for v in PEAK_RGB], "SmoothPlastic")
++DEPTH = 720.0                      # the ground's ellipse, front to back; its width is the street's plus 2 REACH + 560
++RIM = 0.9                          # the rim of hills closes the ground in at this share of the ellipse (#885)
++RIM_N = 34
++PEAK_AT, PEAK_N = 1.06, 20         # the mountains stand just past the ground's edge
++FIELDS = ("fur_fern", "pastel_butter", "spa_mint", "leaf_green", "fur_sand", "fur_fern", "pastel_butter")
+ 
+ WALLS = ("spa_sky", "pastel_butter", "spa_mint", "pastel_lilac", "spa_bubblegum", "spa_cream")
+ ROOFS = ("blush", "terracotta", "fur_slate", "nose_brick")
+@@ -101,10 +108,11 @@ def _derive():
+         (x0 - 220, y_behind - 150, 120, 70, 42, -30),
+         (x1 + 170, back + 210, 130, 70, 44, -22), (cx, back + 236, 150, 76, 54, 3), (x0 - 150, back + 200, 130, 70, 46, 20),
+     )
+-    return {"X0": x0, "X1": x1, "CX": cx, "Y_ROAD": y_road, "Y_BEHIND": y_behind, "NEAR": near, "FAR": far}
++    return {"X0": x0, "X1": x1, "CX": cx, "Y_ROAD": y_road, "Y_BEHIND": y_behind, "NEAR": near, "FAR": far,
++            "A": (x1 - x0 + 2 * REACH + 560) / 2, "B": DEPTH / 2, "YC": y_road + 20.0}
+ 
+ 
+-X0 = X1 = CX = Y_ROAD = Y_BEHIND = NEAR = FAR = None
++X0 = X1 = CX = Y_ROAD = Y_BEHIND = NEAR = FAR = A = B = YC = None
+ globals().update(_derive())
+ 
+ 
+@@ -226,10 +234,85 @@ def _on_the_hills(b):
+         bush(b, x, y, 1.4 + 1.2 * _hash(i, 24), LEAVES[i % 2])
+ 
+ 
++# -- the land's edge (#885) ---------------------------------------------------------------------------------------------
++# Derek on dev, 2026-11-26: "make the background better so it doesn't look so plain and a square plain grass platform".
++# The ground is an ellipse now, not a square; a closed rim of hills stands just inside its edge, so from any spot on
++# the street, at eye level or from the camera's 40 stud zoom, the land rolls away into hills and never ends in a line;
++# lavender mountains stand past the rim; and the open grass between the street and the hills is laid out in fields
++# with hedges, three ponds and copses of trees.
++def _ellipse(t, k=1.0):
++    return CX + A * k * math.cos(t), YC + B * k * math.sin(t)
++
++
++def _rim(far, peaks):
++    """The rim ring of hills (in the far hills' paler look) and the mountains past it."""
++    for ring, k, n, b, size in ((far, RIM, RIM_N, 7, (0.78, 46, 34, 26)), (peaks, PEAK_AT, PEAK_N, 9, (0.9, 90, 110, 60))):
++        per = 2 * math.pi * math.sqrt((A * A + B * B) / 2) * k / n          # the ring's length per hill
++        for i in range(n):
++            t = 2 * math.pi * (i + 0.3 * _hash(i, b)) / n
++            x, y = _ellipse(t, k)
++            turn = math.degrees(math.atan2(B * math.cos(t), -A * math.sin(t)))
++            along = per * (size[0] + 0.25 * _hash(i, b, 1))
++            hill(ring, x, y, along, size[1] + 14 * _hash(i, b, 2), size[2] + size[3] * _hash(i, b, 3), turn)
++
++
++def _clear(x, y, r=0.0):
++    """Is (x, y) open grass: inside the rim, past the street, its houses and the road's cottages, off every hill?"""
++    if ((x - CX) / (A * 0.8)) ** 2 + ((y - YC) / (B * 0.8)) ** 2 > 1:
++        return False
++    if X0 - REACH - 70 < x < X1 + REACH + 70 and Y_BEHIND - 112 < y < street.BACK + 112:
++        return False
++    return all(hill_top(x + dx, y + dy, NEAR + FAR) <= GROUND_Z + 0.01 for dx in (-r, 0, r) for dy in (-r, 0, r))
++
++
++def _fields(b):
++    """A patchwork of fields with hedges on their edges, three ponds and copses of trees on the open grass."""
++    cw, cd = 48.0, 36.0
++    ponds = copses = 0
++    nx, ny = int(A // cw), int(B // cd)
++    for i in range(-nx, nx + 1):
++        for j in range(-ny, ny + 1):
++            x, y = CX + i * cw, YC + j * cd
++            if not _clear(x, y, cw / 2):
++                continue
++            h = _hash(i, j, 31)
++            if h < 0.12 and ponds < 3 and abs(i) > 2:                              # a pond: water in a sandy rim
++                ponds += 1
++                b.cyl_base((x, y, GROUND_Z - 0.06), 13.0, 0.1, "paving_sand", segments=20, bevel=False)
++                b.cyl_base((x, y, GROUND_Z - 0.07), 11.2, 0.13, "pastel_sky", segments=20, bevel=False)
++                for k in range(4):                                                 # reeds at its edge
++                    a = 2 * math.pi * _hash(i, j, k)
++                    b.box_base((x + 11.8 * math.cos(a), y + 11.8 * math.sin(a), GROUND_Z - 0.2), (0.5, 0.5, 2.6),
++                               "leaf_dark", bevel=False)
++                continue
++            if h < 0.3:                                                             # a copse of trees
++                copses += 1
++                for k in range(4 + int(3 * _hash(i, j, 4))):
++                    tree(b, x + (_hash(i, j, k, 5) - 0.5) * 30, y + (_hash(i, j, k, 6) - 0.5) * 22,
++                         1.5 + 1.2 * _hash(i, j, k, 7), LEAVES[(i + j + k) % len(LEAVES)], crowns=1 + k % 2)
++                continue
++            if h < 0.4:                                                             # plain grass
++                continue
++            sw = FIELDS[int(_hash(i, j, 32) * len(FIELDS)) % len(FIELDS)]
++            top = GROUND_Z + 0.04 + 0.003 * ((i * 3 + j) % 7)
++            w, d = cw - 4.0, cd - 4.0
++            b.box_base((x, y, top - 0.2), (w, d, 0.2), sw, bevel=False)
++            if sw == "pastel_butter":                                               # crop rows on the wheat
++                for r in range(4):
++                    b.box_base((x, y - d / 2 + d * (r + 0.5) / 4, top - 0.1), (w - 2.0, 1.2, 0.35), "fur_sand",
++                               bevel=False)
++            if _hash(i, j, 33) < 0.6:                                               # a hedge on its near edge
++                b.box_base((x, y - cd / 2, GROUND_Z - 0.2), (cw - 1.0, 1.4, 1.6 + 0.6 * _hash(i, j, 34)),
++                           "leaf_dark", bevel=False)
++            if _hash(i, j, 35) < 0.4:                                               # and one on its side
++                b.box_base((x - cw / 2, y, GROUND_Z - 0.21), (1.4, cd - 1.0, 1.5 + 0.6 * _hash(i, j, 36)),
++                           "leaf_dark", bevel=False)
++
++
+ def build_backdrop(mat):
+-    main, ground, dashes, near, far = Builder(), Builder(), Builder(), Builder(), Builder()
+-    w, d = X1 - X0 + 2 * REACH + 560, 720.0
+-    ground.box_base((CX, Y_ROAD + 20.0, GROUND_Z - 1.0), (w, d, 1.0), "leaf_green", bevel=False)
++    main, ground, dashes, near, far, peaks = Builder(), Builder(), Builder(), Builder(), Builder(), Builder()
++    pts = [(A * math.cos(t), B * math.sin(t)) for t in (2 * math.pi * k / 48 for k in range(48))]
++    ground.prism((CX, YC, GROUND_Z - 0.5), pts, 1.0, "leaf_green")                 # the round grass plate
+     _road(main, dashes)
+     _along_the_road(main)
+     _second_row(main)
+@@ -238,9 +321,11 @@ def build_backdrop(mat):
+         hill(near, *h)
+     for h in FAR:
+         hill(far, *h)
++    _rim(far, peaks)
++    _fields(main)
+     return [_tris(main.finalize(N, mat, bevel=0)), _tris(ground.finalize(N + "_Ground", mat, bevel=0)),
+             _tris(dashes.finalize(N + "_Dashes", mat, bevel=0)), _tris(near.finalize(N + "_Hills", mat, bevel=0)),
+-            _tris(far.finalize(N + "_HillsFar", mat, bevel=0))]
++            _tris(far.finalize(N + "_HillsFar", mat, bevel=0)), _tris(peaks.finalize(N + "_Peaks", mat, bevel=0))]
+ 
+ 
+ # -- the backdrop for the bigger plots' street (#746) -------------------------------------------------------------------
+@@ -249,10 +334,11 @@ def build_backdrop(mat):
+ # backdrop stands inside the street's own model.
+ BIG_N = "CleanACat_Area_BackdropBig"
+ rbx_export.LOOKS[BIG_N + "_HillsFar"] = rbx_export.LOOKS[N + "_HillsFar"]
++rbx_export.LOOKS[BIG_N + "_Peaks"] = rbx_export.LOOKS[N + "_Peaks"]
+ 
+ 
+ def build_backdrop_big(mat):
+-    old = {k: globals()[k] for k in ("N", "X0", "X1", "CX", "Y_ROAD", "Y_BEHIND", "NEAR", "FAR")}
++    old = {k: globals()[k] for k in ("N", "X0", "X1", "CX", "Y_ROAD", "Y_BEHIND", "NEAR", "FAR", "A", "B", "YC")}
+     with street.big_layout():
+         globals().update(_derive(), N=BIG_N)
+         try:
+@@ -264,10 +350,11 @@ def build_backdrop_big(mat):
+ # `CleanACat_Area_BackdropWide` goes with CleanACat_Area_StreetWide (#887) the same way.
+ WIDE_N = "CleanACat_Area_BackdropWide"
+ rbx_export.LOOKS[WIDE_N + "_HillsFar"] = rbx_export.LOOKS[N + "_HillsFar"]
++rbx_export.LOOKS[WIDE_N + "_Peaks"] = rbx_export.LOOKS[N + "_Peaks"]
+ 
+ 
+ def build_backdrop_wide(mat):
+-    old = {k: globals()[k] for k in ("N", "X0", "X1", "CX", "Y_ROAD", "Y_BEHIND", "NEAR", "FAR")}
++    old = {k: globals()[k] for k in ("N", "X0", "X1", "CX", "Y_ROAD", "Y_BEHIND", "NEAR", "FAR", "A", "B", "YC")}
+     with street.wide_layout():
+         globals().update(_derive(), N=WIDE_N)
+         try:
+diff --git a/assets/clean-a-cat/exports/gates.md b/assets/clean-a-cat/exports/gates.md
+index b054cfc2..62ef5940 100644
+--- a/assets/clean-a-cat/exports/gates.md
++++ b/assets/clean-a-cat/exports/gates.md
+@@ -1,18 +1,19 @@
+ # Asset gates
+ 
+-Generated by `build_all.py` (no build time, so parallel model PRs don't conflict on this line). 226 assets: 226 PASS (152 with warnings), 0 FAIL. FAIL checks: budget, transforms, material, uv, naming, qa, WARN checks: pivot, centered, qa_warn. Fix a FAIL in the generator module and rebuild; a WARN needs a look at the asset's preview in `docs/concepts/clean-a-cat/previews/` (build with --render).
++Generated by `build_all.py` (no build time, so parallel model PRs don't conflict on this line). 227 assets: 227 PASS (153 with warnings), 0 FAIL. FAIL checks: budget, transforms, material, uv, naming, qa, WARN checks: pivot, centered, qa_warn. Fix a FAIL in the generator module and rebuild; a WARN needs a look at the asset's preview in `docs/concepts/clean-a-cat/previews/` (build with --render).
+ 
+ `qa` is the `blender-asset-qa` skill's `qa_check.py` (roblox profile, UVs off) run on every asset's meshes: n-gons, flipped faces, open geometry, faces in one plane and floating parts fail the build. The warnings it gives that we accept, each with its reason and the number of assets that have it:
+ 
+-- **back to back** (117 assets): A model is boxes that touch, and each box becomes one Roblox Part, so the faces where two boxes meet stay. They are never seen.
+-- **shared corners** (68 assets): Boxes that touch share corner positions. Welding them joins two boxes into one mesh island and flips faces, which is the n-gon and winding failure #160 fixed.
+-- **pivot off the floor** (88 assets): Held tools, hats, bows and wall props pivot where they are held or hung, not on the floor, and a few floor pieces sink a hair into it so no face lies in the floor's plane. The pivot gate lists each one.
++- **back to back** (118 assets): A model is boxes that touch, and each box becomes one Roblox Part, so the faces where two boxes meet stay. They are never seen.
++- **shared corners** (69 assets): Boxes that touch share corner positions. Welding them joins two boxes into one mesh island and flips faces, which is the n-gon and winding failure #160 fixed.
++- **pivot off the floor** (89 assets): Held tools, hats, bows and wall props pivot where they are held or hung, not on the floor, and a few floor pieces sink a hair into it so no face lies in the floor's plane. The pivot gate lists each one.
+ - **enclosed parts** (10 assets): Pieces that sit inside an invisible barrier box or behind glass: shelf items inside a station's barrier, the tip jar's screen. Meant.
+ 
+ | asset | result | tris / budget | size (studs) | failed | warnings |
+ |---|---|---|---|---|---|
+-| CleanACat_Area_Backdrop | PASS | 15228 / 40000 | 1180.0 x 749.67 x 326.53 |  | pivot, centered |
+-| CleanACat_Area_BackdropBig | PASS | 15228 / 40000 | 1252.0 x 755.67 x 326.53 |  | pivot, centered |
++| CleanACat_Area_Backdrop | PASS | 21496 / 40000 | 1492.56 x 1006.38 x 839.27 |  | pivot, centered |
++| CleanACat_Area_BackdropBig | PASS | 21244 / 40000 | 1571.54 x 1006.38 x 839.27 |  | pivot, centered |
++| CleanACat_Area_BackdropWide | PASS | 23232 / 40000 | 1757.4 x 1006.39 x 839.27 |  | pivot, centered |
+ | CleanACat_Area_Garden | PASS | 4508 / 5200 | 19.15 x 13.95 x 12.33 |  | pivot, centered |
+ | CleanACat_Area_GardenBuilding | PASS | 1864 / 2600 | 18.96 x 13.97 x 12.28 |  | pivot, centered |
+ | CleanACat_Area_GardenLocked | PASS | 1348 / 2000 | 18.96 x 13.97 x 12.28 |  | pivot, centered |
+@@ -240,8 +241,9 @@ Generated by `build_all.py` (no build time, so parallel model PRs don't conflict
+ 
+ ## Details
+ 
+-- **CleanACat_Area_Backdrop**: pivot WARN: floor at z=-243.68 (want 0); centered WARN: footprint center x=-22.00 y=-18.55
+-- **CleanACat_Area_BackdropBig**: pivot WARN: floor at z=-243.68 (want 0); centered WARN: footprint center x=-28.00 y=-15.55
++- **CleanACat_Area_Backdrop**: pivot WARN: floor at z=-677.95 (want 0); centered WARN: footprint center x=-22.09 y=-15.46
++- **CleanACat_Area_BackdropBig**: pivot WARN: floor at z=-677.95 (want 0); centered WARN: footprint center x=-26.75 y=-15.46
++- **CleanACat_Area_BackdropWide**: pivot WARN: floor at z=-677.95 (want 0); centered WARN: footprint center x=-36.82 y=-15.46
+ - **CleanACat_Area_Garden**: pivot WARN: floor at z=-0.33 (want 0); centered WARN: footprint center x=-0.12 y=6.13
+ - **CleanACat_Area_GardenBuilding**: pivot WARN: floor at z=-0.33 (want 0); centered WARN: footprint center x=0.15 y=6.13
+ - **CleanACat_Area_GardenLocked**: pivot WARN: floor at z=-0.33 (want 0); centered WARN: footprint center x=0.15 y=6.13
+diff --git a/assets/clean-a-cat/exports/manifest.json b/assets/clean-a-cat/exports/manifest.json
+index 77a45b17..c0d8dffe 100644
+--- a/assets/clean-a-cat/exports/manifest.json
++++ b/assets/clean-a-cat/exports/manifest.json
+@@ -8,20 +8,21 @@
+    "CleanACat_Area_Backdrop_Ground",
+    "CleanACat_Area_Backdrop_Dashes",
+    "CleanACat_Area_Backdrop_Hills",
+-   "CleanACat_Area_Backdrop_HillsFar"
++   "CleanACat_Area_Backdrop_HillsFar",
++   "CleanACat_Area_Backdrop_Peaks"
+   ],
+-  "triangles": 15228,
++  "triangles": 21496,
+   "budget": 40000,
+-  "parts": 505,
++  "parts": 696,
+   "size_studs": {
+-   "x": 1180.0,
+-   "y": 749.67,
+-   "z": 326.53
++   "x": 1492.56,
++   "y": 1006.38,
++   "z": 839.27
+   },
+   "size_roblox": [
+-   1180.0,
+-   326.53,
+-   749.67
++   1492.56,
++   839.27,
++   1006.38
+   ],
+   "pivot": "base center (floor contact)",
+   "front": "-Z in Roblox, the LookVector (Blender -Y)",
+@@ -38,13 +39,13 @@
+     "pivot off the floor": 1
+    },
+    "checks": {
+-    "budget": "15228/40000 tris",
++    "budget": "21496/40000 tris",
+     "transforms": "scale 1, rotation 0",
+     "material": "one material (CleanACat_Palette)",
+-    "uv": "9996 faces on swatch centers",
++    "uv": "15574 faces on swatch centers",
+     "naming": "CleanACat_<Category>_<Name>",
+-    "pivot": "floor at z=-243.68 (want 0)",
+-    "centered": "footprint center x=-22.00 y=-18.55",
++    "pivot": "floor at z=-677.95 (want 0)",
++    "centered": "footprint center x=-22.09 y=-15.46",
+     "qa": "blender-asset-qa clean",
+     "qa_warn": "no qa warning outside the accepted kinds"
+    }
+@@ -60,20 +61,21 @@
+    "CleanACat_Area_BackdropBig_Ground",
+    "CleanACat_Area_BackdropBig_Dashes",
+    "CleanACat_Area_BackdropBig_Hills",
+-   "CleanACat_Area_BackdropBig_HillsFar"
++   "CleanACat_Area_BackdropBig_HillsFar",
++   "CleanACat_Area_BackdropBig_Peaks"
+   ],
+-  "triangles": 15228,
++  "triangles": 21244,
+   "budget": 40000,
+-  "parts": 505,
++  "parts": 698,
+   "size_studs": {
+-   "x": 1252.0,
+-   "y": 755.67,
+-   "z": 326.53
++   "x": 1571.54,
++   "y": 1006.38,
++   "z": 839.27
+   },
+   "size_roblox": [
+-   1252.0,
+-   326.53,
+-   755.67
++   1571.54,
++   839.27,
++   1006.38
+   ],
+   "pivot": "base center (floor contact)",
+   "front": "-Z in Roblox, the LookVector (Blender -Y)",
+@@ -90,19 +92,72 @@
+     "pivot off the floor": 1
+    },
+    "checks": {
+-    "budget": "15228/40000 tris",
++    "budget": "21244/40000 tris",
+     "transforms": "scale 1, rotation 0",
+     "material": "one material (CleanACat_Palette)",
+-    "uv": "9996 faces on swatch centers",
++    "uv": "15408 faces on swatch centers",
+     "naming": "CleanACat_<Category>_<Name>",
+-    "pivot": "floor at z=-243.68 (want 0)",
+-    "centered": "footprint center x=-28.00 y=-15.55",
++    "pivot": "floor at z=-677.95 (want 0)",
++    "centered": "footprint center x=-26.75 y=-15.46",
+     "qa": "blender-asset-qa clean",
+     "qa_warn": "no qa warning outside the accepted kinds"
+    }
+   },
+   "preview": "docs/concepts/clean-a-cat/previews/CleanACat_Area_BackdropBig.png"
+  },
++ {
++  "name": "CleanACat_Area_BackdropWide",
++  "category": "Area",
++  "module": "backdrop",
++  "objects": [
++   "CleanACat_Area_BackdropWide",
++   "CleanACat_Area_BackdropWide_Ground",
++   "CleanACat_Area_BackdropWide_Dashes",
++   "CleanACat_Area_BackdropWide_Hills",
++   "CleanACat_Area_BackdropWide_HillsFar",
++   "CleanACat_Area_BackdropWide_Peaks"
++  ],
++  "triangles": 23232,
++  "budget": 40000,
++  "parts": 767,
++  "size_studs": {
++   "x": 1757.4,
++   "y": 1006.39,
++   "z": 839.27
++  },
++  "size_roblox": [
++   1757.4,
++   839.27,
++   1006.39
++  ],
++  "pivot": "base center (floor contact)",
++  "front": "-Z in Roblox, the LookVector (Blender -Y)",
++  "gates": {
++   "pass": true,
++   "failed": [],
++   "warnings": [
++    "pivot",
++    "centered"
++   ],
++   "qa_accepted": {
++    "shared corners": 1,
++    "back to back": 2,
++    "pivot off the floor": 1
++   },
++   "checks": {
++    "budget": "23232/40000 tris",
++    "transforms": "scale 1, rotation 0",
++    "material": "one material (CleanACat_Palette)",
++    "uv": "16630 faces on swatch centers",
++    "naming": "CleanACat_<Category>_<Name>",
++    "pivot": "floor at z=-677.95 (want 0)",
++    "centered": "footprint center x=-36.82 y=-15.46",
++    "qa": "blender-asset-qa clean",
++    "qa_warn": "no qa warning outside the accepted kinds"
++   }
++  },
++  "preview": "docs/concepts/clean-a-cat/previews/CleanACat_Area_BackdropWide.png"
++ },
+  {
+   "name": "CleanACat_Area_Garden",
+   "category": "Area",
+@@ -23042,4 +23097,4 @@
+   },
+   "preview": "docs/concepts/clean-a-cat/previews/CleanACat_Tool_Tweezers.png"
+  }
+-]
++]
+\ No newline at end of file
+-- 
+2.43.0
+

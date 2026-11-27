@@ -1,0 +1,5 @@
+# Cat Cafe sounds uploaded to the Creampuff Games group, 2026-11-26 ET (upload-asset run 45894473203, branch claude/project-thread-vamibm at a735c42). Moderation Approved.
+CleanACat_Ui_Open = rbxassetid://120566856629637
+CleanACat_Ui_Close = rbxassetid://113214587461466
+CleanACat_Sfx_CoinPop = rbxassetid://78798450390778
+CleanACat_Sfx_GiftClaim = rbxassetid://101429049924535
