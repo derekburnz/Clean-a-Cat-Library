@@ -1,8 +1,11 @@
--- qaWalk: move the Studio test character to a named plot spot without getting stuck (QA only, never shipped).
+-- qaWalk v3: move the Studio test character to a named plot spot without getting stuck (QA only, never shipped).
 -- Paste into execute_luau on the Client datamodel after the opening is over (a long call during the opening leaves
 -- the camera Scriptable). Defines _G.qaSpots, _G.qaPoint, _G.qaWalk and _G.qaWalkNamed for later calls.
 --   _G.qaWalkNamed(name, opts) / _G.qaWalk(point, opts) -> result
---     opts    { timeout = 12, teleportFallback = true }
+--     opts    { timeout = math.huge, teleportFallback = true }
+-- v3 (2026-11-27, issue 994): no global timeout. Each leg re-sends MoveTo after every 0.5 s standing still (a MoveTo
+-- can be dropped as the feet land after stepping off the 0.53 stud plot slab edge) and counts as stuck only after
+-- 2 s (4 still checks). result.nudges counts the re-sends.
 --     result  { reached, method = "path" | "path+retry" | "teleport" | "none", seconds, stuckEvents, stuckAt?, noPath?,
 --               dist, at, goal }
 local Players = game:GetService("Players")
@@ -76,7 +79,7 @@ _G.qaWalk = function(goalIn: Vector3, opts: any?)
 	local char = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
 	local hum = char:WaitForChild("Humanoid") :: Humanoid
 	local root = char:WaitForChild("HumanoidRootPart") :: BasePart
-	local timeout = opts.timeout or 12
+	local timeout = opts.timeout or math.huge -- no global timeout; per-leg stuck check only
 	local goal, moved = clearNear(Vector3.new(goalIn.X, math.max(goalIn.Y, 0.5), goalIn.Z), char)
 	local t0 = os.clock()
 	local result: any = { target = "", reached = false, method = "none", seconds = 0, stuckEvents = 0 }
@@ -124,19 +127,19 @@ _G.qaWalk = function(goalIn: Vector3, opts: any?)
 			return false
 		end
 		for _, wp in path:GetWaypoints() do
-			local legStart = os.clock()
-			local legLimit = flat(wp.Position - root.Position).Magnitude / math.max(hum.WalkSpeed, 1) * 2 + 1.5
-			hum:MoveTo(wp.Position)
+						hum:MoveTo(wp.Position)
 			local last, still = root.Position, 0
 			while flat(root.Position - wp.Position).Magnitude > 1.2 do
 				task.wait(0.5) -- stuck check every 0.5 s
 				if flat(root.Position - last).Magnitude < 0.4 then
 					still += 1
+					hum:MoveTo(wp.Position) -- v3: a MoveTo dropped as the feet land off a ledge is sent again
+					result.nudges = (result.nudges or 0) + 1
 				else
 					still = 0
 				end
 				last = root.Position
-				if still >= 2 or os.clock() - legStart > legLimit or os.clock() - t0 > timeout then
+				if still >= 4 or os.clock() - t0 > timeout then
 					result.stuckEvents += 1
 					result.stuckAt = root.Position
 					hum:MoveTo(root.Position) -- cancel; never leave a MoveTo running into a wall
