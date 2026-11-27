@@ -1,0 +1,43 @@
+From 5b17f846825a298f88613ad8c39a27ed744c5513 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 27 Nov 2026 19:27:51 +0000
+Subject: [PATCH] Helpers carry the cat on their forearms through StaffCarry,
+ the old spot as fallback (closes #1138)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01DW2uoyEQb3K9CiHm4sfUxd
+---
+ .../src/client/Controllers/HelperFetchController.luau      | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/games/clean-a-cat/src/client/Controllers/HelperFetchController.luau b/games/clean-a-cat/src/client/Controllers/HelperFetchController.luau
+index 7a32861e..c29fd9bb 100644
+--- a/games/clean-a-cat/src/client/Controllers/HelperFetchController.luau
++++ b/games/clean-a-cat/src/client/Controllers/HelperFetchController.luau
+@@ -10,9 +10,12 @@ local RunService = game:GetService("RunService")
+ local Workspace = game:GetService("Workspace")
+ 
+ local Shared = ReplicatedStorage:WaitForChild("Shared")
++local CarryRules = require(Shared:WaitForChild("CarryRules"))
+ local HelperFetchRules = require(Shared:WaitForChild("HelperFetchRules"))
+ local LiveFlags = require(Shared:WaitForChild("LiveFlags"))
+ 
++local StaffCarry = require(script.Parent.Parent:WaitForChild("Effects"):WaitForChild("StaffCarry"))
++
+ local STAFF_PREFIX = "CleanACat_NPC_Staff_"
+ 
+ local HelperFetchController = {}
+@@ -96,7 +99,9 @@ local function advance()
+ 					held.Parent = Workspace
+ 				end
+ 			end
+-			if held then
++			-- (issue 1138) the cat lies on the helper's forearms (Motion-FX's StaffCarry: a loaf across them, a sit on
++			-- them); with no rig with hands to read (staff motion off) it stays at the old spot in front of them
++			if held and not StaffCarry.place(staff, held, CarryRules.isLoaf(walk.catName)) then
+ 				held:PivotTo(
+ 					frame
+ 						* CFrame.new(
+-- 
+2.43.0
+
