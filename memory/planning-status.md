@@ -1,6 +1,6 @@
 ---
 name: planning-status
-description: Where planning stands - CLOSED 2026-11-25, game in BUILD; plan page (new link 2026-11-26) state, the open questions, setup steps still Derek's and where every answer is saved
+description: Where planning stands - CLOSED 2026-11-25, game in BUILD; plan page v56 (new link 2026-11-26), all 78 questions answered, the four setup steps still Derek's and where every answer is saved
 metadata:
   type: project
   modified: 2026-11-24T13:04:49.163Z
@@ -15,10 +15,10 @@ Derek's decisions so far (his own words, 2026-11-22 and 11-23 ET):
 PICKED by Derek 2026-11-25 ET on the plan page: loops B and D together (see [[derek-plan-answers]] for his rules). B = cat collector (hidden coat, index). D = Derek's busy spa (bench, helpers, special visitors). Write-up: Planning-Agent/loop-options.md. See [[derek-playtest-notes]]. Planning-Agent/gdd-proposed.md holds every decision; gdd-draft.md is the old draft.
 
 Derek's plan page: https://claude.ai/artifact/5pnvLdb5Abhxv1ZRtPJR6H (NEW link 2026-11-26 3:52 PM ET: the first page was deleted with the old threads; put back from the saved sources, all 155 answers restored and checked). When republishing pass this `url`. How to read, rebuild, test and republish it, and the lessons: [[plan-page-howto]].
-- Page v54, same content as v53 (2026-11-26 3:23 PM ET): 78 questions, 76 answered ([[derek-nov26-answers]]), 2 open: q2-headbows (bows on the ten special cats with a head piece; our pick a smaller bow; also asked in chat by the coordinator; answer goes to Model-Agent) and q2-notifylive (set up live notifications on the day he promotes; answer goes to Gameplay-Engineer). Nine setup steps (c-s2-...): passes, products, questionnaire, serversize, private, groupwall, storeart (six final files in Model-Agent/store-art/picked-2026-11-26/), computeruse (ticked), devtest (ready; asks issue 29's three scrub questions). No ids pasted yet.
-- Every answer, readable: Planning-Agent/plan-page-answers-2026-11-26.md. Exact restore copy of all 155 database docs: Planning-Agent/plan-page-backups/answers-2026-11-26-1516ET-full.json. Rounds of 2026-11-26: Planning-Agent/open-questions-2026-11-26.md. His words in order: Planning-Agent/playtest-notes.md.
+- Page v57 (2026-11-26 6:11 PM ET): all 78 questions answered and the setup list is EMPTY ([[derek-nov26-setup-answers]] for the evening, [[derek-nov26-answers]] for the day). The page opens with his playtest notes of 5:45 to 6:04 PM ET as jobs (issues 856 to 877); keep that list current. Icon E as alternate is ours (his Chrome), the questionnaire is left alone until the Robux crate nears live, the go live word is off the page. Decisions check for Review-QA: Planning-Agent/decisions-check-2026-11-26.md.
+- Every answer, readable: Planning-Agent/plan-page-answers-2026-11-26.md. Exact restore copy of all 169 database docs: Planning-Agent/plan-page-backups/answers-2026-11-26-1806ET-full.json. Rounds of 2026-11-26: Planning-Agent/open-questions-2026-11-26.md. His words in order: Planning-Agent/playtest-notes.md.
 - Playtests CLOSED (2026-11-24). No asks for screenshots or recordings, only questions he can answer in words.
-- Design: PR 759 (merged 2026-11-26) holds his morning answers. Needs-owner issues 530, 106 and 29 are all covered by the setup list.
+- Design: PR 759 holds his morning answers; issue 846 and PR 848 the evening ones (private server 25). The Claude Doc matches (rev 23).
 
 Pace numbers are in docs/design/clean-a-cat/tuning.md (Design-Agent owns them). 14 draft UI screens: Design-Agent/ui-screens-2026-11-24/. Helpers are human spa staff, not cats (Derek, 2026-11-24 ET): Jo and Sam in a mint uniform. Suds is the four legged mascot kitten and the first cat every player washes; his opening scene and rules are in [[suds-opening]]. Pip is a customer.
 

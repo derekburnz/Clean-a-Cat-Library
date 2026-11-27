@@ -14,3 +14,4 @@ metadata:
 - Residents' cushions SpotWindow1-4 moved to a new display window on the other side of the entrance, the sign on the wall over it. SpotBoard and SpotGift moved along that side wall; SpotTipJar is on the counter.
 
 **How to apply:** build with `build_all.py --only Area_SpaPlot` (or `Area_Street`, `Area_Backdrop`). The check sheet is Model-Agent/bigger-spa-2026-11-26/ in the shared files. See [[art-and-models]] and [[derek-plan-answers]].
+- Sizes (#878, PR 922, 2026-11-26): the tub is grown 1.3x (CatSeat 2.031) and the wash stands 1.35x (CatSeat 1.7145) by common.scale_object; store art keeps old sizes (grow=False). Big plot: Sam x -6 and Lou x 0 between the back doors, Jo alone at x 17.5 right of the VIP door (Blender plot x), builder on the right wall. Design-Agent rule: hire pads at least 5 studs apart.

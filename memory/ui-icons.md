@@ -1,6 +1,6 @@
 ---
 name: ui-icons
-description: Derek's HUD icon style decision (2026-11-24): a mix of his library's 3D renders and our current clear icons; no Phosphor, Lucide or Kenney.
+description: HUD icon style (Derek 2026-11-24), upload rules, and the 2026-11-27 no hand gestures rule after the key was moderated.
 metadata:
   type: project
   modified: 2026-11-24T17:38:00.000Z
@@ -35,3 +35,5 @@ Upload (2026-11-24 ET): Derek, "if your talking about the hud icons always uploa
 Wired 2026-11-24 ET (game PR 280): all 25 group ids are in Icons.IMAGES. Sponge, Brush, Bow, Smell and Claws still have no upload. The two paw versions (Tools, Build) are still in the group: Open Cloud refuses to archive an Image (HTTP 400 "not an archivable asset type", archive-asset run on #275). Only Derek can archive them by hand in the Creator Dashboard, and nothing in the game names them.
 
 Draft screens (Derek 2026-11-24 2:14 PM ET): "look good"; the pictures and HUD icons inside them need swapping to the current set plus a little polish, but that waits until the game questions are decided. Do it when next touching those screens.
+
+No hand gestures (2026-11-27 ET): Open Cloud started answering "User is moderated" for the group key at 7:55 PM ET, minutes after Model-Agent uploaded the like how-to icons (#869), which included a thumbs up and a fist with one finger raised. That they caused it is a guess. Rule: draw no hand gestures for any uploaded picture. The like loop now uses HeartOutline, the existing Heart, TapDot and RingPuff (game PR 976, not uploaded). All uploads stay paused until Derek says his account is clear.

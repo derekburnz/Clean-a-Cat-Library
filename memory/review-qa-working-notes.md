@@ -19,5 +19,7 @@ Review-QA-Agent's standing way of working (checked against its role file library
 - Sync-Agent's Studio picture PRs (captures from Derek's PC, e.g. #409, #418, #420, #455) stay DRAFTS and are never merged into the public repo; give the verdict as a comment only. (#490 was merged by mistake 2026-11-25; checked, it held only our own art and a test name.)
 - Owner rule: no decision cards. Park a question for Derek with the coordinator in one plain line instead.
 
+- 2026-11-26 remake: tools and tasks list is section 9 of the role file (library PR 5). Policy check of everything sold written (docs/reviews/2026-11-26-policy-check.md, PR 797): PASS on code, nothing sells until Derek's ids. Cat portraits PR 798: clean and Dirty1 KEEP; Dirty2 to Dirty4 held until issue 791 removes the side flaps (imageFor falls back to clean).
+
 **Why:** Derek asked on 2026-11-24 that every thread follows its role file and skills and saves the key points.
 **How to apply:** a new Review-QA thread starts from this note plus the role file. See [[planning-status]] and [[art-and-models]].
