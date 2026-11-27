@@ -281,3 +281,4 @@ One run on main e0bfa9e or newer, iPhone frame plus one desktop/iPad frame:
 - 2026-11-27 1:59 PM ET: Queued 1136 final (9aac077) local check from main after merge: shampoo on back, all four steps.
 - 2026-11-27 ~2:30 PM ET: 1136 final on main f34d690: 4 steps PASS; shampoo still hits tail (hand below back; raise hand or aim high with less tip). Pictures 1012 branch 411ff0da. pr1136 worktree removed by PC. Sent to Motion-FX.
 - 2026-11-27 ~2:25 PM ET: Derek's 2:14 PM no-price starter ad = my local place qf34d690 (no prices set, Pass_Lou only); dark bar = Hero.Shadow bgT 0.72. Pictures 1012 branch d9519b7d. Sent to Design; told Derek.
+- 2026-11-27 2:40 PM ET: Handoff sync for Derek's account move: library 63bbe0a (pass 1, 1771 files) and 22e6b74 (pass 2). Out on purpose: Coordinator/references, Growth monetization research, new Growth store-page-uploads.
