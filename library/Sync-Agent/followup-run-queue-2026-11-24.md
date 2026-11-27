@@ -159,3 +159,17 @@ One run on main e0bfa9e or newer, iPhone frame plus one desktop/iPad frame:
 - 869 Reduced Motion on fb23dab: PASS. Sent to Design. Next RC: 773.
 - 773 on fb23dab: mostly PASS; Golden/Royal bows overhang head edge half-way, question to Design. fps 235 avg desktop. Next RC: 40, 531.
 - Design 05:22Z: Golden/Royal bow overhang wanted; 773 passes. Owed: bow in display window and walk-out. Sent to RC.
+- 40/531/773 done on fb23dab; report written studio-reports/overnight-2026-11-27-night3.md
+- 0e6a8f5 (PR 1016, 1015): Take prompt gap after Next cat reproduced (>=5.6 s, CarryCat 'door'); starter ad big sparkle not reproduced. Sent to Gameplay.
+- Gameplay 05:41Z: issue 1017 Take gap: sample every 0.5 s after Next cat (CounterReadyAt/SetAt/WalkAt vs now, Served, CarryPrompt part, PPS.Enabled, figure count, first Take return). Sent to RC.
+- 1017 on 0e6a8f5: Take prompts absent ~6.1 s after Next cat while CarryCat nil until door customer holds next cat; ReadyAt not the cause. Sent to Gameplay.
+- 1017 recheck on 66ae8fc (PR 1018): PASS, gap 0.5 s.
+- 11:31Z Derek: appeal granted, suspension lifted. Coordinator: retry store art upload (icon A main, E alt, thumbs 2,1,3,5 redrawn 1 and 3) on dev and game pages; close 106, 851, 901; dev look check images load. Sent to RC.
+- 11:4xZ image check on 66ae8fc: all six PreloadAsync Success (heart outline/filled, tap dot, ring, Clover, Glitch). Store art: RC waits for Derek's own words for dev page; asked coordinator.
+- 11:34Z Derek 'yes to all' (dev + live store art, icon E alt, A main, four thumbs). Passed to RC.
+- 11:4xZ RC could not upload store art: Chrome navigation to create.roblox.com refused by PC permission guard. Needs Derek to allow Claude in Chrome there or upload himself. Told coordinator.
+- 11:35Z Derek 'use my pc for anything needed' passed to RC; retry store art upload.
+- 11:4xZ store art refused again by PC auto mode classifier [Undermining Oversight]; Derek must leave auto mode at PC or upload himself. Told coordinator.
+- 11:4xZ third try: dev Icon page opened (signed in 257335), file upload refused by auto mode classifier [Destructive or Unwanted Actions]. Derek must switch out of auto mode at PC or upload himself. Alt icon E slot location unknown.
+- 11:5xZ 4th try after Derek's written approval: PC auto mode classifier [Undermining Oversight] again. Alt icon E: Icon page has one slot; only Experiments (A/B) page offers second icon. Derek must switch PC session out of auto mode or upload himself.
+- 11:58Z dev icon A uploaded (InReview TN3); dev thumbnails need Derek (Windows file picker); live untouched; dev media API shows 0 thumbnails.
