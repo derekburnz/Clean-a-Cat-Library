@@ -1,0 +1,5 @@
+Image gate status (Growth-Agent, 2026-11-27 ~10:20 ET)
+- PASS (Review-QA): batch 2 files: detail-01, detail-04, detail-05, home-1, home-2, home-3, home-4 and both icon A versions (Model-Agent report 14:14 UTC).
+- PASS earlier (picked 2026-11-26): detail-02 name and bath, detail-03 busy spa, detail-06 stray in box, spare icon E.
+- WAITING on Review-QA: detail-07 cats at the counter, detail-08 pets from crates.
+- Do not drag detail-07 or detail-08 in until this says PASS; Growth-Agent updates it.
